@@ -8,7 +8,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Next"
-        android:id="@+id/btnBasicNext"
+        android:id="@+id/btnPaymentNext"
         android:onClick="saveProfile"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
@@ -18,27 +18,18 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Basic Information"
+        android:text="Payment Information"
         android:id="@+id/tvGuidePaymentInfo"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:textSize="26sp" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView"
-        android:src="@drawable/profile"
-        android:layout_alignLeft="@+id/tvGuidePaymentInfo"
-        android:layout_alignStart="@+id/tvGuidePaymentInfo"
-        android:layout_below="@+id/tvGuidePaymentInfo" />
-
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/etHourlyPay"
-        android:text="Preferred Name"
+        android:text="Hourly Pay: [ ]/hr"
         android:layout_below="@+id/etPaymentMethod"
         android:layout_alignLeft="@+id/etPaymentMethod"
         android:layout_alignStart="@+id/etPaymentMethod" />
@@ -47,7 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/etPackageDeals"
-        android:text="Location"
+        android:text="Package Deals? Transportation fees?"
         android:layout_below="@+id/etHourlyPay"
         android:layout_alignLeft="@+id/etHourlyPay"
         android:layout_alignStart="@+id/etHourlyPay" />
@@ -55,28 +46,10 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/etContactAdditional"
-        android:text="Description/Additional Info?"
-        android:layout_below="@+id/etPackageDeals"
-        android:layout_alignLeft="@+id/etPackageDeals"
-        android:layout_alignStart="@+id/etPackageDeals" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Upload Image"
-        android:id="@+id/btnUploadImage"
-        android:layout_alignTop="@+id/imageView"
-        android:layout_alignRight="@+id/etContactAdditional"
-        android:layout_alignEnd="@+id/etContactAdditional" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/etPaymentMethod"
-        android:text="Legal Name: Last, First"
-        android:layout_below="@+id/imageView"
-        android:layout_alignLeft="@+id/imageView"
-        android:layout_alignStart="@+id/imageView"
-        android:layout_marginTop="34dp" />
+        android:text="Choose Method: (Card/Cash), currency type"
+        android:layout_marginTop="34dp"
+        android:layout_below="@+id/tvGuidePaymentInfo"
+        android:layout_alignLeft="@+id/tvGuidePaymentInfo"
+        android:layout_alignStart="@+id/tvGuidePaymentInfo" />
 </RelativeLayout>
