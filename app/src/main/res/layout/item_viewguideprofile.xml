@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ivProfilePicture"
+        android:src="@drawable/profile"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:paddingRight="15dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Guide Name"
+        android:id="@+id/tvGuideName"
+        android:layout_marginTop="25dp"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/ivProfilePicture"
+        android:layout_toEndOf="@+id/ivProfilePicture" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Location"
+        android:id="@+id/tvLocation"
+        android:layout_below="@+id/tvGuideName"
+        android:layout_toRightOf="@+id/ivProfilePicture"
+        android:layout_toEndOf="@+id/ivProfilePicture" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Languages"
+        android:id="@+id/tvLanguages"
+        android:layout_below="@+id/tvLocation"
+        android:layout_toRightOf="@+id/ivProfilePicture"
+        android:layout_toEndOf="@+id/ivProfilePicture" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Insert profile info here via ExpandableListView"
+        android:id="@+id/textView"
+        android:layout_below="@+id/ivProfilePicture"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="53dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Request"
+        android:id="@+id/btnMakeRequest"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/textView"
+        android:layout_alignEnd="@+id/textView"
+        android:layout_marginBottom="40dp" />
+
+</RelativeLayout>

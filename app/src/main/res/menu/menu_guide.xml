@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item
+        android:id="@+id/miCalender"
+        android:title="calender"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_calender"
+        android:onClick="goToCalender"/>
+
+
+    <item
+        android:id="@+id/miProfile"
+        android:title="request"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_editprofile"
+        android:onClick="editProfile"/>
+
+
+</menu>
