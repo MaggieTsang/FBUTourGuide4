@@ -12,7 +12,6 @@ import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
-import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 
@@ -34,32 +33,12 @@ public class UserLogin extends AppCompatActivity {
 
         callbackManager = CallbackManager.Factory.create();
 
-        LoginManager.getInstance().registerCallback(callbackManager,
-                new FacebookCallback<LoginResult>() {
-                    @Override
-                    public void onSuccess(LoginResult loginResult) {
-                        // App code
-                        Toast.makeText(getApplicationContext(), "Logged in!", Toast.LENGTH_SHORT).show();
-                    }
-
-                    @Override
-                    public void onCancel() {
-                        // App code
-                    }
-
-                    @Override
-                    public void onError(FacebookException exception) {
-                        // App code
-                        Toast.makeText(getApplicationContext(), "Failed", Toast.LENGTH_SHORT).show();
-                        exception.printStackTrace();
-                    }
-                });
 
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
                 // App code
-                Toast.makeText(getApplicationContext(), "Ya in!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Success!", Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -70,7 +49,7 @@ public class UserLogin extends AppCompatActivity {
             @Override
             public void onError(FacebookException exception) {
                 // App code
-                Toast.makeText(getApplicationContext(), "Still nah", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Login failed", Toast.LENGTH_SHORT).show();
                 exception.printStackTrace();
             }
         });
