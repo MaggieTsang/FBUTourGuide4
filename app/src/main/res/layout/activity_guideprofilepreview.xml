@@ -19,7 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Guide Name"
-        android:id="@+id/tvGuideName"
+        android:id="@+id/tvName"
         android:layout_marginTop="25dp"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/ivProfilePicture"
@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:text="Location"
         android:id="@+id/tvLocation"
-        android:layout_below="@+id/tvGuideName"
+        android:layout_below="@+id/tvName"
         android:layout_toRightOf="@+id/ivProfilePicture"
         android:layout_toEndOf="@+id/ivProfilePicture" />
 
@@ -55,11 +55,22 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Request"
+        android:text="Save"
         android:id="@+id/btnMakeRequest"
         android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/textView"
         android:layout_alignEnd="@+id/textView"
-        android:layout_marginBottom="40dp" />
+        android:layout_marginBottom="40dp"
+        android:onClick="saveProfile"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit"
+        android:id="@+id/btnEditProfile"
+        android:layout_alignTop="@+id/btnMakeRequest"
+        android:layout_toLeftOf="@+id/tvLanguages"
+        android:layout_toStartOf="@+id/tvLanguages"
+        android:onClick="goBackToBasic"/>
 
 </RelativeLayout>

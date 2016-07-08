@@ -9,7 +9,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.ekok.fbutourguideapp.R;
-import com.example.ekok.fbutourguideapp.ViewGuideProfile;
 
 import java.util.ArrayList;
 
@@ -22,10 +21,16 @@ public class GuideViewRequests extends AppCompatActivity{
     ArrayAdapter<String> requestsAdapter;
     ListView lvRequests;
 
+    GuideUser guideUser;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guiderequests);
+
+        guideUser = (GuideUser) getIntent().getSerializableExtra("guideUser");
+
+
 
         lvRequests = (ListView) findViewById(R.id.lvRequests);
         requests = new ArrayList<>();
@@ -46,7 +51,8 @@ public class GuideViewRequests extends AppCompatActivity{
 
     public void editProfile(MenuItem item) {
         //Intent i = new Intent(this, GuideMain.class);
-        Intent i = new Intent(this, ViewGuideProfile.class);
+        Intent i = new Intent(this, GuideViewProfile.class);
+        i.putExtra("guideUser", guideUser);
         startActivity(i);
     }
 

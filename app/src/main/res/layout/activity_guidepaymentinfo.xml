@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:text="Next"
         android:id="@+id/btnPaymentNext"
-        android:onClick="saveProfile"
+        android:onClick="launchViewProfile"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"

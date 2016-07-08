@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:text="Next"
         android:id="@+id/btnBasicNext"
-        android:onClick="saveProfile"
+        android:onClick="launchContact"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
@@ -37,46 +37,67 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/etHourlyPay"
-        android:text="Preferred Name"
-        android:layout_below="@+id/etPaymentMethod"
+        android:id="@+id/etPackageDeals"
+        android:hint="City"
+        android:layout_alignBottom="@+id/tvLocation"
         android:layout_alignLeft="@+id/etPaymentMethod"
         android:layout_alignStart="@+id/etPaymentMethod" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/etPackageDeals"
-        android:text="Location"
-        android:layout_below="@+id/etHourlyPay"
-        android:layout_alignLeft="@+id/etHourlyPay"
-        android:layout_alignStart="@+id/etHourlyPay" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/etContactAdditional"
-        android:text="Description/Additional Info?"
-        android:layout_below="@+id/etPackageDeals"
-        android:layout_alignLeft="@+id/etPackageDeals"
-        android:layout_alignStart="@+id/etPackageDeals" />
+        android:hint="Add additional Info"
+        android:layout_above="@+id/btnBasicNext"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="27dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Upload Image"
         android:id="@+id/btnUploadImage"
-        android:layout_alignTop="@+id/imageView"
-        android:layout_alignRight="@+id/etContactAdditional"
-        android:layout_alignEnd="@+id/etContactAdditional" />
+        android:layout_below="@+id/tvGuidePaymentInfo"
+        android:layout_alignLeft="@+id/etPaymentMethod"
+        android:layout_alignStart="@+id/etPaymentMethod" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/etPaymentMethod"
-        android:text="Legal Name: Last, First"
+        android:id="@+id/etName"
+        android:hint="Last, First"
+        android:layout_marginTop="31dp"
         android:layout_below="@+id/imageView"
-        android:layout_alignLeft="@+id/imageView"
-        android:layout_alignStart="@+id/imageView"
-        android:layout_marginTop="34dp" />
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name:"
+        android:id="@+id/tvName"
+        android:textSize="20sp"
+        android:layout_alignTop="@+id/etPaymentMethod"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Location"
+        android:id="@+id/tvLocation"
+        android:textSize="20sp"
+        android:layout_centerVertical="true"
+        android:layout_alignRight="@+id/imageView"
+        android:layout_alignEnd="@+id/imageView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Description"
+        android:id="@+id/tvAdditional"
+        android:textSize="20sp"
+        android:layout_above="@+id/etContactAdditional"
+        android:layout_alignLeft="@+id/tvLocation"
+        android:layout_alignStart="@+id/tvLocation" />
 </RelativeLayout>

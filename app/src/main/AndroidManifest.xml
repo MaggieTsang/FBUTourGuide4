@@ -46,11 +46,15 @@
 
         <activity android:name=".Login.UserType"></activity>
         <activity android:name=".Travelers.TravelerMain"></activity>
-        <activity android:name=".Guides.GuideMain"></activity>
+        <activity android:name=".Guides.GuideBasic"></activity>
+
+        <activity android:name=".Guides.GuideContact"></activity>
+        <activity android:name=".Guides.GuidePayment"></activity>
+
         <activity android:name=".Guides.GuideViewRequests"></activity>
         <activity android:name=".Travelers.TravelerNewTrip"></activity>
         <activity android:name=".Guides.GuideCalender"></activity>
-        <activity android:name=".ViewGuideProfile"></activity>
+        <activity android:name=".Guides.GuideViewProfile"></activity>
 
     </application>
 
