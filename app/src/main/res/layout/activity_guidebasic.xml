@@ -28,18 +28,29 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageView"
+        android:id="@+id/ivProfilePic"
         android:src="@drawable/profile"
         android:layout_alignLeft="@+id/tvBasicInfo"
         android:layout_alignStart="@+id/tvBasicInfo"
-        android:layout_below="@+id/tvBasicInfo" />
+        android:layout_below="@+id/tvBasicInfo"
+        android:paddingTop="15dp"
+        android:adjustViewBounds="true"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Upload Image"
+        android:id="@+id/btnUploadImage"
+        android:layout_alignTop="@+id/ivProfilePic"
+        android:layout_alignLeft="@+id/etName"
+        android:layout_alignStart="@+id/etName" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/etLocation"
         android:hint="City"
-        android:layout_alignTop="@+id/tvLocation"
+        android:layout_below="@+id/tvName"
         android:layout_alignLeft="@+id/etName"
         android:layout_alignStart="@+id/etName" />
 
@@ -53,22 +64,13 @@
         android:layout_alignParentStart="true"
         android:layout_marginBottom="27dp" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Upload Image"
-        android:id="@+id/btnUploadImage"
-        android:layout_alignBottom="@+id/imageView"
-        android:layout_alignLeft="@+id/etName"
-        android:layout_alignStart="@+id/etName" />
-
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/etName"
         android:hint="Last, First"
         android:layout_marginTop="31dp"
-        android:layout_below="@+id/imageView"
+        android:layout_below="@+id/ivProfilePic"
         android:layout_centerHorizontal="true" />
 
     <TextView
@@ -84,20 +86,48 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Location"
+        android:text="Location:"
         android:id="@+id/tvLocation"
         android:textSize="20sp"
-        android:layout_centerVertical="true"
-        android:layout_alignRight="@+id/imageView"
-        android:layout_alignEnd="@+id/imageView" />
+        android:layout_above="@+id/etLanguages"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Description"
+        android:text="Description:"
         android:id="@+id/tvDescription"
         android:textSize="20sp"
         android:layout_above="@+id/etBasicAdditional"
         android:layout_alignLeft="@+id/tvLocation"
         android:layout_alignStart="@+id/tvLocation" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Languages:"
+        android:id="@+id/tvLanguages"
+        android:textSize="20sp"
+        android:layout_alignBottom="@+id/etLanguages"
+        android:layout_alignRight="@+id/tvDescription"
+        android:layout_alignEnd="@+id/tvDescription" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/etLanguages"
+        android:hint="Enter language(s) here"
+        android:layout_below="@+id/etLocation"
+        android:layout_alignLeft="@+id/etLocation"
+        android:layout_alignStart="@+id/etLocation" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Take Picture"
+        android:id="@+id/btnTakePicture"
+        android:layout_alignBottom="@+id/ivProfilePic"
+        android:layout_alignLeft="@+id/btnUploadImage"
+        android:layout_alignStart="@+id/btnUploadImage" />
 </RelativeLayout>

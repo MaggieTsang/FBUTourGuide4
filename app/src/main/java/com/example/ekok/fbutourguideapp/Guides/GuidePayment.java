@@ -18,6 +18,8 @@ public class GuidePayment extends AppCompatActivity {
     EditText etPaymentMethod;
     EditText etHourlyPay;
     EditText etPackageDeals;
+    EditText etCurrencyType;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,20 +32,20 @@ public class GuidePayment extends AppCompatActivity {
         etPaymentMethod = (EditText) findViewById(R.id.etPaymentMethod);
         etHourlyPay = (EditText) findViewById(R.id.etHourlyPay);
         etPackageDeals = (EditText) findViewById(R.id.etPackageDeals);
+        etCurrencyType = (EditText) findViewById(R.id.etCurrencyType);
 
-        String method = guideUser.method;
-        String hourly = guideUser.timelyPay;
-        String packageDeal = guideUser.packageDeals;
+        etPaymentMethod.setText(guideUser.method);
+        etHourlyPay.setText(guideUser.timelyPay);
+        etPackageDeals.setText(guideUser.packageDeals);
+        etCurrencyType.setText(guideUser.currency);
 
-        etPaymentMethod.setText(method);
-        etHourlyPay.setText(hourly);
-        etPackageDeals.setText(packageDeal);
     }
 
     public void launchViewProfile(View v) {
         guideUser.method = etPaymentMethod.getText().toString();
         guideUser.timelyPay = etHourlyPay.getText().toString();
         guideUser.packageDeals = etPackageDeals.getText().toString();
+        guideUser.currency = etCurrencyType.getText().toString();
 
         // first parameter is the context, second is the class of the activity to launch
         Intent i = new Intent(this, GuideViewProfile.class);

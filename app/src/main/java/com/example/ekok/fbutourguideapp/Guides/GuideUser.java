@@ -8,9 +8,11 @@ import java.io.Serializable;
 public class GuideUser implements Serializable{
 
     //Basic
+    //Store profile picture
     public String legalName;
     public String location;
     public String description;
+    public String languages;
 
     //Contact
     public String phonePrimary;

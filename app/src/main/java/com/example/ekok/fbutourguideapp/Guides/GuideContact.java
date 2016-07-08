@@ -33,15 +33,10 @@ public class GuideContact extends AppCompatActivity {
         etEmail = (EditText) findViewById(R.id.etEmail);
         etContactAdditional = (EditText) findViewById(R.id.etContactAdditional);
 
-        String phone1 = guideUser.phonePrimary;
-        String phone2 = guideUser.phoneSecondary;
-        String email = guideUser.email;
-        String additional = guideUser.contactAdditional;
-
-        etPhonePrimary.setText(phone1);
-        etPhoneSecondary.setText(phone2);
-        etEmail.setText(email);
-        etContactAdditional.setText(additional);
+        etPhonePrimary.setText(guideUser.phonePrimary);
+        etPhoneSecondary.setText(guideUser.phoneSecondary);
+        etEmail.setText(guideUser.email);
+        etContactAdditional.setText(guideUser.contactAdditional);
     }
 
     public void launchPayment(View v) {

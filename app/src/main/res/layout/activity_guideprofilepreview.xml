@@ -20,10 +20,10 @@
         android:layout_height="wrap_content"
         android:text="Guide Name"
         android:id="@+id/tvName"
-        android:layout_marginTop="25dp"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/ivProfilePicture"
-        android:layout_toEndOf="@+id/ivProfilePicture" />
+        android:layout_toEndOf="@+id/ivProfilePicture"
+        android:textSize="15sp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -32,7 +32,8 @@
         android:id="@+id/tvLocation"
         android:layout_below="@+id/tvName"
         android:layout_toRightOf="@+id/ivProfilePicture"
-        android:layout_toEndOf="@+id/ivProfilePicture" />
+        android:layout_toEndOf="@+id/ivProfilePicture"
+        android:textSize="15sp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -41,27 +42,19 @@
         android:id="@+id/tvLanguages"
         android:layout_below="@+id/tvLocation"
         android:layout_toRightOf="@+id/ivProfilePicture"
-        android:layout_toEndOf="@+id/ivProfilePicture" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Insert profile info here via ExpandableListView"
-        android:id="@+id/textView"
-        android:layout_below="@+id/ivProfilePicture"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="53dp" />
+        android:layout_toEndOf="@+id/ivProfilePicture"
+        android:textSize="15sp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Save"
         android:id="@+id/btnMakeRequest"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/textView"
-        android:layout_alignEnd="@+id/textView"
         android:layout_marginBottom="40dp"
-        android:onClick="saveProfile"/>
+        android:onClick="saveProfile"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -72,5 +65,107 @@
         android:layout_toLeftOf="@+id/tvLanguages"
         android:layout_toStartOf="@+id/tvLanguages"
         android:onClick="goBackToBasic"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Description:"
+        android:id="@+id/tvDescription"
+        android:textSize="20sp"
+        android:layout_below="@+id/ivProfilePicture"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="17dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Empty"
+        android:id="@+id/tvFillDescription"
+        android:layout_below="@+id/tvDescription"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Phone 1"
+        android:id="@+id/tvPhone1"
+        android:textSize="15sp"
+        android:layout_above="@+id/tvPhone2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Phone 2"
+        android:id="@+id/tvPhone2"
+        android:textSize="15sp"
+        android:layout_above="@+id/tvEmail"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contact:"
+        android:id="@+id/tvContact"
+        android:textIsSelectable="false"
+        android:textSize="20sp"
+        android:layout_above="@+id/tvPhone1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:id="@+id/tvEmail"
+        android:textSize="15sp"
+        android:layout_above="@+id/btnEditProfile"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="41dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Payment:"
+        android:id="@+id/tvPayment"
+        android:layout_alignTop="@+id/tvContact"
+        android:layout_toRightOf="@+id/tvLanguages"
+        android:layout_toEndOf="@+id/tvLanguages"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Method"
+        android:id="@+id/tvMethod"
+        android:layout_below="@+id/tvPayment"
+        android:layout_toRightOf="@+id/tvLanguages"
+        android:layout_toEndOf="@+id/tvLanguages"
+        android:textSize="15sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hourly"
+        android:id="@+id/tvHourly"
+        android:layout_below="@+id/tvPhone2"
+        android:layout_alignLeft="@+id/tvMethod"
+        android:layout_alignStart="@+id/tvMethod"
+        android:textSize="15sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Currency"
+        android:id="@+id/tvCurrency"
+        android:layout_below="@+id/tvMethod"
+        android:layout_alignLeft="@+id/tvMethod"
+        android:layout_alignStart="@+id/tvMethod"
+        android:textSize="15sp" />
 
 </RelativeLayout>
