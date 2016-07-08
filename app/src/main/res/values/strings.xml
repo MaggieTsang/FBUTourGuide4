@@ -14,4 +14,10 @@
     <string name="enter_group_size">Enter group size</string>
     <string name="languages">Languages</string>
     <string name="english">English</string>
+    <string name="guide">Guide</string>
+    <string name="suggestions_improvements">Suggestions, improvements?</string>
+    <string name="comments">Comments</string>
+    <string name="submit">Submit</string>
+    <string name="rate_your_experience">Rate your experience!</string>
+    <string name="overall">Overall</string>
 </resources>

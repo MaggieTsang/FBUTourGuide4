@@ -44,12 +44,18 @@ public class GuideViewRequests extends AppCompatActivity{
         }
 
 
-        SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
-        String restoredText = prefs.getString("text", null);
-        if (restoredText != null) {
-            String etPlace = prefs.getString("etPlace", "No place defined");//"No name defined" is the default value.
-            requests.add(0, etPlace);
-        }
+//        SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
+//        String restoredText = prefs.getString("etPlace", null);
+//        if (restoredText != null) {
+//            String etPlace = prefs.getString("etPlace", "No place defined");//"No name defined" is the default value.
+//            requests.add(0, etPlace);
+//            notify();
+//        }
+
+        SharedPreferences bb = getSharedPreferences("my_prefs", 0);
+        String m = bb.getString("etPlace", "");
+        requests.add(m);
+
     }
 
     @Override
