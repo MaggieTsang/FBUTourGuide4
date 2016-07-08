@@ -2,16 +2,4 @@
     <string name="app_name">FBUTourGuideApp</string>
     <string name="facebook_app_id">143461982744384</string>
     <string name="fb_login_protocol_scheme">fb143461982744384</string>
-    <string name="san_francisco">San Francisco</string>
-    <string name="submit_new_request">Submit New Request</string>
-    <string name="make_a_new_request">Make a new request</string>
-    <string name="place">Place</string>
-    <string name="date">Date</string>
-    <string name="start">Start</string>
-    <string name="end">End</string>
-    <string name="to">to</string>
-    <string name="group_size">Group Size</string>
-    <string name="enter_group_size">Enter group size</string>
-    <string name="languages">Languages</string>
-    <string name="english">English</string>
 </resources>

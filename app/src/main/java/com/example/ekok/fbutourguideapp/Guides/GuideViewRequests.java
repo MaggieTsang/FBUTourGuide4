@@ -1,7 +1,6 @@
 package com.example.ekok.fbutourguideapp.Guides;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -17,7 +16,6 @@ import java.util.ArrayList;
  * Created by mbytsang on 7/5/16.
  */
 public class GuideViewRequests extends AppCompatActivity{
-    public static final String MY_PREFS_NAME = "MyPrefsFile";
 
     ArrayList<String> requests;
     ArrayAdapter<String> requestsAdapter;
@@ -27,28 +25,20 @@ public class GuideViewRequests extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guiderequests);
 
         guideUser = (GuideUser) getIntent().getSerializableExtra("guideUser");
 
+
+
         lvRequests = (ListView) findViewById(R.id.lvRequests);
         requests = new ArrayList<>();
         requestsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, requests);
-
         lvRequests.setAdapter(requestsAdapter);
 
         for (int i = 0; i < 25; i++) {
             requests.add("So many requests, Wa0w");
-        }
-
-
-        SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
-        String restoredText = prefs.getString("text", null);
-        if (restoredText != null) {
-            String etPlace = prefs.getString("etPlace", "No place defined");//"No name defined" is the default value.
-            requests.add(0, etPlace);
         }
     }
 

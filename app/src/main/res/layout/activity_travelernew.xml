@@ -1,151 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="20dp">
+    android:layout_height="match_parent">
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/etPlace"
-        android:hint="@string/san_francisco"
-        android:textSize="16sp"
-        android:layout_alignBottom="@+id/tvPlace"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignLeft="@+id/tvMakeRequest"
-        android:layout_alignStart="@+id/tvMakeRequest" />
+        android:id="@+id/editText"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="106dp"
+        android:text="Input new trip information here" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/submit_new_request"
-        android:onClick="submitRequest"
+        android:text="Submit New Request"
         android:id="@+id/button"
-        android:layout_marginTop="26dp"
-        android:layout_below="@+id/etLanguages"
+        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/make_a_new_request"
-        android:id="@+id/tvMakeRequest"
-        android:textSize="20sp"
-        android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/button"
-        android:layout_alignStart="@+id/button" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/place"
-        android:id="@+id/tvPlace"
-        android:textSize="16sp"
-        android:layout_marginTop="44dp"
-        android:paddingBottom="10dp"
-        android:layout_below="@+id/tvMakeRequest"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/date"
-        android:id="@+id/tvDate"
-        android:textSize="16sp"
-        android:layout_marginTop="24dp"
-        android:paddingBottom="10dp"
-        android:layout_below="@+id/etPlace"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <EditText
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:inputType="date"
-        android:ems="10"
-        android:id="@+id/etStartDate"
-        android:textSize="16sp"
-        android:hint="@string/start"
-        android:layout_alignBottom="@+id/tvDate"
-        android:layout_alignLeft="@+id/etPlace"
-        android:layout_alignStart="@+id/etPlace" />
-
-    <EditText
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:inputType="date"
-        android:ems="10"
-        android:id="@+id/etEndDate"
-        android:textSize="16sp"
-        android:hint="@string/end"
-        android:layout_alignBottom="@+id/tvDate"
-        android:layout_alignRight="@+id/etPlace"
-        android:layout_alignEnd="@+id/etPlace" />
-
-    <TextView
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:text="@string/to"
-        android:id="@+id/tvTo"
-        android:textSize="16sp"
-        android:paddingBottom="10dp"
-        android:layout_alignBaseline="@+id/etStartDate"
-        android:layout_alignBottom="@+id/etStartDate"
-        android:layout_toRightOf="@+id/etStartDate"
-        android:layout_toEndOf="@+id/etStartDate"
-        android:gravity="center_horizontal" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/group_size"
-        android:id="@+id/tvGroupSize"
-        android:textSize="15sp"
-        android:layout_marginTop="28dp"
-        android:paddingBottom="10dp"
-        android:layout_below="@+id/etStartDate"
-        android:layout_alignLeft="@+id/tvDate"
-        android:layout_alignStart="@+id/tvDate" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:id="@+id/etGroupSize"
-        android:layout_alignBottom="@+id/tvGroupSize"
-        android:layout_alignLeft="@+id/etStartDate"
-        android:layout_alignStart="@+id/etStartDate"
-        android:textSize="16sp"
-        android:hint="@string/enter_group_size"
-        android:layout_alignRight="@+id/etEndDate"
-        android:layout_alignEnd="@+id/etEndDate" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/languages"
-        android:id="@+id/tvLanguages"
-        android:textSize="15sp"
-        android:paddingBottom="10dp"
-        android:layout_below="@+id/tvGroupSize"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="33dp" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/etLanguages"
-        android:hint="@string/english"
-        android:textSize="16sp"
-        android:layout_alignBottom="@+id/tvLanguages"
-        android:layout_alignLeft="@+id/etGroupSize"
-        android:layout_alignStart="@+id/etGroupSize"
-        android:layout_alignRight="@+id/etGroupSize"
-        android:layout_alignEnd="@+id/etGroupSize" />
 
 
 </RelativeLayout>

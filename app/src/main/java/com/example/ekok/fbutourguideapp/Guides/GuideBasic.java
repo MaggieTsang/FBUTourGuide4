@@ -15,6 +15,8 @@ public class GuideBasic extends AppCompatActivity{
 
     GuideUser guideUser;
     EditText etName;
+    EditText etLocation;
+    EditText etBasicAdditional;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,15 +27,23 @@ public class GuideBasic extends AppCompatActivity{
         guideUser = (GuideUser) getIntent().getSerializableExtra("guideUser");
 
         etName = (EditText) findViewById(R.id.etName);
-        String name = etName.getText().toString();
+        etLocation = (EditText) findViewById(R.id.etLocation);
+        etBasicAdditional = (EditText) findViewById(R.id.etBasicAdditional);
+
+        String name = guideUser.legalName;
+        String location = guideUser.location;
+        String additional = guideUser.description;
+
         etName.setText(name);
-
-
+        etLocation.setText(location);
+        etBasicAdditional.setText(additional);
     }
 
     public void launchContact(View v) {
-        String name = etName.getText().toString();
-        guideUser.legalName = name;
+        guideUser.legalName = etName.getText().toString();
+        guideUser.location = etLocation.getText().toString();
+        guideUser.description = etBasicAdditional.getText().toString();
+
         // first parameter is the context, second is the class of the activity to launch
         Intent i = new Intent(this, GuideContact.class);
         i.putExtra("guideUser", guideUser);

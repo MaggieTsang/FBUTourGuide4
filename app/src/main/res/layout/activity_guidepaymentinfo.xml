@@ -29,27 +29,49 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/etHourlyPay"
-        android:text="Hourly Pay: [ ]/hr"
-        android:layout_below="@+id/etPaymentMethod"
-        android:layout_alignLeft="@+id/etPaymentMethod"
-        android:layout_alignStart="@+id/etPaymentMethod" />
+        android:hint="Hourly Pay: [ ]/hr"
+        android:layout_alignTop="@+id/tvHourlyPay"
+        android:layout_alignRight="@+id/etPaymentMethod"
+        android:layout_alignEnd="@+id/etPaymentMethod" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/etPackageDeals"
-        android:text="Package Deals? Transportation fees?"
+        android:hint="Package Deals? Transportation fees?"
         android:layout_below="@+id/etHourlyPay"
-        android:layout_alignLeft="@+id/etHourlyPay"
-        android:layout_alignStart="@+id/etHourlyPay" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="52dp" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/etPaymentMethod"
-        android:text="Choose Method: (Card/Cash), currency type"
-        android:layout_marginTop="34dp"
+        android:hint="(Card/Cash), currency type"
+        android:layout_alignTop="@+id/tvPayMethod"
+        android:layout_alignRight="@+id/btnPaymentNext"
+        android:layout_alignEnd="@+id/btnPaymentNext" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hourly Pay:"
+        android:id="@+id/tvHourlyPay"
+        android:textSize="20sp"
+        android:layout_below="@+id/etPaymentMethod"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="44dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose Method:"
+        android:id="@+id/tvPayMethod"
+        android:textSize="20sp"
         android:layout_below="@+id/tvGuidePaymentInfo"
-        android:layout_alignLeft="@+id/tvGuidePaymentInfo"
-        android:layout_alignStart="@+id/tvGuidePaymentInfo" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="64dp" />
 </RelativeLayout>

@@ -32,6 +32,7 @@ public class GuideViewProfile extends AppCompatActivity{
 
     public void saveProfile(View view) {
         Intent i = new Intent(this, GuideViewRequests.class);
+        i.putExtra("guideUser", guideUser);
         startActivity(i);
     }
 }
