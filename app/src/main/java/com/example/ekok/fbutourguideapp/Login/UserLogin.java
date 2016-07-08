@@ -25,6 +25,8 @@ public class UserLogin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.activity_login);
+        
+        //  if you can see this you pulled yahss
 
         loginButton = (LoginButton) findViewById(R.id.btnLogin);
         loginButton.setReadPermissions("email");
