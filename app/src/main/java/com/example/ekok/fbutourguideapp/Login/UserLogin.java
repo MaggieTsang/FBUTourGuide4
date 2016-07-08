@@ -35,7 +35,7 @@ public class UserLogin extends AppCompatActivity {
 
         callbackManager = CallbackManager.Factory.create();
 
-        if (Profile.getCurrentProfile().getId() != null) {
+
             loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
                 @Override
                 public void onSuccess(LoginResult loginResult) {
@@ -55,12 +55,7 @@ public class UserLogin extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Login failed", Toast.LENGTH_SHORT).show();
                     exception.printStackTrace();
                 }
-            });}
-
-        else
-        {
-            onLoggedIn();
-        }
+            });
 
 
     }
