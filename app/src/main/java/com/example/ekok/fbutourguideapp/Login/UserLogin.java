@@ -40,7 +40,10 @@ public class UserLogin extends AppCompatActivity {
             @Override
             public void onSuccess(LoginResult loginResult) {
                 // App code
-                onLoggedIn();
+                String name = Profile.getCurrentProfile().getFirstName();
+                Toast.makeText(getApplicationContext(), "Welcome, " + name + "!", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(UserLogin.this, UserType.class);
+                startActivity(i);
             }
 
             @Override
@@ -63,12 +66,5 @@ public class UserLogin extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         callbackManager.onActivityResult(requestCode, resultCode, data);
-    }
-
-    public void onLoggedIn() {
-        String name = Profile.getCurrentProfile().getFirstName();
-        Toast.makeText(getApplicationContext(), "Welcome, " + name + "!", Toast.LENGTH_SHORT).show();
-        Intent i = new Intent(this, UserType.class);
-        startActivity(i);
     }
 }
