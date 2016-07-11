@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.ekok.fbutourguideapp.R;
+import com.parse.Parse;
 
 import java.util.ArrayList;
 
@@ -35,6 +36,14 @@ public class TravelerMain extends AppCompatActivity{
         for (int i = 0; i < 25; i++) {
             trips.add("Le Tripsss");
         }
+
+        Parse.initialize(new Parse.Configuration.Builder(getApplicationContext())
+                .applicationId("YOUR_APP_ID")
+                .server("http://YOUR_PARSE_SERVER:1337/parse")
+
+        .build()
+        );
+
     }
 
     @Override
