@@ -9,7 +9,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.ekok.fbutourguideapp.R;
-import com.parse.Parse;
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -27,8 +30,6 @@ public class TravelerMain extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_travelermain);
 
-
-
         lvTrips = (ListView) findViewById(R.id.lvTrips);
         trips = new ArrayList<>();
         tripsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, trips);
@@ -37,13 +38,16 @@ public class TravelerMain extends AppCompatActivity{
             trips.add("Le Tripsss");
         }
 
-        Parse.initialize(new Parse.Configuration.Builder(getApplicationContext())
-                .applicationId("YOUR_APP_ID")
-                .server("http://YOUR_PARSE_SERVER:1337/parse")
-
-        .build()
-        );
-
+        Firebase.setAndroidContext(this);
+        Firebase myFirebaseRef = new Firebase("https://<1:656827361402:android:0a8baf8cc4e28fcdP>.firebaseio.com/");
+        myFirebaseRef.child("message").setValue("Do you have data? You'll love Firebase.");
+        myFirebaseRef.child("message").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                System.out.println(snapshot.getValue());  //prints "Do you have data? You'll love Firebase."
+            }
+            @Override public void onCancelled(FirebaseError error) { }
+        });
     }
 
     @Override

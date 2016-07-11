@@ -1,0 +1,38 @@
+{
+  "project_info": {
+    "project_number": "656827361402",
+    "firebase_url": "https://fbutourguide.firebaseio.com",
+    "project_id": "fbutourguide",
+    "storage_bucket": "fbutourguide.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:656827361402:android:0a8baf8cc4e28fcd",
+        "android_client_info": {
+          "package_name": "com.example.ekok.fbutourguideapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "656827361402-egg2j8g4m100eh0qt2831hdrn7s4uldn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [{ "current_key": "" }],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

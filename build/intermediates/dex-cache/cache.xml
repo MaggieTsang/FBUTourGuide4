@@ -1,2 +1,173 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
+
+    <item
+        jar="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/jars/libs/internal_impl-24.0.0.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="fcaf463e10e69c1923ccf1edeba3b4196d239e00">
+        <dex dex="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/internal_impl-24.0.0_6ca329015679b43be44cb75300621a280a8af13a.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="1941832901fc4e7a93300b53762e9f65d7650b99">
+        <dex dex="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-tasks-9.0.0_a7faa1236f15010fba1f19f65e92624d63560cf6.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.2.2/3c8f6018eaa72d43b261181e801e6f8676c16ef6/jackson-databind-2.2.2.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="3c8f6018eaa72d43b261181e801e6f8676c16ef6">
+        <dex dex="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/jackson-databind-2.2.2_1fc0e99b4b28181988a7edbe87fced400b1f7691.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="42df48c7305b08b14fa0e84561091b0c24d70d26">
+        <dex dex="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-common-9.0.0_84040b5020c967e564468ea0ec343d7785a862be.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="e70f608219ed6b974644c333249ab2bb7b71de98">
+        <dex dex="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-24.0.0_07d7e20c2b4bd9b213ad6d07ff7425bac7ce8fe8.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/.gradle/caches/modules-2/files-2.1/com.firebase/tubesock/0.0.12/6ec0bbd3e161a73ed672284b587fd32309a86d7a/tubesock-0.0.12.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="6ec0bbd3e161a73ed672284b587fd32309a86d7a">
+        <dex dex="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/tubesock-0.0.12_e91a1b64221e0daed9d702b286a02ee6093ceee6.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/exploded-aar/com.android.support/customtabs/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="2d1eaa9e0b98f8fc4c2b989d9b30d4f1480648ac">
+        <dex dex="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/com.android.support-customtabs-23.4.0_b6c4f4ab5a15d9b5ba7c99de5fb6ef3ba3b9695b.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.2.2/d20be6a5ddd6f8cfd36ebf6dea329873a1c41f1b/jackson-core-2.2.2.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="d20be6a5ddd6f8cfd36ebf6dea329873a1c41f1b">
+        <dex dex="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/jackson-core-2.2.2_684e00e94d67f48319cc760cdda26b673452af35.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="6f65c144283b31b4b9a70e6e7aa4c4a1c897d4b8">
+        <dex dex="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-base-9.0.0_ab3c99d48f73faeaacc1895b8fba49842ba21429.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="4ef8ab5fee042023018249474bc93bd4b2b9c17e">
+        <dex dex="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-analytics-9.0.0_a30f37e8f32fff81490d7af312f9ffba9ffe9b72.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="cc178928721f3222b3b06bdfbd9497378ccb9792">
+        <dex dex="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-basement-9.0.0_392e3a74d17274791f13061b9981b2bb332b7cd1.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/24.0.0/support-annotations-24.0.0.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="2943c74db6d4346ab8c6531adac91fa05c137c40">
+        <dex dex="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/support-annotations-24.0.0_091826c131eb5f0309189726f64c4cf5c9b543fa.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-applinks/1.4.0/8ad21bf21784dacce5f2043afb97218cc377e835/bolts-applinks-1.4.0.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="8ad21bf21784dacce5f2043afb97218cc377e835">
+        <dex dex="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/bolts-applinks-1.4.0_45c64c919d386cb842f212f6d03f01c5d0a54de0.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/.gradle/caches/modules-2/files-2.1/com.firebase/firebase-client-android/2.5.2/f19f10d6276aa0b380e2d05d2ab3272d693a5433/firebase-client-android-2.5.2.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="f19f10d6276aa0b380e2d05d2ab3272d693a5433">
+        <dex dex="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/firebase-client-android-2.5.2_c7b4bfe668eaab399aa0cc5d1fb06ccfe07f72f9.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.13.2/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="3322df7b184ab5c8e8341508431cb3fcf395d13f">
+        <dex dex="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/com.facebook.android-facebook-android-sdk-4.13.2_c0eaa42b8473681df42eda02a6507b70e4857afc.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="0874286cc2fd88d54fdf130e9d5372730da6de97">
+        <dex dex="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-24.0.0_bb60edf9f0f747e1261481fdd7cb92a1c5dd28ac.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="3bd97cfefd783e9de1dd1c30574a6adb44b4409b">
+        <dex dex="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-24.0.0_9c021915d4dfef83288733544533f074296dbe83.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="0dc8ab07eeceda5e99b305c8069765056b6e5c9d">
+        <dex dex="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-analytics-impl-9.0.0_83d6c0202c0d470749c4f002996102a91692d5f5.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="d9ecde39b460470e655de6e47c05573d2d5a8bfb">
+        <dex dex="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/com.android.support-cardview-v7-23.4.0_49f01677fac12d766aa27cf3cc49f4d47367e200.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.2.2/285cb9c666f0f0f3dd8a1be04e1f457eb7b15113/jackson-annotations-2.2.2.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="285cb9c666f0f0f3dd8a1be04e1f457eb7b15113">
+        <dex dex="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/jackson-annotations-2.2.2_0418571cafeb27b19b0e18d74ccfd6108ff5ef52.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="2f7e6e2dad1bccaf68a8820820adc6c0d5b96d37">
+        <dex dex="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-24.0.0_2df929ac23762f85dd39a4a4f97f92510ab16c22.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/.gradle/caches/modules-2/files-2.1/com.firebase/firebase-client-jvm/2.5.2/91731b8f5868a3e8a8a773f29b8d06b5c358f5bb/firebase-client-jvm-2.5.2.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="91731b8f5868a3e8a8a773f29b8d06b5c358f5bb">
+        <dex dex="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/firebase-client-jvm-2.5.2_f5f3b26fcb5ea5555331d7ea4a2cc67d23f31832.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="ea4b54dcbfe5ac05efb0a314105f07258118d3a7">
+        <dex dex="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-iid-9.0.0_37add90efcc81fde317b2364713f8e51690ca7ed.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.4.0/d85884acf6810a3bbbecb587f239005cbc846dc4/bolts-tasks-1.4.0.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/bolts-tasks-1.4.0_d049b1f5c30c825094a528975d7ecda6fd866251.jar" />
+    </item>
+
+</items>
