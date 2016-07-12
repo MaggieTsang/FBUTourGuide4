@@ -7,6 +7,7 @@ import com.google.firebase.database.DatabaseReference;
  * Created by mbytsang on 7/12/16.
  */
 public class GuideFirebase {
+
     DatabaseReference dataBaseRef;
     Boolean saved = null;
 
