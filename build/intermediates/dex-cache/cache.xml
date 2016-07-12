@@ -128,6 +128,13 @@
         <dex dex="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/tubesock-0.0.11_7604d0d4ba699d9431a92defef4175996783b037.jar" />
     </item>
     <item
+        jar="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth-module/9.0.2/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="79e298d7fed2fcada58da7032d07d34ee198a545">
+        <dex dex="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-auth-module-9.0.2_e508ada772394314d72f513a2bbad04bfd74da31.jar" />
+    </item>
+    <item
         jar="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/23.4.0/jars/classes.jar"
         jumboMode="false"
         revision="24.0.0"
@@ -163,6 +170,13 @@
         <dex dex="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-database-connection-9.0.2_dc4b58040f9d300c18d9674ee31cd5ab48e55bd9.jar" />
     </item>
     <item
+        jar="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth/9.0.2/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="fa472b7cbd3897bf6bed6068ac0b00e494987688">
+        <dex dex="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-auth-9.0.2_4b76ca014086d70f2a2d2e32f43b690f8aaf04fb.jar" />
+    </item>
+    <item
         jar="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/9.0.2/jars/classes.jar"
         jumboMode="false"
         revision="24.0.0"
@@ -184,6 +198,20 @@
         <dex dex="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-24.0.0_2df929ac23762f85dd39a4a4f97f92510ab16c22.jar" />
     </item>
     <item
+        jar="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/9.0.2/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="060a7157438a0b1b0706b99c430fb3ecbc5a79a4">
+        <dex dex="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-auth-9.0.2_55aa93c6e173d90a9f5f592d2ec449c5bf809399.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth-base/9.0.2/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="829c6e46cb221c2102801221c648b77113743e81">
+        <dex dex="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-auth-base-9.0.2_d8957371361752ccb7d8410006570b3eb7f4d684.jar" />
+    </item>
+    <item
         jar="/Users/ekok/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.4.0/d85884acf6810a3bbbecb587f239005cbc846dc4/bolts-tasks-1.4.0.jar"
         jumboMode="false"
         revision="24.0.0"
@@ -196,6 +224,13 @@
         revision="24.0.0"
         sha1="b3d0809a742c5f768c6aa9efc6decd5c1d6cd227">
         <dex dex="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-iid-9.0.2_255c4c3c6240ebca03af7e78068f0ccbcb39593b.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth-common/9.0.2/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="568d5bda0b4d51f90d978ace369bb9ad024d2057">
+        <dex dex="/Users/ekok/Desktop/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-auth-common-9.0.2_206183476cb39b444bf306dcdfe75bb62218d3e6.jar" />
     </item>
 
 </items>
