@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:text="@string/submit_new_request"
         android:onClick="submitRequest"
-        android:id="@+id/button"
+        android:id="@+id/btnSubmit"
         android:layout_marginTop="26dp"
         android:layout_below="@+id/etLanguages"
         android:layout_centerHorizontal="true" />
@@ -33,8 +33,8 @@
         android:id="@+id/tvMakeRequest"
         android:textSize="20sp"
         android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/button"
-        android:layout_alignStart="@+id/button" />
+        android:layout_alignLeft="@+id/btnSubmit"
+        android:layout_alignStart="@+id/btnSubmit" />
 
     <TextView
         android:layout_width="wrap_content"

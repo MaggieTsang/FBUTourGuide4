@@ -5,8 +5,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.ekok.fbutourguideapp.R;
 import com.firebase.client.DataSnapshot;
@@ -25,6 +28,13 @@ public class TravelerMain extends AppCompatActivity{
     ArrayAdapter<String> tripsAdapter;
     ListView lvTrips;
 
+    TextView mTextFieldCondition;
+    Button mButtonSunny;
+    Button mButtonFoggy;
+    Firebase mRef;
+
+//    private Firebase mRef;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,15 +48,50 @@ public class TravelerMain extends AppCompatActivity{
             trips.add("Le Tripsss");
         }
 
-        Firebase.setAndroidContext(this);
-        Firebase myFirebaseRef = new Firebase("https://<1:656827361402:android:0a8baf8cc4e28fcdP>.firebaseio.com/");
-        myFirebaseRef.child("message").setValue("Do you have data? You'll love Firebase.");
-        myFirebaseRef.child("message").addValueEventListener(new ValueEventListener() {
+//        Firebase.setAndroidContext(this);
+//        Firebase myFirebaseRef = new Firebase("https://fbutourguide.firebaseio.com/");
+//        myFirebaseRef.child("message").setValue("Do you have data? You'll love Firebase.");
+//        myFirebaseRef.child("message").addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot snapshot) {
+//                System.out.println(snapshot.getValue());  //prints "Do you have data? You'll love Firebase."
+//            }
+//            @Override public void onCancelled(FirebaseError error) { }
+//        });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mTextFieldCondition = (TextView) findViewById(R.id.textViewCondition);
+        mButtonSunny = (Button) findViewById(R.id.buttonSunny);
+        mButtonFoggy = (Button) findViewById(R.id.buttonFoggy);
+        mRef = new Firebase("https://fbutourguide.firebaseio.com/condition");
+
+        mRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot snapshot) {
-                System.out.println(snapshot.getValue());  //prints "Do you have data? You'll love Firebase."
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String text = dataSnapshot.getValue(String.class);
+                mTextFieldCondition.setText(text);
             }
-            @Override public void onCancelled(FirebaseError error) { }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+        mButtonFoggy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mRef.setValue("Foggy");
+            }
+        });
+        mButtonSunny.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mRef.setValue("Sunny");
+            }
         });
     }
 
