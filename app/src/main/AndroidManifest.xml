@@ -7,11 +7,11 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:name=".Travelers.Traveller"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="Tour Guide"
         android:supportsRtl="true"
+        android:name=".Travelers.Traveller"
         android:theme="@style/Theme.AppCompat.Light.DarkActionBar" >
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
