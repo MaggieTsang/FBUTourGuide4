@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.ekok.fbutourguideapp.R;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 /**
  * Created by mbytsang on 7/6/16.
@@ -14,6 +16,8 @@ import com.example.ekok.fbutourguideapp.R;
 public class GuideViewProfile extends AppCompatActivity{
 
     GuideUser guideUser;
+    DatabaseReference dataBaseRef;
+    GuideFirebase guideFirebase;
 
     TextView tvName;
     TextView tvLocation;
@@ -37,6 +41,8 @@ public class GuideViewProfile extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guideprofilepreview);
         guideUser = (GuideUser) getIntent().getSerializableExtra("guideUser");
+        dataBaseRef = FirebaseDatabase.getInstance().getReference();
+        guideFirebase = new GuideFirebase(dataBaseRef);
 
 
         tvName = (TextView) findViewById(R.id.tvName);
@@ -49,7 +55,6 @@ public class GuideViewProfile extends AppCompatActivity{
         tvMethod = (TextView) findViewById(R.id.tvMethod);
         tvCurrency = (TextView) findViewById(R.id.tvCurrency);
         tvHourly = (TextView) findViewById(R.id.tvHourly);
-
 
         tvName.setText(guideUser.legalName);
         tvLocation.setText(guideUser.location);
@@ -70,6 +75,7 @@ public class GuideViewProfile extends AppCompatActivity{
     }
 
     public void saveProfile(View view) {
+        guideFirebase.saveToGuide(guideUser);
         Intent i = new Intent(this, GuideViewRequests.class);
         i.putExtra("guideUser", guideUser);
         startActivity(i);

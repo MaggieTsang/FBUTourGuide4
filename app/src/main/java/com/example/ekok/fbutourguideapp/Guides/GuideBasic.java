@@ -1,7 +1,6 @@
 package com.example.ekok.fbutourguideapp.Guides;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -11,10 +10,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.ekok.fbutourguideapp.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.io.FileNotFoundException;
 
@@ -24,10 +27,8 @@ import java.io.FileNotFoundException;
 public class GuideBasic extends AppCompatActivity{
 
     GuideUser guideUser;
-
     ImageView ivProfilePic;
-    DatabaseReference dataBaseRef;
-    GuideFirebase guideFirebase;
+    private DatabaseReference dataRef;
 
     EditText etName;
     EditText etLocation;
@@ -40,24 +41,39 @@ public class GuideBasic extends AppCompatActivity{
         //if new --> guidenew
         //if registered --> guiderequests
         setContentView(R.layout.activity_guidebasic);
-
-
-        dataBaseRef = FirebaseDatabase.getInstance().getReference();
-        guideFirebase = new GuideFirebase(dataBaseRef);
-
-
-
         guideUser = (GuideUser) getIntent().getSerializableExtra("guideUser");
+        dataRef = FirebaseDatabase.getInstance().getReference();
 
         etName = (EditText) findViewById(R.id.etName);
         etLocation = (EditText) findViewById(R.id.etLocation);
         etBasicAdditional = (EditText) findViewById(R.id.etBasicAdditional);
         etLanguages = (EditText) findViewById(R.id.etLanguages);
 
-        etName.setText(guideUser.legalName);
-        etLocation.setText(guideUser.location);
-        etBasicAdditional.setText(guideUser.description);
-        etLanguages.setText(guideUser.languages);
+
+        //final String userId = getUid();
+        //dataRef.child("Guide").child(userId).addListenerForSingleValueEvent(
+        dataRef.child("Guide").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // Get user value
+                GuideUser user = dataSnapshot.getValue(GuideUser.class);
+                etName.setText(user.legalName);
+                etLocation.setText(user.location);
+                etBasicAdditional.setText(user.description);
+                etLanguages.setText(user.languages);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Toast.makeText(GuideBasic.this, "Cannot find user data", Toast.LENGTH_SHORT).show();
+                //Log.w(TAG, "getUser:onCancelled", databaseError.toException());
+            }
+        });
+
+        //etName.setText(guideUser.legalName);
+        //etLocation.setText(guideUser.location);
+        //etBasicAdditional.setText(guideUser.description);
+        //etLanguages.setText(guideUser.languages);
 
         //Go to camera roll to upload profile pic
         ivProfilePic = (ImageView) findViewById(R.id.ivProfilePic);
@@ -80,15 +96,6 @@ public class GuideBasic extends AppCompatActivity{
         guideUser.location = etLocation.getText().toString();
         guideUser.description = etBasicAdditional.getText().toString();
         guideUser.languages = etLanguages.getText().toString();
-        guideFirebase.saveToGuide(guideUser);
-
-
-        String guideName = findViewById(R.id.etName).toString();
-        SharedPreferences prefs = getSharedPreferences("my_prefs", MODE_PRIVATE);
-        SharedPreferences.Editor edit = prefs.edit();
-        edit.putString("etName", guideName );
-        edit.commit();
-
 
         Intent i = new Intent(this, GuideContact.class);
         i.putExtra("guideUser", guideUser);

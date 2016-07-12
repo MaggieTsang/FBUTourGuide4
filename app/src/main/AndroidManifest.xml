@@ -18,7 +18,7 @@
             android:value="@string/facebook_app_id" />
 
         <activity
-            android:name=".LauncherActivity"
+            android:name=".Login.UserType"
             android:theme="@style/Theme.AppCompat.NoActionBar" >
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -52,7 +52,7 @@
         <activity android:name=".Travelers.TravelerNewTrip" />
         <activity android:name=".Guides.GuideCalender" />
         <activity android:name=".Guides.GuideViewProfile" />
-        <activity android:name=".Login.UserType" />
+        <!--<activity android:name=".Login.UserType" />-->
         <activity android:name=".Travelers.RatingActivity" />
     </application>
 

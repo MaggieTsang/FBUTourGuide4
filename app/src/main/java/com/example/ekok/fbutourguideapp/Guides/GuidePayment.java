@@ -5,8 +5,14 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.ekok.fbutourguideapp.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 /**
  * Created by mbytsang on 7/7/16.
@@ -14,6 +20,7 @@ import com.example.ekok.fbutourguideapp.R;
 public class GuidePayment extends AppCompatActivity {
 
     GuideUser guideUser;
+    private DatabaseReference dataRef;
 
     EditText etPaymentMethod;
     EditText etHourlyPay;
@@ -28,16 +35,40 @@ public class GuidePayment extends AppCompatActivity {
         //if registered --> guiderequests
         setContentView(R.layout.activity_guidepaymentinfo);
         guideUser = (GuideUser) getIntent().getSerializableExtra("guideUser");
+        dataRef = FirebaseDatabase.getInstance().getReference();
+
 
         etPaymentMethod = (EditText) findViewById(R.id.etPaymentMethod);
         etHourlyPay = (EditText) findViewById(R.id.etHourlyPay);
         etPackageDeals = (EditText) findViewById(R.id.etPackageDeals);
         etCurrencyType = (EditText) findViewById(R.id.etCurrencyType);
 
+
+
+        dataRef.child("Guide").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // Get user value
+                GuideUser user = dataSnapshot.getValue(GuideUser.class);
+                etPaymentMethod.setText(user.method);
+                etHourlyPay.setText(user.timelyPay);
+                etPackageDeals.setText(user.packageDeals);
+                etCurrencyType.setText(user.currency);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Toast.makeText(GuidePayment.this, "Cannot find user data", Toast.LENGTH_SHORT).show();
+                //Log.w(TAG, "getUser:onCancelled", databaseError.toException());
+            }
+        });
+
+        /*
         etPaymentMethod.setText(guideUser.method);
         etHourlyPay.setText(guideUser.timelyPay);
         etPackageDeals.setText(guideUser.packageDeals);
         etCurrencyType.setText(guideUser.currency);
+        */
 
     }
 

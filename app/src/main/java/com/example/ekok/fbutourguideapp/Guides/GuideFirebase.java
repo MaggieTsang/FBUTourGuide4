@@ -16,9 +16,6 @@ public class GuideFirebase {
     }
 
 
-
-
-
     public Boolean saveToGuide(GuideUser guide) {
         if (guide == null) {
             saved = false;
