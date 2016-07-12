@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.example.ekok.fbutourguideapp.R;
+import com.google.firebase.database.DatabaseReference;
 
 /**
  * Created by mbytsang on 7/7/16.
@@ -14,6 +15,9 @@ import com.example.ekok.fbutourguideapp.R;
 public class GuideContact extends AppCompatActivity {
 
     GuideUser guideUser;
+    DatabaseReference dataBaseRef;
+    GuideFirebase guideFirebase;
+
     EditText etPhonePrimary;
     EditText etPhoneSecondary;
     EditText etEmail;
@@ -27,6 +31,9 @@ public class GuideContact extends AppCompatActivity {
         //if registered --> guiderequests
         setContentView(R.layout.activity_guidecontactinfo);
         guideUser = (GuideUser) getIntent().getSerializableExtra("guideUser");
+        //dataBaseRef = FirebaseDatabase.getInstance().getReference();
+
+
 
         etPhonePrimary = (EditText) findViewById(R.id.etPhonePrimary);
         etPhoneSecondary = (EditText) findViewById(R.id.etPhoneSecondary);
@@ -44,6 +51,8 @@ public class GuideContact extends AppCompatActivity {
         guideUser.phoneSecondary = etPhoneSecondary.getText().toString();
         guideUser.email = etEmail.getText().toString();
         guideUser.contactAdditional = etContactAdditional.getText().toString();
+
+        //guideFirebase.saveToGuide(guideUser);
 
         // first parameter is the context, second is the class of the activity to launch
         Intent i = new Intent(this, GuidePayment.class);
