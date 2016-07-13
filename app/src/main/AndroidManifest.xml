@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:name=".Travelers.Traveller"
+        android:name=".FirebaseStart"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="Tour Guide"
@@ -49,7 +49,7 @@
         <activity android:name=".Guides.GuideContact" />
         <activity android:name=".Guides.GuidePayment" />
         <activity android:name=".Guides.GuideViewRequests" />
-        <activity android:name=".Travelers.TravelerNewTrip" />
+        <activity android:name=".Travelers.NewRequest" />
         <activity android:name=".Guides.GuideCalender" />
         <activity android:name=".Guides.GuideViewProfile" />
         <!--<activity android:name=".Login.UserType" />-->

@@ -1,36 +1,34 @@
-package com.example.ekok.fbutourguideapp.FireBase;
+package com.example.ekok.fbutourguideapp.Travelers;
 
-import com.example.ekok.fbutourguideapp.Models.TravelerModel;
 import com.google.firebase.database.DatabaseException;
 import com.google.firebase.database.DatabaseReference;
 
 /**
  * Created by ekok on 7/12/16.
  */
-public class FirebaseHelper {
+public class RequestFirebase {
 
     DatabaseReference db;
     Boolean saved = null;
 
-    public FirebaseHelper(DatabaseReference db) {
+    public RequestFirebase(DatabaseReference db) {
         this.db = db;
     }
 
     //SAVE
-    public Boolean save(TravelerModel traveler) {
+    public Boolean save(RequestModel traveler) {
         if (traveler == null) {
             saved = false;
         }
         else {
             try {
-                db.child("Travelers").setValue(traveler);
+                db.child("Traveler").setValue(traveler);
                 saved = true;
             } catch (DatabaseException e) {
                 e.printStackTrace();
                 saved = false;
             }
         }
-
         return saved;
     }
 }
