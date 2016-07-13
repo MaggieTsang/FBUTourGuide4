@@ -26,7 +26,6 @@ import java.io.FileNotFoundException;
  */
 public class GuideBasic extends AppCompatActivity{
 
-    GuideUser guideUser;
     ImageView ivProfilePic;
     private DatabaseReference dataRef;
 
@@ -41,14 +40,12 @@ public class GuideBasic extends AppCompatActivity{
         //if new --> guidenew
         //if registered --> guiderequests
         setContentView(R.layout.activity_guidebasic);
-        guideUser = (GuideUser) getIntent().getSerializableExtra("guideUser");
         dataRef = FirebaseDatabase.getInstance().getReference();
 
         etName = (EditText) findViewById(R.id.etName);
         etLocation = (EditText) findViewById(R.id.etLocation);
         etBasicAdditional = (EditText) findViewById(R.id.etBasicAdditional);
         etLanguages = (EditText) findViewById(R.id.etLanguages);
-
 
         //final String userId = getUid();
         //dataRef.child("Guide").child(userId).addListenerForSingleValueEvent(
@@ -70,11 +67,6 @@ public class GuideBasic extends AppCompatActivity{
             }
         });
 
-        //etName.setText(guideUser.legalName);
-        //etLocation.setText(guideUser.location);
-        //etBasicAdditional.setText(guideUser.description);
-        //etLanguages.setText(guideUser.languages);
-
         //Go to camera roll to upload profile pic
         ivProfilePic = (ImageView) findViewById(R.id.ivProfilePic);
         Button loadImage = (Button) findViewById(R.id.btnUploadImage);
@@ -91,14 +83,11 @@ public class GuideBasic extends AppCompatActivity{
 
     //Launches Contact info view and saves current info to FireBase
     public void launchContact(View v) {
-
-        guideUser.legalName = etName.getText().toString();
-        guideUser.location = etLocation.getText().toString();
-        guideUser.description = etBasicAdditional.getText().toString();
-        guideUser.languages = etLanguages.getText().toString();
-
+        dataRef.child("Guide").child("legalName").setValue(etName.getText().toString());
+        dataRef.child("Guide").child("location").setValue(etLocation.getText().toString());
+        dataRef.child("Guide").child("description").setValue(etBasicAdditional.getText().toString());
+        dataRef.child("Guide").child("languages").setValue(etLanguages.getText().toString());
         Intent i = new Intent(this, GuideContact.class);
-        i.putExtra("guideUser", guideUser);
         startActivity(i);
     }
 

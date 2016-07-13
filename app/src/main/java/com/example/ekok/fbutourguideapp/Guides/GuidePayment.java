@@ -19,7 +19,6 @@ import com.google.firebase.database.ValueEventListener;
  */
 public class GuidePayment extends AppCompatActivity {
 
-    GuideUser guideUser;
     private DatabaseReference dataRef;
 
     EditText etPaymentMethod;
@@ -34,16 +33,12 @@ public class GuidePayment extends AppCompatActivity {
         //if new --> guidenew
         //if registered --> guiderequests
         setContentView(R.layout.activity_guidepaymentinfo);
-        guideUser = (GuideUser) getIntent().getSerializableExtra("guideUser");
         dataRef = FirebaseDatabase.getInstance().getReference();
-
 
         etPaymentMethod = (EditText) findViewById(R.id.etPaymentMethod);
         etHourlyPay = (EditText) findViewById(R.id.etHourlyPay);
         etPackageDeals = (EditText) findViewById(R.id.etPackageDeals);
         etCurrencyType = (EditText) findViewById(R.id.etCurrencyType);
-
-
 
         dataRef.child("Guide").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -63,24 +58,14 @@ public class GuidePayment extends AppCompatActivity {
             }
         });
 
-        /*
-        etPaymentMethod.setText(guideUser.method);
-        etHourlyPay.setText(guideUser.timelyPay);
-        etPackageDeals.setText(guideUser.packageDeals);
-        etCurrencyType.setText(guideUser.currency);
-        */
-
     }
 
     public void launchViewProfile(View v) {
-        guideUser.method = etPaymentMethod.getText().toString();
-        guideUser.timelyPay = etHourlyPay.getText().toString();
-        guideUser.packageDeals = etPackageDeals.getText().toString();
-        guideUser.currency = etCurrencyType.getText().toString();
-
-        // first parameter is the context, second is the class of the activity to launch
+        dataRef.child("Guide").child("method").setValue(etPaymentMethod.getText().toString());
+        dataRef.child("Guide").child("timelyPay").setValue(etHourlyPay.getText().toString());
+        dataRef.child("Guide").child("packageDeals").setValue(etPackageDeals.getText().toString());
+        dataRef.child("Guide").child("currency").setValue(etCurrencyType.getText().toString());
         Intent i = new Intent(this, GuideViewProfile.class);
-        i.putExtra("guideUser", guideUser);
-        startActivity(i); // brings up the second activity
+        startActivity(i);
     }
 }

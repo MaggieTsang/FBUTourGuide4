@@ -5,19 +5,21 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.ekok.fbutourguideapp.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 /**
  * Created by mbytsang on 7/6/16.
  */
 public class GuideViewProfile extends AppCompatActivity{
 
-    GuideUser guideUser;
-    DatabaseReference dataBaseRef;
-    GuideFirebase guideFirebase;
+    private DatabaseReference dataRef;
 
     TextView tvName;
     TextView tvLocation;
@@ -31,19 +33,15 @@ public class GuideViewProfile extends AppCompatActivity{
     TextView tvHourly;
 
     //Traveler's view: can request/message
-    //Guide's view: just a preview, cannot request or message themself
-
-
+    //Guide's view: just a preview, cannot request or message thyself
     //Insert profile info via ExpandableListView??
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guideprofilepreview);
-        guideUser = (GuideUser) getIntent().getSerializableExtra("guideUser");
-        dataBaseRef = FirebaseDatabase.getInstance().getReference();
-        guideFirebase = new GuideFirebase(dataBaseRef);
-
+        //guideUser = (GuideUser) getIntent().getSerializableExtra("guideUser");
+        dataRef = FirebaseDatabase.getInstance().getReference();
 
         tvName = (TextView) findViewById(R.id.tvName);
         tvLocation = (TextView) findViewById(R.id.tvLocation);
@@ -56,28 +54,38 @@ public class GuideViewProfile extends AppCompatActivity{
         tvCurrency = (TextView) findViewById(R.id.tvCurrency);
         tvHourly = (TextView) findViewById(R.id.tvHourly);
 
-        tvName.setText(guideUser.legalName);
-        tvLocation.setText(guideUser.location);
-        tvLanguages.setText(guideUser.languages);
-        tvFillDescription.setText(guideUser.description);
-        tvPhone1.setText(guideUser.phonePrimary);
-        tvPhone2.setText(guideUser.phoneSecondary);
-        tvEmail.setText(guideUser.email);
-        tvMethod.setText(guideUser.method);
-        tvCurrency.setText(guideUser.currency);
-        tvHourly.setText(guideUser.timelyPay);
+        dataRef.child("Guide").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // Get user value
+                GuideUser user = dataSnapshot.getValue(GuideUser.class);
+                tvName.setText(user.legalName);
+                tvLocation.setText(user.location);
+                tvLanguages.setText(user.languages);
+                tvFillDescription.setText(user.description);
+                tvPhone1.setText(user.phonePrimary);
+                tvPhone2.setText(user.phoneSecondary);
+                tvEmail.setText(user.email);
+                tvMethod.setText(user.method);
+                tvCurrency.setText(user.currency);
+                tvHourly.setText(user.timelyPay);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Toast.makeText(GuideViewProfile.this, "Cannot find user data", Toast.LENGTH_SHORT).show();
+                //Log.w(TAG, "getUser:onCancelled", databaseError.toException());
+            }
+        });
     }
 
     public void goBackToBasic(View view) {
         Intent i = new Intent(this, GuideBasic.class);
-        i.putExtra("guideUser", guideUser);
         startActivity(i);
     }
 
     public void saveProfile(View view) {
-        guideFirebase.saveToGuide(guideUser);
         Intent i = new Intent(this, GuideViewRequests.class);
-        i.putExtra("guideUser", guideUser);
         startActivity(i);
     }
 }
