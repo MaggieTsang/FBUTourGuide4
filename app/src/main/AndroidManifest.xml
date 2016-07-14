@@ -43,7 +43,7 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-        <activity android:name=".Login.UserLogin" />
+        <!--<activity android:name=".Login.UserLogin" />-->
         <activity android:name=".Travelers.TravelerMain" />
         <activity android:name=".Guides.GuideBasic" />
         <activity android:name=".Guides.GuideContact" />
@@ -52,7 +52,7 @@
         <activity android:name=".Travelers.NewRequest" />
         <activity android:name=".Guides.GuideCalender" />
         <activity android:name=".Guides.GuideViewProfile" />
-        <!--<activity android:name=".Login.UserType" />-->
+        <activity android:name=".Login.UserLogin" />
         <activity android:name=".Travelers.RatingActivity" />
     </application>
 

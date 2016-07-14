@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.example.ekok.fbutourguideapp.R;
 import com.google.firebase.database.DatabaseReference;
@@ -17,8 +16,8 @@ import com.google.firebase.database.FirebaseDatabase;
 public class NewRequest extends AppCompatActivity{
     public static final String MY_PREFS_NAME = "MyPrefsFile";
 
-    DatabaseReference db;
-    RequestFirebase helper;
+//    DatabaseReference db;
+//    RequestFirebase helper;
 
     private final static String TAG = "Firebase";
 
@@ -34,8 +33,11 @@ public class NewRequest extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_travelernew);
 
-        db = FirebaseDatabase.getInstance().getReference();
-        helper = new RequestFirebase(db);
+//        db = FirebaseDatabase.getInstance().getReference();
+//        helper = new RequestFirebase(db);
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        final DatabaseReference myRef = database.getReference("Traveler");
 
         Button btnSubmit = (Button) findViewById(R.id.btnSubmit);
         etPlace = (EditText) findViewById(R.id.etPlace);
@@ -57,32 +59,38 @@ public class NewRequest extends AppCompatActivity{
                 String languages = etLanguages.getText().toString();
 
                 // SET DATA
-                RequestModel request = new RequestModel();
-                request.setPlace(place);
-                request.setStartDate(startDate);
-                request.setEndDate(endDate);
-                request.setGroupSize(finalGroupSize);
-                request.setLanguages(languages);
+//                RequestModel request = new RequestModel();
+//                request.setPlace(place);
+//                request.setStartDate(startDate);
+//                request.setEndDate(endDate);
+//                request.setGroupSize(finalGroupSize);
+//                request.setLanguages(languages);
+
+                myRef.child("Traveler").setValue(place);
+                myRef.child("Traveler").setValue(startDate);
+                myRef.child("Traveler").setValue(endDate);
+                myRef.child("Traveler").setValue(groupSize);
+                myRef.child("Traveler").setValue(languages);
 
                 // SAVE
-                if (place != null && place.length() > 0
-                        && startDate != null && startDate.length() > 0
-                        && endDate != null && endDate.length() > 0
-                        && groupSize != null && finalGroupSize > 0
-                        && languages != null && languages.length() > 0) {
-                    if (helper.save(request))
-                    {
-                        etPlace.setText("");
-                        etStartDate.setText("");
-                        etEndDate.setText("");
-                        etGroupSize.setText("");
-                        etLanguages.setText("");
-                        finish();
-                    }
-                }
-                else {
-                    Toast.makeText(NewRequest.this, "No field should be left empty.", Toast.LENGTH_SHORT).show();
-                }
+//                if (place != null && place.length() > 0
+//                        && startDate != null && startDate.length() > 0
+//                        && endDate != null && endDate.length() > 0
+//                        && groupSize != null && finalGroupSize > 0
+//                        && languages != null && languages.length() > 0) {
+//                    if (helper.save(request))
+//                    {
+//                        etPlace.setText("");
+//                        etStartDate.setText("");
+//                        etEndDate.setText("");
+//                        etGroupSize.setText("");
+//                        etLanguages.setText("");
+//                        finish();
+//                    }
+//                }
+//                else {
+//                    Toast.makeText(NewRequest.this, "No field should be left empty.", Toast.LENGTH_SHORT).show();
+//                }
             }
         });
 

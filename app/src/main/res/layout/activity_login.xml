@@ -17,25 +17,5 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/status_textview"
-        android:text="" />
-
-    <com.google.android.gms.common.SignInButton
-        android:id="@+id/btnLoginGoogle"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:layout_below="@+id/btnLogin"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="33dp" />
-
-    <Button
-        android:layout_width="110dp"
-        android:layout_height="wrap_content"
-        android:text="Sign Out"
-        android:id="@+id/signOutButton" />
-
 
 </RelativeLayout>
