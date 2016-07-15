@@ -69,6 +69,10 @@ public class UserLogin extends AppCompatActivity {
                 startActivity(i);
                 Log.d(TAG, "facebook:onSuccess:" + loginResult);
                 handleFacebookAccessToken(loginResult.getAccessToken());
+
+                FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+                User user = new User(firebaseUser.getUid(), firebaseUser.getDisplayName(), firebaseUser.getEmail());
+                mDatabase.child("users").child(firebaseUser.getUid()).setValue(user);
             }
 
             @Override
