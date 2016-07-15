@@ -1,19 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" >
-
-    <item
-        jar="/Users/ekok/.gradle/caches/modules-2/files-2.1/com.loopj.android/android-async-http/1.4.9/386a4339ffe52d5d63e80f9bed8d2b1d1a418249/android-async-http-1.4.9.jar"
-        jumboMode="false"
-        revision="24.0.0"
-        sha1="386a4339ffe52d5d63e80f9bed8d2b1d1a418249">
-        <dex dex="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/android-async-http-1.4.9_c9e53d1706d07cbe2e7151be34da7fe9b5466031.jar" />
-    </item>
-    <item
-        jar="/Users/ekok/.gradle/caches/modules-2/files-2.1/cz.msebera.android/httpclient/4.3.6/526a9f794eab830eae4f23a62c572878b3f491ab/httpclient-4.3.6.jar"
-        jumboMode="false"
-        revision="24.0.0"
-        sha1="526a9f794eab830eae4f23a62c572878b3f491ab">
-        <dex dex="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/httpclient-4.3.6_439d6fb663c2b2f64c21b5e43a001f0b4da9d133.jar" />
-    </item>
-
-</items>
+<items version="2" />
