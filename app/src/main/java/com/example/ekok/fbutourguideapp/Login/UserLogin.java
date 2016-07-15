@@ -29,11 +29,11 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class UserLogin extends AppCompatActivity {
     private static final String TAG = "FacebookLogin";
-    private DatabaseReference mDatabase;
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
+    DatabaseReference myRef;
     LoginButton loginButton;
     CallbackManager callbackManager;
 
@@ -43,7 +43,7 @@ public class UserLogin extends AppCompatActivity {
         FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.activity_login);
 
-        mDatabase = FirebaseDatabase.getInstance().getReference();
+        myRef =  FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
 
         // [START auth_state_listener]
@@ -77,7 +77,7 @@ public class UserLogin extends AppCompatActivity {
 
                 FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
                 User user = new User(firebaseUser.getUid(), firebaseUser.getDisplayName(), firebaseUser.getEmail());
-                mDatabase.child("users").child(firebaseUser.getUid()).setValue(user);
+                myRef.child("users").child(firebaseUser.getUid()).setValue(user);
             }
 
             @Override

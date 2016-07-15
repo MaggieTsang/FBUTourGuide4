@@ -1,22 +1,14 @@
 package com.example.ekok.fbutourguideapp;
 
-import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserInfo;
-
-import java.util.List;
-
 /**
  * Created by ekok on 7/15/16.
  */
-public class User extends FirebaseUser {
+public class User {
     String Uid;
     String displayName;
     String email;
+
+    public User() {}
 
     public User (String Uid, String displayName, String email) {
         this.Uid = Uid;
@@ -24,78 +16,27 @@ public class User extends FirebaseUser {
         this.email = email;
     }
 
-    @NonNull
-    @Override
     public String getUid() {
         return Uid;
     }
 
-    @NonNull
-    @Override
-    public String getProviderId() {
-        return null;
+    public void setUid(String uid) {
+        Uid = uid;
     }
 
-    @Override
-    public boolean isAnonymous() {
-        return false;
-    }
-
-    @Nullable
-    @Override
-    public List<String> getProviders() {
-        return null;
-    }
-
-    @NonNull
-    @Override
-    public List<? extends UserInfo> getProviderData() {
-        return null;
-    }
-
-    @NonNull
-    @Override
-    public FirebaseUser zzN(@NonNull List<? extends UserInfo> list) {
-        return null;
-    }
-
-    @Override
-    public FirebaseUser zzaK(boolean b) {
-        return null;
-    }
-
-    @NonNull
-    @Override
-    public FirebaseApp zzOl() {
-        return null;
-    }
-
-    @Nullable
-    @Override
     public String getDisplayName() {
         return displayName;
     }
 
-    @Nullable
-    @Override
-    public Uri getPhotoUrl() {
-        return null;
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
     }
 
-    @Nullable
-    @Override
     public String getEmail() {
         return email;
     }
 
-    @NonNull
-    @Override
-    public String zzOm() {
-        return null;
-    }
-
-    @Override
-    public void zzhG(@NonNull String s) {
-
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

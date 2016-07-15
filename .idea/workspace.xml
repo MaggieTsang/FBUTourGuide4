@@ -2,23 +2,22 @@
 <project version="4">
   <component name="AndroidLayouts">
     <shared>
-      <config>
-        <target>android-23</target>
-      </config>
+      <config />
     </shared>
-    <layouts>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/item_trip.xml">
-        <config>
-          <theme>@style/Theme.AppCompat.Light.DarkActionBar</theme>
-        </config>
-      </layout>
-    </layouts>
   </component>
   <component name="AndroidLogFilters">
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac8fcb65-5780-4723-8964-37aab523befe" name="Default" comment="" />
+    <list default="true" id="e8188080-7c57-4729-8945-3abbe30465ed" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/mockable-android-24.jar" afterPath="$PROJECT_DIR$/build/generated/mockable-android-24.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ekok/fbutourguideapp/Login/UserLogin.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ekok/fbutourguideapp/Login/UserLogin.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ekok/fbutourguideapp/User.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ekok/fbutourguideapp/User.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
+    </list>
     <ignored path="FBUTourGuide4.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,60 +32,23 @@
     <option name="PATCH_PATH" value="" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view />
+      </state>
+    </system>
+  </component>
   <component name="FavoritesManager">
     <favorites_list name="FBUTourGuide4" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="FirebaseStart.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ekok/fbutourguideapp/FirebaseStart.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TravelerMain.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ekok/fbutourguideapp/Travelers/TravelerMain.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="29" column="40" selection-start-line="29" selection-start-column="40" selection-end-line="29" selection-end-column="40" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2319#2591#0" expanded="true" />
-                <element signature="e#2590#2591#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="43" column="56" selection-start-line="43" selection-start-column="56" selection-end-line="43" selection-end-column="56" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserLogin.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ekok/fbutourguideapp/Login/UserLogin.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33333334">
-              <caret line="46" column="8" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-33.75">
-              <caret line="54" column="51" selection-start-line="54" selection-start-column="51" selection-end-line="54" selection-end-column="51" />
+              <caret line="28" column="18" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -96,84 +58,62 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ekok/fbutourguideapp/User.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="23" column="27" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
+              <caret line="40" column="5" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#665#666#0" expanded="true" />
-                <element signature="e#691#692#0" expanded="true" />
-                <element signature="e#755#756#0" expanded="true" />
-                <element signature="e#782#783#0" expanded="true" />
-                <element signature="e#832#833#0" expanded="true" />
-                <element signature="e#860#861#0" expanded="true" />
-                <element signature="e#930#931#0" expanded="true" />
-                <element signature="e#957#958#0" expanded="true" />
-                <element signature="e#1041#1042#0" expanded="true" />
-                <element signature="e#1068#1069#0" expanded="true" />
-                <element signature="e#1166#1167#0" expanded="true" />
-                <element signature="e#1193#1194#0" expanded="true" />
-                <element signature="e#1250#1251#0" expanded="true" />
-                <element signature="e#1277#1278#0" expanded="true" />
-                <element signature="e#1337#1338#0" expanded="true" />
-                <element signature="e#1364#1365#0" expanded="true" />
-                <element signature="e#1430#1431#0" expanded="true" />
-                <element signature="e#1464#1465#0" expanded="true" />
-                <element signature="e#1524#1525#0" expanded="true" />
-                <element signature="e#1551#1552#0" expanded="true" />
-                <element signature="e#1611#1612#0" expanded="true" />
-                <element signature="e#1639#1640#0" expanded="true" />
-                <element signature="e#1694#1695#0" expanded="true" />
-                <element signature="e#1721#1722#0" expanded="true" />
+                <element signature="e#374#375#0" expanded="true" />
+                <element signature="e#400#401#0" expanded="true" />
+                <element signature="e#438#439#0" expanded="true" />
+                <element signature="e#463#464#0" expanded="true" />
+                <element signature="e#501#502#0" expanded="true" />
+                <element signature="e#535#536#0" expanded="true" />
+                <element signature="e#589#590#0" expanded="true" />
+                <element signature="e#635#636#0" expanded="true" />
+                <element signature="e#667#668#0" expanded="true" />
+                <element signature="e#695#696#0" expanded="true" />
+                <element signature="e#737#738#0" expanded="true" />
+                <element signature="e#771#772#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="item_trip.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_trip.xml">
+      <file leaf-file-name="UserLogin.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ekok/fbutourguideapp/Login/UserLogin.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.1132076">
-              <caret line="11" column="35" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
+            <state vertical-scroll-proportion="0.3325868">
+              <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+              <folding>
+                <element signature="e#1773#2313#0" expanded="true" />
+                <element signature="e#2312#2313#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-16.875">
+              <caret line="27" column="19" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
               <folding />
             </state>
           </provider>
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
         </entry>
       </file>
-      <file leaf-file-name="RequestArayAdapter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ekok/fbutourguideapp/Travelers/RequestArayAdapter.java">
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RequestModel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ekok/fbutourguideapp/Travelers/RequestModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="77" column="1" selection-start-line="77" selection-start-column="1" selection-end-line="77" selection-end-column="1" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="layoutResourceFile_vertical" />
-        <option value="Class" />
-      </list>
-    </option>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GradleLocalSettings">
     <option name="availableProjects">
@@ -711,79 +651,69 @@
                 <option name="name" value="prepareComFacebookAndroidFacebookAndroidSdk4140Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare com.google.android.gms:play-services-auth:9.0.2" />
+                <option name="description" value="Prepare com.google.android.gms:play-services-base:9.2.1" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesAuth902Library" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesBase921Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare com.google.android.gms:play-services-auth-base:9.0.2" />
+                <option name="description" value="Prepare com.google.android.gms:play-services-basement:9.2.1" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesAuthBase902Library" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesBasement921Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare com.google.android.gms:play-services-base:9.0.2" />
+                <option name="description" value="Prepare com.google.android.gms:play-services-tasks:9.2.1" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesBase902Library" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesTasks921Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare com.google.android.gms:play-services-basement:9.0.2" />
+                <option name="description" value="Prepare com.google.firebase:firebase-analytics:9.2.1" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesBasement902Library" />
+                <option name="name" value="prepareComGoogleFirebaseFirebaseAnalytics921Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare com.google.android.gms:play-services-tasks:9.0.2" />
+                <option name="description" value="Prepare com.google.firebase:firebase-analytics-impl:9.2.1" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesTasks902Library" />
+                <option name="name" value="prepareComGoogleFirebaseFirebaseAnalyticsImpl921Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare com.google.firebase:firebase-analytics:9.0.2" />
+                <option name="description" value="Prepare com.google.firebase:firebase-auth:9.2.1" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="prepareComGoogleFirebaseFirebaseAnalytics902Library" />
+                <option name="name" value="prepareComGoogleFirebaseFirebaseAuth921Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare com.google.firebase:firebase-analytics-impl:9.0.2" />
+                <option name="description" value="Prepare com.google.firebase:firebase-auth-common:9.2.1" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="prepareComGoogleFirebaseFirebaseAnalyticsImpl902Library" />
+                <option name="name" value="prepareComGoogleFirebaseFirebaseAuthCommon921Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare com.google.firebase:firebase-auth:9.0.2" />
+                <option name="description" value="Prepare com.google.firebase:firebase-auth-module:9.2.1" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="prepareComGoogleFirebaseFirebaseAuth902Library" />
+                <option name="name" value="prepareComGoogleFirebaseFirebaseAuthModule921Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare com.google.firebase:firebase-auth-common:9.0.2" />
+                <option name="description" value="Prepare com.google.firebase:firebase-common:9.2.1" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="prepareComGoogleFirebaseFirebaseAuthCommon902Library" />
+                <option name="name" value="prepareComGoogleFirebaseFirebaseCommon921Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare com.google.firebase:firebase-auth-module:9.0.2" />
+                <option name="description" value="Prepare com.google.firebase:firebase-core:9.2.1" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="prepareComGoogleFirebaseFirebaseAuthModule902Library" />
+                <option name="name" value="prepareComGoogleFirebaseFirebaseCore921Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare com.google.firebase:firebase-common:9.0.2" />
+                <option name="description" value="Prepare com.google.firebase:firebase-database:9.2.1" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="prepareComGoogleFirebaseFirebaseCommon902Library" />
+                <option name="name" value="prepareComGoogleFirebaseFirebaseDatabase921Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare com.google.firebase:firebase-core:9.0.2" />
+                <option name="description" value="Prepare com.google.firebase:firebase-database-connection:9.2.1" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="prepareComGoogleFirebaseFirebaseCore902Library" />
+                <option name="name" value="prepareComGoogleFirebaseFirebaseDatabaseConnection921Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare com.google.firebase:firebase-database:9.0.2" />
+                <option name="description" value="Prepare com.google.firebase:firebase-iid:9.2.1" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="prepareComGoogleFirebaseFirebaseDatabase902Library" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Prepare com.google.firebase:firebase-database-connection:9.0.2" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="prepareComGoogleFirebaseFirebaseDatabaseConnection902Library" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Prepare com.google.firebase:firebase-iid:9.0.2" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="prepareComGoogleFirebaseFirebaseIid902Library" />
+                <option name="name" value="prepareComGoogleFirebaseFirebaseIid921Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
@@ -1442,79 +1372,69 @@
                 <option name="name" value="prepareComFacebookAndroidFacebookAndroidSdk4140Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare com.google.android.gms:play-services-auth:9.0.2" />
+                <option name="description" value="Prepare com.google.android.gms:play-services-base:9.2.1" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
-                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesAuth902Library" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesBase921Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare com.google.android.gms:play-services-auth-base:9.0.2" />
+                <option name="description" value="Prepare com.google.android.gms:play-services-basement:9.2.1" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
-                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesAuthBase902Library" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesBasement921Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare com.google.android.gms:play-services-base:9.0.2" />
+                <option name="description" value="Prepare com.google.android.gms:play-services-tasks:9.2.1" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
-                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesBase902Library" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesTasks921Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare com.google.android.gms:play-services-basement:9.0.2" />
+                <option name="description" value="Prepare com.google.firebase:firebase-analytics:9.2.1" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
-                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesBasement902Library" />
+                <option name="name" value="prepareComGoogleFirebaseFirebaseAnalytics921Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare com.google.android.gms:play-services-tasks:9.0.2" />
+                <option name="description" value="Prepare com.google.firebase:firebase-analytics-impl:9.2.1" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
-                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesTasks902Library" />
+                <option name="name" value="prepareComGoogleFirebaseFirebaseAnalyticsImpl921Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare com.google.firebase:firebase-analytics:9.0.2" />
+                <option name="description" value="Prepare com.google.firebase:firebase-auth:9.2.1" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
-                <option name="name" value="prepareComGoogleFirebaseFirebaseAnalytics902Library" />
+                <option name="name" value="prepareComGoogleFirebaseFirebaseAuth921Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare com.google.firebase:firebase-analytics-impl:9.0.2" />
+                <option name="description" value="Prepare com.google.firebase:firebase-auth-common:9.2.1" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
-                <option name="name" value="prepareComGoogleFirebaseFirebaseAnalyticsImpl902Library" />
+                <option name="name" value="prepareComGoogleFirebaseFirebaseAuthCommon921Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare com.google.firebase:firebase-auth:9.0.2" />
+                <option name="description" value="Prepare com.google.firebase:firebase-auth-module:9.2.1" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
-                <option name="name" value="prepareComGoogleFirebaseFirebaseAuth902Library" />
+                <option name="name" value="prepareComGoogleFirebaseFirebaseAuthModule921Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare com.google.firebase:firebase-auth-common:9.0.2" />
+                <option name="description" value="Prepare com.google.firebase:firebase-common:9.2.1" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
-                <option name="name" value="prepareComGoogleFirebaseFirebaseAuthCommon902Library" />
+                <option name="name" value="prepareComGoogleFirebaseFirebaseCommon921Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare com.google.firebase:firebase-auth-module:9.0.2" />
+                <option name="description" value="Prepare com.google.firebase:firebase-core:9.2.1" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
-                <option name="name" value="prepareComGoogleFirebaseFirebaseAuthModule902Library" />
+                <option name="name" value="prepareComGoogleFirebaseFirebaseCore921Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare com.google.firebase:firebase-common:9.0.2" />
+                <option name="description" value="Prepare com.google.firebase:firebase-database:9.2.1" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
-                <option name="name" value="prepareComGoogleFirebaseFirebaseCommon902Library" />
+                <option name="name" value="prepareComGoogleFirebaseFirebaseDatabase921Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare com.google.firebase:firebase-core:9.0.2" />
+                <option name="description" value="Prepare com.google.firebase:firebase-database-connection:9.2.1" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
-                <option name="name" value="prepareComGoogleFirebaseFirebaseCore902Library" />
+                <option name="name" value="prepareComGoogleFirebaseFirebaseDatabaseConnection921Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare com.google.firebase:firebase-database:9.0.2" />
+                <option name="description" value="Prepare com.google.firebase:firebase-iid:9.2.1" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
-                <option name="name" value="prepareComGoogleFirebaseFirebaseDatabase902Library" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Prepare com.google.firebase:firebase-database-connection:9.0.2" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
-                <option name="name" value="prepareComGoogleFirebaseFirebaseDatabaseConnection902Library" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Prepare com.google.firebase:firebase-iid:9.0.2" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
-                <option name="name" value="prepareComGoogleFirebaseFirebaseIid902Library" />
+                <option name="name" value="prepareComGoogleFirebaseFirebaseIid921Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
@@ -1708,7 +1628,7 @@
     <option name="modificationStamps">
       <map>
         <entry key="$USER_HOME$/AndroidStudioProjects/TodoApp2" value="4397839276000" />
-        <entry key="$PROJECT_DIR$" value="4405458155000" />
+        <entry key="$PROJECT_DIR$" value="4405474854000" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -1897,10 +1817,9 @@
                             <option value="$USER_HOME$/Library/Android/sdk/extras/android/m2repository/com/android/support/appcompat-v7/24.0.0/appcompat-v7-24.0.0.aar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.facebook.android/facebook-android-sdk/4.14.0/90532636035a42be7f9d956e46807c52f5ae4e27/facebook-android-sdk-4.14.0.aar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/design/24.0.0/cae49b48dd595e2dc264470dab3c89ccda1027c1/design-24.0.0.aar" />
-                            <option value="$USER_HOME$/Library/Android/sdk/extras/google/m2repository/com/google/firebase/firebase-core/9.0.2/firebase-core-9.0.2.aar" />
-                            <option value="$USER_HOME$/Library/Android/sdk/extras/google/m2repository/com/google/firebase/firebase-database/9.0.2/firebase-database-9.0.2.aar" />
-                            <option value="$USER_HOME$/Library/Android/sdk/extras/google/m2repository/com/google/android/gms/play-services-auth/9.0.2/play-services-auth-9.0.2.aar" />
-                            <option value="$USER_HOME$/Library/Android/sdk/extras/google/m2repository/com/google/firebase/firebase-auth/9.0.2/firebase-auth-9.0.2.aar" />
+                            <option value="$USER_HOME$/Library/Android/sdk/extras/google/m2repository/com/google/firebase/firebase-core/9.2.1/firebase-core-9.2.1.aar" />
+                            <option value="$USER_HOME$/Library/Android/sdk/extras/google/m2repository/com/google/firebase/firebase-database/9.2.1/firebase-database-9.2.1.aar" />
+                            <option value="$USER_HOME$/Library/Android/sdk/extras/google/m2repository/com/google/firebase/firebase-auth/9.2.1/firebase-auth-9.2.1.aar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.firebase/firebase-client-android/2.3.1/be29b24233711c419ce935aa0a1b12ebc49d1c9a/firebase-client-android-2.3.1.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.loopj.android/android-async-http/1.4.9/386a4339ffe52d5d63e80f9bed8d2b1d1a418249/android-async-http-1.4.9.jar" />
                             <option value="$USER_HOME$/Library/Android/sdk/extras/android/m2repository/com/android/support/support-v4/24.0.0/support-v4-24.0.0.aar" />
@@ -1910,23 +1829,22 @@
                             <option value="$USER_HOME$/Library/Android/sdk/extras/android/m2repository/com/android/support/cardview-v7/23.4.0/cardview-v7-23.4.0.aar" />
                             <option value="$USER_HOME$/Library/Android/sdk/extras/android/m2repository/com/android/support/customtabs/23.4.0/customtabs-23.4.0.aar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/recyclerview-v7/24.0.0/7f284fb9e9e5e58b8cd2c124cab99c6c8f1e08ae/recyclerview-v7-24.0.0.aar" />
-                            <option value="$USER_HOME$/Library/Android/sdk/extras/google/m2repository/com/google/firebase/firebase-analytics/9.0.2/firebase-analytics-9.0.2.aar" />
-                            <option value="$USER_HOME$/Library/Android/sdk/extras/google/m2repository/com/google/android/gms/play-services-base/9.0.2/play-services-base-9.0.2.aar" />
-                            <option value="$USER_HOME$/Library/Android/sdk/extras/google/m2repository/com/google/android/gms/play-services-basement/9.0.2/play-services-basement-9.0.2.aar" />
-                            <option value="$USER_HOME$/Library/Android/sdk/extras/google/m2repository/com/google/firebase/firebase-database-connection/9.0.2/firebase-database-connection-9.0.2.aar" />
-                            <option value="$USER_HOME$/Library/Android/sdk/extras/google/m2repository/com/google/firebase/firebase-common/9.0.2/firebase-common-9.0.2.aar" />
-                            <option value="$USER_HOME$/Library/Android/sdk/extras/google/m2repository/com/google/android/gms/play-services-tasks/9.0.2/play-services-tasks-9.0.2.aar" />
-                            <option value="$USER_HOME$/Library/Android/sdk/extras/google/m2repository/com/google/android/gms/play-services-auth-base/9.0.2/play-services-auth-base-9.0.2.aar" />
-                            <option value="$USER_HOME$/Library/Android/sdk/extras/google/m2repository/com/google/firebase/firebase-auth-common/9.0.2/firebase-auth-common-9.0.2.aar" />
-                            <option value="$USER_HOME$/Library/Android/sdk/extras/google/m2repository/com/google/firebase/firebase-auth-module/9.0.2/firebase-auth-module-9.0.2.aar" />
+                            <option value="$USER_HOME$/Library/Android/sdk/extras/google/m2repository/com/google/firebase/firebase-analytics/9.2.1/firebase-analytics-9.2.1.aar" />
+                            <option value="$USER_HOME$/Library/Android/sdk/extras/google/m2repository/com/google/android/gms/play-services-base/9.2.1/play-services-base-9.2.1.aar" />
+                            <option value="$USER_HOME$/Library/Android/sdk/extras/google/m2repository/com/google/android/gms/play-services-basement/9.2.1/play-services-basement-9.2.1.aar" />
+                            <option value="$USER_HOME$/Library/Android/sdk/extras/google/m2repository/com/google/firebase/firebase-database-connection/9.2.1/firebase-database-connection-9.2.1.aar" />
+                            <option value="$USER_HOME$/Library/Android/sdk/extras/google/m2repository/com/google/firebase/firebase-common/9.2.1/firebase-common-9.2.1.aar" />
+                            <option value="$USER_HOME$/Library/Android/sdk/extras/google/m2repository/com/google/android/gms/play-services-tasks/9.2.1/play-services-tasks-9.2.1.aar" />
+                            <option value="$USER_HOME$/Library/Android/sdk/extras/google/m2repository/com/google/firebase/firebase-auth-common/9.2.1/firebase-auth-common-9.2.1.aar" />
+                            <option value="$USER_HOME$/Library/Android/sdk/extras/google/m2repository/com/google/firebase/firebase-auth-module/9.2.1/firebase-auth-module-9.2.1.aar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.firebase/firebase-client-jvm/2.3.1/4d53b7d6983247af02b8fe7e4228fff555a5e828/firebase-client-jvm-2.3.1.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/cz.msebera.android/httpclient/4.3.6/526a9f794eab830eae4f23a62c572878b3f491ab/httpclient-4.3.6.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.4.0/d85884acf6810a3bbbecb587f239005cbc846dc4/bolts-tasks-1.4.0.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-applinks/1.4.0/8ad21bf21784dacce5f2043afb97218cc377e835/bolts-applinks-1.4.0.jar" />
-                            <option value="$USER_HOME$/Library/Android/sdk/extras/google/m2repository/com/google/firebase/firebase-analytics-impl/9.0.2/firebase-analytics-impl-9.0.2.aar" />
+                            <option value="$USER_HOME$/Library/Android/sdk/extras/google/m2repository/com/google/firebase/firebase-analytics-impl/9.2.1/firebase-analytics-impl-9.2.1.aar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.2.2/3c8f6018eaa72d43b261181e801e6f8676c16ef6/jackson-databind-2.2.2.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.firebase/tubesock/0.0.11/d37cb67277928cf59344b4196af8d9cee1f1a27c/tubesock-0.0.11.jar" />
-                            <option value="$USER_HOME$/Library/Android/sdk/extras/google/m2repository/com/google/firebase/firebase-iid/9.0.2/firebase-iid-9.0.2.aar" />
+                            <option value="$USER_HOME$/Library/Android/sdk/extras/google/m2repository/com/google/firebase/firebase-iid/9.2.1/firebase-iid-9.2.1.aar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.2.2/285cb9c666f0f0f3dd8a1be04e1f457eb7b15113/jackson-annotations-2.2.2.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.2.2/d20be6a5ddd6f8cfd36ebf6dea329873a1c41f1b/jackson-core-2.2.2.jar" />
                             <option value="$USER_HOME$/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/24.0.0/support-annotations-24.0.0.jar" />
@@ -2070,22 +1988,15 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/ekok/fbutourguideapp/Travelers/RequestFirebase.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/ekok/fbutourguideapp/Travelers/NewRequest.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/ekok/fbutourguideapp/Travelers/RequestModel.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_trip.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/ekok/fbutourguideapp/Travelers/RequestArayAdapter.java" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/ekok/fbutourguideapp/Travelers/TravelerMain.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/ekok/fbutourguideapp/User.java" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/ekok/fbutourguideapp/Login/UserLogin.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/ekok/fbutourguideapp/User.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="2430" />
-    <option name="width" value="1570" />
+    <option name="x" value="2722" />
+    <option name="width" value="1278" />
     <option name="height" value="1440" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -2113,10 +2024,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -2188,70 +2097,8 @@
               <option name="myItemId" value="fbutourguideapp" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FBUTourGuide4" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fbutourguideapp" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Travelers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FBUTourGuide4" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fbutourguideapp" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Login" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FBUTourGuide4" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fbutourguideapp" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Guides" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -2271,13 +2118,48 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FBUTourGuide4" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FBUTourGuide4" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FBUTourGuide4" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FBUTourGuide4" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FBUTourGuide4" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
+    <property name="settings.editor.selected.configurable" value="android.sdk-updates" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="device.picker.selection" value="01fbacec74f52aae" />
+    <property name="device.picker.selection" value="192.168.56.101:5555" />
     <property name="FullScreen" value="true" />
   </component>
   <component name="RunManager" selected="Android Application.app">
@@ -2546,125 +2428,74 @@
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="ac8fcb65-5780-4723-8964-37aab523befe" name="Default" comment="" />
-      <created>1468539318754</created>
+      <changelist id="e8188080-7c57-4729-8945-3abbe30465ed" name="Default" comment="" />
+      <created>1468619076363</created>
       <option name="number" value="Default" />
-      <updated>1468539318754</updated>
+      <updated>1468619076363</updated>
     </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="2430" y="0" width="1570" height="1440" extended-state="0" />
+    <frame x="2722" y="0" width="1278" height="1440" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3484398" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31575036" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39970282" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32986626" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2760646" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16950262" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21763754" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
-    <layout-to-restore>
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1909361" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.018324608" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-    </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <option name="time" value="8" />
-    </breakpoint-manager>
+    <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ekok/fbutourguideapp/Guides/GuideBasic.java">
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.0364683">
-          <caret line="94" column="0" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
-          <folding>
-            <element signature="e#2744#3058#0" expanded="false" />
-            <element signature="e#3057#3058#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ekok/fbutourguideapp/LauncherActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12096774">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/Library/Android/sdk/platforms/android-24/android.jar!/android/view/View.class">
+    <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.814815">
-          <caret line="208" column="19" selection-start-line="208" selection-start-column="19" selection-end-line="208" selection-end-column="19" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/Library/Android/sdk/platforms/android-24/android.jar!/android/os/Handler.class">
+    <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.4444447">
-          <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Library/Android/sdk/platforms/android-24/android.jar!/android/os/Looper.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2892562">
-          <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -2672,120 +2503,48 @@
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="43" column="56" selection-start-line="43" selection-start-column="56" selection-end-line="43" selection-end-column="56" />
+          <caret line="28" column="18" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_trip.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.1132076">
-          <caret line="11" column="35" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ekok/fbutourguideapp/Travelers/NewRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7210179">
-          <caret line="65" column="35" selection-start-line="65" selection-start-column="35" selection-end-line="65" selection-end-column="35" />
-          <folding>
-            <element signature="e#1693#5383#0" expanded="true" />
-            <element signature="e#5382#5383#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ekok/fbutourguideapp/FirebaseStart.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ekok/fbutourguideapp/Travelers/RequestArayAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ekok/fbutourguideapp/Travelers/RequestModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="77" column="1" selection-start-line="77" selection-start-column="1" selection-end-line="77" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ekok/fbutourguideapp/Travelers/TravelerMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="40" selection-start-line="29" selection-start-column="40" selection-end-line="29" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2319#2591#0" expanded="true" />
-            <element signature="e#2590#2591#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ekok/fbutourguideapp/User.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="27" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
+          <caret line="40" column="5" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#665#666#0" expanded="true" />
-            <element signature="e#691#692#0" expanded="true" />
-            <element signature="e#755#756#0" expanded="true" />
-            <element signature="e#782#783#0" expanded="true" />
-            <element signature="e#832#833#0" expanded="true" />
-            <element signature="e#860#861#0" expanded="true" />
-            <element signature="e#930#931#0" expanded="true" />
-            <element signature="e#957#958#0" expanded="true" />
-            <element signature="e#1041#1042#0" expanded="true" />
-            <element signature="e#1068#1069#0" expanded="true" />
-            <element signature="e#1166#1167#0" expanded="true" />
-            <element signature="e#1193#1194#0" expanded="true" />
-            <element signature="e#1250#1251#0" expanded="true" />
-            <element signature="e#1277#1278#0" expanded="true" />
-            <element signature="e#1337#1338#0" expanded="true" />
-            <element signature="e#1364#1365#0" expanded="true" />
-            <element signature="e#1430#1431#0" expanded="true" />
-            <element signature="e#1464#1465#0" expanded="true" />
-            <element signature="e#1524#1525#0" expanded="true" />
-            <element signature="e#1551#1552#0" expanded="true" />
-            <element signature="e#1611#1612#0" expanded="true" />
-            <element signature="e#1639#1640#0" expanded="true" />
-            <element signature="e#1694#1695#0" expanded="true" />
-            <element signature="e#1721#1722#0" expanded="true" />
+            <element signature="e#374#375#0" expanded="true" />
+            <element signature="e#400#401#0" expanded="true" />
+            <element signature="e#438#439#0" expanded="true" />
+            <element signature="e#463#464#0" expanded="true" />
+            <element signature="e#501#502#0" expanded="true" />
+            <element signature="e#535#536#0" expanded="true" />
+            <element signature="e#589#590#0" expanded="true" />
+            <element signature="e#635#636#0" expanded="true" />
+            <element signature="e#667#668#0" expanded="true" />
+            <element signature="e#695#696#0" expanded="true" />
+            <element signature="e#737#738#0" expanded="true" />
+            <element signature="e#771#772#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-33.75">
-          <caret line="54" column="51" selection-start-line="54" selection-start-column="51" selection-end-line="54" selection-end-column="51" />
+        <state vertical-scroll-proportion="-16.875">
+          <caret line="27" column="19" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/ekok/fbutourguideapp/Login/UserLogin.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="46" column="8" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="43" />
-          <folding />
+        <state vertical-scroll-proportion="0.3325868">
+          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <folding>
+            <element signature="e#1773#2313#0" expanded="true" />
+            <element signature="e#2312#2313#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

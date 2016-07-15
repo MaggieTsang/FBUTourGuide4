@@ -1,2 +1,236 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
+
+    <item
+        jar="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth-module/9.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="35a01d7cb4ff6b5976777bf5827fd8f206fb8757">
+        <dex dex="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-auth-module-9.2.1_92a6972c63bdbb0bb2ad28dfb6be9ae38228b37b.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/.gradle/caches/modules-2/files-2.1/cz.msebera.android/httpclient/4.3.6/526a9f794eab830eae4f23a62c572878b3f491ab/httpclient-4.3.6.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="526a9f794eab830eae4f23a62c572878b3f491ab">
+        <dex dex="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/httpclient-4.3.6_439d6fb663c2b2f64c21b5e43a001f0b4da9d133.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/.gradle/caches/modules-2/files-2.1/com.loopj.android/android-async-http/1.4.9/386a4339ffe52d5d63e80f9bed8d2b1d1a418249/android-async-http-1.4.9.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="386a4339ffe52d5d63e80f9bed8d2b1d1a418249">
+        <dex dex="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/android-async-http-1.4.9_c9e53d1706d07cbe2e7151be34da7fe9b5466031.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/9.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="819c2c3a4fb135e085445d11131d069cf9c32b2a">
+        <dex dex="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-tasks-9.2.1_d0f946105b2b768b041e75b0aca0e74cc3dcc49e.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.2.2/3c8f6018eaa72d43b261181e801e6f8676c16ef6/jackson-databind-2.2.2.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="3c8f6018eaa72d43b261181e801e6f8676c16ef6">
+        <dex dex="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/jackson-databind-2.2.2_1fc0e99b4b28181988a7edbe87fced400b1f7691.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/.gradle/caches/modules-2/files-2.1/com.firebase/firebase-client-android/2.3.1/be29b24233711c419ce935aa0a1b12ebc49d1c9a/firebase-client-android-2.3.1.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="be29b24233711c419ce935aa0a1b12ebc49d1c9a">
+        <dex dex="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/firebase-client-android-2.3.1_7f73bffd1d490f81680b8741754f2d641d67c868.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/9.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="5337354083e89ed67151859ab0b6b80935c60eaf">
+        <dex dex="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-analytics-impl-9.2.1_70430c7108fd26edc18c76d0f648a259db7d43c2.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="d9ecde39b460470e655de6e47c05573d2d5a8bfb">
+        <dex dex="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/com.android.support-cardview-v7-23.4.0_dce2a4ad23aa2849f3c626af4f9d0b19dffdf10f.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/24.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="894922f67adeaaef51f077a29e315da21a3382d3">
+        <dex dex="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-24.0.0_d8f03988b3e8ca2c9012027560528854c44b980e.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth/9.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="2506c5893e125e2f9cfc522378e893620c21b109">
+        <dex dex="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-auth-9.2.1_23f99790134d2fe535268f45373b67a0558b47ac.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="0874286cc2fd88d54fdf130e9d5372730da6de97">
+        <dex dex="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-24.0.0_ee104d876aa33b508ea183b7cfd1dd5450a6a2be.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="3bd97cfefd783e9de1dd1c30574a6adb44b4409b">
+        <dex dex="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-24.0.0_be71ac3af56221806e09ce819738f73b154df061.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.2.2/d20be6a5ddd6f8cfd36ebf6dea329873a1c41f1b/jackson-core-2.2.2.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="d20be6a5ddd6f8cfd36ebf6dea329873a1c41f1b">
+        <dex dex="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/jackson-core-2.2.2_684e00e94d67f48319cc760cdda26b673452af35.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="421b36cf4f0d3bbd75e8f28647fccf36674ef049">
+        <dex dex="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-base-9.2.1_5a463df1914839d93a8ac4187fbaa0983e3c5c88.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="e70f608219ed6b974644c333249ab2bb7b71de98">
+        <dex dex="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-24.0.0_af6b1c95f30218d7b4751607511e626768bf0ef5.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/24.0.0/support-annotations-24.0.0.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="2943c74db6d4346ab8c6531adac91fa05c137c40">
+        <dex dex="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/support-annotations-24.0.0_091826c131eb5f0309189726f64c4cf5c9b543fa.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="2f7e6e2dad1bccaf68a8820820adc6c0d5b96d37">
+        <dex dex="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-24.0.0_2ec8d7272c6ef32161896d5e7ae7931f39cdca24.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-applinks/1.4.0/8ad21bf21784dacce5f2043afb97218cc377e835/bolts-applinks-1.4.0.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="8ad21bf21784dacce5f2043afb97218cc377e835">
+        <dex dex="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/bolts-applinks-1.4.0_45c64c919d386cb842f212f6d03f01c5d0a54de0.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/9.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="3627eacd7f7cafb5e8ae683992e7b2f9b7dcab1a">
+        <dex dex="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-common-9.2.1_a65b3196b4a78d2cd7a9c1a9ca22f2004f03202a.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/exploded-aar/com.android.support/design/24.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="fc29308a7a8f6d4407b34634eb48fb8b817f9b23">
+        <dex dex="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/com.android.support-design-24.0.0_07d03b61094b4dfdbafd5532e4c77381462b47e1.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/jars/libs/internal_impl-24.0.0.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="fcaf463e10e69c1923ccf1edeba3b4196d239e00">
+        <dex dex="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/internal_impl-24.0.0_bca28ef92822d6d3eb7cb597fee2b20768f234d4.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/9.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="d41b5d21cc9dd7d210f0ae82ac509ba7f091d611">
+        <dex dex="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-iid-9.2.1_74ee6691a19e0cfe52a70418b2145f36c0553383.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/.gradle/caches/modules-2/files-2.1/com.firebase/tubesock/0.0.11/d37cb67277928cf59344b4196af8d9cee1f1a27c/tubesock-0.0.11.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="d37cb67277928cf59344b4196af8d9cee1f1a27c">
+        <dex dex="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/tubesock-0.0.11_7604d0d4ba699d9431a92defef4175996783b037.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.2.2/285cb9c666f0f0f3dd8a1be04e1f457eb7b15113/jackson-annotations-2.2.2.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="285cb9c666f0f0f3dd8a1be04e1f457eb7b15113">
+        <dex dex="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/jackson-annotations-2.2.2_0418571cafeb27b19b0e18d74ccfd6108ff5ef52.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database/9.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="f06a0705d7b8b9d18b00d056fe0e07bec75514e6">
+        <dex dex="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-database-9.2.1_628cfe6e20013a6daabdd20ead4b120a5a4a3719.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="6b896c1067633db41e9c10a3a5d0919c5c4cfc8c">
+        <dex dex="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-basement-9.2.1_8389adc3158a7898841bfa7ddd72dcd8a1614ad1.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database-connection/9.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="05d2e01f33fb2097b51fce3f938dc37a75fe2d6b">
+        <dex dex="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-database-connection-9.2.1_c457fca4581d08f4e755497b4f40da2430d3975f.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth-common/9.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="ee409046028e5657a2a69edaa2eba00d6511a74c">
+        <dex dex="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-auth-common-9.2.1_7cff95fda05b746cfac4fe5fdfd1787a13846ada.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.0/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="7cb8f70e66bdc25ee66ab8351a4e7214b6517aa8">
+        <dex dex="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/com.facebook.android-facebook-android-sdk-4.14.0_024dab4650c2e778a00e25d232166bdf83431bf8.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="6a0f2d219f82db499ac03d5a985c4eb3e83fc422">
+        <dex dex="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-analytics-9.2.1_0e75cc71c32be676e0a1a20cbe2c9eb0e5521346.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/exploded-aar/com.android.support/customtabs/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="2d1eaa9e0b98f8fc4c2b989d9b30d4f1480648ac">
+        <dex dex="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/com.android.support-customtabs-23.4.0_9ae0d16bfd96be391b126352442820fe24814239.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/.gradle/caches/modules-2/files-2.1/com.firebase/firebase-client-jvm/2.3.1/4d53b7d6983247af02b8fe7e4228fff555a5e828/firebase-client-jvm-2.3.1.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="4d53b7d6983247af02b8fe7e4228fff555a5e828">
+        <dex dex="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/firebase-client-jvm-2.3.1_0458ab07f0a1a670dc7f50592d6d92259fb08f7e.jar" />
+    </item>
+    <item
+        jar="/Users/ekok/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.4.0/d85884acf6810a3bbbecb587f239005cbc846dc4/bolts-tasks-1.4.0.jar"
+        jumboMode="false"
+        revision="24.0.0"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="/Users/ekok/Desktop/lol/FBUTourGuide4/app/build/intermediates/pre-dexed/debug/bolts-tasks-1.4.0_d049b1f5c30c825094a528975d7ecda6fd866251.jar" />
+    </item>
+
+</items>
