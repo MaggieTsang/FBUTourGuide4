@@ -12,26 +12,24 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.ekok.fbutourguideapp.R;
-import com.loopj.android.http.AsyncHttpClient;
-import com.loopj.android.http.JsonHttpResponseHandler;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 
 import java.util.ArrayList;
-
-import cz.msebera.android.httpclient.Header;
 
 /**
  * Created by mbytsang on 7/5/16.
  */
 public class TravelerMain extends AppCompatActivity{
     private final int REQUEST_CODE = 20;
+    private static final String TAG = "Firebase";
 
     ArrayList<RequestModel> trips;
-    RequestArayAdapter tripsAdapter;
+    RequestAdapter adapter;
     ListView lvTrips;
+    private DatabaseReference dataRef;
 
 
     @Override
@@ -40,35 +38,71 @@ public class TravelerMain extends AppCompatActivity{
         setContentView(R.layout.activity_travelermain);
 
         lvTrips = (ListView) findViewById(R.id.lvTrips);
-        trips = new ArrayList<>();
-        tripsAdapter = new RequestArayAdapter(this,trips);
-        lvTrips.setAdapter(tripsAdapter);
+        trips = new ArrayList<RequestModel>();
+//        tripsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, trips);
+        adapter = new RequestAdapter(this, trips);
+        lvTrips.setAdapter(adapter);
+//        RequestModel requestModel = new RequestModel();
+//        adapter.add(requestModel);
+//        adapter.notifyDataSetChanged();
 
-        String url = "https://fbutourguide.firebaseio.com/Traveler/";
+//        for (int i = 0; i < 25; i++) {
+//            trips.add("Le Tripsss");
+//        }
 
-        AsyncHttpClient client = new AsyncHttpClient();
-
-        client.get(url, new JsonHttpResponseHandler(){
+        ChildEventListener childEventListener = new ChildEventListener() {
             @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                JSONArray requestJsonResults = null;
+            public void onChildAdded(DataSnapshot dataSnapshot, String previousChildName) {
+                Log.d(TAG, "onChildAdded:" + dataSnapshot.getKey());
 
-                try {
-                    requestJsonResults = response.getJSONArray("trips_current");
-                    trips.addAll(RequestModel.fromJSONArray(requestJsonResults));
-                    tripsAdapter.notifyDataSetChanged();
-                    Log.d("DEBUG", trips.toString());
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+                // A new comment has been added, add it to the displayed list
+                RequestModel request = dataSnapshot.getValue(RequestModel.class);
+                trips.add(request);
             }
 
             @Override
-            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-                super.onFailure(statusCode, headers, responseString, throwable);
-            }
-        });
+            public void onChildChanged(DataSnapshot dataSnapshot, String previousChildName) {
+                Log.d(TAG, "onChildChanged:" + dataSnapshot.getKey());
 
+                // A comment has changed, use the key to determine if we are displaying this
+                // comment and if so displayed the changed comment.
+                NewRequest request = dataSnapshot.getValue(NewRequest.class);
+                String requestKey = dataSnapshot.getKey();
+
+                // ...
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+                Log.d(TAG, "onChildRemoved:" + dataSnapshot.getKey());
+
+                // A comment has changed, use the key to determine if we are displaying this
+                // comment and if so remove it.
+                String requestKey = dataSnapshot.getKey();
+
+                // ...
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String previousChildName) {
+                Log.d(TAG, "onChildMoved:" + dataSnapshot.getKey());
+
+                // A comment has changed position, use the key to determine if we are
+                // displaying this comment and if so move it.
+                NewRequest request = dataSnapshot.getValue(NewRequest.class);
+                String requestKey = dataSnapshot.getKey();
+
+                // ...
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.w(TAG, "postComments:onCancelled", databaseError.toException());
+                Toast.makeText(getApplicationContext(), "Failed to load comments.",
+                        Toast.LENGTH_SHORT).show();
+            }
+        };
+        dataRef.addChildEventListener(childEventListener);
 
 
         lvTrips.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -96,9 +130,11 @@ public class TravelerMain extends AppCompatActivity{
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK && requestCode == REQUEST_CODE) {
             // Extract place value from result extras
+            RequestModel requestModel = new RequestModel();
             String place = data.getExtras().getString("place");
+            adapter.add(requestModel);
+            adapter.notifyAll();
 
-           // trips.add(0, place);
         }
     }
 }

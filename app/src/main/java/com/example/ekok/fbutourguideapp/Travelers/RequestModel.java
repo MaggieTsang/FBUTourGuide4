@@ -1,11 +1,5 @@
 package com.example.ekok.fbutourguideapp.Travelers;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
-
 /**
  * Created by ekok on 7/11/16.
  */
@@ -17,11 +11,8 @@ public class RequestModel {
     int groupSize;
     String languages;
 
-    public RequestModel(JSONObject jsonObject) throws JSONException {
-        this.place = jsonObject.getString("place");
-        this.startDate = jsonObject.getString("startDate");
-    }
 
+    public RequestModel(){}
 
     public String getStartDate() {
         return startDate;
@@ -63,16 +54,5 @@ public class RequestModel {
         this.languages = languages;
     }
 
-    public static ArrayList<RequestModel> fromJSONArray(JSONArray array) {
-        ArrayList<RequestModel> results = new ArrayList<>();
 
-        for (int x = 0; x < array.length(); x++) {
-            try {
-                results.add(new RequestModel(array.getJSONObject(x)));
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-        return results;
-    }
 }
