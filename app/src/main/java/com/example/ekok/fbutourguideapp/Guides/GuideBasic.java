@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -16,6 +17,8 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.ekok.fbutourguideapp.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,7 +26,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 
@@ -32,9 +37,9 @@ import java.io.FileNotFoundException;
  */
 public class GuideBasic extends AppCompatActivity{
 
-    ImageView ivProfilePic;
-    private DatabaseReference dataRef;
-    private FirebaseStorage storage;
+    ImageView ivPic;
+    DatabaseReference dataRef;
+    FirebaseStorage storage;
     StorageReference storageRef;
 
 
@@ -46,12 +51,10 @@ public class GuideBasic extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //if new --> guidenew
-        //if registered --> guiderequests
         setContentView(R.layout.activity_guidebasic);
         dataRef = FirebaseDatabase.getInstance().getReference();
         storage = FirebaseStorage.getInstance();
-        storageRef = storage.getReferenceFromUrl("gs://fbutourguide.appspot.com");
+        storageRef = storage.getReferenceFromUrl("gs://fbutourguide.appspot.com/");
 
         etName = (EditText) findViewById(R.id.etName);
         etLocation = (EditText) findViewById(R.id.etLocation);
@@ -79,7 +82,7 @@ public class GuideBasic extends AppCompatActivity{
         });
 
         //Go to camera roll to upload profile pic
-        ivProfilePic = (ImageView) findViewById(R.id.ivProfilePic);
+        ivPic = (ImageView) findViewById(R.id.ivProfilePic);
         Button loadImage = (Button) findViewById(R.id.btnUploadImage);
         loadImage.setOnClickListener(new Button.OnClickListener(){
             @Override
@@ -91,82 +94,7 @@ public class GuideBasic extends AppCompatActivity{
 
     }
 
-    //Launches Contact info view and saves current info to FireBase
-    public void launchContact(View v) {
-        dataRef.child("Guide").child("legalName").setValue(etName.getText().toString());
-        dataRef.child("Guide").child("location").setValue(etLocation.getText().toString());
-        dataRef.child("Guide").child("description").setValue(etBasicAdditional.getText().toString());
-        dataRef.child("Guide").child("languages").setValue(etLanguages.getText().toString());
-        Intent i = new Intent(this, GuideContact.class);
-        startActivity(i);
-    }
-
-
-    //Load a profile picture
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
-            if (resultCode == RESULT_OK) {
-                Uri takenPhotoUri = getPhotoFileUri(photoFileName);
-                // by this point we have the camera photo on disk
-                Bitmap takenImage = BitmapFactory.decodeFile(takenPhotoUri.getPath());
-                // Load the taken image into a preview
-                ImageView ivPreview = (ImageView) findViewById(R.id.ivProfilePic);
-                ivPreview.setImageBitmap(takenImage);
-            } else { // Result was a failure
-                Toast.makeText(this, "Picture wasn't taken!", Toast.LENGTH_SHORT).show();
-            }
-        } else {
-
-            if (resultCode == RESULT_OK){
-                Uri targetUri = data.getData();
-                Bitmap bitmap;
-                try {
-                    bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(targetUri));
-                    ivProfilePic.setImageBitmap(bitmap);
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                }
-            }
-
-        }
-
-
-        //storeData();
-    }
-
-    /*
-    public void storeData(){
-
-        // Get the data from an ImageView as bytes
-        ivProfilePic.setDrawingCacheEnabled(true);
-        ivProfilePic.buildDrawingCache();
-        Bitmap bitmap = ivProfilePic.getDrawingCache();
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-        byte[] data = baos.toByteArray();
-
-        UploadTask uploadTask = storageRef.putBytes(data);
-        uploadTask.addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception exception) {
-                // Handle unsuccessful uploads
-                Toast.makeText(GuideBasic.this, "Failed to upload to database", Toast.LENGTH_SHORT).show();
-            }
-        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-            @Override
-            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                // taskSnapshot.getMetadata() contains file metadata such as size, content-type, and download URL.
-                Uri downloadUrl = taskSnapshot.getDownloadUrl();
-                Toast.makeText(GuideBasic.this, "Uploaded to database!!", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-    */
-
-
-
+    //Camera methods
     public final String APP_TAG = "UseCamera";
     public final static int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 1034;
     public String photoFileName = "photo.jpg";
@@ -202,7 +130,104 @@ public class GuideBasic extends AppCompatActivity{
         return state.equals(Environment.MEDIA_MOUNTED);
     }
 
+    //Sets current profile picture to default picture
     public void removePicture(View view) {
-        ivProfilePic.setImageResource(R.drawable.profile);
+        ivPic.setImageResource(R.drawable.profile);
+    }
+
+
+    //Load a profile picture via gallery or camera
+    //Stores the picture file in the database
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
+            //For camera
+            if (resultCode == RESULT_OK) {
+                Uri takenPhotoUri = getPhotoFileUri(photoFileName);
+                // by this point we have the camera photo on disk
+                Bitmap takenImage = BitmapFactory.decodeFile(takenPhotoUri.getPath());
+                // Load the taken image into a preview
+                ImageView ivPreview = (ImageView) findViewById(R.id.ivProfilePic);
+                ivPreview.setImageBitmap(takenImage);
+            } else { // Result was a failure
+                Toast.makeText(this, "Picture wasn't taken!", Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            //For gallery
+            if (resultCode == RESULT_OK){
+                Uri targetUri = data.getData();
+                Bitmap bitmap;
+                try {
+                    bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(targetUri));
+                    ivPic.setImageBitmap(bitmap);
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        }
+        //Stores the image into firebase
+        storeData();
+    }
+
+
+    public void storeData(){
+        // Get the data from an ImageView as bytes
+        ivPic.setDrawingCacheEnabled(true);
+        ivPic.buildDrawingCache();
+        Bitmap bitmap = ivPic.getDrawingCache();
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        byte[] data = baos.toByteArray();
+
+        //****************CHECK OUT REFERENCES ARE CORRECT PATH**************************
+        //StorageReference profPicRef = storageRef.child("images");
+
+        UploadTask uploadTask = storageRef.putBytes(data);
+        uploadTask.addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                // Handle unsuccessful uploads
+                Toast.makeText(GuideBasic.this, "Failed to upload to database", Toast.LENGTH_SHORT).show();
+            }
+        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                //taskSnapshot.getMetadata(); //contains file metadata such as size, content-type, and download URL.
+                //Uri downloadUrl = taskSnapshot.getDownloadUrl();
+                Toast.makeText(GuideBasic.this, "Uploaded to database!!", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+
+    //Launches Contact info view and saves current info to FireBase
+    //If the name and location is empty, will not go to next screen
+    public void launchContact(View v) {
+        dataRef.child("Guide").child("legalName").setValue(etName.getText().toString());
+        dataRef.child("Guide").child("location").setValue(etLocation.getText().toString());
+        dataRef.child("Guide").child("description").setValue(etBasicAdditional.getText().toString());
+        dataRef.child("Guide").child("languages").setValue(etLanguages.getText().toString());
+
+        dataRef.child("Guide").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // Get user value
+                GuideUser user = dataSnapshot.getValue(GuideUser.class);
+                if (user.legalName.isEmpty() || user.location.isEmpty()){
+                    Toast.makeText(GuideBasic.this, "Name and location required to continue!", Toast.LENGTH_SHORT).show();
+                } else {
+                    Intent i = new Intent(GuideBasic.this, GuideContact.class);
+                    startActivity(i);
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Toast.makeText(GuideBasic.this, "Cannot find user data", Toast.LENGTH_SHORT).show();
+                //Log.w(TAG, "getUser:onCancelled", databaseError.toException());
+            }
+        });
+
     }
 }

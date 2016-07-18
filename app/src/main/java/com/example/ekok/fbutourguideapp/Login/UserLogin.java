@@ -75,6 +75,7 @@ public class UserLogin extends AppCompatActivity {
                 Log.d(TAG, "facebook:onSuccess:" + loginResult);
                 handleFacebookAccessToken(loginResult.getAccessToken());
 
+
                 FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
                 User user = new User(firebaseUser.getUid(), firebaseUser.getDisplayName(), firebaseUser.getEmail());
                 myRef.child("users").child(firebaseUser.getUid()).setValue(user);
