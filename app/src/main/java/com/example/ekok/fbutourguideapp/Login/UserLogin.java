@@ -159,7 +159,7 @@ public class UserLogin extends AppCompatActivity {
     public void onStop() {
         super.onStop();
         if (mAuthListener != null) {
-            mAuth.removeAuthStateListener(mAuthListener);
+           mAuth.removeAuthStateListener(mAuthListener);
         }
     }
 
@@ -189,5 +189,6 @@ public class UserLogin extends AppCompatActivity {
                         }
                     }
                 });
+
     }
 }
