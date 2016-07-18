@@ -38,10 +38,8 @@ public class GuideViewRequests extends AppCompatActivity{
         requestsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, requests);
 
         lvRequests.setAdapter(requestsAdapter);
+        requests.add("So many requests, Wa0w");
 
-        for (int i = 0; i < 25; i++) {
-            requests.add("So many requests, Wa0w");
-        }
 
 
 //        SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);

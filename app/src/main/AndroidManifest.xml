@@ -6,6 +6,10 @@
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+
     <application
         android:name=".FirebaseStart"
         android:allowBackup="true"
@@ -18,7 +22,7 @@
             android:value="@string/facebook_app_id" />
 
         <activity
-            android:name=".Login.UserLogin"
+            android:name=".Login.UserType"
             android:theme="@style/Theme.AppCompat.NoActionBar" >
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -52,7 +56,7 @@
         <activity android:name=".Travelers.NewRequest" />
         <activity android:name=".Guides.GuideCalender" />
         <activity android:name=".Guides.GuideViewProfile" />
-        <activity android:name=".Login.UserType" />
+        <!--<activity android:name=".Login.UserType" />-->
         <activity android:name=".Travelers.RatingActivity" />
     </application>
 
