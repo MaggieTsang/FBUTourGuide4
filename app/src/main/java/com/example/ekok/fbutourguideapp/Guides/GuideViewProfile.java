@@ -54,17 +54,17 @@ public class GuideViewProfile extends AppCompatActivity{
         dataRef = FirebaseDatabase.getInstance().getReference();
         storage = FirebaseStorage.getInstance();
         storageRef = storage.getReferenceFromUrl("gs://fbutourguide.appspot.com/");
-        profPicData = storage.getReferenceFromUrl("gs://fbutourguide.appspot.com/fakeProfilePic.jpg");
-        //Load profile pic prewview
+        //profPicData = storage.getReferenceFromUrl("gs://fbutourguide.appspot.com/profilePic.jpg");
+        //Load profile pic preview
         final long ONE_MEGABYTE = 1024 * 1024;
-        profPicData.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+        storageRef.child("profilePic").getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
             @Override
             public void onSuccess(byte[] bytes) {
                 // Data for "images/island.jpg" is returns, use this as needed
                 Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
                 ImageView image = (ImageView) findViewById(R.id.ivProfilePicture);
                 image.setImageBitmap(bmp);
-                Toast.makeText(GuideViewProfile.this, "Uploaded profile picture!", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(GuideViewProfile.this, "Uploaded profile picture!", Toast.LENGTH_SHORT).show();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override

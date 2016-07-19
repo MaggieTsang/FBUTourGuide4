@@ -56,6 +56,26 @@ public class GuideBasic extends AppCompatActivity{
         storage = FirebaseStorage.getInstance();
         storageRef = storage.getReferenceFromUrl("gs://fbutourguide.appspot.com/");
 
+
+
+        final long ONE_MEGABYTE = 1024 * 1024;
+        storageRef.child("profilePic").getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+            @Override
+            public void onSuccess(byte[] bytes) {
+                // Data for "images/island.jpg" is returns, use this as needed
+                Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+                //ImageView image = (ImageView) findViewById(R.id.ivProfilePicture);
+                ivPic.setImageBitmap(bmp);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                // Handle any errors
+                Toast.makeText(GuideBasic.this, "Upload a profile picture.", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
         etName = (EditText) findViewById(R.id.etName);
         etLocation = (EditText) findViewById(R.id.etLocation);
         etBasicAdditional = (EditText) findViewById(R.id.etBasicAdditional);
@@ -133,6 +153,7 @@ public class GuideBasic extends AppCompatActivity{
     //Sets current profile picture to default picture
     public void removePicture(View view) {
         ivPic.setImageResource(R.drawable.profile);
+        storeData();
     }
 
 
@@ -181,10 +202,8 @@ public class GuideBasic extends AppCompatActivity{
         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
         byte[] data = baos.toByteArray();
 
-        //****************CHECK OUT REFERENCES ARE CORRECT PATH**************************
-        //StorageReference profPicRef = storageRef.child("images");
-
-        UploadTask uploadTask = storageRef.putBytes(data);
+        StorageReference imagesRef = storageRef.child("profilePic");
+        UploadTask uploadTask = imagesRef.putBytes(data);
         uploadTask.addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception exception) {
