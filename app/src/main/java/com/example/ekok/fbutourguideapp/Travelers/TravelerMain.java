@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.ekok.fbutourguideapp.Login.UserType;
 import com.example.ekok.fbutourguideapp.R;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -136,5 +137,10 @@ public class TravelerMain extends AppCompatActivity{
             adapter.notifyAll();
 
         }
+    }
+
+    public void goToHome(MenuItem item) {
+        Intent i = new Intent(this, UserType.class);
+        startActivity(i);
     }
 }
