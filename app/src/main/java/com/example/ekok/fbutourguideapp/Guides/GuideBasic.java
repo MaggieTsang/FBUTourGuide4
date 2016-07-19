@@ -1,8 +1,11 @@
 package com.example.ekok.fbutourguideapp.Guides;
 
+import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -30,7 +33,8 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * Created by mbytsang on 7/5/16.
@@ -120,6 +124,7 @@ public class GuideBasic extends AppCompatActivity{
     public String photoFileName = "photo.jpg";
 
     public void takePicture(View view) {
+        //Toast.makeText(this, "Please use portrait orientation!", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         intent.putExtra(MediaStore.EXTRA_OUTPUT, getPhotoFileUri(photoFileName));
         if (intent.resolveActivity(getPackageManager()) != null) {
@@ -166,11 +171,20 @@ public class GuideBasic extends AppCompatActivity{
             //For camera
             if (resultCode == RESULT_OK) {
                 Uri takenPhotoUri = getPhotoFileUri(photoFileName);
+                /*
+                try {
+                    getCorrectlyOrientedImage(getApplicationContext(), takenPhotoUri);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                */
+
                 // by this point we have the camera photo on disk
                 Bitmap takenImage = BitmapFactory.decodeFile(takenPhotoUri.getPath());
-                // Load the taken image into a preview
-                //ImageView ivPreview = (ImageView) findViewById(R.id.ivProfilePic);
-                ivPic.setImageBitmap(takenImage);
+                orientPicture(takenImage);
+
+
+
             } else { // Result was a failure
                 Toast.makeText(this, "Picture wasn't taken!", Toast.LENGTH_SHORT).show();
             }
@@ -178,21 +192,122 @@ public class GuideBasic extends AppCompatActivity{
             //For gallery
             if (resultCode == RESULT_OK){
                 Uri targetUri = data.getData();
+
+
+                try {
+                    getCorrectlyOrientedImage(getApplicationContext(), targetUri);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+/*
                 Bitmap bitmap;
                 try {
                     bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(targetUri));
-                    ivPic.setImageBitmap(bitmap);
+                    //orientPicture(bitmap);
+
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
+                */
+
             }
 
         }
-        //Stores the image into firebase
+        //Stores data from ImageView as bytes, so needs to reorient before populating imageview
         storeData();
     }
 
 
+    //Gets an orientation of a photo
+    public static int getOrientation(Context context, Uri photoUri) {
+    /* it's on the external media. */
+        Cursor cursor = context.getContentResolver().query(photoUri,
+                new String[] { MediaStore.Images.ImageColumns.ORIENTATION }, null, null, null);
+
+        if (cursor.getCount() != 1) {
+            return -1;
+        }
+
+        cursor.moveToFirst();
+        return cursor.getInt(0);
+    }
+
+    //Orient the image to display correctly in the ImageView
+    public void getCorrectlyOrientedImage(Context context, Uri photoUri) throws IOException {
+        InputStream is = context.getContentResolver().openInputStream(photoUri);
+        BitmapFactory.Options dbo = new BitmapFactory.Options();
+        dbo.inJustDecodeBounds = true;
+        BitmapFactory.decodeStream(is, null, dbo);
+        is.close();
+
+        int rotatedWidth, rotatedHeight;
+        int orientation = getOrientation(context, photoUri);
+
+        if (orientation == 90 || orientation == 270) {
+            rotatedWidth = dbo.outHeight;
+            rotatedHeight = dbo.outWidth;
+        } else {
+            rotatedWidth = dbo.outWidth;
+            rotatedHeight = dbo.outHeight;
+        }
+
+        Bitmap srcBitmap;
+        is = context.getContentResolver().openInputStream(photoUri);
+
+        int MAX_IMAGE_DIMENSION = 200;
+        if (rotatedWidth > MAX_IMAGE_DIMENSION || rotatedHeight > MAX_IMAGE_DIMENSION) {
+            float widthRatio = ((float) rotatedWidth) / ((float) MAX_IMAGE_DIMENSION);
+            float heightRatio = ((float) rotatedHeight) / ((float) MAX_IMAGE_DIMENSION);
+            float maxRatio = Math.max(widthRatio, heightRatio);
+
+            // Create the bitmap from file
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inSampleSize = (int) maxRatio;
+            srcBitmap = BitmapFactory.decodeStream(is, null, options);
+        } else {
+            srcBitmap = BitmapFactory.decodeStream(is);
+        }
+        is.close();
+
+    /*
+     * if the orientation is not 0 (or -1, which means we don't know), we
+     * have to do a rotation.
+     */
+        if (orientation > 0) {
+            Matrix matrix = new Matrix();
+            matrix.postRotate(orientation);
+
+            srcBitmap = Bitmap.createBitmap(srcBitmap, 0, 0, srcBitmap.getWidth(),
+                    srcBitmap.getHeight(), matrix, true);
+        }
+
+        ivPic.setImageBitmap(srcBitmap);
+    }
+
+
+
+    //Rotate the picture if neccessary for camera photos
+    public void orientPicture(Bitmap bitmap) {
+
+        /*
+        ExifInterface exif = new ExifInterface(filename);
+        orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, 1);
+         */
+
+        Matrix matrix = new Matrix();
+
+        //90 for portrait
+        //   for landscape
+        matrix.postRotate(90);
+        Bitmap rotatedBitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+        ivPic.setImageBitmap(rotatedBitmap);
+    }
+
+
+
+
+    //Stores the image into firebase
     public void storeData(){
         // Get the data from an ImageView as bytes
         ivPic.setDrawingCacheEnabled(true);
