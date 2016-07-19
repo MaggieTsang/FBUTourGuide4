@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -70,7 +71,8 @@ public class GuideViewProfile extends AppCompatActivity{
             @Override
             public void onFailure(@NonNull Exception exception) {
                 // Handle any errors
-                Toast.makeText(GuideViewProfile.this, "Failed to upload profile picture.", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(GuideViewProfile.this, "Please upload a profile picture.", Toast.LENGTH_SHORT).show();
+                Log.d("ErrorMessage", "No profilePic in database");
             }
         });
 

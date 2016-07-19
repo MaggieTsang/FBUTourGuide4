@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.ekok.fbutourguideapp" >
+    package="com.example.ekok.fbutourguideapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
@@ -23,7 +23,7 @@
 
         <activity
             android:name=".Login.UserLogin"
-            android:theme="@style/Theme.AppCompat.NoActionBar" >
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
 
@@ -48,16 +48,26 @@
             </intent-filter>
         </activity>
         <!--<activity android:name=".Login.UserLogin" />-->
-        <activity android:name=".Travelers.TravelerMain" />
-        <activity android:name=".Guides.GuideBasic" />
-        <activity android:name=".Guides.GuideContact" />
-        <activity android:name=".Guides.GuidePayment" />
-        <activity android:name=".Guides.GuideViewRequests" />
-        <activity android:name=".Travelers.NewRequest" />
-        <activity android:name=".Guides.GuideCalender" />
-        <activity android:name=".Guides.GuideViewProfile" />
-        <activity android:name=".Login.UserType" />
-        <activity android:name=".Travelers.RatingActivity" />
+        <activity android:name=".Travelers.TravelerMain"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Guides.GuideBasic"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Guides.GuideContact"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Guides.GuidePayment"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Guides.GuideViewRequests"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Travelers.NewRequest"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Guides.GuideCalender"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Guides.GuideViewProfile"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Login.UserType"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Travelers.RatingActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

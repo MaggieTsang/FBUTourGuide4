@@ -169,8 +169,8 @@ public class GuideBasic extends AppCompatActivity{
                 // by this point we have the camera photo on disk
                 Bitmap takenImage = BitmapFactory.decodeFile(takenPhotoUri.getPath());
                 // Load the taken image into a preview
-                ImageView ivPreview = (ImageView) findViewById(R.id.ivProfilePic);
-                ivPreview.setImageBitmap(takenImage);
+                //ImageView ivPreview = (ImageView) findViewById(R.id.ivProfilePic);
+                ivPic.setImageBitmap(takenImage);
             } else { // Result was a failure
                 Toast.makeText(this, "Picture wasn't taken!", Toast.LENGTH_SHORT).show();
             }

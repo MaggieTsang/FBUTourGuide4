@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.example.ekok.fbutourguideapp.Login.UserType;
 import com.example.ekok.fbutourguideapp.R;
 
 import java.util.ArrayList;
@@ -72,6 +73,11 @@ public class GuideViewRequests extends AppCompatActivity{
 
     public void goToCalender(MenuItem item) {
         Intent i = new Intent(this, GuideCalender.class);
+        startActivity(i);
+    }
+
+    public void goToHome(MenuItem item) {
+        Intent i = new Intent(this, UserType.class);
         startActivity(i);
     }
 }
