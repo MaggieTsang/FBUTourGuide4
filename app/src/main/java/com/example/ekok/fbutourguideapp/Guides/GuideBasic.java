@@ -22,6 +22,8 @@ import android.widget.Toast;
 import com.example.ekok.fbutourguideapp.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -309,40 +311,48 @@ public class GuideBasic extends AppCompatActivity{
 
     //Stores the image into firebase
     public void storeData(){
-        // Get the data from an ImageView as bytes
-        ivPic.setDrawingCacheEnabled(true);
-        ivPic.buildDrawingCache();
-        Bitmap bitmap = ivPic.getDrawingCache();
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-        byte[] data = baos.toByteArray();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            String uid = user.getUid();
+            // Get the data from an ImageView as bytes
+            ivPic.setDrawingCacheEnabled(true);
+            ivPic.buildDrawingCache();
+            Bitmap bitmap = ivPic.getDrawingCache();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            byte[] data = baos.toByteArray();
 
-        StorageReference imagesRef = storageRef.child("profilePic");
-        UploadTask uploadTask = imagesRef.putBytes(data);
-        uploadTask.addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception exception) {
-                // Handle unsuccessful uploads
-                Toast.makeText(GuideBasic.this, "Failed to upload to database", Toast.LENGTH_SHORT).show();
-            }
-        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-            @Override
-            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                //taskSnapshot.getMetadata(); //contains file metadata such as size, content-type, and download URL.
-                //Uri downloadUrl = taskSnapshot.getDownloadUrl();
-                Toast.makeText(GuideBasic.this, "Uploaded to database!!", Toast.LENGTH_SHORT).show();
-            }
-        });
+            StorageReference imagesRef = storageRef.child("users").child(uid).child("profilePic");
+            UploadTask uploadTask = imagesRef.putBytes(data);
+            uploadTask.addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception exception) {
+                    // Handle unsuccessful uploads
+                    Toast.makeText(GuideBasic.this, "Failed to upload to database", Toast.LENGTH_SHORT).show();
+                }
+            }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    //taskSnapshot.getMetadata(); //contains file metadata such as size, content-type, and download URL.
+                    //Uri downloadUrl = taskSnapshot.getDownloadUrl();
+                    Toast.makeText(GuideBasic.this, "Uploaded to database!!", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
     }
 
 
     //Launches Contact info view and saves current info to FireBase
     //If the name and location is empty, will not go to next screen
     public void launchContact(View v) {
-        dataRef.child("Guide").child("legalName").setValue(etName.getText().toString());
-        dataRef.child("Guide").child("location").setValue(etLocation.getText().toString());
-        dataRef.child("Guide").child("description").setValue(etBasicAdditional.getText().toString());
-        dataRef.child("Guide").child("languages").setValue(etLanguages.getText().toString());
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            String uid = user.getUid();
+            dataRef.child("users").child(uid).child("Guide").child("legalName").setValue(etName.getText().toString());
+            dataRef.child("users").child(uid).child("Guide").child("location").setValue(etLocation.getText().toString());
+            dataRef.child("users").child(uid).child("Guide").child("description").setValue(etBasicAdditional.getText().toString());
+            dataRef.child("users").child(uid).child("Guide").child("languages").setValue(etLanguages.getText().toString());
+        }
 
         dataRef.child("Guide").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
