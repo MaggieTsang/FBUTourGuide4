@@ -30,7 +30,7 @@ public class TravelerMain extends AppCompatActivity{
 
     ArrayList<String> trips;
     ListView lvTrips;
-    private DatabaseReference dataRef = FirebaseDatabase.getInstance().getReference("Traveler").child("trips_current");
+    private DatabaseReference dataRef = FirebaseDatabase.getInstance().getReference("users").child("Traveler").child("trips_current");
 
 
     @Override
@@ -45,8 +45,8 @@ public class TravelerMain extends AppCompatActivity{
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot dataRef : dataSnapshot.getChildren()) {
-                    Log.d("trips", dataRef.getKey());
-                    String ref = dataRef.child("place").getValue().toString();
+                    Log.d("trips_current", dataRef.getKey());
+                    String ref = dataRef.child("trips_current").getValue().toString();
                     trips.add(ref);
                 }
                 ArrayAdapter arrayAdapter = new ArrayAdapter(TravelerMain.this, android.R.layout.simple_list_item_1, trips);

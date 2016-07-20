@@ -10,7 +10,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.ekok.fbutourguideapp.R;
-import com.example.ekok.fbutourguideapp.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
@@ -24,29 +23,24 @@ import com.google.firebase.database.FirebaseDatabase;
  */
 public class NewRequest extends AppCompatActivity{
     private final static String TAG = "Firebase";
-    private DatabaseReference dataRef = FirebaseDatabase.getInstance().getReference("users");
+    private DatabaseReference dataRef = FirebaseDatabase.getInstance().getReference();
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-    User user;
     EditText etPlace;
     EditText etStartDate;
     EditText etEndDate;
     EditText etGroupSize;
     EditText etLanguages;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_travelernew);
 
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             // The user's ID, unique to the Firebase project.
             String uid = user.getUid();
-            final DatabaseReference myRef = dataRef.child(uid).child("Traveler").child("trips_current").push();
-
-//        FirebaseDatabase database = FirebaseDatabase.getInstance();
-//        final DatabaseReference myRef = database.getReference("users").child("Traveler").child("trips_current").push();
+            final DatabaseReference myRef = dataRef.child("users").child(uid).child("Traveler").child("trips_current").push();
 
             Button btnSubmit = (Button) findViewById(R.id.btnSubmit);
             etPlace = (EditText) findViewById(R.id.etPlace);
@@ -81,7 +75,6 @@ public class NewRequest extends AppCompatActivity{
                         public void onChildAdded(DataSnapshot dataSnapshot, String previousChildName) {
                             // A new comment has been added, add it to the displayed list
                             RequestModel request = dataSnapshot.getValue(RequestModel.class);
-
                         }
 
                         @Override
@@ -92,8 +85,6 @@ public class NewRequest extends AppCompatActivity{
                             // comment and if so displayed the changed comment.
                             RequestModel request = dataSnapshot.getValue(RequestModel.class);
                             String requestKey = dataSnapshot.getKey();
-
-                            // ...
                         }
 
                         @Override
@@ -103,8 +94,6 @@ public class NewRequest extends AppCompatActivity{
                             // A comment has changed, use the key to determine if we are displaying this
                             // comment and if so remove it.
                             String requestKey = dataSnapshot.getKey();
-
-                            // ...
                         }
 
                         @Override
@@ -115,8 +104,6 @@ public class NewRequest extends AppCompatActivity{
                             // displaying this comment and if so move it.
                             RequestModel movedRequest = dataSnapshot.getValue(RequestModel.class);
                             String requestKey = dataSnapshot.getKey();
-
-                            // ...
                         }
 
                         @Override
