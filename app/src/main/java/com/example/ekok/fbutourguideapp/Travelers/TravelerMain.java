@@ -8,15 +8,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.ekok.fbutourguideapp.Login.UserType;
 import com.example.ekok.fbutourguideapp.R;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -27,10 +28,9 @@ public class TravelerMain extends AppCompatActivity{
     private final int REQUEST_CODE = 20;
     private static final String TAG = "Firebase";
 
-    ArrayList<RequestModel> trips;
-    RequestAdapter adapter;
+    ArrayList<String> trips;
     ListView lvTrips;
-    private DatabaseReference dataRef;
+    private DatabaseReference dataRef = FirebaseDatabase.getInstance().getReference("Traveler").child("trips_current");
 
 
     @Override
@@ -39,72 +39,25 @@ public class TravelerMain extends AppCompatActivity{
         setContentView(R.layout.activity_travelermain);
 
         lvTrips = (ListView) findViewById(R.id.lvTrips);
-        trips = new ArrayList<RequestModel>();
-//        tripsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, trips);
-        adapter = new RequestAdapter(this, trips);
-        lvTrips.setAdapter(adapter);
-//        RequestModel requestModel = new RequestModel();
-//        adapter.add(requestModel);
-//        adapter.notifyDataSetChanged();
+        trips = new ArrayList<String>();
 
-//        for (int i = 0; i < 25; i++) {
-//            trips.add("Le Tripsss");
-//        }
-
-        ChildEventListener childEventListener = new ChildEventListener() {
+        dataRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String previousChildName) {
-                Log.d(TAG, "onChildAdded:" + dataSnapshot.getKey());
-
-                // A new comment has been added, add it to the displayed list
-                RequestModel request = dataSnapshot.getValue(RequestModel.class);
-                trips.add(request);
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String previousChildName) {
-                Log.d(TAG, "onChildChanged:" + dataSnapshot.getKey());
-
-                // A comment has changed, use the key to determine if we are displaying this
-                // comment and if so displayed the changed comment.
-                NewRequest request = dataSnapshot.getValue(NewRequest.class);
-                String requestKey = dataSnapshot.getKey();
-
-                // ...
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-                Log.d(TAG, "onChildRemoved:" + dataSnapshot.getKey());
-
-                // A comment has changed, use the key to determine if we are displaying this
-                // comment and if so remove it.
-                String requestKey = dataSnapshot.getKey();
-
-                // ...
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String previousChildName) {
-                Log.d(TAG, "onChildMoved:" + dataSnapshot.getKey());
-
-                // A comment has changed position, use the key to determine if we are
-                // displaying this comment and if so move it.
-                NewRequest request = dataSnapshot.getValue(NewRequest.class);
-                String requestKey = dataSnapshot.getKey();
-
-                // ...
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot dataRef : dataSnapshot.getChildren()) {
+                    Log.d("trips", dataRef.getKey());
+                    String ref = dataRef.child("place").getValue().toString();
+                    trips.add(ref);
+                }
+                ArrayAdapter arrayAdapter = new ArrayAdapter(TravelerMain.this, android.R.layout.simple_list_item_1, trips);
+                lvTrips.setAdapter(arrayAdapter);
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                Log.w(TAG, "postComments:onCancelled", databaseError.toException());
-                Toast.makeText(getApplicationContext(), "Failed to load comments.",
-                        Toast.LENGTH_SHORT).show();
-            }
-        };
-        dataRef.addChildEventListener(childEventListener);
 
+            }
+        });
 
         lvTrips.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -133,14 +86,6 @@ public class TravelerMain extends AppCompatActivity{
             // Extract place value from result extras
             RequestModel requestModel = new RequestModel();
             String place = data.getExtras().getString("place");
-            adapter.add(requestModel);
-            adapter.notifyAll();
-
         }
-    }
-
-    public void goToHome(MenuItem item) {
-        Intent i = new Intent(this, UserType.class);
-        startActivity(i);
     }
 }

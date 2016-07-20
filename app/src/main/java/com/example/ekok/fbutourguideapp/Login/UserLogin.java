@@ -46,7 +46,6 @@ public class UserLogin extends AppCompatActivity {
         myRef =  FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
 
-        // [START auth_state_listener]
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -75,7 +74,6 @@ public class UserLogin extends AppCompatActivity {
                 Log.d(TAG, "facebook:onSuccess:" + loginResult);
                 handleFacebookAccessToken(loginResult.getAccessToken());
 
-
                 FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
                 User user = new User(firebaseUser.getUid(), firebaseUser.getDisplayName(), firebaseUser.getEmail());
                 myRef.child("users").child(firebaseUser.getUid()).setValue(user);
@@ -84,70 +82,16 @@ public class UserLogin extends AppCompatActivity {
             @Override
             public void onCancel() {
                 Log.d(TAG, "facebook:onCancel");
-                // [START_EXCLUDE]
                 Toast.makeText(getApplicationContext(), "Login cancelled", Toast.LENGTH_SHORT).show();
-                // [END_EXCLUDE]
             }
 
             @Override
             public void onError(FacebookException error) {
                 Log.d(TAG, "facebook:onError", error);
-                // [START_EXCLUDE]
                 Toast.makeText(getApplicationContext(), "Login failed", Toast.LENGTH_SHORT).show();
                 error.printStackTrace();
-                // [END_EXCLUDE]
             }
         });
-
-//        callbackManager = CallbackManager.Factory.create();
-//
-//        loginButton = (LoginButton) findViewById(R.id.btnLogin);
-//        loginButton.setReadPermissions("email", "public_profile");
-//
-//        AppEventsLogger.activateApp(this);
-//
-//        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
-//            @Override
-//            public void onSuccess(LoginResult loginResult) {
-//                // App code
-//                handleFacebookAccessToken(AccessToken.getCurrentAccessToken());
-//                mAuth = FirebaseAuth.getInstance();
-//                mAuthListener = new FirebaseAuth.AuthStateListener() {
-//                    @Override
-//                    public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-//                        FirebaseUser user = firebaseAuth.getCurrentUser();
-//                        if (user != null) {
-//                            // User is signed in
-//                            Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
-//                        } else {
-//                            // User is signed out
-//                            Log.d(TAG, "onAuthStateChanged:signed_out");
-//                        }
-//                        // ...
-//                    }
-//                };
-//
-//                String name = Profile.getCurrentProfile().getFirstName();
-//                Toast.makeText(getApplicationContext(), "Welcome, " + name + "!", Toast.LENGTH_SHORT).show();
-//                Intent i = new Intent(UserLogin.this, UserType.class);
-//                startActivity(i);
-//            }
-//
-//            @Override
-//            public void onCancel() {
-//                // App code
-//                Toast.makeText(getApplicationContext(), "Login cancelled", Toast.LENGTH_SHORT).show();
-//
-//            }
-//
-//            @Override
-//            public void onError(FacebookException exception) {
-//                // App code
-//                Toast.makeText(getApplicationContext(), "Login failed", Toast.LENGTH_SHORT).show();
-//                exception.printStackTrace();
-//
-//            }
-//        });
     }
 
     @Override
@@ -160,7 +104,7 @@ public class UserLogin extends AppCompatActivity {
     public void onStop() {
         super.onStop();
         if (mAuthListener != null) {
-           mAuth.removeAuthStateListener(mAuthListener);
+            mAuth.removeAuthStateListener(mAuthListener);
         }
     }
 

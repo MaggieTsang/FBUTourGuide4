@@ -2,13 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item
-        android:id="@+id/miHomebutton"
-        android:title="home"
-        app:showAsAction="always"
-        android:icon="@drawable/ic_homebutton"
-        android:onClick="goToHome"
-        android:layout_alignParentLeft="true"/>
+    <!--<item-->
+        <!--android:id="@+id/miHomebutton"-->
+        <!--android:title="home"-->
+        <!--app:showAsAction="always"-->
+        <!--android:icon="@drawable/ic_homebutton"-->
+        <!--android:onClick="goToHome"-->
+        <!--android:layout_alignParentLeft="true"/>-->
 
     <item
         android:id="@+id/miRequest"

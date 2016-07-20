@@ -7,24 +7,26 @@ import android.widget.Toast;
 
 import com.example.ekok.fbutourguideapp.Login.UserLogin;
 import com.example.ekok.fbutourguideapp.Login.UserType;
-import com.facebook.FacebookSdk;
 import com.facebook.Profile;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LauncherActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.activity_launcher);
 
-        if (Profile.getCurrentProfile() != null) {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            // User is signed in
             Intent i = new Intent(this, UserType.class);
             this.startActivity(i);
             this.finishActivity(0);
             Toast.makeText(getApplicationContext(), "Welcome back, " + Profile.getCurrentProfile().getFirstName() + "!", Toast.LENGTH_SHORT).show();
-        }
-        else {
+        } else {
+            // No user is signed in
             Intent i = new Intent(this, UserLogin.class);
             this.startActivity(i);
             this.finishActivity(0);
