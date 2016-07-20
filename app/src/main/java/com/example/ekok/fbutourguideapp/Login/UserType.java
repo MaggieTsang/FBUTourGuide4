@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.ekok.fbutourguideapp.Guides.GuideBasic;
+import com.example.ekok.fbutourguideapp.Guides.GuideUser;
 import com.example.ekok.fbutourguideapp.Guides.GuideViewRequests;
 import com.example.ekok.fbutourguideapp.R;
 import com.example.ekok.fbutourguideapp.Travelers.TravelerMain;
@@ -46,18 +47,16 @@ public class UserType extends AppCompatActivity{
         if (user != null) {
             String uid = user.getUid();
 
-
-
             dataRef.child("users").child(uid).child("Guide").addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     // Get user value
-                    // GuideUser user = dataSnapshot.getValue(GuideUser.class);;
-                    if (dataSnapshot.hasChild("Guide")){
-                        Intent i = new Intent(UserType.this, GuideViewRequests.class);
+                     GuideUser user = dataSnapshot.getValue(GuideUser.class);
+                    if (user.legalName.isEmpty()){
+                        Intent i = new Intent(UserType.this, GuideBasic.class);
                         startActivity(i);
                     } else {
-                        Intent i = new Intent(UserType.this, GuideBasic.class);
+                        Intent i = new Intent(UserType.this, GuideViewRequests.class);
                         startActivity(i);
                     }
 
