@@ -73,11 +73,22 @@ public class UserLogin extends AppCompatActivity {
                 startActivity(i);
                 Log.d(TAG, "facebook:onSuccess:" + loginResult);
                 handleFacebookAccessToken(loginResult.getAccessToken());
-
                 FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-                User user = new User(firebaseUser.getUid(), firebaseUser.getDisplayName(), firebaseUser.getEmail());
-                myRef.child("users").child(firebaseUser.getUid()).setValue(user);
+
+
+                //if id exists then go straight to UserType, if not then set a new user
+                assert firebaseUser != null;
+                if (firebaseUser.getUid().isEmpty()){
+                    User user = new User(firebaseUser.getUid(), firebaseUser.getDisplayName(), firebaseUser.getEmail());
+                    myRef.child("users").child(firebaseUser.getUid()).setValue(user);
+
+                } else {
+                    Intent intent = new Intent(UserLogin.this, UserType.class);
+                    startActivity(intent);
+                }
+
             }
+
 
             @Override
             public void onCancel() {

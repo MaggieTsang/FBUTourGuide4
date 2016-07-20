@@ -67,7 +67,7 @@ public class GuideViewRequests extends AppCompatActivity{
     public void editProfile(MenuItem item) {
         //Intent i = new Intent(this, GuideMain.class);
         Intent i = new Intent(this, GuideViewProfile.class);
-        i.putExtra("guideUser", guideUser);
+        //i.putExtra("guideUser", guideUser);
         startActivity(i);
     }
 

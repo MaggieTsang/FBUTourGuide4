@@ -42,23 +42,29 @@ public class GuideContact extends AppCompatActivity {
         etEmail = (EditText) findViewById(R.id.etEmail);
         etContactAdditional = (EditText) findViewById(R.id.etContactAdditional);
 
-        dataRef.child("Guide").addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // Get user value
-                GuideUser user = dataSnapshot.getValue(GuideUser.class);
-                etPhonePrimary.setText(user.phonePrimary);
-                etPhoneSecondary.setText(user.phoneSecondary);
-                etEmail.setText(user.email);
-                etContactAdditional.setText(user.contactAdditional);
-            }
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            String uid = user.getUid();
+            dataRef.child("users").child(uid).child("Guide").addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    // Get user value
+                    GuideUser user = dataSnapshot.getValue(GuideUser.class);
+                    if (user != null) {
+                        etPhonePrimary.setText(user.phonePrimary);
+                        etPhoneSecondary.setText(user.phoneSecondary);
+                        etEmail.setText(user.email);
+                        etContactAdditional.setText(user.contactAdditional);
+                    }
+                }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Toast.makeText(GuideContact.this, "Cannot find user data", Toast.LENGTH_SHORT).show();
-                //Log.w(TAG, "getUser:onCancelled", databaseError.toException());
-            }
-        });
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                    Toast.makeText(GuideContact.this, "Cannot find user data", Toast.LENGTH_SHORT).show();
+                    //Log.w(TAG, "getUser:onCancelled", databaseError.toException());
+                }
+            });
+        }
     }
 
     public void launchPayment(View v) {

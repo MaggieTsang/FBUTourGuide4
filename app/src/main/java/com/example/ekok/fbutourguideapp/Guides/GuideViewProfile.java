@@ -15,6 +15,8 @@ import android.widget.Toast;
 import com.example.ekok.fbutourguideapp.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -55,27 +57,6 @@ public class GuideViewProfile extends AppCompatActivity{
         dataRef = FirebaseDatabase.getInstance().getReference();
         storage = FirebaseStorage.getInstance();
         storageRef = storage.getReferenceFromUrl("gs://fbutourguide.appspot.com/");
-        //profPicData = storage.getReferenceFromUrl("gs://fbutourguide.appspot.com/profilePic.jpg");
-        //Load profile pic preview
-        final long ONE_MEGABYTE = 1024 * 1024;
-        storageRef.child("profilePic").getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
-            @Override
-            public void onSuccess(byte[] bytes) {
-                // Data for "images/island.jpg" is returns, use this as needed
-                Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-                ImageView image = (ImageView) findViewById(R.id.ivProfilePicture);
-                image.setImageBitmap(bmp);
-                //Toast.makeText(GuideViewProfile.this, "Uploaded profile picture!", Toast.LENGTH_SHORT).show();
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception exception) {
-                // Handle any errors
-                //Toast.makeText(GuideViewProfile.this, "Please upload a profile picture.", Toast.LENGTH_SHORT).show();
-                Log.d("ErrorMessage", "No profilePic in database");
-            }
-        });
-
 
         tvName = (TextView) findViewById(R.id.tvName);
         tvLocation = (TextView) findViewById(R.id.tvLocation);
@@ -88,29 +69,58 @@ public class GuideViewProfile extends AppCompatActivity{
         tvCurrency = (TextView) findViewById(R.id.tvCurrency);
         tvHourly = (TextView) findViewById(R.id.tvHourly);
 
-        dataRef.child("Guide").addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // Get user value
-                GuideUser user = dataSnapshot.getValue(GuideUser.class);
-                tvName.setText(user.legalName);
-                tvLocation.setText(user.location);
-                tvLanguages.setText(user.languages);
-                tvFillDescription.setText(user.description);
-                tvPhone1.setText(user.phonePrimary);
-                tvPhone2.setText(user.phoneSecondary);
-                tvEmail.setText(user.email);
-                tvMethod.setText(user.method);
-                tvCurrency.setText(user.currency);
-                tvHourly.setText(user.timelyPay);
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Toast.makeText(GuideViewProfile.this, "Cannot find user data", Toast.LENGTH_SHORT).show();
-                //Log.w(TAG, "getUser:onCancelled", databaseError.toException());
-            }
-        });
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            String uid = user.getUid();
+            //profPicData = storage.getReferenceFromUrl("gs://fbutourguide.appspot.com/profilePic.jpg");
+            //Load profile pic preview
+            final long ONE_MEGABYTE = 1024 * 1024;
+            storageRef.child("users").child(uid).child("profilePic").getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+                @Override
+                public void onSuccess(byte[] bytes) {
+                    // Data for "images/island.jpg" is returns, use this as needed
+                    Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+                    ImageView image = (ImageView) findViewById(R.id.ivProfilePicture);
+                    image.setImageBitmap(bmp);
+                    //Toast.makeText(GuideViewProfile.this, "Uploaded profile picture!", Toast.LENGTH_SHORT).show();
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception exception) {
+                    // Handle any errors
+                    //Toast.makeText(GuideViewProfile.this, "Please upload a profile picture.", Toast.LENGTH_SHORT).show();
+                    Log.d("ErrorMessage", "No profilePic in database");
+                }
+            });
+
+            dataRef.child("users").child(uid).child("Guide").addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    // Get user value
+                    GuideUser user = dataSnapshot.getValue(GuideUser.class);
+                    if (user != null) {
+                        tvName.setText(user.legalName);
+                        tvLocation.setText(user.location);
+                        tvLanguages.setText(user.languages);
+                        tvFillDescription.setText(user.description);
+                        tvPhone1.setText(user.phonePrimary);
+                        tvPhone2.setText(user.phoneSecondary);
+                        tvEmail.setText(user.email);
+                        tvMethod.setText(user.method);
+                        tvCurrency.setText(user.currency);
+                        tvHourly.setText(user.timelyPay);
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                    Toast.makeText(GuideViewProfile.this, "Cannot find user data", Toast.LENGTH_SHORT).show();
+                    //Log.w(TAG, "getUser:onCancelled", databaseError.toException());
+                }
+            });
+        }
     }
 
     public void goBackToBasic(View view) {

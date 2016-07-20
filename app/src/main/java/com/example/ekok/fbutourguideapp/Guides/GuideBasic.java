@@ -62,51 +62,54 @@ public class GuideBasic extends AppCompatActivity{
         storage = FirebaseStorage.getInstance();
         storageRef = storage.getReferenceFromUrl("gs://fbutourguide.appspot.com/");
 
-
-
-        final long ONE_MEGABYTE = 1024 * 1024;
-        storageRef.child("profilePic").getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
-            @Override
-            public void onSuccess(byte[] bytes) {
-                // Data for "images/island.jpg" is returns, use this as needed
-                Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-                //ImageView image = (ImageView) findViewById(R.id.ivProfilePicture);
-                ivPic.setImageBitmap(bmp);
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception exception) {
-                // Handle any errors
-                Toast.makeText(GuideBasic.this, "Upload a profile picture.", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-
         etName = (EditText) findViewById(R.id.etName);
         etLocation = (EditText) findViewById(R.id.etLocation);
         etBasicAdditional = (EditText) findViewById(R.id.etBasicAdditional);
         etLanguages = (EditText) findViewById(R.id.etLanguages);
 
+
         //final String userId = getUid();
         // dataRef.child("Guide").child(userId).addListenerForSingleValueEvent(
-        dataRef.child("Guide").addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // Get user value
-                GuideUser user = dataSnapshot.getValue(GuideUser.class);
-                etName.setText(user.legalName);
-                etLocation.setText(user.location);
-                etBasicAdditional.setText(user.description);
-                etLanguages.setText(user.languages);
-            }
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            final String uid = user.getUid();
+            dataRef.child("users").child(uid).child("Guide").addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    // Get user value
+                    GuideUser user = dataSnapshot.getValue(GuideUser.class);
+                    if (user != null) {
+                        etName.setText(user.legalName);
+                        etLocation.setText(user.location);
+                        etBasicAdditional.setText(user.description);
+                        etLanguages.setText(user.languages);
+                    }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Toast.makeText(GuideBasic.this, "Cannot find user data", Toast.LENGTH_SHORT).show();
-                //Log.w(TAG, "getUser:onCancelled", databaseError.toException());
-            }
-        });
+                    final long ONE_MEGABYTE = 1024 * 1024;
+                    storageRef.child("users").child(uid).child("profilePic").getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+                        @Override
+                        public void onSuccess(byte[] bytes) {
+                            // Data for "images/island.jpg" is returns, use this as needed
+                            Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+                            //ImageView image = (ImageView) findViewById(R.id.ivProfilePicture);
+                            ivPic.setImageBitmap(bmp);
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception exception) {
+                            // Handle any errors
+                            Toast.makeText(GuideBasic.this, "Upload a profile picture.", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
 
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                    Toast.makeText(GuideBasic.this, "Cannot find user data", Toast.LENGTH_SHORT).show();
+                    //Log.w(TAG, "getUser:onCancelled", databaseError.toException());
+                }
+            });
+        }
         //Go to camera roll to upload profile pic
         ivPic = (ImageView) findViewById(R.id.ivProfilePic);
         Button loadImage = (Button) findViewById(R.id.btnUploadImage);
@@ -352,26 +355,26 @@ public class GuideBasic extends AppCompatActivity{
             dataRef.child("users").child(uid).child("Guide").child("location").setValue(etLocation.getText().toString());
             dataRef.child("users").child(uid).child("Guide").child("description").setValue(etBasicAdditional.getText().toString());
             dataRef.child("users").child(uid).child("Guide").child("languages").setValue(etLanguages.getText().toString());
-        }
 
-        dataRef.child("Guide").addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // Get user value
-                GuideUser user = dataSnapshot.getValue(GuideUser.class);
-                if (user.legalName.isEmpty() || user.location.isEmpty()){
-                    Toast.makeText(GuideBasic.this, "Name and location required to continue!", Toast.LENGTH_SHORT).show();
-                } else {
-                    Intent i = new Intent(GuideBasic.this, GuideContact.class);
-                    startActivity(i);
+            dataRef.child("users").child(uid).child("Guide").addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    // Get user value
+                    GuideUser user = dataSnapshot.getValue(GuideUser.class);
+                    if (user.legalName.isEmpty() || user.location.isEmpty()) {
+                        Toast.makeText(GuideBasic.this, "Name and location required to continue!", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Intent i = new Intent(GuideBasic.this, GuideContact.class);
+                        startActivity(i);
+                    }
                 }
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Toast.makeText(GuideBasic.this, "Cannot find user data", Toast.LENGTH_SHORT).show();
-                //Log.w(TAG, "getUser:onCancelled", databaseError.toException());
-            }
-        });
 
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                    Toast.makeText(GuideBasic.this, "Cannot find user data", Toast.LENGTH_SHORT).show();
+                    //Log.w(TAG, "getUser:onCancelled", databaseError.toException());
+                }
+            });
+        }
     }
 }

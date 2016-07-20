@@ -42,32 +42,35 @@ public class GuidePayment extends AppCompatActivity {
         etPackageDeals = (EditText) findViewById(R.id.etPackageDeals);
         etCurrencyType = (EditText) findViewById(R.id.etCurrencyType);
 
-        dataRef.child("Guide").addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // Get user value
-                GuideUser user = dataSnapshot.getValue(GuideUser.class);
-                etPaymentMethod.setText(user.method);
-                etHourlyPay.setText(user.timelyPay);
-                etPackageDeals.setText(user.packageDeals);
-                etCurrencyType.setText(user.currency);
-            }
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            String uid = user.getUid();
+            dataRef.child("users").child(uid).child("Guide").addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    // Get user value
+                    GuideUser user = dataSnapshot.getValue(GuideUser.class);
+                    if (user != null) {
+                        etPaymentMethod.setText(user.method);
+                        etHourlyPay.setText(user.timelyPay);
+                        etPackageDeals.setText(user.packageDeals);
+                        etCurrencyType.setText(user.currency);
+                    }
+                }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Toast.makeText(GuidePayment.this, "Cannot find user data", Toast.LENGTH_SHORT).show();
-                //Log.w(TAG, "getUser:onCancelled", databaseError.toException());
-            }
-        });
-
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                    Toast.makeText(GuidePayment.this, "Cannot find user data", Toast.LENGTH_SHORT).show();
+                    //Log.w(TAG, "getUser:onCancelled", databaseError.toException());
+                }
+            });
+        }
     }
 
     public void launchViewProfile(View v) {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
-            // The user's ID, unique to the Firebase project.
             String uid = user.getUid();
-
             dataRef.child("users").child(uid).child("Guide").child("method").setValue(etPaymentMethod.getText().toString());
             dataRef.child("users").child(uid).child("Guide").child("timelyPay").setValue(etHourlyPay.getText().toString());
             dataRef.child("users").child(uid).child("Guide").child("packageDeals").setValue(etPackageDeals.getText().toString());
