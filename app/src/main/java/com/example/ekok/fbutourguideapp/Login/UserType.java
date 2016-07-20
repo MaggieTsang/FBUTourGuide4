@@ -52,7 +52,7 @@ public class UserType extends AppCompatActivity{
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     // Get user value
                      GuideUser user = dataSnapshot.getValue(GuideUser.class);
-                    if (user.legalName.isEmpty()){
+                    if (user == null || user.legalName.isEmpty()){
                         Intent i = new Intent(UserType.this, GuideBasic.class);
                         startActivity(i);
                     } else {
