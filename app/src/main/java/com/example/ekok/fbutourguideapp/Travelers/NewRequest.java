@@ -39,7 +39,7 @@ public class NewRequest extends AppCompatActivity{
 
         if (user != null) {
             // The user's ID, unique to the Firebase project.
-            String uid = user.getUid();
+            final String uid = user.getUid();
             final DatabaseReference myRef = dataRef.child("users").child(uid).child("Traveler").child("trips_current").push();
 
             Button btnSubmit = (Button) findViewById(R.id.btnSubmit);
@@ -69,12 +69,18 @@ public class NewRequest extends AppCompatActivity{
                     myRef.child("groupSize").setValue(finalGroupSize);
                     myRef.child("languages").setValue(languages);
 
+                    final DatabaseReference myOtherRef = dataRef.child("requests").child(place).push();
+
+                    myOtherRef.child("traveler_uid").setValue(uid);
+                    myOtherRef.child("requestId").setValue(myRef.getKey());
+                    myOtherRef.child("dates").setValue(startDate + " - " + endDate);
+
                     // READ DATA
-                    myRef.child("Traveler").child("trips_current").addChildEventListener(new ChildEventListener() {
+                    myOtherRef.addChildEventListener(new ChildEventListener() {
                         @Override
                         public void onChildAdded(DataSnapshot dataSnapshot, String previousChildName) {
-                            // A new comment has been added, add it to the displayed list
-                            RequestModel request = dataSnapshot.getValue(RequestModel.class);
+                            //
+
                         }
 
                         @Override
