@@ -85,7 +85,6 @@ public class GuideViewRequests extends AppCompatActivity{
                         for (DataSnapshot availRequests: places.getChildren()){
                             String name = availRequests.child("displayName").getValue().toString();
                             String dates = availRequests.child("dates").getValue().toString();
-
                             requests.add(name + ": " + dates);
                         }
                     }
@@ -104,6 +103,8 @@ public class GuideViewRequests extends AppCompatActivity{
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Toast.makeText(getApplicationContext(), "Open request info", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(GuideViewRequests.this, GuideRequestDetail.class);
+                startActivity(intent);
             }
         });
     }
