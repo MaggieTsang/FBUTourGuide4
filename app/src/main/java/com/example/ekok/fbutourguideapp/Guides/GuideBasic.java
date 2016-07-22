@@ -62,10 +62,10 @@ public class GuideBasic extends AppCompatActivity{
         storage = FirebaseStorage.getInstance();
         storageRef = storage.getReferenceFromUrl("gs://fbutourguide.appspot.com/");
 
-        etName = (EditText) findViewById(R.id.etName);
+        etName = (EditText) findViewById(R.id.etTravelerName);
         etLocation = (EditText) findViewById(R.id.etLocation);
         etBasicAdditional = (EditText) findViewById(R.id.etBasicAdditional);
-        etLanguages = (EditText) findViewById(R.id.etLanguages);
+        etLanguages = (EditText) findViewById(R.id.etTravelerLanguages);
 
 
         //final String userId = getUid();

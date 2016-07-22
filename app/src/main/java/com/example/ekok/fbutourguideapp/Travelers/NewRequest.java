@@ -25,6 +25,7 @@ public class NewRequest extends AppCompatActivity{
     private final static String TAG = "Firebase";
     private DatabaseReference dataRef = FirebaseDatabase.getInstance().getReference();
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    RequestModel requestModel;
 
     EditText etPlace;
     EditText etStartDate;
@@ -42,12 +43,12 @@ public class NewRequest extends AppCompatActivity{
             final String uid = user.getUid();
             final DatabaseReference myRef = dataRef.child("users").child(uid).child("Traveler").child("trips_current").push();
 
-            Button btnSubmit = (Button) findViewById(R.id.btnSubmit);
+            Button btnSubmit = (Button) findViewById(R.id.btnEditRequest);
             etPlace = (EditText) findViewById(R.id.etPlace);
             etStartDate = (EditText) findViewById(R.id.etStartDate);
             etEndDate = (EditText) findViewById(R.id.etEndDate);
             etGroupSize = (EditText) findViewById(R.id.etGroupSize);
-            etLanguages = (EditText) findViewById(R.id.etLanguages);
+            etLanguages = (EditText) findViewById(R.id.etTravelerLanguages);
 
             // SAVE
             btnSubmit.setOnClickListener(new View.OnClickListener() {
@@ -73,6 +74,7 @@ public class NewRequest extends AppCompatActivity{
 
                     myOtherRef.child("traveler_uid").setValue(uid);
                     myOtherRef.child("requestId").setValue(myRef.getKey());
+                    myOtherRef.child("displayName").setValue(user.getDisplayName());
                     myOtherRef.child("dates").setValue(startDate + " - " + endDate);
 
                     // READ DATA

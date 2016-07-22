@@ -39,7 +39,7 @@ public class GuideContact extends AppCompatActivity {
 
         etPhonePrimary = (EditText) findViewById(R.id.etPhonePrimary);
         etPhoneSecondary = (EditText) findViewById(R.id.etPhoneSecondary);
-        etEmail = (EditText) findViewById(R.id.etEmail);
+        etEmail = (EditText) findViewById(R.id.tvTravelerEmail);
         etContactAdditional = (EditText) findViewById(R.id.etContactAdditional);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();

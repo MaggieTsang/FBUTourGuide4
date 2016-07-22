@@ -8,7 +8,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Next"
-        android:id="@+id/btnBasicNext"
+        android:id="@+id/btnSubmitTravelerInfo"
         android:onClick="launchContact"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
@@ -50,23 +50,23 @@
         android:layout_height="wrap_content"
         android:id="@+id/etLocation"
         android:hint="City"
-        android:layout_below="@+id/tvName"
-        android:layout_alignLeft="@+id/etName"
-        android:layout_alignStart="@+id/etName" />
+        android:layout_below="@+id/tvTravelerName"
+        android:layout_alignLeft="@+id/etTravelerName"
+        android:layout_alignStart="@+id/etTravelerName" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/etBasicAdditional"
         android:hint="Add additional Info"
-        android:layout_alignTop="@+id/btnBasicNext"
+        android:layout_alignTop="@+id/btnSubmitTravelerInfo"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/etName"
+        android:id="@+id/etTravelerName"
         android:hint="Last, First"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
@@ -75,9 +75,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Name:"
-        android:id="@+id/tvName"
+        android:id="@+id/tvTravelerName"
         android:textSize="20sp"
-        android:layout_alignBottom="@+id/etName"
+        android:layout_alignBottom="@+id/etTravelerName"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -87,7 +87,7 @@
         android:text="Location:"
         android:id="@+id/tvLocation"
         android:textSize="20sp"
-        android:layout_above="@+id/etLanguages"
+        android:layout_above="@+id/etTravelerLanguages"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -105,16 +105,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Languages:"
-        android:id="@+id/tvLanguages"
+        android:id="@+id/tvTravelerLanguages"
         android:textSize="20sp"
-        android:layout_alignBottom="@+id/etLanguages"
+        android:layout_alignBottom="@+id/etTravelerLanguages"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/etLanguages"
+        android:id="@+id/etTravelerLanguages"
         android:hint="Enter language(s) here"
         android:layout_below="@+id/etLocation"
         android:layout_alignLeft="@+id/etLocation"

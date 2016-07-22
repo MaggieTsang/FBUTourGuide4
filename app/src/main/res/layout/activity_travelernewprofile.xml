@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.ekok.fbutourguideapp.Travelers.TravelerNewProfile">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:id="@+id/btnSubmitTravelerInfo"
+        android:onClick="launchContact"
+        android:layout_marginTop="46dp"
+        android:layout_below="@+id/tvTravelerEmail"
+        android:layout_alignLeft="@+id/etTravelerLanguages"
+        android:layout_alignStart="@+id/etTravelerLanguages" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Basic Information"
+        android:id="@+id/tvBasicInfo"
+        android:textSize="26sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/etTravelerName"
+        android:hint="Last Name, First Name"
+        android:layout_alignBottom="@+id/tvTravelerName"
+        android:layout_toRightOf="@+id/tvTravelerLanguages"
+        android:layout_toEndOf="@+id/tvTravelerLanguages"
+        android:layout_marginLeft="28dp"
+        android:layout_marginStart="28dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name:"
+        android:id="@+id/tvTravelerName"
+        android:textSize="20sp"
+        android:layout_marginTop="52dp"
+        android:paddingBottom="10dp"
+        android:layout_below="@+id/tvBasicInfo"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Languages:"
+        android:id="@+id/tvTravelerLanguages"
+        android:textSize="20sp"
+        android:layout_alignBottom="@+id/etTravelerLanguages"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:paddingBottom="10dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/etTravelerLanguages"
+        android:hint="Enter language(s) here"
+        android:layout_marginTop="38dp"
+        android:layout_below="@+id/etTravelerName"
+        android:layout_alignLeft="@+id/etTravelerName"
+        android:layout_alignStart="@+id/etTravelerName" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email:"
+        android:id="@+id/tvTravelerEmail"
+        android:textSize="20sp"
+        android:paddingBottom="10dp"
+        android:layout_below="@+id/etTravelerLanguages"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="57dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/etTravelerEmail"
+        android:hint="Enter email here"
+        android:layout_alignBottom="@+id/tvTravelerEmail"
+        android:layout_alignLeft="@+id/etTravelerLanguages"
+        android:layout_alignStart="@+id/etTravelerLanguages"
+        android:layout_alignRight="@+id/etTravelerLanguages"
+        android:layout_alignEnd="@+id/etTravelerLanguages" />
+
+</RelativeLayout>

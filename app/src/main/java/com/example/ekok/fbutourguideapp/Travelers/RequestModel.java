@@ -5,7 +5,7 @@ package com.example.ekok.fbutourguideapp.Travelers;
  */
 public class RequestModel {
 
-    public String place;
+    String place;
     String startDate;
     String endDate;
     int groupSize;

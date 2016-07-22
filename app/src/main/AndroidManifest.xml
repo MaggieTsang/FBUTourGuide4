@@ -5,10 +5,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
 
     <application
         android:name=".FirebaseStart"
@@ -16,7 +14,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="Tour Guide"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light.DarkActionBar" >
+        android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
@@ -37,7 +35,7 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity
             android:name="com.facebook.CustomTabActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -47,28 +45,41 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-        <activity android:name=".Login.UserLogin"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Travelers.TravelerMain"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Guides.GuideBasic"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Guides.GuideContact"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Guides.GuidePayment"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Guides.GuideViewRequests"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Travelers.NewRequest"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Guides.GuideCalender"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Guides.GuideViewProfile"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Login.UserType"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Travelers.RatingActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Login.UserLogin"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Travelers.TravelerViewTrips"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Guides.GuideBasic"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Guides.GuideContact"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Guides.GuidePayment"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Guides.GuideViewRequests"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Travelers.NewRequest"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Guides.GuideCalender"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Guides.GuideViewProfile"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Login.UserType"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Travelers.RatingActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".Travelers.TravelerViewTripInfo" />
+        <activity android:name=".Travelers.TravelerNewProfile"></activity>
     </application>
 
 </manifest>

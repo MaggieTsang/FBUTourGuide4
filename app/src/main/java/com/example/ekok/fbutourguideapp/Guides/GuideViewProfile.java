@@ -58,13 +58,13 @@ public class GuideViewProfile extends AppCompatActivity{
         storage = FirebaseStorage.getInstance();
         storageRef = storage.getReferenceFromUrl("gs://fbutourguide.appspot.com/");
 
-        tvName = (TextView) findViewById(R.id.tvName);
+        tvName = (TextView) findViewById(R.id.tvTravelerName);
         tvLocation = (TextView) findViewById(R.id.tvLocation);
-        tvLanguages = (TextView) findViewById(R.id.tvLanguages);
+        tvLanguages = (TextView) findViewById(R.id.tvTravelerLanguages);
         tvFillDescription = (TextView) findViewById(R.id.tvFillDescription);
         tvPhone1 = (TextView) findViewById(R.id.tvPhone1);
         tvPhone2 = (TextView) findViewById(R.id.tvPhone2);
-        tvEmail = (TextView) findViewById(R.id.tvEmail);
+        tvEmail = (TextView) findViewById(R.id.tvTravelerEmail);
         tvMethod = (TextView) findViewById(R.id.tvMethod);
         tvCurrency = (TextView) findViewById(R.id.tvCurrency);
         tvHourly = (TextView) findViewById(R.id.tvHourly);

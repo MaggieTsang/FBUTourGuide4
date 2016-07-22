@@ -10,7 +10,7 @@ import com.example.ekok.fbutourguideapp.Guides.GuideBasic;
 import com.example.ekok.fbutourguideapp.Guides.GuideUser;
 import com.example.ekok.fbutourguideapp.Guides.GuideViewRequests;
 import com.example.ekok.fbutourguideapp.R;
-import com.example.ekok.fbutourguideapp.Travelers.TravelerMain;
+import com.example.ekok.fbutourguideapp.Travelers.TravelerViewTrips;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -36,7 +36,7 @@ public class UserType extends AppCompatActivity{
     // From user type to either traveler or guide
     public void launchTraveler(View v) {
         // first parameter is the context, second is the class of the activity to launch
-        Intent i = new Intent(this, TravelerMain.class);
+        Intent i = new Intent(this, TravelerViewTrips.class);
         startActivity(i); // brings up the second activity
     }
 

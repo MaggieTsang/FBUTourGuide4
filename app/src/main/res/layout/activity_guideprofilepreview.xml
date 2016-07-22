@@ -19,7 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Guide Name"
-        android:id="@+id/tvName"
+        android:id="@+id/tvTravelerName"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/ivProfilePicture"
         android:layout_toEndOf="@+id/ivProfilePicture"
@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:text="Location"
         android:id="@+id/tvLocation"
-        android:layout_below="@+id/tvName"
+        android:layout_below="@+id/tvTravelerName"
         android:layout_toRightOf="@+id/ivProfilePicture"
         android:layout_toEndOf="@+id/ivProfilePicture"
         android:textSize="15sp" />
@@ -39,7 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Languages"
-        android:id="@+id/tvLanguages"
+        android:id="@+id/tvTravelerLanguages"
         android:layout_below="@+id/tvLocation"
         android:layout_toRightOf="@+id/ivProfilePicture"
         android:layout_toEndOf="@+id/ivProfilePicture"
@@ -102,7 +102,7 @@
         android:text="Phone 2"
         android:id="@+id/tvPhone2"
         android:textSize="15sp"
-        android:layout_above="@+id/tvEmail"
+        android:layout_above="@+id/tvTravelerEmail"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -121,7 +121,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Email"
-        android:id="@+id/tvEmail"
+        android:id="@+id/tvTravelerEmail"
         android:textSize="15sp"
         android:layout_above="@+id/btnEditProfile"
         android:layout_alignParentLeft="true"
@@ -135,8 +135,8 @@
         android:id="@+id/tvPayment"
         android:textSize="20sp"
         android:layout_above="@+id/tvPhone1"
-        android:layout_alignLeft="@+id/tvLanguages"
-        android:layout_alignStart="@+id/tvLanguages" />
+        android:layout_alignLeft="@+id/tvTravelerLanguages"
+        android:layout_alignStart="@+id/tvTravelerLanguages" />
 
     <TextView
         android:layout_width="wrap_content"
