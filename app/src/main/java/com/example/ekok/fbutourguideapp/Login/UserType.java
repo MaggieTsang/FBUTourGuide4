@@ -69,7 +69,6 @@ public class UserType extends AppCompatActivity{
             });
 
 
-
         } else {
             Toast.makeText(UserType.this, "User not authenticated.", Toast.LENGTH_SHORT).show();
 

@@ -1,16 +1,25 @@
 package com.example.ekok.fbutourguideapp.Guides;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.ekok.fbutourguideapp.Login.UserType;
 import com.example.ekok.fbutourguideapp.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -20,42 +29,86 @@ import java.util.ArrayList;
 public class GuideViewRequests extends AppCompatActivity{
     public static final String MY_PREFS_NAME = "MyPrefsFile";
 
+    DatabaseReference dataRef;
+
     ArrayList<String> requests;
     ArrayAdapter<String> requestsAdapter;
     ListView lvRequests;
 
-    GuideUser guideUser;
+    GuideUser guideInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guiderequests);
-
-        guideUser = (GuideUser) getIntent().getSerializableExtra("guideUser");
+        dataRef = FirebaseDatabase.getInstance().getReference();
 
         lvRequests = (ListView) findViewById(R.id.lvRequests);
         requests = new ArrayList<>();
-        requestsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, requests);
-
-        lvRequests.setAdapter(requestsAdapter);
+        requestsAdapter = new ArrayAdapter<>(GuideViewRequests.this, android.R.layout.simple_list_item_1, requests);
         requests.add("So many requests, Wa0w");
 
-
-
-//        SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
-//        String restoredText = prefs.getString("etPlace", null);
-//        if (restoredText != null) {
-//            String etPlace = prefs.getString("etPlace", "No place defined");//"No name defined" is the default value.
-//            requests.add(0, etPlace);
-//            notify();
-//        }
-
-        SharedPreferences bb = getSharedPreferences("my_prefs", 0);
-        String m = bb.getString("etPlace", "");
-        requests.add(m);
-
+        getGuideInfo();
+        fillRequestList();
     }
+
+    public void getGuideInfo(){
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            String uid = user.getUid();
+            dataRef.child("users").child(uid).child("Guide").addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    guideInfo = dataSnapshot.getValue(GuideUser.class);
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                    Toast.makeText(GuideViewRequests.this, "Error.", Toast.LENGTH_SHORT).show();
+                    // Log.w(TAG, "getUser:onCancelled", databaseError.toException());
+                }
+            });
+        }
+    }
+
+
+    public void fillRequestList(){
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            String uid = user.getUid();
+            dataRef.child("requests").addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    //GuideUser guide = dataSnapshot.getValue(GuideUser.class);
+                    //String guideLocation= guide.location;
+                    for (DataSnapshot child: dataSnapshot.getChildren()) {
+                        //If guide location matches a folder
+                        String guideLocation = guideInfo.location;
+                        if (child.getKey().equalsIgnoreCase(guideLocation)){
+                            String currentReqs = child.getValue().toString();
+                            requests.add(currentReqs);
+                        }
+                    }
+                    lvRequests.setAdapter(requestsAdapter);
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                    Toast.makeText(GuideViewRequests.this, "Error.", Toast.LENGTH_SHORT).show();
+                   // Log.w(TAG, "getUser:onCancelled", databaseError.toException());
+                }
+            });
+
+            lvRequests.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                    Toast.makeText(getApplicationContext(), "Open request info", Toast.LENGTH_LONG).show();
+                }
+            });
+
+        }
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -65,9 +118,7 @@ public class GuideViewRequests extends AppCompatActivity{
     }
 
     public void editProfile(MenuItem item) {
-        //Intent i = new Intent(this, GuideMain.class);
         Intent i = new Intent(this, GuideViewProfile.class);
-        //i.putExtra("guideUser", guideUser);
         startActivity(i);
     }
 
