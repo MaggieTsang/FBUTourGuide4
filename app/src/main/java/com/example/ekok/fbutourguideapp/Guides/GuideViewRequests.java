@@ -34,7 +34,7 @@ public class GuideViewRequests extends AppCompatActivity{
     ArrayList<String> requests;
     ArrayAdapter<String> requestsAdapter;
     ListView lvRequests;
-
+    String travelerName;
     GuideUser guideInfo;
 
     @Override
@@ -73,41 +73,41 @@ public class GuideViewRequests extends AppCompatActivity{
 
 
     public void fillRequestList(){
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null) {
-            String uid = user.getUid();
-            dataRef.child("requests").addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    //GuideUser guide = dataSnapshot.getValue(GuideUser.class);
-                    //String guideLocation= guide.location;
-                    for (DataSnapshot child: dataSnapshot.getChildren()) {
-                        //If guide location matches a folder
-                        String guideLocation = guideInfo.location;
-                        if (child.getKey().equalsIgnoreCase(guideLocation)){
-                            String currentReqs = child.getValue().toString();
-                            requests.add(currentReqs);
+        dataRef.child("requests").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                //GuideUser guide = dataSnapshot.getValue(GuideUser.class);
+                //String guideLocation= guide.location;
+                for (DataSnapshot places: dataSnapshot.getChildren()) {
+                    //If guide location matches a folder
+                    String guideLocation = guideInfo.location;
+                    if (places.getKey().equalsIgnoreCase(guideLocation)){
+                        for (DataSnapshot availRequests: places.getChildren()){
+                            String name = availRequests.child("displayName").getValue().toString();
+                            String dates = availRequests.child("dates").getValue().toString();
+
+                            requests.add(name + ": " + dates);
                         }
                     }
-                    lvRequests.setAdapter(requestsAdapter);
                 }
+                lvRequests.setAdapter(requestsAdapter);
+            }
 
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-                    Toast.makeText(GuideViewRequests.this, "Error.", Toast.LENGTH_SHORT).show();
-                   // Log.w(TAG, "getUser:onCancelled", databaseError.toException());
-                }
-            });
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Toast.makeText(GuideViewRequests.this, "Error.", Toast.LENGTH_SHORT).show();
+                // Log.w(TAG, "getUser:onCancelled", databaseError.toException());
+            }
+        });
 
-            lvRequests.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    Toast.makeText(getApplicationContext(), "Open request info", Toast.LENGTH_LONG).show();
-                }
-            });
-
-        }
+        lvRequests.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Toast.makeText(getApplicationContext(), "Open request info", Toast.LENGTH_LONG).show();
+            }
+        });
     }
+
 
 
     @Override
