@@ -34,8 +34,10 @@ public class GuideViewRequests extends AppCompatActivity{
     ArrayList<String> requests;
     ArrayAdapter<String> requestsAdapter;
     ListView lvRequests;
-    String travelerName;
     GuideUser guideInfo;
+
+    ArrayList<String> requestIDs;
+    ArrayList<String> requestsTravelerID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +47,10 @@ public class GuideViewRequests extends AppCompatActivity{
 
         lvRequests = (ListView) findViewById(R.id.lvRequests);
         requests = new ArrayList<>();
+        requestIDs = new ArrayList<>();
+        requestsTravelerID = new ArrayList<>();
+
         requestsAdapter = new ArrayAdapter<>(GuideViewRequests.this, android.R.layout.simple_list_item_1, requests);
-        requests.add("So many requests, Wa0w");
 
         getGuideInfo();
         fillRequestList();
@@ -86,6 +90,8 @@ public class GuideViewRequests extends AppCompatActivity{
                             String name = availRequests.child("displayName").getValue().toString();
                             String dates = availRequests.child("dates").getValue().toString();
                             requests.add(name + ": " + dates);
+                            requestIDs.add(availRequests.child("requestId").getValue().toString());
+                            requestsTravelerID.add(availRequests.child("traveler_uid").getValue().toString());
                         }
                     }
                 }
@@ -101,9 +107,12 @@ public class GuideViewRequests extends AppCompatActivity{
 
         lvRequests.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(getApplicationContext(), "Open request info", Toast.LENGTH_LONG).show();
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                //Toast.makeText(getApplicationContext(), "Open request info at " + position, Toast.LENGTH_SHORT).show();
+
                 Intent intent = new Intent(GuideViewRequests.this, GuideRequestDetail.class);
+                intent.putExtra("requestIDs", requestIDs.get(position));
+                intent.putExtra("requestsTravelerID",requestsTravelerID.get(position));
                 startActivity(intent);
             }
         });

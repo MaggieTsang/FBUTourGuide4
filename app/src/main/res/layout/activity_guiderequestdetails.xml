@@ -68,8 +68,8 @@
         android:text="reqPlace"
         android:id="@+id/tvReqPlace"
         android:layout_alignTop="@+id/tvPlace"
-        android:layout_alignLeft="@+id/tvReqGroupNum"
-        android:layout_alignStart="@+id/tvReqGroupNum" />
+        android:layout_alignLeft="@+id/tvMakeRequest"
+        android:layout_alignStart="@+id/tvMakeRequest" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -86,8 +86,8 @@
         android:text="reqGroupNum"
         android:id="@+id/tvReqGroupNum"
         android:layout_alignTop="@+id/tvGroupSize"
-        android:layout_alignRight="@+id/tvMakeRequest"
-        android:layout_alignEnd="@+id/tvMakeRequest" />
+        android:layout_alignLeft="@+id/tvReqDate"
+        android:layout_alignStart="@+id/tvReqDate" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -103,10 +103,10 @@
         android:layout_height="wrap_content"
         android:text="Accept"
         android:id="@+id/btnAccept"
+        android:layout_marginBottom="70dp"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/tvReqDate"
-        android:layout_toEndOf="@+id/tvReqDate"
-        android:layout_marginBottom="77dp" />
+        android:layout_toRightOf="@+id/tvMakeRequest"
+        android:layout_toEndOf="@+id/tvMakeRequest" />
 
     <Button
         android:layout_width="wrap_content"
