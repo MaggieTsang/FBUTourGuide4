@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp">
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Request Details"
+        android:id="@+id/tvMakeRequest"
+        android:textSize="20sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/place"
+        android:id="@+id/tvPlace"
+        android:textSize="16sp"
+        android:paddingBottom="10dp"
+        android:layout_below="@+id/tvMakeRequest"
+        android:layout_alignLeft="@+id/tvDate"
+        android:layout_alignStart="@+id/tvDate"
+        android:layout_marginTop="29dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/date"
+        android:id="@+id/tvDate"
+        android:textSize="16sp"
+        android:layout_marginTop="75dp"
+        android:paddingBottom="10dp"
+        android:layout_below="@+id/tvMakeRequest"
+        android:layout_alignLeft="@+id/tvGroupSize"
+        android:layout_alignStart="@+id/tvGroupSize" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/group_size"
+        android:id="@+id/tvGroupSize"
+        android:textSize="15sp"
+        android:layout_marginTop="34dp"
+        android:paddingBottom="10dp"
+        android:layout_below="@+id/tvDate"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/languages"
+        android:id="@+id/tvTravelerLanguages"
+        android:textSize="15sp"
+        android:paddingBottom="10dp"
+        android:layout_below="@+id/tvGroupSize"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="33dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="reqPlace"
+        android:id="@+id/tvReqPlace"
+        android:layout_alignTop="@+id/tvPlace"
+        android:layout_alignLeft="@+id/tvMakeRequest"
+        android:layout_alignStart="@+id/tvMakeRequest" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="reqDate"
+        android:id="@+id/tvReqDate"
+        android:layout_alignTop="@+id/tvDate"
+        android:layout_alignLeft="@+id/tvReqPlace"
+        android:layout_alignStart="@+id/tvReqPlace" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="reqGroupNum"
+        android:id="@+id/tvReqGroupNum"
+        android:layout_alignTop="@+id/tvGroupSize"
+        android:layout_alignLeft="@+id/tvReqDate"
+        android:layout_alignStart="@+id/tvReqDate" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="reqLanguages"
+        android:id="@+id/tvReqLanguages"
+        android:layout_alignTop="@+id/tvTravelerLanguages"
+        android:layout_alignLeft="@+id/tvReqGroupNum"
+        android:layout_alignStart="@+id/tvReqGroupNum" />
+
+
+</RelativeLayout>

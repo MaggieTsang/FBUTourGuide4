@@ -93,6 +93,10 @@
             android:screenOrientation="portrait"
             android:label="Pending/Accepted Requests"/>
         <activity
+            android:name=".Guides.GuideAcceptedDetails"
+            android:screenOrientation="portrait"
+            android:label="Accepted Details"/>
+        <activity
             android:name=".Travelers.TravelerViewTripInfo"
             android:screenOrientation="portrait"/>
         <activity

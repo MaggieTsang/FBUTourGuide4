@@ -24,6 +24,7 @@ public class GuideRequestDetail extends AppCompatActivity{
     DatabaseReference dataRef;
     FirebaseUser user;
     String reqID;
+    String travelerID;
 
     TextView tvReqPlace;
     TextView tvReqDate;
@@ -43,6 +44,7 @@ public class GuideRequestDetail extends AppCompatActivity{
         tvReqLanguages = (TextView) findViewById(R.id.tvReqLanguages);
 
         reqID = getIntent().getSerializableExtra("requestIDs").toString();
+        travelerID = getIntent().getSerializableExtra("requestsTravelerID").toString();
         String travelerID = getIntent().getSerializableExtra("requestsTravelerID").toString();
 
         dataRef.child("users").child(travelerID).child("Traveler").child("trips_current").child(reqID).addListenerForSingleValueEvent(new ValueEventListener() {
@@ -65,6 +67,7 @@ public class GuideRequestDetail extends AppCompatActivity{
         });
     }
 
+    //Adds the declined request id to the database
     public void declineRequest(View view) {
         Toast.makeText(GuideRequestDetail.this, "Request declined.", Toast.LENGTH_SHORT).show();
         dataRef.child("users").child(user.getUid()).child("Guide").addListenerForSingleValueEvent(new ValueEventListener() {
@@ -82,13 +85,14 @@ public class GuideRequestDetail extends AppCompatActivity{
         finish();
     }
 
+    //Adds the accepted request id to the database, puts in
     public void acceptRequest(View view) {
         Toast.makeText(GuideRequestDetail.this, "Request accepted!", Toast.LENGTH_SHORT).show();
         dataRef.child("users").child(user.getUid()).child("Guide").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String location = dataSnapshot.child("Profile").child("location").getValue().toString();
-                dataRef.child("users").child(user.getUid()).child("Guide").child("Accepted").child(location).child(reqID).setValue("Accepted " + reqID);
+                dataRef.child("users").child(user.getUid()).child("Guide").child("Accepted").child(location).child(travelerID).setValue(reqID);
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
