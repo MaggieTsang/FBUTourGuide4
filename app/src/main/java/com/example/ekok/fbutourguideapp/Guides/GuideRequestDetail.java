@@ -1,5 +1,6 @@
 package com.example.ekok.fbutourguideapp.Guides;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -66,7 +67,8 @@ public class GuideRequestDetail extends AppCompatActivity{
 
     public void acceptRequest(View view) {
         Toast.makeText(GuideRequestDetail.this, "Request accepted!", Toast.LENGTH_SHORT).show();
-        finish();
+        Intent i = new Intent(this, GuidePending.class);
+        startActivity(i);
     }
 }
 

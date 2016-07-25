@@ -47,7 +47,8 @@
         </activity>
         <activity
             android:name=".Guides.GuideRequestDetail"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:label="Request Detail"/>
         <activity
             android:name=".Login.UserLogin"
             android:screenOrientation="portrait" />
@@ -56,16 +57,20 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".Guides.GuideBasic"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:label="Edit Profile"/>
         <activity
             android:name=".Guides.GuideContact"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:label="Edit Profile"/>
         <activity
             android:name=".Guides.GuidePayment"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:label="Edit Profile"/>
         <activity
             android:name=".Guides.GuideViewRequests"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:label="Available Requests"/>
         <activity
             android:name=".Travelers.NewRequest"
             android:screenOrientation="portrait" />
@@ -74,16 +79,19 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".Guides.GuideViewProfile"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:label="Preview Profile"/>
         <activity
             android:name=".Login.UserType"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:label="Main"/>
         <activity
             android:name=".Travelers.RatingActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".Guides.GuidePending"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:label="Pending/Accepted Requests"/>
         <activity
             android:name=".Travelers.TravelerViewTripInfo"
             android:screenOrientation="portrait"/>

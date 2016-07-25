@@ -37,7 +37,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tvTravelerEmail"
+        android:id="@+id/etTravelerEmail"
         android:hint="name@email.com"
         android:layout_below="@+id/etPhoneSecondary"
         android:layout_alignLeft="@+id/etPhoneSecondary"
@@ -77,10 +77,11 @@
         android:layout_height="wrap_content"
         android:text="Secondary Phone #:"
         android:id="@+id/tvPhoneSecondary"
-        android:layout_above="@+id/tvTravelerEmail"
+        android:textSize="20sp"
+        android:layout_alignBaseline="@+id/etPhoneSecondary"
+        android:layout_alignBottom="@+id/tvPhonePrimary"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textSize="20sp" />
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -88,7 +89,7 @@
         android:text="Email"
         android:id="@+id/tvTravelerEmail"
         android:textSize="20sp"
-        android:layout_alignBottom="@+id/tvTravelerEmail"
+        android:layout_below="@+id/etPhoneSecondary"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
