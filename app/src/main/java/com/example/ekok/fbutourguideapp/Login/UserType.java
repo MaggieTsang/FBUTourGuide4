@@ -47,11 +47,11 @@ public class UserType extends AppCompatActivity{
         if (user != null) {
             String uid = user.getUid();
 
-            dataRef.child("users").child(uid).child("Guide").child("Profile").addListenerForSingleValueEvent(new ValueEventListener() {
+            dataRef.child("users").child(uid).child("Guide").addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     // Get user value
-                     GuideUser user = dataSnapshot.getValue(GuideUser.class);
+                    GuideUser user = dataSnapshot.getValue(GuideUser.class);
                     if (user == null || user.legalName.isEmpty()){
                         Intent i = new Intent(UserType.this, GuideBasic.class);
                         startActivity(i);

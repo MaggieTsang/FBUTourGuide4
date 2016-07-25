@@ -25,6 +25,8 @@ public class TravelerViewTripInfo extends AppCompatActivity {
     TextView tvGroupSize;
     TextView tvLanguages;
 
+    RequestModel requestModel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

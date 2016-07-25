@@ -64,11 +64,20 @@ public class NewRequest extends AppCompatActivity{
                     final String languages = etLanguages.getText().toString();
 
                     // SET DATA
-                    myRef.child("place").setValue(place);
+                    if (place.equalsIgnoreCase(place)) {
+                        myRef.child("place").setValue(place);
+                    }
+
                     myRef.child("startDate").setValue(startDate);
                     myRef.child("endDate").setValue(endDate);
                     myRef.child("groupSize").setValue(finalGroupSize);
                     myRef.child("languages").setValue(languages);
+
+                    requestModel.place = place;
+                    requestModel.startDate = startDate;
+                    requestModel.endDate = endDate;
+                    requestModel.groupSize = finalGroupSize;
+                    requestModel.languages = languages;
 
                     final DatabaseReference myOtherRef = dataRef.child("requests").child(place).push();
 
@@ -76,8 +85,6 @@ public class NewRequest extends AppCompatActivity{
                     myOtherRef.child("requestId").setValue(myRef.getKey());
                     myOtherRef.child("displayName").setValue(user.getDisplayName());
                     myOtherRef.child("dates").setValue(startDate + " - " + endDate);
-                    myOtherRef.child("groupSize").setValue(finalGroupSize);
-                    myOtherRef.child("languages").setValue(languages);
 
                     // READ DATA
                     myOtherRef.addChildEventListener(new ChildEventListener() {

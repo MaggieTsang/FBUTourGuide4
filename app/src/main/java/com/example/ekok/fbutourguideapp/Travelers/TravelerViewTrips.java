@@ -23,7 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 /**
- * Created by mbytsang on 7/5/16.
+ * Created by ekok on 7/5/16.
  */
 public class TravelerViewTrips extends AppCompatActivity{
     private final int REQUEST_CODE = 20;
@@ -35,6 +35,7 @@ public class TravelerViewTrips extends AppCompatActivity{
 
     RequestModel requestInfo;
     DatabaseReference dataRef;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +55,7 @@ public class TravelerViewTrips extends AppCompatActivity{
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             String uid = user.getUid();
-            dataRef.child("users").child(uid).child("Traveler").addListenerForSingleValueEvent(new ValueEventListener() {
+            dataRef.child("users").child(uid).child("Traveler").child("trips_current").addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     requestInfo = dataSnapshot.getValue(RequestModel.class);
@@ -81,18 +82,27 @@ public class TravelerViewTrips extends AppCompatActivity{
                     //String guideLocation= guide.location;
                     for (final DataSnapshot child: dataSnapshot.getChildren()) {
                         String currentReqs = child.getValue().toString();
+
                         final String trip_id = child.getKey();
-                        trips.add(currentReqs + trip_id);
+                        final String place = child.child("place").getValue().toString();
+                        String startDate = child.child("startDate").getValue().toString();
+                        String endDate = child.child("endDate").getValue().toString();
+
+                        trips.add(place + "\n" + startDate + " - " + endDate);
 
 
                         lvTrips.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                             @Override
                             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+
                                 String trip = trips.get(position);
+
+                                requestInfo.place = place;
+
                                 Toast.makeText(getApplicationContext(), "pos: " + trip, Toast.LENGTH_LONG).show();
 
                                 Intent intent = new Intent(TravelerViewTrips.this, TravelerViewTripInfo.class);
-                                intent.putExtra("trip_id", trip);
+                                intent.putExtra("trip_id", requestInfo.place);
                                 startActivity(intent);
                             }
                         });
