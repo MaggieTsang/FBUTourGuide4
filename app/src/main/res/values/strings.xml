@@ -22,4 +22,6 @@
     <string name="overall">Overall</string>
     <string name="your_request">Your Request</string>
     <string name="edit">Edit</string>
+    <string name="view_accepted_requests">View Accepted Requests</string>
+    <string name="request">request</string>
 </resources>

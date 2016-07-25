@@ -45,11 +45,9 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".Guides.GuideRequestDetail"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".Login.UserLogin"
             android:screenOrientation="portrait" />
@@ -84,7 +82,8 @@
             android:name=".Travelers.RatingActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".Travelers.TravelerViewTripInfo" />
-        <activity android:name=".Travelers.TravelerNewProfile"></activity>
+        <activity android:name=".Travelers.TravelerNewProfile" />
+        <activity android:name=".Travelers.TravelerViewAcceptedRequests"></activity>
     </application>
 
 </manifest>

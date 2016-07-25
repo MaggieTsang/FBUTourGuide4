@@ -12,9 +12,16 @@
 
     <item
         android:id="@+id/miRequest"
-        android:title="request"
+        android:title="@string/request"
         app:showAsAction="always"
         android:icon="@drawable/ic_makenewrequest"
         android:onClick="makeNewRequest"/>
 
+
+    <item
+        android:id="@+id/miViewAcceptedRequests"
+        android:title="@string/view_accepted_requests"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_viewacceptedreqs"
+        android:onClick="viewAcceptedReqs"/>
 </menu>
