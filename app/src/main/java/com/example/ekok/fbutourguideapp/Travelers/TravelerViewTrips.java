@@ -73,30 +73,63 @@ public class TravelerViewTrips extends AppCompatActivity{
     public void fillRequestList(){
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
-            String uid = user.getUid();
+            final String uid = user.getUid();
             dataRef.child("users").child(uid).child("Traveler").child("trips_current").addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
+                public void onDataChange(final DataSnapshot dataSnapshot) {
                     //GuideUser guide = dataSnapshot.getValue(GuideUser.class);
                     //String guideLocation= guide.location;
-                    for (DataSnapshot child: dataSnapshot.getChildren()) {
+                    for (final DataSnapshot child: dataSnapshot.getChildren()) {
                         String currentReqs = child.getValue().toString();
-                        trips.add(currentReqs);
+                        final String trip_id = child.getKey();
+                        trips.add(currentReqs + trip_id);
+
+
+                        lvTrips.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                                String trip = trips.get(position);
+                                Toast.makeText(getApplicationContext(), "pos: " + trip, Toast.LENGTH_LONG).show();
+
+                                Intent intent = new Intent(TravelerViewTrips.this, TravelerViewTripInfo.class);
+                                intent.putExtra("trip_id", trip);
+                                startActivity(intent);
+                            }
+                        });
                     }
                     lvTrips.setAdapter(tripsAdapter);
                 }
+
+//                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//                    @Override
+//                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//            /*//listview clicked item index
+//            int itemPosition = position;
+//
+//            //Listview clicked item value
+//            String itemValue = (String)listView.getItemAtPosition(position);
+//
+//            //show alert
+//            Toast.makeText(getApplicationContext(),
+//                    "Position:"+itemPosition+" ListItem:" + itemValue, Toast.LENGTH_LONG).show();*/
+//                        switch(itemPosition)
+//
+//                        case 0 :Intent appInfo = new Intent(About.this, about_app.class);
+//                            startActivity(appInfo);
+//                            break;
+//                        case 1 :Intent appInfo = new Intent(About.this, Activity1.class);
+//                            startActivity(appInfo);
+//                            break;
+//                        case 2 :Intent appInfo = new Intent(About.this, Activity2.class);
+//                            startActivity(appInfo);
+//                            break;
+//                    }
+//                });
 
                 @Override
                 public void onCancelled(DatabaseError databaseError) {
                     Toast.makeText(TravelerViewTrips.this, "Error.", Toast.LENGTH_SHORT).show();
                     // Log.w(TAG, "getUser:onCancelled", databaseError.toException());
-                }
-            });
-
-            lvTrips.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    Toast.makeText(getApplicationContext(), "Open request info", Toast.LENGTH_LONG).show();
                 }
             });
 
