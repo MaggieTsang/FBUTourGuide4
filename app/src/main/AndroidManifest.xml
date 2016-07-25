@@ -81,9 +81,20 @@
         <activity
             android:name=".Travelers.RatingActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".Travelers.TravelerViewTripInfo" />
-        <activity android:name=".Travelers.TravelerNewProfile" />
-        <activity android:name=".Travelers.TravelerViewAcceptedRequests"></activity>
+        <activity
+            android:name=".Guides.GuidePending"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Travelers.TravelerViewTripInfo"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Travelers.TravelerNewProfile"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Travelers.TravelerPending"
+            android:screenOrientation="portrait">
+
+        </activity>
     </application>
 
 </manifest>

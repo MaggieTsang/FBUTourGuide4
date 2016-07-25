@@ -10,14 +10,22 @@
         android:onClick="goToHome"
         android:layout_alignParentLeft="true"/>
 
+    <item
+        android:id="@+id/miPending"
+        android:title="pending"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_viewacceptedreqs"
+        android:onClick="goToPending"
+        android:layout_alignParentLeft="true"/>
 
-
+<!--
     <item
         android:id="@+id/miCalender"
         android:title="calender"
         app:showAsAction="always"
         android:icon="@drawable/ic_calender"
         android:onClick="goToCalender"/>
+-->
 
 
     <item

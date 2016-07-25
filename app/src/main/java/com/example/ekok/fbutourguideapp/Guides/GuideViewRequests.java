@@ -132,13 +132,20 @@ public class GuideViewRequests extends AppCompatActivity{
         startActivity(i);
     }
 
+    /*
     public void goToCalender(MenuItem item) {
         Intent i = new Intent(this, GuideCalender.class);
         startActivity(i);
     }
+    */
 
     public void goToHome(MenuItem item) {
         Intent i = new Intent(this, UserType.class);
+        startActivity(i);
+    }
+
+    public void goToPending(MenuItem item) {
+        Intent i = new Intent(this, GuidePending.class);
         startActivity(i);
     }
 }

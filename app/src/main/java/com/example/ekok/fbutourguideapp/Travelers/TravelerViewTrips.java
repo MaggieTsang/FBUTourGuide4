@@ -134,7 +134,7 @@ public class TravelerViewTrips extends AppCompatActivity{
     }
 
     public void viewAcceptedReqs(MenuItem item) {
-        Intent i = new Intent(this, TravelerViewAcceptedRequests.class);
+        Intent i = new Intent(this, TravelerPending.class);
         startActivity(i);
     }
 }
