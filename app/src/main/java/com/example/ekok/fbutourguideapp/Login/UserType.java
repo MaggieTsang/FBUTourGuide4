@@ -47,7 +47,7 @@ public class UserType extends AppCompatActivity{
         if (user != null) {
             String uid = user.getUid();
 
-            dataRef.child("users").child(uid).child("Guide").addListenerForSingleValueEvent(new ValueEventListener() {
+            dataRef.child("users").child(uid).child("Guide").child("Profile").addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     // Get user value
