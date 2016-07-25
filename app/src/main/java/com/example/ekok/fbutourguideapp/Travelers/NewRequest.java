@@ -38,6 +38,8 @@ public class NewRequest extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_travelernew);
 
+        requestModel = new RequestModel();
+
         if (user != null) {
             // The user's ID, unique to the Firebase project.
             final String uid = user.getUid();
