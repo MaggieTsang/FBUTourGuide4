@@ -2,6 +2,7 @@ package com.example.ekok.fbutourguideapp.Guides;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -58,6 +59,15 @@ public class GuideRequestDetail extends AppCompatActivity{
         });
     }
 
+    public void declineRequest(View view) {
+        Toast.makeText(GuideRequestDetail.this, "Request declined.", Toast.LENGTH_SHORT).show();
+        finish();
+    }
+
+    public void acceptRequest(View view) {
+        Toast.makeText(GuideRequestDetail.this, "Request accepted!", Toast.LENGTH_SHORT).show();
+        finish();
+    }
 }
 
 

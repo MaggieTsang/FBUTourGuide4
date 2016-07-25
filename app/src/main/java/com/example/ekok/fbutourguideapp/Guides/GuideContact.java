@@ -45,7 +45,7 @@ public class GuideContact extends AppCompatActivity {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             String uid = user.getUid();
-            dataRef.child("users").child(uid).child("Guide").addListenerForSingleValueEvent(new ValueEventListener() {
+            dataRef.child("users").child(uid).child("Guide").child("Profile").addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     // Get user value
@@ -71,10 +71,10 @@ public class GuideContact extends AppCompatActivity {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             String uid = user.getUid();
-            dataRef.child("users").child(uid).child("Guide").child("phonePrimary").setValue(etPhonePrimary.getText().toString());
-            dataRef.child("users").child(uid).child("Guide").child("phoneSecondary").setValue(etPhoneSecondary.getText().toString());
-            dataRef.child("users").child(uid).child("Guide").child("email").setValue(etEmail.getText().toString());
-            dataRef.child("users").child(uid).child("Guide").child("contactAdditional").setValue(etContactAdditional.getText().toString());
+            dataRef.child("users").child(uid).child("Guide").child("Profile").child("phonePrimary").setValue(etPhonePrimary.getText().toString());
+            dataRef.child("users").child(uid).child("Guide").child("Profile").child("phoneSecondary").setValue(etPhoneSecondary.getText().toString());
+            dataRef.child("users").child(uid).child("Guide").child("Profile").child("email").setValue(etEmail.getText().toString());
+            dataRef.child("users").child(uid).child("Guide").child("Profile").child("contactAdditional").setValue(etContactAdditional.getText().toString());
             Intent i = new Intent(this, GuidePayment.class);
             startActivity(i);
         }

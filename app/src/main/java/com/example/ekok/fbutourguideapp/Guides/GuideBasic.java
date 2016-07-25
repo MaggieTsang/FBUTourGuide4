@@ -73,7 +73,7 @@ public class GuideBasic extends AppCompatActivity{
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             final String uid = user.getUid();
-            dataRef.child("users").child(uid).child("Guide").addListenerForSingleValueEvent(new ValueEventListener() {
+            dataRef.child("users").child(uid).child("Guide").child("Profile").addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     // Get user value
@@ -351,17 +351,17 @@ public class GuideBasic extends AppCompatActivity{
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             String uid = user.getUid();
-            dataRef.child("users").child(uid).child("Guide").child("legalName").setValue(etName.getText().toString());
-            dataRef.child("users").child(uid).child("Guide").child("location").setValue(etLocation.getText().toString());
-            dataRef.child("users").child(uid).child("Guide").child("description").setValue(etBasicAdditional.getText().toString());
-            dataRef.child("users").child(uid).child("Guide").child("languages").setValue(etLanguages.getText().toString());
+            dataRef.child("users").child(uid).child("Guide").child("Profile").child("legalName").setValue(etName.getText().toString());
+            dataRef.child("users").child(uid).child("Guide").child("Profile").child("location").setValue(etLocation.getText().toString());
+            dataRef.child("users").child(uid).child("Guide").child("Profile").child("description").setValue(etBasicAdditional.getText().toString());
+            dataRef.child("users").child(uid).child("Guide").child("Profile").child("languages").setValue(etLanguages.getText().toString());
 
             dataRef.child("users").child(uid).child("Guide").addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     // Get user value
-                    GuideUser user = dataSnapshot.getValue(GuideUser.class);
-                    if (user.legalName.isEmpty() || user.location.isEmpty()) {
+                    //GuideUser user = dataSnapshot.getValue(GuideUser.class);
+                    if (etName.getText().toString().isEmpty() || etLocation.getText().toString().isEmpty()) {
                         Toast.makeText(GuideBasic.this, "Name and location required to continue!", Toast.LENGTH_SHORT).show();
                     } else {
                         Intent i = new Intent(GuideBasic.this, GuideContact.class);

@@ -45,7 +45,7 @@ public class GuidePayment extends AppCompatActivity {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             String uid = user.getUid();
-            dataRef.child("users").child(uid).child("Guide").addListenerForSingleValueEvent(new ValueEventListener() {
+            dataRef.child("users").child(uid).child("Guide").child("Profile").addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     // Get user value
@@ -71,10 +71,10 @@ public class GuidePayment extends AppCompatActivity {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             String uid = user.getUid();
-            dataRef.child("users").child(uid).child("Guide").child("method").setValue(etPaymentMethod.getText().toString());
-            dataRef.child("users").child(uid).child("Guide").child("timelyPay").setValue(etHourlyPay.getText().toString());
-            dataRef.child("users").child(uid).child("Guide").child("packageDeals").setValue(etPackageDeals.getText().toString());
-            dataRef.child("users").child(uid).child("Guide").child("currency").setValue(etCurrencyType.getText().toString());
+            dataRef.child("users").child(uid).child("Guide").child("Profile").child("method").setValue(etPaymentMethod.getText().toString());
+            dataRef.child("users").child(uid).child("Guide").child("Profile").child("timelyPay").setValue(etHourlyPay.getText().toString());
+            dataRef.child("users").child(uid).child("Guide").child("Profile").child("packageDeals").setValue(etPackageDeals.getText().toString());
+            dataRef.child("users").child(uid).child("Guide").child("Profile").child("currency").setValue(etCurrencyType.getText().toString());
             Intent i = new Intent(this, GuideViewProfile.class);
             startActivity(i);
         }
