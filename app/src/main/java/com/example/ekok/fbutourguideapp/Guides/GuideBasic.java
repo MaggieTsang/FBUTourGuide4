@@ -73,7 +73,6 @@ public class GuideBasic extends AppCompatActivity{
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             final String uid = user.getUid();
-            dataRef.child("users").child(uid).child("Guide").child("Accepted").push();
             dataRef.child("users").child(uid).child("Guide").child("Profile").addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {

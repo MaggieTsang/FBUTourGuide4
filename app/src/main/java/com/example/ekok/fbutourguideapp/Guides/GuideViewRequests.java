@@ -30,22 +30,23 @@ public class GuideViewRequests extends AppCompatActivity{
     public static final String MY_PREFS_NAME = "MyPrefsFile";
 
     DatabaseReference dataRef;
+    FirebaseUser user;
 
     ArrayList<String> requests;
     ArrayAdapter<String> requestsAdapter;
     ListView lvRequests;
-    GuideUser guideInfo;
-
-    ArrayList<String> requestBucket;
+    String location;
 
     //ArrayList<String> requestIDs;
     ArrayList<String> requestsTravelerID;
+    ArrayList<String> requestBucket;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guiderequests);
         dataRef = FirebaseDatabase.getInstance().getReference();
+        user = FirebaseAuth.getInstance().getCurrentUser();
 
         lvRequests = (ListView) findViewById(R.id.lvRequests);
         requests = new ArrayList<>();
@@ -58,6 +59,7 @@ public class GuideViewRequests extends AppCompatActivity{
         fillRequestList();
     }
 
+
     public void getGuideInfo(){
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
@@ -65,7 +67,8 @@ public class GuideViewRequests extends AppCompatActivity{
             dataRef.child("users").child(uid).child("Guide").child("Profile").addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
-                    guideInfo = dataSnapshot.getValue(GuideUser.class);
+                    GuideUser guideInfo = dataSnapshot.getValue(GuideUser.class);
+                    location = guideInfo.location.toLowerCase();
                 }
 
                 @Override
@@ -79,24 +82,29 @@ public class GuideViewRequests extends AppCompatActivity{
 
 
     public void fillRequestList(){
-        dataRef.child("requests").addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
+        //dataRef.child("requests").addListenerForSingleValueEvent(new ValueEventListener() {
+        dataRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 //GuideUser guide = dataSnapshot.getValue(GuideUser.class);
                 //String guideLocation= guide.location;
-                for (DataSnapshot places: dataSnapshot.getChildren()) {
+                for (DataSnapshot places: dataSnapshot.child("requests").getChildren()) {
                     //If guide location matches a folder
-                    //String guideLocation = guideInfo.location;
-                    if (places.getKey().equalsIgnoreCase(guideInfo.location)){
+                    if (places.getKey().equalsIgnoreCase(location)){
                         for (DataSnapshot availRequests: places.getChildren()){
-                            String name = availRequests.child("displayName").getValue().toString();
-                            String dates = availRequests.child("dates").getValue().toString();
-                            requests.add(name + ": " + dates);
 
-                            requestBucket.add(availRequests.getKey());
-
-                            //requestIDs.add(availRequests.child("requestId").getValue().toString());
-                            requestsTravelerID.add(availRequests.child("traveler_uid").getValue().toString());
+                            String reqId = availRequests.child("requestId").getValue().toString();
+                            if (!dataSnapshot.child("users").child(user.getUid()).child("Guide").child("Pending").child(location).hasChild(availRequests.getKey()) &&
+                                 !dataSnapshot.child("users").child(user.getUid()).child("Guide").child("Declined").child(location).hasChild(availRequests.getKey()) &&
+                                !dataSnapshot.child("users").child(user.getUid()).child("Traveler").child("trips_current").hasChild(reqId)){
+                                //Add it if it's not in pending, declined, or in own requests
+                                String name = availRequests.child("displayName").getValue().toString();
+                                String dates = availRequests.child("dates").getValue().toString();
+                                requests.add(name + ": " + dates);
+                                requestBucket.add(availRequests.getKey());
+                                //requestIDs.add(availRequests.child("requestId").getValue().toString());
+                                requestsTravelerID.add(availRequests.child("traveler_uid").getValue().toString());
+                            }
                         }
                     }
                 }
@@ -105,7 +113,7 @@ public class GuideViewRequests extends AppCompatActivity{
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                Toast.makeText(GuideViewRequests.this, "Error.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(GuideViewRequests.this, "View Requests Error.", Toast.LENGTH_SHORT).show();
                 // Log.w(TAG, "getUser:onCancelled", databaseError.toException());
             }
         });
@@ -115,7 +123,7 @@ public class GuideViewRequests extends AppCompatActivity{
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 //Toast.makeText(getApplicationContext(), "Open request info at " + position, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(GuideViewRequests.this, GuideRequestDetail.class);
-                intent.putExtra("location", guideInfo.location);
+                intent.putExtra("location", location);
                 intent.putExtra("requestBucket",requestBucket.get(position));
                 intent.putExtra("travelerID", requestsTravelerID.get(position));
                 startActivity(intent);
@@ -151,7 +159,7 @@ public class GuideViewRequests extends AppCompatActivity{
 
     public void goToPending(MenuItem item) {
         Intent i = new Intent(this, GuidePending.class);
-        i.putExtra("location", guideInfo.location);
+        i.putExtra("location", location);
         startActivity(i);
     }
 }

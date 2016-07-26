@@ -29,6 +29,10 @@ public class GuidePending extends AppCompatActivity{
     FirebaseUser user;
     String location;
 
+    ArrayList<String> requestIDs;
+    ArrayList<String> requestsTravelerID;
+
+
     ListView lvPending;
     ArrayList<String> pending;
     ArrayAdapter<String> pendingAdapter;
@@ -40,33 +44,43 @@ public class GuidePending extends AppCompatActivity{
         setContentView(R.layout.activity_guidepending);
         dataRef = FirebaseDatabase.getInstance().getReference();
         user = FirebaseAuth.getInstance().getCurrentUser();
-        location = getIntent().getSerializableExtra("location").toString();
+        location = getIntent().getSerializableExtra("location").toString().toLowerCase();
+
+        requestIDs = new ArrayList<>();
+        requestsTravelerID = new ArrayList<>();
 
         lvPending = (ListView) findViewById(R.id.lvGuidePending);
         pending = new ArrayList<>();
         pendingAdapter = new ArrayAdapter<>(GuidePending.this, android.R.layout.simple_list_item_1, pending);
 
         lvPending.setAdapter(pendingAdapter);
-        pending.add("Add pending reqs 1");
+        //pending.add("Add pending reqs 1");
 
         fillPendingList();
     }
 
+
     public void fillPendingList(){
-        dataRef.child("users").child(user.getUid()).child("Guide").child("Accepted").child(location).addListenerForSingleValueEvent(new ValueEventListener() {
+        dataRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                    for (DataSnapshot reqBucketIds : dataSnapshot.getChildren()) {
-                        //String reqName  = dataRef.child("requests").child(location).child(reqBucketIds.getKey()).child("displayName").getKey();
-                        //String reqDates = dataRef.child("requests").child(location).child(reqBucketIds.getKey()).child("dates").toString();
-                        //pending.add(reqName + " : " + reqDates);
-                    }
+                DataSnapshot reqBuckets = dataSnapshot.child("users").child(user.getUid()).child("Guide").child("Pending").child(location);
+                for (DataSnapshot reqBucketIds : reqBuckets.getChildren()) {
+                    String reqIdBucket = reqBucketIds.getKey();
+                    DataSnapshot reqInfo = dataSnapshot.child("requests").child(location).child(reqIdBucket);
+                    String name = reqInfo.child("displayName").getValue().toString();
+                    String dates = reqInfo.child("dates").getValue().toString();
+                    pending.add(name + " : " + dates);
+
+                    requestIDs.add(reqInfo.child("requestId").getValue().toString());
+                    requestsTravelerID.add(reqInfo.child("traveler_uid").getValue().toString());
+                }
                 lvPending.setAdapter(pendingAdapter);
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                Toast.makeText(GuidePending.this, "Error.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(GuidePending.this, "Get Pending Error.", Toast.LENGTH_SHORT).show();
                 // Log.w(TAG, "getUser:onCancelled", databaseError.toException());
             }
         });
@@ -77,10 +91,13 @@ public class GuidePending extends AppCompatActivity{
                 //Toast.makeText(getApplicationContext(), "Open request info at " + position, Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(GuidePending.this, GuideAcceptedDetails.class);
-                //intent.putExtra("requestIDs", requestIDs.get(position));
-                //intent.putExtra("requestsTravelerID",requestsTravelerID.get(position));
+                intent.putExtra("requestIDs", requestIDs.get(position));
+                intent.putExtra("requestsTravelerID",requestsTravelerID.get(position));
                 startActivity(intent);
             }
         });
+
+
     }
+
 }

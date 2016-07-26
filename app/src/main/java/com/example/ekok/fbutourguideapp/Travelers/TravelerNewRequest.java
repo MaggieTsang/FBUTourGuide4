@@ -79,6 +79,8 @@ public class TravelerNewRequest extends AppCompatActivity{
                     myOtherRef.child("requestId").setValue(myRef.getKey());
                     myOtherRef.child("displayName").setValue(user.getDisplayName());
                     myOtherRef.child("dates").setValue(startDate + " - " + endDate);
+                    myOtherRef.child("groupSize").setValue(finalGroupSize);
+                    myOtherRef.child("languages").setValue(languages);
 
                     finish();
                 }

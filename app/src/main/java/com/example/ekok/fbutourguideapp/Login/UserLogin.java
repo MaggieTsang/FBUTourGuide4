@@ -8,6 +8,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.example.ekok.fbutourguideapp.R;
+import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
@@ -40,7 +41,7 @@ public class UserLogin extends AppCompatActivity {
         FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.activity_login);
 
-        myRef =  FirebaseDatabase.getInstance().getReference();
+        myRef = FirebaseDatabase.getInstance().getReference();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -62,27 +63,7 @@ public class UserLogin extends AppCompatActivity {
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
-                Log.d(TAG, "facebook:onSuccess:" + loginResult);
-
-                AuthCredential credential = FacebookAuthProvider.getCredential(loginResult.getAccessToken().getToken());
-                mAuth.signInWithCredential(credential)
-                        .addOnCompleteListener(UserLogin.this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                Log.d(TAG, "signInWithCredential:onComplete:" + task.isSuccessful());
-                                Toast.makeText(getApplicationContext(), "signInWithCredential:onComplete: " + task.isSuccessful(), Toast.LENGTH_SHORT).show();
-                                Intent i = new Intent(UserLogin.this, UserType.class);
-                                startActivity(i);
-                                // If sign in fails, display a message to the user. If sign in succeeds
-                                // the auth state listener will be notified and logic to handle the
-                                // signed in user can be handled in the listener.
-                                if (!task.isSuccessful()) {
-                                    Log.w(TAG, "signInWithCredential", task.getException());
-                                    Toast.makeText(UserLogin.this, "Authentication failed.",
-                                            Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                        });
+                handleFacebookAccessToken(loginResult.getAccessToken());
             }
 
 
@@ -100,6 +81,35 @@ public class UserLogin extends AppCompatActivity {
             }
         });
     }
+
+
+    private void handleFacebookAccessToken(AccessToken token) {
+        Log.d(TAG, "handleFacebookAccessToken:" + token);
+
+        AuthCredential credential = FacebookAuthProvider.getCredential(token.getToken());
+        mAuth.signInWithCredential(credential)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        Log.d(TAG, "signInWithCredential:onComplete:" + task.isSuccessful());
+                        Toast.makeText(getApplicationContext(), "signInWithCredential:onComplete: " + task.isSuccessful(), Toast.LENGTH_SHORT).show();
+                        if (task.isSuccessful()) {
+                            Intent i = new Intent(UserLogin.this, UserType.class);
+                            startActivity(i);
+                        }
+                        // If sign in fails, display a message to the user. If sign in succeeds
+                        // the auth state listener will be notified and logic to handle the
+                        // signed in user can be handled in the listener.
+                        else {
+                            Log.w(TAG, "signInWithCredential", task.getException());
+                            Toast.makeText(UserLogin.this, "Authentication failed.",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+    }
+
+
 
     @Override
     public void onStart() {

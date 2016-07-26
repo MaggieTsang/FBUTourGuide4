@@ -103,9 +103,13 @@
             android:name=".Travelers.TravelerNewProfile"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".Travelers.TravelerDecide"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".Travelers.TravelerPending"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name=".Travelers.TravelerDecide"></activity>
+            android:screenOrientation="portrait">
+
+        </activity>
     </application>
 
 </manifest>

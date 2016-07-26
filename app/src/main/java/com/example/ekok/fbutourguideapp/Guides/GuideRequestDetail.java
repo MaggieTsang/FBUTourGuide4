@@ -23,10 +23,11 @@ public class GuideRequestDetail extends AppCompatActivity{
 
     DatabaseReference dataRef;
     FirebaseUser user;
-    String reqInfo;
-    String reqBucketID;
+    String requestBucket;
+    String requestID;
     String location;
     String travelerID;
+    String dates;
 
 
     TextView tvReqPlace;
@@ -47,18 +48,21 @@ public class GuideRequestDetail extends AppCompatActivity{
         tvReqGroupNum = (TextView) findViewById(R.id.tvReqGroupNum);
         tvReqLanguages = (TextView) findViewById(R.id.tvReqLanguages);
 
-        reqInfo = getIntent().getSerializableExtra("requestBucket").toString();
+        requestBucket = getIntent().getSerializableExtra("requestBucket").toString();
         travelerID = getIntent().getSerializableExtra("travelerID").toString();
-        location = getIntent().getSerializableExtra("location").toString();
+        location = getIntent().getSerializableExtra("location").toString().toLowerCase();
 
-        dataRef.child("requests").child(location).child(reqInfo).addListenerForSingleValueEvent(new ValueEventListener() {
+        dataRef.child("requests").child(location).child(requestBucket).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 tvReqPlace.setText(location);
+
+                //**********LOCATION CAPITALIA-sed-TION***********
                 tvReqDate.setText(dataSnapshot.child("dates").getValue().toString());
+                dates = dataSnapshot.child("dates").getValue().toString();
                 tvReqGroupNum.setText(dataSnapshot.child("groupSize").getValue().toString());
                 tvReqLanguages.setText(dataSnapshot.child("languages").getValue().toString());
-                reqBucketID = dataSnapshot.child("requestId").getValue().toString();
+                requestID = dataSnapshot.child("requestId").getValue().toString();
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
@@ -66,6 +70,8 @@ public class GuideRequestDetail extends AppCompatActivity{
                 //Log.w(TAG, "getUser:onCancelled", databaseError.toException());
             }
         });
+
+
     }
 
     //Adds the declined request id to the database
@@ -74,7 +80,7 @@ public class GuideRequestDetail extends AppCompatActivity{
         dataRef.child("users").child(user.getUid()).child("Guide").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                dataRef.child("users").child(user.getUid()).child("Guide").child("Declined").child(location).child(reqInfo).setValue(reqBucketID);
+                dataRef.child("users").child(user.getUid()).child("Guide").child("Declined").child(location).child(requestBucket).setValue(requestID);
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
@@ -82,19 +88,26 @@ public class GuideRequestDetail extends AppCompatActivity{
                 //Log.w(TAG, "getUser:onCancelled", databaseError.toException());
             }
         });
-        finish();
+        Intent i = new Intent(GuideRequestDetail.this, GuideViewRequests.class);
+        startActivity(i);
     }
 
     //Adds the accepted request id to the database, puts in
     public void acceptRequest(View view) {
-        Toast.makeText(GuideRequestDetail.this, "Request accepted!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(GuideRequestDetail.this, "Request accepted - Waiting for Traveler", Toast.LENGTH_SHORT).show();
         dataRef.child("users").child(user.getUid()).child("Guide").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 //put in Guide
-                dataRef.child("users").child(user.getUid()).child("Guide").child("Pending").child(location).child(reqInfo).setValue(reqBucketID);
-                //notify traveler
-                dataRef.child("users").child(travelerID).child("Traveler").child("Pending").child(reqInfo).setValue(reqBucketID);
+                dataRef.child("users").child(user.getUid()).child("Guide").child("Pending").child(location).child(requestBucket).child("requestId").setValue(requestID);
+                dataRef.child("users").child(user.getUid()).child("Guide").child("Pending").child(location).child(requestBucket).child("dates").setValue(dates);
+                dataRef.child("users").child(user.getUid()).child("Guide").child("Pending").child(location).child(requestBucket).child("location").setValue(location);
+                dataRef.child("users").child(user.getUid()).child("Guide").child("Pending").child(location).child(requestBucket).child("guideName").setValue(user.getDisplayName());
+
+
+
+                //notify traveler, need to give traveler guideId for the path to be built
+                dataRef.child("users").child(travelerID).child("Traveler").child("Pending").child(user.getUid()).child(requestBucket).setValue(requestID);
 
             }
             @Override
@@ -103,8 +116,7 @@ public class GuideRequestDetail extends AppCompatActivity{
                 //Log.w(TAG, "getUser:onCancelled", databaseError.toException());
             }
         });
-        Intent i = new Intent(this, GuidePending.class);
-        i.putExtra("location", location);
+        Intent i = new Intent(GuideRequestDetail.this, GuideViewRequests.class);
         startActivity(i);
     }
 }
