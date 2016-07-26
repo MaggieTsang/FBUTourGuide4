@@ -30,11 +30,13 @@ public class TravelerViewTrips extends AppCompatActivity{
     private static final String TAG = "Firebase";
 
     ArrayList<String> trips;
+    ArrayList<String> requestIDs;
     ArrayAdapter<String> tripsAdapter;
     ListView lvTrips;
 
     RequestModel requestInfo;
     DatabaseReference dataRef;
+
 
 
     @Override
@@ -45,6 +47,7 @@ public class TravelerViewTrips extends AppCompatActivity{
 
         lvTrips = (ListView) findViewById(R.id.lvTrips);
         trips = new ArrayList<>();
+        requestIDs = new ArrayList<>();
         tripsAdapter = new ArrayAdapter<>(TravelerViewTrips.this, android.R.layout.simple_list_item_1, trips);
 
         getTripInfo();
@@ -64,7 +67,6 @@ public class TravelerViewTrips extends AppCompatActivity{
                 @Override
                 public void onCancelled(DatabaseError databaseError) {
                     Toast.makeText(TravelerViewTrips.this, "Error.", Toast.LENGTH_SHORT).show();
-                    // Log.w(TAG, "getUser:onCancelled", databaseError.toException());
                 }
             });
         }
@@ -90,19 +92,13 @@ public class TravelerViewTrips extends AppCompatActivity{
 
                         trips.add(place + "\n" + startDate + " - " + endDate);
 
+                        requestIDs.add(child.getKey());
 
                         lvTrips.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                             @Override
                             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-
-                                String trip = trips.get(position);
-
-                                requestInfo.place = place;
-
-                                Toast.makeText(getApplicationContext(), "pos: " + trip, Toast.LENGTH_LONG).show();
-
                                 Intent intent = new Intent(TravelerViewTrips.this, TravelerViewTripInfo.class);
-                                intent.putExtra("trip_id", requestInfo.place);
+                                intent.putExtra("requestIDs", requestIDs.get(position));
                                 startActivity(intent);
                             }
                         });

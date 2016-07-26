@@ -1,20 +1,14 @@
 package com.example.ekok.fbutourguideapp.Travelers;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.example.ekok.fbutourguideapp.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -25,7 +19,7 @@ public class NewRequest extends AppCompatActivity{
     private final static String TAG = "Firebase";
     private DatabaseReference dataRef = FirebaseDatabase.getInstance().getReference();
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-    RequestModel requestModel;
+    RequestModel requestModel = new RequestModel();
 
     EditText etPlace;
     EditText etStartDate;
@@ -37,8 +31,6 @@ public class NewRequest extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_travelernew);
-
-        requestModel = new RequestModel();
 
         if (user != null) {
             // The user's ID, unique to the Firebase project.
@@ -87,59 +79,7 @@ public class NewRequest extends AppCompatActivity{
                     myOtherRef.child("requestId").setValue(myRef.getKey());
                     myOtherRef.child("displayName").setValue(user.getDisplayName());
                     myOtherRef.child("dates").setValue(startDate + " - " + endDate);
-                    myOtherRef.child("groupSize").setValue(finalGroupSize);
-                    myOtherRef.child("languages").setValue(languages);
 
-                    // READ DATA
-                    myOtherRef.addChildEventListener(new ChildEventListener() {
-                        @Override
-                        public void onChildAdded(DataSnapshot dataSnapshot, String previousChildName) {
-                            //
-
-                        }
-
-                        @Override
-                        public void onChildChanged(DataSnapshot dataSnapshot, String previousChildName) {
-                            Log.d(TAG, "onChildChanged:" + dataSnapshot.getKey());
-
-                            // A comment has changed, use the key to determine if we are displaying this
-                            // comment and if so displayed the changed comment.
-                            RequestModel request = dataSnapshot.getValue(RequestModel.class);
-                            String requestKey = dataSnapshot.getKey();
-                        }
-
-                        @Override
-                        public void onChildRemoved(DataSnapshot dataSnapshot) {
-                            Log.d(TAG, "onChildRemoved:" + dataSnapshot.getKey());
-
-                            // A comment has changed, use the key to determine if we are displaying this
-                            // comment and if so remove it.
-                            String requestKey = dataSnapshot.getKey();
-                        }
-
-                        @Override
-                        public void onChildMoved(DataSnapshot dataSnapshot, String previousChildName) {
-                            Log.d(TAG, "onChildMoved:" + dataSnapshot.getKey());
-
-                            // A comment has changed position, use the key to determine if we are
-                            // displaying this comment and if so move it.
-                            RequestModel movedRequest = dataSnapshot.getValue(RequestModel.class);
-                            String requestKey = dataSnapshot.getKey();
-                        }
-
-                        @Override
-                        public void onCancelled(DatabaseError databaseError) {
-                            Log.w(TAG, "addRequest:onCancelled", databaseError.toException());
-                            Toast.makeText(getApplicationContext(), "Failed to load requests.",
-                                    Toast.LENGTH_SHORT).show();
-                        }
-                    });
-
-                    // Send data back to home screen
-                    String placeGetter = place;
-                    Intent data = new Intent();
-                    data.putExtra("place", placeGetter);
-                    setResult(RESULT_OK, data);
                     finish();
                 }
 

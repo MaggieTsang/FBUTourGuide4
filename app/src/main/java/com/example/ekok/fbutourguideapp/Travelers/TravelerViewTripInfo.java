@@ -1,5 +1,6 @@
 package com.example.ekok.fbutourguideapp.Travelers;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -25,7 +26,7 @@ public class TravelerViewTripInfo extends AppCompatActivity {
     TextView tvGroupSize;
     TextView tvLanguages;
 
-    RequestModel requestModel;
+    String reqIDs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,25 +39,28 @@ public class TravelerViewTripInfo extends AppCompatActivity {
         tvGroupSize = (TextView) findViewById(R.id.tvGroupSizeRequest);
         tvLanguages = (TextView) findViewById(R.id.tvLanguagesRequest);
 
-        final String trip_key = getIntent().getStringExtra("trip_id");
+        reqIDs = getIntent().getSerializableExtra("requestIDs").toString();
 
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null) {
-            dataRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    tvPlace.setText(trip_key);
-                }
+        dataRef.child(reqIDs).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                tvPlace.setText(dataSnapshot.child("place").getValue().toString());
+                tvStartDate.setText(dataSnapshot.child("startDate").getValue().toString());
+                tvEndDate.setText(dataSnapshot.child("endDate").getValue().toString());
+                tvGroupSize.setText(dataSnapshot.child("groupSize").getValue().toString());
+                tvLanguages.setText(dataSnapshot.child("languages").getValue().toString());
+            }
 
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
 
-                }
-            });
-        }
+            }
+        });
+
     }
 
     public void editRequest(View view) {
-
+        Intent i = new Intent(TravelerViewTripInfo.this, NewRequest.class);
+        startActivity(i);
     }
 }
