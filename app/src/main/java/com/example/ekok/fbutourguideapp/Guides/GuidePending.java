@@ -27,9 +27,7 @@ public class GuidePending extends AppCompatActivity{
 
     DatabaseReference dataRef;
     FirebaseUser user;
-
-    ArrayList<String> requestIDs;
-    ArrayList<String> requestsTravelerID;
+    String location;
 
     ListView lvPending;
     ArrayList<String> pending;
@@ -42,9 +40,7 @@ public class GuidePending extends AppCompatActivity{
         setContentView(R.layout.activity_guidepending);
         dataRef = FirebaseDatabase.getInstance().getReference();
         user = FirebaseAuth.getInstance().getCurrentUser();
-
-        requestIDs = new ArrayList<>();
-        requestsTravelerID = new ArrayList<>();
+        location = getIntent().getSerializableExtra("location").toString();
 
         lvPending = (ListView) findViewById(R.id.lvGuidePending);
         pending = new ArrayList<>();
@@ -52,42 +48,19 @@ public class GuidePending extends AppCompatActivity{
 
         lvPending.setAdapter(pendingAdapter);
         pending.add("Add pending reqs 1");
-        pending.add("Add pending reqs 2");
 
         fillPendingList();
     }
 
     public void fillPendingList(){
-        dataRef.child("users").child(user.getUid()).child("Guide").child("Accepted").addListenerForSingleValueEvent(new ValueEventListener() {
+        dataRef.child("users").child(user.getUid()).child("Guide").child("Accepted").child(location).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                String guideLocation = dataRef.child("users").child(user.getUid()).child("Guide").child("Profile").child("location").toString();
-                    for (DataSnapshot places : dataSnapshot.getChildren()) {
-                        //If guide location matches a folder
-                        if (places.getKey().equalsIgnoreCase(guideLocation)) {
-                            for (DataSnapshot travelers : places.getChildren()) {
-                                //Show all in accepted branch. Gets req ID, show name and date
-                                String travelerID = travelers.toString();
-                                for (DataSnapshot reqs : travelers.getChildren()) {
-                                    String reqID = reqs.toString();
-
-
-                                    String name = dataRef.child("users").child(travelerID).child("displayName").toString();
-                                    String start = dataRef.child("users").child(travelerID).child("Traveler").child("trips_current").child(reqID).child("startDate").toString();
-                                    String end = dataRef.child("users").child(travelerID).child("Traveler").child("trips_current").child(reqID).child("endDate").toString();
-                                    String dates = start + " - " + end;
-                                    pending.add(name + ": " + dates);
-
-                                    requestIDs.add(reqID);
-                                    requestsTravelerID.add(travelerID);
-
-                                }
-
-
-                            }
-
+                    for (DataSnapshot reqBucketIds : dataSnapshot.getChildren()) {
+                        //String reqName  = dataRef.child("requests").child(location).child(reqBucketIds.getKey()).child("displayName").getKey();
+                        //String reqDates = dataRef.child("requests").child(location).child(reqBucketIds.getKey()).child("dates").toString();
+                        //pending.add(reqName + " : " + reqDates);
                     }
-            }
                 lvPending.setAdapter(pendingAdapter);
             }
 
@@ -104,8 +77,8 @@ public class GuidePending extends AppCompatActivity{
                 //Toast.makeText(getApplicationContext(), "Open request info at " + position, Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(GuidePending.this, GuideAcceptedDetails.class);
-                intent.putExtra("requestIDs", requestIDs.get(position));
-                intent.putExtra("requestsTravelerID",requestsTravelerID.get(position));
+                //intent.putExtra("requestIDs", requestIDs.get(position));
+                //intent.putExtra("requestsTravelerID",requestsTravelerID.get(position));
                 startActivity(intent);
             }
         });

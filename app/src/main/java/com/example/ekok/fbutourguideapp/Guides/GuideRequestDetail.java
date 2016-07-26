@@ -23,13 +23,17 @@ public class GuideRequestDetail extends AppCompatActivity{
 
     DatabaseReference dataRef;
     FirebaseUser user;
-    String reqID;
+    String reqInfo;
+    String reqBucketID;
+    String location;
     String travelerID;
+
 
     TextView tvReqPlace;
     TextView tvReqDate;
     TextView tvReqGroupNum;
     TextView tvReqLanguages;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,21 +47,18 @@ public class GuideRequestDetail extends AppCompatActivity{
         tvReqGroupNum = (TextView) findViewById(R.id.tvReqGroupNum);
         tvReqLanguages = (TextView) findViewById(R.id.tvReqLanguages);
 
-        reqID = getIntent().getSerializableExtra("requestIDs").toString();
-        travelerID = getIntent().getSerializableExtra("requestsTravelerID").toString();
-        String travelerID = getIntent().getSerializableExtra("requestsTravelerID").toString();
+        reqInfo = getIntent().getSerializableExtra("requestBucket").toString();
+        travelerID = getIntent().getSerializableExtra("travelerID").toString();
+        location = getIntent().getSerializableExtra("location").toString();
 
-        dataRef.child("users").child(travelerID).child("Traveler").child("trips_current").child(reqID).addListenerForSingleValueEvent(new ValueEventListener() {
+        dataRef.child("requests").child(location).child(reqInfo).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                String start = dataSnapshot.child("startDate").getValue().toString();
-                String end = dataSnapshot.child("endDate").getValue().toString();
-                String dates = start + " - " + end;
-
-                tvReqPlace.setText(dataSnapshot.child("place").getValue().toString());
-                tvReqDate.setText(dates);
+                tvReqPlace.setText(location);
+                tvReqDate.setText(dataSnapshot.child("dates").getValue().toString());
                 tvReqGroupNum.setText(dataSnapshot.child("groupSize").getValue().toString());
                 tvReqLanguages.setText(dataSnapshot.child("languages").getValue().toString());
+                reqBucketID = dataSnapshot.child("requestId").getValue().toString();
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
@@ -73,8 +74,7 @@ public class GuideRequestDetail extends AppCompatActivity{
         dataRef.child("users").child(user.getUid()).child("Guide").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                String location = dataSnapshot.child("Profile").child("location").getValue().toString();
-                dataRef.child("users").child(user.getUid()).child("Guide").child("Declined").child(location).child(reqID).setValue("Declined " + reqID);
+                dataRef.child("users").child(user.getUid()).child("Guide").child("Declined").child(location).child(reqInfo).setValue(reqBucketID);
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
@@ -91,8 +91,11 @@ public class GuideRequestDetail extends AppCompatActivity{
         dataRef.child("users").child(user.getUid()).child("Guide").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                String location = dataSnapshot.child("Profile").child("location").getValue().toString();
-                dataRef.child("users").child(user.getUid()).child("Guide").child("Accepted").child(location).child(travelerID).setValue(reqID);
+                //put in Guide
+                dataRef.child("users").child(user.getUid()).child("Guide").child("Pending").child(location).child(reqInfo).setValue(reqBucketID);
+                //notify traveler
+                dataRef.child("users").child(travelerID).child("Traveler").child("Pending").child(reqInfo).setValue(reqBucketID);
+
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
@@ -100,9 +103,8 @@ public class GuideRequestDetail extends AppCompatActivity{
                 //Log.w(TAG, "getUser:onCancelled", databaseError.toException());
             }
         });
-
-
         Intent i = new Intent(this, GuidePending.class);
+        i.putExtra("location", location);
         startActivity(i);
     }
 }

@@ -36,7 +36,9 @@ public class GuideViewRequests extends AppCompatActivity{
     ListView lvRequests;
     GuideUser guideInfo;
 
-    ArrayList<String> requestIDs;
+    ArrayList<String> requestBucket;
+
+    //ArrayList<String> requestIDs;
     ArrayList<String> requestsTravelerID;
 
     @Override
@@ -47,7 +49,7 @@ public class GuideViewRequests extends AppCompatActivity{
 
         lvRequests = (ListView) findViewById(R.id.lvRequests);
         requests = new ArrayList<>();
-        requestIDs = new ArrayList<>();
+        requestBucket = new ArrayList<>();
         requestsTravelerID = new ArrayList<>();
 
         requestsAdapter = new ArrayAdapter<>(GuideViewRequests.this, android.R.layout.simple_list_item_1, requests);
@@ -84,13 +86,16 @@ public class GuideViewRequests extends AppCompatActivity{
                 //String guideLocation= guide.location;
                 for (DataSnapshot places: dataSnapshot.getChildren()) {
                     //If guide location matches a folder
-                    String guideLocation = guideInfo.location;
-                    if (places.getKey().equalsIgnoreCase(guideLocation)){
+                    //String guideLocation = guideInfo.location;
+                    if (places.getKey().equalsIgnoreCase(guideInfo.location)){
                         for (DataSnapshot availRequests: places.getChildren()){
                             String name = availRequests.child("displayName").getValue().toString();
                             String dates = availRequests.child("dates").getValue().toString();
                             requests.add(name + ": " + dates);
-                            requestIDs.add(availRequests.child("requestId").getValue().toString());
+
+                            requestBucket.add(availRequests.getKey());
+
+                            //requestIDs.add(availRequests.child("requestId").getValue().toString());
                             requestsTravelerID.add(availRequests.child("traveler_uid").getValue().toString());
                         }
                     }
@@ -109,10 +114,10 @@ public class GuideViewRequests extends AppCompatActivity{
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 //Toast.makeText(getApplicationContext(), "Open request info at " + position, Toast.LENGTH_SHORT).show();
-
                 Intent intent = new Intent(GuideViewRequests.this, GuideRequestDetail.class);
-                intent.putExtra("requestIDs", requestIDs.get(position));
-                intent.putExtra("requestsTravelerID",requestsTravelerID.get(position));
+                intent.putExtra("location", guideInfo.location);
+                intent.putExtra("requestBucket",requestBucket.get(position));
+                intent.putExtra("travelerID", requestsTravelerID.get(position));
                 startActivity(intent);
             }
         });
@@ -146,6 +151,7 @@ public class GuideViewRequests extends AppCompatActivity{
 
     public void goToPending(MenuItem item) {
         Intent i = new Intent(this, GuidePending.class);
+        i.putExtra("location", guideInfo.location);
         startActivity(i);
     }
 }
