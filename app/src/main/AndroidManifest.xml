@@ -47,8 +47,8 @@
         </activity>
         <activity
             android:name=".Guides.GuideRequestDetail"
-            android:screenOrientation="portrait"
-            android:label="Request Detail"/>
+            android:label="Request Detail"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Login.UserLogin"
             android:screenOrientation="portrait" />
@@ -57,56 +57,55 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".Guides.GuideBasic"
-            android:screenOrientation="portrait"
-            android:label="Edit Profile"/>
+            android:label="Edit Profile"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Guides.GuideContact"
-            android:screenOrientation="portrait"
-            android:label="Edit Profile"/>
+            android:label="Edit Profile"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Guides.GuidePayment"
-            android:screenOrientation="portrait"
-            android:label="Edit Profile"/>
+            android:label="Edit Profile"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Guides.GuideViewRequests"
-            android:screenOrientation="portrait"
-            android:label="Available Requests"/>
+            android:label="Available Requests"
+            android:screenOrientation="portrait" />
         <activity
-            android:name=".Travelers.NewRequest"
+            android:name=".Travelers.TravelerNewRequest"
             android:screenOrientation="portrait" />
         <activity
             android:name=".Guides.GuideCalender"
             android:screenOrientation="portrait" />
         <activity
             android:name=".Guides.GuideViewProfile"
-            android:screenOrientation="portrait"
-            android:label="Preview Profile"/>
+            android:label="Preview Profile"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Login.UserType"
-            android:screenOrientation="portrait"
-            android:label="Main"/>
+            android:label="Main"
+            android:screenOrientation="portrait" />
         <activity
-            android:name=".Travelers.RatingActivity"
+            android:name=".Travelers.TravelerRating"
             android:screenOrientation="portrait" />
         <activity
             android:name=".Guides.GuidePending"
-            android:screenOrientation="portrait"
-            android:label="Pending/Accepted Requests"/>
+            android:label="Pending/Accepted Requests"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Guides.GuideAcceptedDetails"
-            android:screenOrientation="portrait"
-            android:label="Accepted Details"/>
+            android:label="Accepted Details"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Travelers.TravelerViewTripInfo"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Travelers.TravelerNewProfile"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Travelers.TravelerPending"
-            android:screenOrientation="portrait">
-
-        </activity>
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".Travelers.TravelerDecide"></activity>
     </application>
 
 </manifest>

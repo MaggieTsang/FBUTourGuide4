@@ -6,7 +6,7 @@ import android.view.View;
 
 import com.example.ekok.fbutourguideapp.R;
 
-public class RatingActivity extends AppCompatActivity {
+public class TravelerRating extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

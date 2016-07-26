@@ -15,11 +15,11 @@ import com.google.firebase.database.FirebaseDatabase;
 /**
  * Created by ekok on 7/5/16.
  */
-public class NewRequest extends AppCompatActivity{
+public class TravelerNewRequest extends AppCompatActivity{
     private final static String TAG = "Firebase";
     private DatabaseReference dataRef = FirebaseDatabase.getInstance().getReference();
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-    RequestModel requestModel = new RequestModel();
+    TravelerRequestModel requestModel = new TravelerRequestModel();
 
     EditText etPlace;
     EditText etStartDate;
@@ -73,7 +73,7 @@ public class NewRequest extends AppCompatActivity{
                     requestModel.groupSize = finalGroupSize;
                     requestModel.languages = languages;
 
-                    final DatabaseReference myOtherRef = dataRef.child("requests").child(place).push();
+                    final DatabaseReference myOtherRef = dataRef.child("requests").child(place.toLowerCase()).push();
 
                     myOtherRef.child("traveler_uid").setValue(uid);
                     myOtherRef.child("requestId").setValue(myRef.getKey());

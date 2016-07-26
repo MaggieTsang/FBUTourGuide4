@@ -60,7 +60,7 @@ public class TravelerViewTripInfo extends AppCompatActivity {
     }
 
     public void editRequest(View view) {
-        Intent i = new Intent(TravelerViewTripInfo.this, NewRequest.class);
+        Intent i = new Intent(TravelerViewTripInfo.this, TravelerNewRequest.class);
         startActivity(i);
     }
 }

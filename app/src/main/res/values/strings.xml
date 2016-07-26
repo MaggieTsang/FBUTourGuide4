@@ -24,4 +24,7 @@
     <string name="edit">Edit</string>
     <string name="view_accepted_requests">View Accepted Requests</string>
     <string name="request">request</string>
+    <string name="description">Description:</string>
+    <string name="decline">Decline</string>
+    <string name="accept">Accept</string>
 </resources>

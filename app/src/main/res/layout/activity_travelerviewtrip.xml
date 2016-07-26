@@ -17,8 +17,8 @@
         android:textSize="16sp"
         android:paddingBottom="10dp"
         android:layout_alignTop="@+id/tvPlace"
-        android:layout_alignLeft="@+id/tvMakeRequest"
-        android:layout_alignStart="@+id/tvMakeRequest" />
+        android:layout_alignLeft="@+id/tvGuideDetails"
+        android:layout_alignStart="@+id/tvGuideDetails" />
 
     <Button
         android:layout_width="wrap_content"
@@ -34,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/your_request"
-        android:id="@+id/tvMakeRequest"
+        android:id="@+id/tvGuideDetails"
         android:textSize="22sp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
@@ -48,7 +48,7 @@
         android:textSize="16sp"
         android:layout_marginTop="44dp"
         android:paddingBottom="10dp"
-        android:layout_below="@+id/tvMakeRequest"
+        android:layout_below="@+id/tvGuideDetails"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:textStyle="bold" />
@@ -133,7 +133,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/languages"
-        android:id="@+id/tvTravelerLanguages"
+        android:id="@+id/tvGuideLanguages"
         android:textSize="15sp"
         android:paddingBottom="10dp"
         android:layout_below="@+id/tvGroupSize"
@@ -148,7 +148,7 @@
         android:id="@+id/tvLanguagesRequest"
         tools:text="English"
         android:textSize="16sp"
-        android:layout_alignBottom="@+id/tvTravelerLanguages"
+        android:layout_alignBottom="@+id/tvGuideLanguages"
         android:layout_alignLeft="@+id/tvGroupSizeRequest"
         android:layout_alignStart="@+id/tvGroupSizeRequest"
         android:layout_alignRight="@+id/tvGroupSizeRequest"

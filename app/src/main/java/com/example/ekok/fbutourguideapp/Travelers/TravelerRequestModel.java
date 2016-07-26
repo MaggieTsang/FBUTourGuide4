@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Created by ekok on 7/11/16.
  */
-public class RequestModel implements Serializable {
+public class TravelerRequestModel implements Serializable {
 
     public String place;
     public String startDate;

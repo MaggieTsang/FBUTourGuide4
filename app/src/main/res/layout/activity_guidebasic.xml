@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/etLocation"
         android:hint="City"
-        android:layout_below="@+id/tvTravelerName"
+        android:layout_below="@+id/tvGuideName"
         android:layout_alignLeft="@+id/etTravelerName"
         android:layout_alignStart="@+id/etTravelerName" />
 
@@ -75,7 +75,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Name:"
-        android:id="@+id/tvTravelerName"
+        android:id="@+id/tvGuideName"
         android:textSize="20sp"
         android:layout_alignBottom="@+id/etTravelerName"
         android:layout_alignParentLeft="true"
@@ -85,7 +85,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Location:"
-        android:id="@+id/tvLocation"
+        android:id="@+id/tvGuideLocation"
         android:textSize="20sp"
         android:layout_above="@+id/etTravelerLanguages"
         android:layout_alignParentLeft="true"
@@ -98,14 +98,14 @@
         android:id="@+id/tvDescription"
         android:textSize="20sp"
         android:layout_above="@+id/etBasicAdditional"
-        android:layout_alignLeft="@+id/tvLocation"
-        android:layout_alignStart="@+id/tvLocation" />
+        android:layout_alignLeft="@+id/tvGuideLocation"
+        android:layout_alignStart="@+id/tvGuideLocation" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Languages:"
-        android:id="@+id/tvTravelerLanguages"
+        android:id="@+id/tvGuideLanguages"
         android:textSize="20sp"
         android:layout_alignBottom="@+id/etTravelerLanguages"
         android:layout_alignParentLeft="true"

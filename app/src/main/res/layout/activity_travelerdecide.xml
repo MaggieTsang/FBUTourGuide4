@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
-
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.ekok.fbutourguideapp.Travelers.TravelerDecide">
 
     <ImageView
         android:layout_width="200dp"
@@ -18,7 +22,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Guide Name"
+        tools:text="Guide Name"
         android:id="@+id/tvGuideName"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/ivProfilePicture"
@@ -28,7 +32,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Location"
+        tools:text="Location"
         android:id="@+id/tvGuideLocation"
         android:layout_below="@+id/tvGuideName"
         android:layout_toRightOf="@+id/ivProfilePicture"
@@ -38,7 +42,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Languages"
+        tools:text="Languages"
         android:id="@+id/tvGuideLanguages"
         android:layout_below="@+id/tvGuideLocation"
         android:layout_toRightOf="@+id/ivProfilePicture"
@@ -48,10 +52,10 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Save"
+        android:text="@string/accept"
         android:id="@+id/btnMakeRequest"
         android:layout_marginBottom="37dp"
-        android:onClick="saveProfile"
+        android:onClick="TravelerAccept"
         android:layout_alignParentBottom="true"
         android:layout_alignLeft="@+id/tvHourly"
         android:layout_alignStart="@+id/tvHourly" />
@@ -59,17 +63,17 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Edit"
+        android:text="@string/decline"
         android:id="@+id/btnEditProfile"
-        android:onClick="goBackToBasic"
+        android:onClick="TravelerDecline"
         android:layout_alignTop="@+id/btnMakeRequest"
-        android:layout_alignRight="@+id/tvDescription"
-        android:layout_alignEnd="@+id/tvDescription" />
+        android:layout_toRightOf="@+id/tvContact"
+        android:layout_toEndOf="@+id/tvContact" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Description:"
+        android:text="@string/description"
         android:id="@+id/tvDescription"
         android:textSize="20sp"
         android:layout_below="@+id/ivProfilePicture"
@@ -80,7 +84,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Empty"
+        tools:text="Empty"
         android:id="@+id/tvFillDescription"
         android:layout_below="@+id/tvDescription"
         android:layout_alignParentLeft="true"
@@ -89,7 +93,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Phone 1"
+        tools:text="Phone 1"
         android:id="@+id/tvPhone1"
         android:textSize="15sp"
         android:layout_above="@+id/tvPhone2"
@@ -99,7 +103,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Phone 2"
+        tools:text="Phone 2"
         android:id="@+id/tvPhone2"
         android:textSize="15sp"
         android:layout_above="@+id/tvGuideEmail"
@@ -120,7 +124,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Email"
+        tools:text="Email"
         android:id="@+id/tvGuideEmail"
         android:textSize="15sp"
         android:layout_above="@+id/btnEditProfile"
@@ -141,7 +145,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Method"
+        tools:text="Method"
         android:id="@+id/tvMethod"
         android:textSize="15sp"
         android:layout_below="@+id/tvHourly"
@@ -151,7 +155,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hourly"
+        tools:text="Hourly"
         android:id="@+id/tvHourly"
         android:textSize="15sp"
         android:layout_above="@+id/tvPhone2"
@@ -161,7 +165,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Currency"
+        tools:text="Currency"
         android:id="@+id/tvCurrency"
         android:layout_below="@+id/tvMethod"
         android:layout_alignLeft="@+id/tvMethod"

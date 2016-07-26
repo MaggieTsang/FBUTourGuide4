@@ -34,7 +34,7 @@ public class TravelerViewTrips extends AppCompatActivity{
     ArrayAdapter<String> tripsAdapter;
     ListView lvTrips;
 
-    RequestModel requestInfo;
+    TravelerRequestModel requestInfo;
     DatabaseReference dataRef;
 
 
@@ -61,7 +61,7 @@ public class TravelerViewTrips extends AppCompatActivity{
             dataRef.child("users").child(uid).child("Traveler").child("trips_current").addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
-                    requestInfo = dataSnapshot.getValue(RequestModel.class);
+                    requestInfo = dataSnapshot.getValue(TravelerRequestModel.class);
                 }
 
                 @Override
@@ -83,9 +83,6 @@ public class TravelerViewTrips extends AppCompatActivity{
                     //GuideUser guide = dataSnapshot.getValue(GuideUser.class);
                     //String guideLocation= guide.location;
                     for (final DataSnapshot child: dataSnapshot.getChildren()) {
-                        String currentReqs = child.getValue().toString();
-
-                        final String trip_id = child.getKey();
                         final String place = child.child("place").getValue().toString();
                         String startDate = child.child("startDate").getValue().toString();
                         String endDate = child.child("endDate").getValue().toString();
@@ -109,7 +106,6 @@ public class TravelerViewTrips extends AppCompatActivity{
                 @Override
                 public void onCancelled(DatabaseError databaseError) {
                     Toast.makeText(TravelerViewTrips.this, "Error.", Toast.LENGTH_SHORT).show();
-                    // Log.w(TAG, "getUser:onCancelled", databaseError.toException());
                 }
             });
 
@@ -119,24 +115,14 @@ public class TravelerViewTrips extends AppCompatActivity{
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        //Adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_traveler, menu);
         return true;
     }
 
 
     public void makeNewRequest(MenuItem item) {
-        Intent i = new Intent(this, NewRequest.class);
+        Intent i = new Intent(this, TravelerNewRequest.class);
         startActivityForResult(i, REQUEST_CODE);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == RESULT_OK && requestCode == REQUEST_CODE) {
-            // Extract place value from result extras
-            RequestModel requestModel = new RequestModel();
-            String place = data.getExtras().getString("place");
-        }
     }
 
     public void viewAcceptedReqs(MenuItem item) {
