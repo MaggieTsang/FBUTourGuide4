@@ -43,6 +43,9 @@ public class TravelerDecide extends AppCompatActivity {
     TextView tvCurrency;
 
     String reqGuide;
+    String loc;
+    String reqBucket;
+    String reqID;
 
 
     @Override
@@ -65,6 +68,9 @@ public class TravelerDecide extends AppCompatActivity {
         tvCurrency = (TextView) findViewById(R.id.tvCurrency);
 
         reqGuide = getIntent().getSerializableExtra("reqGuide").toString();
+        loc = getIntent().getSerializableExtra("loc").toString();
+        reqBucket = getIntent().getSerializableExtra("reqBucket").toString();
+        reqID = getIntent().getSerializableExtra("reqID").toString();
 
         final long ONE_MEGABYTE = 1024 * 1024;
         storageRef.child("users").child(reqGuide).child("profilePic").getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
@@ -105,9 +111,19 @@ public class TravelerDecide extends AppCompatActivity {
 
     public void TravelerAccept(View view) {
         Toast.makeText(getApplicationContext(), "Accepted!", Toast.LENGTH_SHORT).show();
+        dataRef.child("requests").child(loc).child(reqBucket).setValue(null);
+        dataRef.child("users").child(reqGuide).child("Guide").child("Accepted").child(loc).child(reqID).setValue(uid);
+        dataRef.child("users").child(uid).child("Traveler").child("Accepted").child("reqID").setValue(reqID);
+        dataRef.child("users").child(reqGuide).child("Guide").child("Pending").child(loc).child(reqBucket).setValue(null);
+        dataRef.child("users").child(uid).child("Traveler").child("Pending").child(reqBucket).setValue(null);
+        finish();
     }
 
     public void TravelerDecline(View view) {
         Toast.makeText(getApplicationContext(), "Declined!", Toast.LENGTH_SHORT).show();
+        dataRef.child("users").child(reqGuide).child("Guide").child("Pending").child(loc).child(reqBucket).setValue(null);
+        dataRef.child("users").child(uid).child("Traveler").child("Pending").child(reqBucket).setValue(null);
+        dataRef.child("users").child(reqGuide).child("Guide").child("TravelerDeclined").child(loc).child(reqBucket).setValue("rejection hurts bro");
+        finish();
     }
 }

@@ -9,7 +9,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.ekok.fbutourguideapp.Guides.GuideUser;
 import com.example.ekok.fbutourguideapp.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -27,9 +26,12 @@ public class TravelerPending extends AppCompatActivity {
     ListView lvPending;
     ArrayList<String> pending;
     ArrayAdapter<String> pendingAdapter;
-
     ArrayList<String> reqBucket;
-    GuideUser guideInfo;
+    ArrayList<String> reqGuide;
+    ArrayList<String> locs;
+
+    ArrayList<String> reqID;
+    ArrayList<String> travelerID;
 
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -42,27 +44,13 @@ public class TravelerPending extends AppCompatActivity {
         lvPending = (ListView) findViewById(R.id.lvTravelerPending);
         pending = new ArrayList<>();
         reqBucket = new ArrayList<>();
+        locs = new ArrayList<>();
+        reqGuide = new ArrayList<>();
+        reqID = new ArrayList<>();
+        travelerID = new ArrayList<>();
         pendingAdapter = new ArrayAdapter<>(TravelerPending.this, android.R.layout.simple_list_item_1, pending);
 
         fillPendingList();
-    }
-
-    public void getGuideInfo(){
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null) {
-            String uid = user.getUid();
-            dataRef.child("users").child(uid).child("Guide").child("Profile").addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    guideInfo = dataSnapshot.getValue(GuideUser.class);
-                }
-
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-                    Toast.makeText(TravelerPending.this, "Error.", Toast.LENGTH_SHORT).show();
-                }
-            });
-        }
     }
 
     public void fillPendingList(){
@@ -70,30 +58,29 @@ public class TravelerPending extends AppCompatActivity {
             String uid = user.getUid();
             dataRef.child("users").child(uid).child("Traveler").child("Pending").addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    //GuideUser guide = dataSnapshot.getValue(GuideUser.class);
-                    //String guideLocation= guide.location;
-                    for (DataSnapshot child: dataSnapshot.getChildren()) {
-                        //If guide location matches a folder
+                public void onDataChange(final DataSnapshot dataSnapshot) {
+                    for (final DataSnapshot child: dataSnapshot.getChildren()) {
 
-//                        String place = child.child("place").getValue().toString();
-//                        String startDate = child.child("startDate").getValue().toString();
-//                        String endDate = child.child("endDate").getValue().toString();
-//
-//                        pending.add(place + "\n" + startDate + " - " + endDate);
-                        int n = 0;
+                        String place = child.child("location").getValue().toString();
+                        String date = child.child("dates").getValue().toString();
+                        String guide = child.child("guideName").getValue().toString();
+
+                        pending.add(place + "\n" + date + "\n" + "Guide " + guide);
+
                         reqBucket.add(child.getKey());
-                        String guideId = reqBucket.get(n);
-                        pending.add("guide id: " + guideId);
-                        n++;
+                        reqGuide.add(child.child("guideID").getValue().toString());
+                        locs.add(child.child("location").getValue().toString());
+                        reqID.add(child.child("requestId").getValue().toString());
 
-//                        pending.add("pending req id: " + child.getKey());
 
                         lvPending.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                             @Override
                             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                                 Intent intent = new Intent(TravelerPending.this, TravelerDecide.class);
-                                intent.putExtra("reqGuide", reqBucket.get(position));
+                                intent.putExtra("reqGuide", reqGuide.get(position));
+                                intent.putExtra("loc", locs.get(position));
+                                intent.putExtra("reqBucket", reqBucket.get(position));
+                                intent.putExtra("reqID", reqID.get(position));
                                 startActivity(intent);
                             }
                         });
