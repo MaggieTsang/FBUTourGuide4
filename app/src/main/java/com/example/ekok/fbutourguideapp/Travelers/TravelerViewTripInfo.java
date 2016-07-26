@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.ekok.fbutourguideapp.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -53,10 +54,9 @@ public class TravelerViewTripInfo extends AppCompatActivity {
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
+                Toast.makeText(getApplicationContext(), "Cancelled.", Toast.LENGTH_SHORT).show();
             }
         });
-
     }
 
     public void editRequest(View view) {
