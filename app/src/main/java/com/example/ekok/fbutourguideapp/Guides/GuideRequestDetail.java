@@ -1,6 +1,5 @@
 package com.example.ekok.fbutourguideapp.Guides;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -21,6 +20,7 @@ import com.google.firebase.database.ValueEventListener;
  */
 public class GuideRequestDetail extends AppCompatActivity{
 
+    private static final String TAG = "TAG";
     DatabaseReference dataRef;
     FirebaseUser user;
     String requestBucket;
@@ -88,26 +88,24 @@ public class GuideRequestDetail extends AppCompatActivity{
                 //Log.w(TAG, "getUser:onCancelled", databaseError.toException());
             }
         });
-        Intent i = new Intent(GuideRequestDetail.this, GuideViewRequests.class);
-        startActivity(i);
+        finish();
     }
 
     //Adds the accepted request id to the database, puts in
     public void acceptRequest(View view) {
         Toast.makeText(GuideRequestDetail.this, "Request accepted - Waiting for Traveler", Toast.LENGTH_SHORT).show();
+
         dataRef.child("users").child(user.getUid()).child("Guide").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 //put in Guide
-                dataRef.child("users").child(user.getUid()).child("Guide").child("Pending").child(location).child(requestBucket).child("requestId").setValue(requestID);
-                dataRef.child("users").child(user.getUid()).child("Guide").child("Pending").child(location).child(requestBucket).child("dates").setValue(dates);
-                dataRef.child("users").child(user.getUid()).child("Guide").child("Pending").child(location).child(requestBucket).child("location").setValue(location);
-                dataRef.child("users").child(user.getUid()).child("Guide").child("Pending").child(location).child(requestBucket).child("guideName").setValue(user.getDisplayName());
-
-
-
+                dataRef.child("users").child(user.getUid()).child("Guide").child("Pending").child(location).child(requestBucket).setValue(requestID);
                 //notify traveler, need to give traveler guideId for the path to be built
-                dataRef.child("users").child(travelerID).child("Traveler").child("Pending").child(user.getUid()).child(requestBucket).setValue(requestID);
+                dataRef.child("users").child(travelerID).child("Traveler").child("Pending").child(requestBucket).child("requestId").setValue(requestID);
+                dataRef.child("users").child(travelerID).child("Traveler").child("Pending").child(requestBucket).child("dates").setValue(dates);
+                dataRef.child("users").child(travelerID).child("Traveler").child("Pending").child(requestBucket).child("location").setValue(location);
+                dataRef.child("users").child(travelerID).child("Traveler").child("Pending").child(requestBucket).child("guideName").setValue(user.getDisplayName());
+                dataRef.child("users").child(travelerID).child("Traveler").child("Pending").child(requestBucket).child("guideID").setValue(user.getUid());
 
             }
             @Override
@@ -116,8 +114,9 @@ public class GuideRequestDetail extends AppCompatActivity{
                 //Log.w(TAG, "getUser:onCancelled", databaseError.toException());
             }
         });
-        Intent i = new Intent(GuideRequestDetail.this, GuideViewRequests.class);
-        startActivity(i);
+
+
+        finish();
     }
 }
 

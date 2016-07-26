@@ -54,9 +54,37 @@ public class GuidePending extends AppCompatActivity{
         pendingAdapter = new ArrayAdapter<>(GuidePending.this, android.R.layout.simple_list_item_1, pending);
 
         lvPending.setAdapter(pendingAdapter);
-        //pending.add("Add pending reqs 1");
 
+        showAcceptedList();
         fillPendingList();
+    }
+
+    private void showAcceptedList() {
+        dataRef.child("users").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                DataSnapshot acceptedReqs = dataSnapshot.child(user.getUid()).child("Guide").child("Accepted").child(location);
+                for (DataSnapshot requestId : acceptedReqs.getChildren()) {
+                    String reqId = requestId.getKey();
+                    String travelerId = requestId.getValue().toString();
+                    DataSnapshot reqInfo = dataSnapshot.child(travelerId);
+                    String name = reqInfo.child("displayName").getValue().toString();
+                    String start = reqInfo.child("Traveler").child("trips_current").child(reqId).child("startDate").getValue().toString();
+                    String end = reqInfo.child("Traveler").child("trips_current").child(reqId).child("endDate").getValue().toString();
+                    String dates = start + " - " + end;
+                    pending.add("Accepted : " + name + ", " + dates);
+                    requestIDs.add(reqId);
+                    requestsTravelerID.add(travelerId);
+                }
+                lvPending.setAdapter(pendingAdapter);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Toast.makeText(GuidePending.this, "Get Pending Error.", Toast.LENGTH_SHORT).show();
+                // Log.w(TAG, "getUser:onCancelled", databaseError.toException());
+            }
+        });
     }
 
 
@@ -70,8 +98,7 @@ public class GuidePending extends AppCompatActivity{
                     DataSnapshot reqInfo = dataSnapshot.child("requests").child(location).child(reqIdBucket);
                     String name = reqInfo.child("displayName").getValue().toString();
                     String dates = reqInfo.child("dates").getValue().toString();
-                    pending.add(name + " : " + dates);
-
+                    pending.add("Pending : " + name + ", " + dates);
                     requestIDs.add(reqInfo.child("requestId").getValue().toString());
                     requestsTravelerID.add(reqInfo.child("traveler_uid").getValue().toString());
                 }
@@ -89,14 +116,12 @@ public class GuidePending extends AppCompatActivity{
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 //Toast.makeText(getApplicationContext(), "Open request info at " + position, Toast.LENGTH_SHORT).show();
-
                 Intent intent = new Intent(GuidePending.this, GuideAcceptedDetails.class);
                 intent.putExtra("requestIDs", requestIDs.get(position));
                 intent.putExtra("requestsTravelerID",requestsTravelerID.get(position));
                 startActivity(intent);
             }
         });
-
 
     }
 

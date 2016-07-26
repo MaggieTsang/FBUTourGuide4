@@ -176,20 +176,8 @@ public class GuideBasic extends AppCompatActivity{
             //For camera
             if (resultCode == RESULT_OK) {
                 Uri takenPhotoUri = getPhotoFileUri(photoFileName);
-                /*
-                try {
-                    getCorrectlyOrientedImage(getApplicationContext(), takenPhotoUri);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                */
-
-                // by this point we have the camera photo on disk
                 Bitmap takenImage = BitmapFactory.decodeFile(takenPhotoUri.getPath());
                 orientPicture(takenImage);
-
-
-
             } else { // Result was a failure
                 Toast.makeText(this, "Picture wasn't taken!", Toast.LENGTH_SHORT).show();
             }
@@ -197,25 +185,11 @@ public class GuideBasic extends AppCompatActivity{
             //For gallery
             if (resultCode == RESULT_OK){
                 Uri targetUri = data.getData();
-
-
                 try {
                     getCorrectlyOrientedImage(getApplicationContext(), targetUri);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-
-/*
-                Bitmap bitmap;
-                try {
-                    bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(targetUri));
-                    //orientPicture(bitmap);
-
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                }
-                */
-
             }
 
         }
@@ -227,13 +201,10 @@ public class GuideBasic extends AppCompatActivity{
     //Gets an orientation of a photo
     public static int getOrientation(Context context, Uri photoUri) {
     /* it's on the external media. */
-        Cursor cursor = context.getContentResolver().query(photoUri,
-                new String[] { MediaStore.Images.ImageColumns.ORIENTATION }, null, null, null);
-
+        Cursor cursor = context.getContentResolver().query(photoUri, new String[] { MediaStore.Images.ImageColumns.ORIENTATION }, null, null, null);
         if (cursor.getCount() != 1) {
             return -1;
         }
-
         cursor.moveToFirst();
         return cursor.getInt(0);
     }
@@ -294,17 +265,9 @@ public class GuideBasic extends AppCompatActivity{
 
     //Rotate the picture if neccessary for camera photos
     public void orientPicture(Bitmap bitmap) {
-
-        /*
-        ExifInterface exif = new ExifInterface(filename);
-        orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, 1);
-         */
-
         Matrix matrix = new Matrix();
-
-        //90 for portrait
-        //   for landscape
-        matrix.postRotate(90);
+        //270 for portrait
+        matrix.postRotate(270);
         Bitmap rotatedBitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
         ivPic.setImageBitmap(rotatedBitmap);
     }

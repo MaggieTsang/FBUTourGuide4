@@ -86,17 +86,16 @@ public class GuideViewRequests extends AppCompatActivity{
         dataRef.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                //GuideUser guide = dataSnapshot.getValue(GuideUser.class);
-                //String guideLocation= guide.location;
                 for (DataSnapshot places: dataSnapshot.child("requests").getChildren()) {
                     //If guide location matches a folder
                     if (places.getKey().equalsIgnoreCase(location)){
                         for (DataSnapshot availRequests: places.getChildren()){
-
                             String reqId = availRequests.child("requestId").getValue().toString();
                             if (!dataSnapshot.child("users").child(user.getUid()).child("Guide").child("Pending").child(location).hasChild(availRequests.getKey()) &&
                                  !dataSnapshot.child("users").child(user.getUid()).child("Guide").child("Declined").child(location).hasChild(availRequests.getKey()) &&
-                                !dataSnapshot.child("users").child(user.getUid()).child("Traveler").child("trips_current").hasChild(reqId)){
+                                 !dataSnapshot.child("users").child(user.getUid()).child("Guide").child("Accepted").child(location).hasChild(availRequests.getKey()) &&
+                                 !dataSnapshot.child("users").child(user.getUid()).child("Guide").child("TravelerDeclined").child(location).hasChild(availRequests.getKey()) &&
+                                 !dataSnapshot.child("users").child(user.getUid()).child("Traveler").child("trips_current").hasChild(reqId)){
                                 //Add it if it's not in pending, declined, or in own requests
                                 String name = availRequests.child("displayName").getValue().toString();
                                 String dates = availRequests.child("dates").getValue().toString();
