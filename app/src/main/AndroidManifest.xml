@@ -20,7 +20,7 @@
             android:value="@string/facebook_app_id" />
 
         <activity
-            android:name=".LauncherActivity"
+            android:name=".Login.UserLogin"
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -49,9 +49,9 @@
             android:name=".Guides.GuideRequestDetail"
             android:label="Request Detail"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".Login.UserLogin"
-            android:screenOrientation="portrait" />
+        <!--<activity-->
+            <!--android:name=".Login.UserLogin"-->
+            <!--android:screenOrientation="portrait" />-->
         <activity
             android:name=".Travelers.TravelerViewTrips"
             android:screenOrientation="portrait" />
