@@ -94,6 +94,9 @@ public class UserLogin extends AppCompatActivity {
                         Log.d(TAG, "signInWithCredential:onComplete:" + task.isSuccessful());
                         Toast.makeText(getApplicationContext(), "signInWithCredential:onComplete: " + task.isSuccessful(), Toast.LENGTH_SHORT).show();
                         if (task.isSuccessful()) {
+                            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                            myRef.child("users").child(user.getUid()).child("displayName").setValue(user.getDisplayName());
+                            myRef.child("users").child(user.getUid()).child("email").setValue(user.getEmail());
                             Intent i = new Intent(UserLogin.this, UserType.class);
                             startActivity(i);
                         }
