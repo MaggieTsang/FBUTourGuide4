@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,7 +23,8 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
-public class TravelerDecide extends AppCompatActivity {
+public class TravelerViewGuideProfile extends AppCompatActivity {
+
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     String uid = user.getUid();
     DatabaseReference dataRef = FirebaseDatabase.getInstance().getReference();
@@ -43,17 +43,11 @@ public class TravelerDecide extends AppCompatActivity {
     TextView tvCurrency;
 
     String reqGuide;
-    String loc;
-    String reqBucket;
-    String reqID;
-    String dates;
-    String lang;
-    String gSize;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_travelerdecide);
+        setContentView(R.layout.activity_travelerviewguideprofile);
 
         storage = FirebaseStorage.getInstance();
         storageRef = storage.getReferenceFromUrl("gs://fbutourguide.appspot.com/");
@@ -70,15 +64,6 @@ public class TravelerDecide extends AppCompatActivity {
         tvCurrency = (TextView) findViewById(R.id.tvCurrency);
 
         reqGuide = getIntent().getSerializableExtra("reqGuide").toString();
-        loc = getIntent().getSerializableExtra("loc").toString();
-        if (getIntent().getSerializableExtra("reqBucket") != null) {
-            reqBucket = getIntent().getSerializableExtra("reqBucket").toString();
-        }
-        reqID = getIntent().getSerializableExtra("reqID").toString();
-        dates = getIntent().getSerializableExtra("dates").toString();
-        lang = getIntent().getSerializableExtra("languages").toString();
-        gSize = getIntent().getSerializableExtra("groupSize").toString();
-
 
         final long ONE_MEGABYTE = 1024 * 1024;
         storageRef.child("users").child(reqGuide).child("profilePic").getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
@@ -115,28 +100,5 @@ public class TravelerDecide extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Cancelled.", Toast.LENGTH_SHORT).show();
             }
         });
-    }
-
-    public void TravelerAccept(View view) {
-        Toast.makeText(getApplicationContext(), "Accepted!", Toast.LENGTH_SHORT).show();
-        dataRef.child("requests").child(loc).child(reqBucket).setValue(null);
-        dataRef.child("users").child(reqGuide).child("Guide").child("Accepted").child(loc).child(reqID).setValue(uid);
-        dataRef.child("users").child(uid).child("Traveler").child("Accepted").child(reqID).child("location").setValue(loc);
-        dataRef.child("users").child(uid).child("Traveler").child("Accepted").child(reqID).child("dates").setValue(dates);
-        dataRef.child("users").child(uid).child("Traveler").child("Accepted").child(reqID).child("guideID").setValue(reqGuide);
-        dataRef.child("users").child(uid).child("Traveler").child("Accepted").child(reqID).child("groupSize").setValue(gSize);
-        dataRef.child("users").child(uid).child("Traveler").child("Accepted").child(reqID).child("languages").setValue(lang);
-        dataRef.child("users").child(reqGuide).child("Guide").child("Pending").child(loc).child(reqBucket).setValue(null);
-        dataRef.child("users").child(uid).child("Traveler").child("Pending").child(reqBucket).setValue(null);
-        dataRef.child("users").child(uid).child("Traveler").child("trips_current").child(reqID).setValue(null);
-        finish();
-    }
-
-    public void TravelerDecline(View view) {
-        Toast.makeText(getApplicationContext(), "Declined!", Toast.LENGTH_SHORT).show();
-        dataRef.child("users").child(reqGuide).child("Guide").child("Pending").child(loc).child(reqBucket).setValue(null);
-        dataRef.child("users").child(uid).child("Traveler").child("Pending").child(reqBucket).setValue(null);
-        dataRef.child("users").child(reqGuide).child("Guide").child("TravelerDeclined").child(loc).child(reqBucket).setValue("rejection hurts bro");
-        finish();
     }
 }

@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.ekok.fbutourguideapp.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -50,39 +51,49 @@ public class TravelerNewRequest extends AppCompatActivity{
                 public void onClick(View v) {
 
                     // GET DATA
-                    final String place = etPlace.getText().toString();
-                    final String startDate = etStartDate.getText().toString();
-                    final String endDate = etEndDate.getText().toString();
-                    final String groupSize = etGroupSize.getText().toString();
-                    final int finalGroupSize = Integer.parseInt(groupSize);
-                    final String languages = etLanguages.getText().toString();
-
-                    // SET DATA
-                    if (place.equalsIgnoreCase(place)) {
-                        myRef.child("place").setValue(place);
+                    if (etPlace.getText().toString().isEmpty()
+                            || etStartDate.getText().toString().isEmpty()
+                            || etEndDate.getText().toString().isEmpty()
+                            || etGroupSize.getText().toString().isEmpty()
+                            || etLanguages.getText().toString().isEmpty())
+                    {
+                        Toast.makeText(getApplicationContext(), "All fields must be filled out!", Toast.LENGTH_SHORT).show();
                     }
+                    else {
+                        final String place = etPlace.getText().toString();
+                        final String startDate = etStartDate.getText().toString();
+                        final String endDate = etEndDate.getText().toString();
+                        final String groupSize = etGroupSize.getText().toString();
+                        final int finalGroupSize = Integer.parseInt(groupSize);
+                        final String languages = etLanguages.getText().toString();
 
-                    myRef.child("startDate").setValue(startDate);
-                    myRef.child("endDate").setValue(endDate);
-                    myRef.child("groupSize").setValue(finalGroupSize);
-                    myRef.child("languages").setValue(languages);
+                        // SET DATA
+                        if (place.equalsIgnoreCase(place)) {
+                            myRef.child("place").setValue(place);
+                        }
 
-                    requestModel.place = place;
-                    requestModel.startDate = startDate;
-                    requestModel.endDate = endDate;
-                    requestModel.groupSize = finalGroupSize;
-                    requestModel.languages = languages;
+                        myRef.child("startDate").setValue(startDate);
+                        myRef.child("endDate").setValue(endDate);
+                        myRef.child("groupSize").setValue(finalGroupSize);
+                        myRef.child("languages").setValue(languages);
 
-                    final DatabaseReference myOtherRef = dataRef.child("requests").child(place.toLowerCase()).push();
+                        requestModel.place = place;
+                        requestModel.startDate = startDate;
+                        requestModel.endDate = endDate;
+                        requestModel.groupSize = finalGroupSize;
+                        requestModel.languages = languages;
 
-                    myOtherRef.child("traveler_uid").setValue(uid);
-                    myOtherRef.child("requestId").setValue(myRef.getKey());
-                    myOtherRef.child("displayName").setValue(user.getDisplayName());
-                    myOtherRef.child("dates").setValue(startDate + " - " + endDate);
-                    myOtherRef.child("groupSize").setValue(finalGroupSize);
-                    myOtherRef.child("languages").setValue(languages);
+                        final DatabaseReference myOtherRef = dataRef.child("requests").child(place.toLowerCase()).push();
 
-                    finish();
+                        myOtherRef.child("traveler_uid").setValue(uid);
+                        myOtherRef.child("requestId").setValue(myRef.getKey());
+                        myOtherRef.child("displayName").setValue(user.getDisplayName());
+                        myOtherRef.child("dates").setValue(startDate + " - " + endDate);
+                        myOtherRef.child("groupSize").setValue(finalGroupSize);
+                        myOtherRef.child("languages").setValue(languages);
+
+                        finish();
+                    }
                 }
 
             });

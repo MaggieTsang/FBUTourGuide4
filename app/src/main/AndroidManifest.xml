@@ -49,9 +49,9 @@
             android:name=".Guides.GuideRequestDetail"
             android:label="Request Detail"
             android:screenOrientation="portrait" />
-        <!--<activity-->
-            <!--android:name=".Login.UserLogin"-->
-            <!--android:screenOrientation="portrait" />-->
+        <!-- <activity -->
+        <!-- android:name=".Login.UserLogin" -->
+        <!-- android:screenOrientation="portrait" /> -->
         <activity
             android:name=".Travelers.TravelerViewTrips"
             android:screenOrientation="portrait" />
@@ -107,9 +107,8 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".Travelers.TravelerPending"
-            android:screenOrientation="portrait">
-
-        </activity>
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".Travelers.TravelerViewGuideProfile"></activity>
     </application>
 
 </manifest>

@@ -21,6 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class TravelerPending extends AppCompatActivity {
+    private final int REQUEST_CODE = 20;
 
     DatabaseReference dataRef;
     ListView lvPending;
@@ -29,6 +30,9 @@ public class TravelerPending extends AppCompatActivity {
     ArrayList<String> reqBucket;
     ArrayList<String> reqGuide;
     ArrayList<String> locs;
+    ArrayList<String> dates;
+    ArrayList<String> groupSize;
+    ArrayList<String> lang;
 
     ArrayList<String> reqID;
     ArrayList<String> travelerID;
@@ -48,12 +52,41 @@ public class TravelerPending extends AppCompatActivity {
         reqGuide = new ArrayList<>();
         reqID = new ArrayList<>();
         travelerID = new ArrayList<>();
+        dates = new ArrayList<>();
+        groupSize = new ArrayList<>();
+        lang = new ArrayList<>();
         pendingAdapter = new ArrayAdapter<>(TravelerPending.this, android.R.layout.simple_list_item_1, pending);
-
-//        fillPendingList();
     }
 
-    public void fillPendingList(){
+    private void showAcceptedList() {
+        dataRef.child("users").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                DataSnapshot acceptedReqs = dataSnapshot.child(user.getUid()).child("Traveler").child("Accepted");
+                for (DataSnapshot requestId : acceptedReqs.getChildren()) {
+                    String req_Id = requestId.getKey();
+                    String guide_Id = requestId.child("guideID").getValue().toString();
+                    String place = requestId.child("location").getValue().toString();
+                    String date = requestId.child("dates").getValue().toString();
+                    pending.add("Accepted : " + place + ", " + date);
+                    reqID.add(req_Id);
+                    locs.add(place);
+                    reqBucket.add(null);
+                    reqGuide.add(guide_Id);
+                    dates.add(date);
+
+                    addListviewListener();
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Toast.makeText(TravelerPending.this, "Get Pending Error.", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public void fillPendingList() {
         if (user != null) {
             String uid = user.getUid();
             dataRef.child("users").child(uid).child("Traveler").child("Pending").addListenerForSingleValueEvent(new ValueEventListener() {
@@ -71,21 +104,12 @@ public class TravelerPending extends AppCompatActivity {
                         reqGuide.add(child.child("guideID").getValue().toString());
                         locs.add(child.child("location").getValue().toString());
                         reqID.add(child.child("requestId").getValue().toString());
+                        dates.add(child.child("dates").getValue().toString());
+                        groupSize.add(child.child("groupSize").getValue().toString());
+                        lang.add(child.child("languages").getValue().toString());
 
-
-                        lvPending.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                            @Override
-                            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                                Intent intent = new Intent(TravelerPending.this, TravelerDecide.class);
-                                intent.putExtra("reqGuide", reqGuide.get(position));
-                                intent.putExtra("loc", locs.get(position));
-                                intent.putExtra("reqBucket", reqBucket.get(position));
-                                intent.putExtra("reqID", reqID.get(position));
-                                startActivity(intent);
-                            }
-                        });
+                        addListviewListener();
                     }
-                    lvPending.setAdapter(pendingAdapter);
                 }
                 @Override
                 public void onCancelled(DatabaseError databaseError) {
@@ -93,6 +117,38 @@ public class TravelerPending extends AppCompatActivity {
                 }
             });
         }
+    }
+
+    public void addListviewListener() {
+        lvPending.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                if (pending.get(position).toString().charAt(0) == 'A'
+                        && pending.get(position).toString().charAt(1) == 'c'
+                        && pending.get(position).toString().charAt(2) == 'c'
+                        && pending.get(position).toString().charAt(3) == 'e'
+                        && pending.get(position).toString().charAt(4) == 'p'
+                        && pending.get(position).toString().charAt(5) == 't') {
+                    Intent intent = new Intent(TravelerPending.this, TravelerViewGuideProfile.class);
+                    intent.putExtra("reqGuide", reqGuide.get(position));
+                    startActivity(intent);
+                }
+                else {
+                    Intent intent = new Intent(TravelerPending.this, TravelerDecide.class);
+                    intent.putExtra("reqGuide", reqGuide.get(position));
+                    intent.putExtra("loc", locs.get(position));
+                    intent.putExtra("groupSize", groupSize.get(position));
+                    intent.putExtra("languages", lang.get(position));
+                    if (reqBucket.get(position) != null) {
+                        intent.putExtra("reqBucket", reqBucket.get(position));
+                    }
+                    intent.putExtra("reqID", reqID.get(position));
+                    intent.putExtra("dates", dates.get(position));
+                    startActivity(intent);
+                }
+            }
+        });
+        lvPending.setAdapter(pendingAdapter);
     }
 
     @Override
@@ -104,6 +160,7 @@ public class TravelerPending extends AppCompatActivity {
         locs.clear();
         reqID.clear();
         travelerID.clear();
+        showAcceptedList();
         fillPendingList();
         pendingAdapter.notifyDataSetChanged();
     }
