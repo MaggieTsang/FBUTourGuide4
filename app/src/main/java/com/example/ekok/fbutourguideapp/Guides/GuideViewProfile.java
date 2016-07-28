@@ -126,10 +126,12 @@ public class GuideViewProfile extends AppCompatActivity{
     public void goBackToBasic(View view) {
         Intent i = new Intent(this, GuideBasic.class);
         startActivity(i);
+        finish();
     }
 
     public void saveProfile(View view) {
-        Intent i = new Intent(this, GuideViewRequests.class);
-        startActivity(i);
+        //Intent i = new Intent(this, GuideViewRequests.class);
+        //startActivity(i);
+        finish();
     }
 }

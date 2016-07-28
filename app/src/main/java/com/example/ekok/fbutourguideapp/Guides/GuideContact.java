@@ -77,6 +77,7 @@ public class GuideContact extends AppCompatActivity {
             dataRef.child("users").child(uid).child("Guide").child("Profile").child("contactAdditional").setValue(etContactAdditional.getText().toString());
             Intent i = new Intent(this, GuidePayment.class);
             startActivity(i);
+            finish();
         }
     }
 }

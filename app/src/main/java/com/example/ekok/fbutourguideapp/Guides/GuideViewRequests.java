@@ -56,7 +56,7 @@ public class GuideViewRequests extends AppCompatActivity{
         requestsAdapter = new ArrayAdapter<>(GuideViewRequests.this, android.R.layout.simple_list_item_1, requests);
 
         getGuideInfo();
-        fillRequestList();
+        //fillRequestList();
     }
 
 
@@ -161,4 +161,15 @@ public class GuideViewRequests extends AppCompatActivity{
         i.putExtra("location", location);
         startActivity(i);
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        requests.clear();
+        requestsTravelerID.clear();
+        requestBucket.clear();
+        fillRequestList();
+        requestsAdapter.notifyDataSetChanged();
+    }
+
 }

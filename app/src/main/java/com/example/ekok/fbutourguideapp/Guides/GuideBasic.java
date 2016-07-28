@@ -329,6 +329,7 @@ public class GuideBasic extends AppCompatActivity{
                     } else {
                         Intent i = new Intent(GuideBasic.this, GuideContact.class);
                         startActivity(i);
+                        finish();
                     }
                 }
 

@@ -77,6 +77,7 @@ public class GuidePayment extends AppCompatActivity {
             dataRef.child("users").child(uid).child("Guide").child("Profile").child("currency").setValue(etCurrencyType.getText().toString());
             Intent i = new Intent(this, GuideViewProfile.class);
             startActivity(i);
+            finish();
         }
     }
 }
