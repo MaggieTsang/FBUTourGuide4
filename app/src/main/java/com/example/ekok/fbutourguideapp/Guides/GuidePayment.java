@@ -75,9 +75,18 @@ public class GuidePayment extends AppCompatActivity {
             dataRef.child("users").child(uid).child("Guide").child("Profile").child("timelyPay").setValue(etHourlyPay.getText().toString());
             dataRef.child("users").child(uid).child("Guide").child("Profile").child("packageDeals").setValue(etPackageDeals.getText().toString());
             dataRef.child("users").child(uid).child("Guide").child("Profile").child("currency").setValue(etCurrencyType.getText().toString());
-            Intent i = new Intent(this, GuideViewProfile.class);
-            startActivity(i);
-            finish();
+
+            if (etPaymentMethod.getText().toString().isEmpty()
+                    || etHourlyPay.getText().toString().isEmpty()
+                    || etCurrencyType.getText().toString().isEmpty())
+            {
+                Toast.makeText(getApplicationContext(), "Please fill out required fields.", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                Intent i = new Intent(this, GuideViewProfile.class);
+                startActivity(i);
+                finish();
+            }
         }
     }
 }

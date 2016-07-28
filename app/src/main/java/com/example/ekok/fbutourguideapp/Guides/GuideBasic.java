@@ -324,8 +324,10 @@ public class GuideBasic extends AppCompatActivity{
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     // Get user value
                     //GuideUser user = dataSnapshot.getValue(GuideUser.class);
-                    if (etName.getText().toString().isEmpty() || etLocation.getText().toString().isEmpty()) {
-                        Toast.makeText(GuideBasic.this, "Name and location required to continue!", Toast.LENGTH_SHORT).show();
+                    if (etName.getText().toString().isEmpty()
+                            || etLocation.getText().toString().isEmpty()
+                            || etLanguages.getText().toString().isEmpty()) {
+                        Toast.makeText(GuideBasic.this, "Name, location, and languages are required to continue!", Toast.LENGTH_SHORT).show();
                     } else {
                         Intent i = new Intent(GuideBasic.this, GuideContact.class);
                         startActivity(i);

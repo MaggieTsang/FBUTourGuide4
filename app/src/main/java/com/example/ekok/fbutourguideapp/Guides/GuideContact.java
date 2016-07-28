@@ -75,9 +75,17 @@ public class GuideContact extends AppCompatActivity {
             dataRef.child("users").child(uid).child("Guide").child("Profile").child("phoneSecondary").setValue(etPhoneSecondary.getText().toString());
             dataRef.child("users").child(uid).child("Guide").child("Profile").child("email").setValue(etEmail.getText().toString());
             dataRef.child("users").child(uid).child("Guide").child("Profile").child("contactAdditional").setValue(etContactAdditional.getText().toString());
-            Intent i = new Intent(this, GuidePayment.class);
-            startActivity(i);
-            finish();
+
+            if (etPhonePrimary.getText().toString().isEmpty()
+                    || etEmail.getText().toString().isEmpty())
+            {
+                Toast.makeText(getApplicationContext(), "Primary phone and email must be filled out to continue.", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                Intent i = new Intent(this, GuidePayment.class);
+                startActivity(i);
+                finish();
+            }
         }
     }
 }
