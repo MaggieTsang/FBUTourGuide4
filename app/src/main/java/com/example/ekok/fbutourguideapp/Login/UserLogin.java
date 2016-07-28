@@ -28,7 +28,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class UserLogin extends AppCompatActivity {
     private static final String TAG = "FacebookLogin";
 
-    FirebaseAuth mAuth = FirebaseAuth.getInstance();;
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
     FirebaseAuth.AuthStateListener mAuthListener;
 
     DatabaseReference myRef;

@@ -94,4 +94,10 @@ public class TravelerPending extends AppCompatActivity {
             });
         }
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        pendingAdapter.notifyDataSetChanged();
+    }
 }

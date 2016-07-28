@@ -36,6 +36,7 @@ public class TravelerViewTrips extends AppCompatActivity{
 
     TravelerRequestModel requestInfo;
     DatabaseReference dataRef;
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
 
 
@@ -51,7 +52,6 @@ public class TravelerViewTrips extends AppCompatActivity{
         tripsAdapter = new ArrayAdapter<>(TravelerViewTrips.this, android.R.layout.simple_list_item_1, trips);
 
         getTripInfo();
-        fillRequestList();
     }
 
     public void getTripInfo(){
@@ -74,14 +74,11 @@ public class TravelerViewTrips extends AppCompatActivity{
 
 
     public void fillRequestList(){
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             final String uid = user.getUid();
             dataRef.child("users").child(uid).child("Traveler").child("trips_current").addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(final DataSnapshot dataSnapshot) {
-                    //GuideUser guide = dataSnapshot.getValue(GuideUser.class);
-                    //String guideLocation= guide.location;
                     for (final DataSnapshot child: dataSnapshot.getChildren()) {
                         final String place = child.child("place").getValue().toString();
                         String startDate = child.child("startDate").getValue().toString();
@@ -128,5 +125,14 @@ public class TravelerViewTrips extends AppCompatActivity{
     public void viewAcceptedReqs(MenuItem item) {
         Intent i = new Intent(this, TravelerPending.class);
         startActivity(i);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        trips.clear();
+        requestIDs.clear();
+        fillRequestList();
+        tripsAdapter.notifyDataSetChanged();
     }
 }
