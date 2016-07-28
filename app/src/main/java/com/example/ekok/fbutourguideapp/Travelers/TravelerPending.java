@@ -50,7 +50,7 @@ public class TravelerPending extends AppCompatActivity {
         travelerID = new ArrayList<>();
         pendingAdapter = new ArrayAdapter<>(TravelerPending.this, android.R.layout.simple_list_item_1, pending);
 
-        fillPendingList();
+//        fillPendingList();
     }
 
     public void fillPendingList(){
@@ -98,6 +98,13 @@ public class TravelerPending extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        pending.clear();
+        reqBucket.clear();
+        reqGuide.clear();
+        locs.clear();
+        reqID.clear();
+        travelerID.clear();
+        fillPendingList();
         pendingAdapter.notifyDataSetChanged();
     }
 }
