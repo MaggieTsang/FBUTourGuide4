@@ -1,25 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/orangebackground">
+
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:textSize="21sp"
         android:text="Traveler"
         android:id="@+id/btnTravelerType"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="144dp"
-        android:onClick="launchTraveler"/>
+        android:onClick="launchTraveler"
+        android:background="@drawable/buttonborder"
+        android:layout_alignTop="@+id/btnGuideType"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:textSize="21sp"
         android:text="Guide"
         android:id="@+id/btnGuideType"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="launchGuide"/>
+        android:onClick="launchGuide"
+        android:layout_marginBottom="93dp"
+        android:background="@drawable/buttonborder"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="33dp"
+        android:layout_marginEnd="33dp" />
+
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_height="75dp"
+        android:id="@+id/imageView"
+        android:background="@drawable/titlenooutline"
+        android:layout_marginBottom="22dp"
+        android:layout_above="@+id/imageView2"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:layout_width="130dp"
+        android:layout_height="30dp"
+        android:id="@+id/imageView2"
+        android:background="@drawable/motto"
+        android:layout_marginBottom="155dp"
+        android:layout_above="@+id/btnTravelerType"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

@@ -69,9 +69,7 @@ public class GuidePending extends AppCompatActivity{
                     String travelerId = requestId.getValue().toString();
                     DataSnapshot reqInfo = dataSnapshot.child(travelerId);
                     String name = reqInfo.child("displayName").getValue().toString();
-                    String start = reqInfo.child("Traveler").child("trips_current").child(reqId).child("startDate").getValue().toString();
-                    String end = reqInfo.child("Traveler").child("trips_current").child(reqId).child("endDate").getValue().toString();
-                    String dates = start + " - " + end;
+                    String dates = reqInfo.child("Traveler").child("Accepted").child(reqId).child("dates").getValue().toString();
                     pending.add("Accepted : " + name + ", " + dates);
                     requestIDs.add(reqId);
                     requestsTravelerID.add(travelerId);

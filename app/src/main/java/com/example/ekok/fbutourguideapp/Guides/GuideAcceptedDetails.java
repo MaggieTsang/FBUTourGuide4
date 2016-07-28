@@ -45,15 +45,11 @@ public class GuideAcceptedDetails extends AppCompatActivity{
         reqID = getIntent().getSerializableExtra("requestIDs").toString();
         travelerID = getIntent().getSerializableExtra("requestsTravelerID").toString();
 
-        dataRef.child("users").child(travelerID).child("Traveler").child("trips_current").child(reqID).addListenerForSingleValueEvent(new ValueEventListener() {
+        dataRef.child("users").child(travelerID).child("Traveler").child("Accepted").child(reqID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                String start = dataSnapshot.child("startDate").getValue().toString();
-                String end = dataSnapshot.child("endDate").getValue().toString();
-                String dates = start + " - " + end;
-
-                tvReqPlace.setText(dataSnapshot.child("place").getValue().toString());
-                tvReqDate.setText(dates);
+                tvReqPlace.setText(dataSnapshot.child("location").getValue().toString());
+                tvReqDate.setText(dataSnapshot.child("dates").getValue().toString());
                 tvReqGroupNum.setText(dataSnapshot.child("groupSize").getValue().toString());
                 tvReqLanguages.setText(dataSnapshot.child("languages").getValue().toString());
             }

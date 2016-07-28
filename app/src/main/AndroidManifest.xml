@@ -14,7 +14,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="Tour Guide"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+        android:theme="@style/AppTheme">
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
@@ -84,7 +84,8 @@
         <activity
             android:name=".Login.UserType"
             android:label="Main"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Design.NoActionBar"/>
         <activity
             android:name=".Travelers.TravelerRating"
             android:screenOrientation="portrait" />
