@@ -113,7 +113,7 @@ public class TravelerDecide extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "Accepted!", Toast.LENGTH_SHORT).show();
         dataRef.child("requests").child(loc).child(reqBucket).setValue(null);
         dataRef.child("users").child(reqGuide).child("Guide").child("Accepted").child(loc).child(reqID).setValue(uid);
-        dataRef.child("users").child(uid).child("Traveler").child("Accepted").child("reqID").setValue(reqID);
+        dataRef.child("users").child(uid).child("Traveler").child("Accepted").child(reqID).setValue("accepted");
         dataRef.child("users").child(reqGuide).child("Guide").child("Pending").child(loc).child(reqBucket).setValue(null);
         dataRef.child("users").child(uid).child("Traveler").child("Pending").child(reqBucket).setValue(null);
         finish();
