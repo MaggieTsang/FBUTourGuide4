@@ -106,7 +106,8 @@ public class GuideRequestDetail extends AppCompatActivity{
                 dataRef.child("users").child(travelerID).child("Traveler").child("Pending").child(requestBucket).child("location").setValue(location);
                 dataRef.child("users").child(travelerID).child("Traveler").child("Pending").child(requestBucket).child("guideName").setValue(user.getDisplayName());
                 dataRef.child("users").child(travelerID).child("Traveler").child("Pending").child(requestBucket).child("guideID").setValue(user.getUid());
-
+                dataRef.child("users").child(travelerID).child("Traveler").child("Pending").child(requestBucket).child("groupSize").setValue(tvReqGroupNum.getText());
+                dataRef.child("users").child(travelerID).child("Traveler").child("Pending").child(requestBucket).child("languages").setValue(tvReqLanguages.getText());
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
