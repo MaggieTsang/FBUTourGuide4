@@ -24,6 +24,7 @@ public class GuideAcceptedDetails extends AppCompatActivity{
     FirebaseUser user;
     String reqID;
     String travelerID;
+    String display;
 
     TextView tvReqPlace;
     TextView tvReqDate;
@@ -44,38 +45,44 @@ public class GuideAcceptedDetails extends AppCompatActivity{
 
         reqID = getIntent().getSerializableExtra("requestIDs").toString();
         travelerID = getIntent().getSerializableExtra("requestsTravelerID").toString();
-
-        dataRef.child("users").child(travelerID).child("Traveler").child("Accepted").child(reqID).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                tvReqPlace.setText(dataSnapshot.child("location").getValue().toString());
-                tvReqDate.setText(dataSnapshot.child("dates").getValue().toString());
-                tvReqGroupNum.setText(dataSnapshot.child("groupSize").getValue().toString());
-                tvReqLanguages.setText(dataSnapshot.child("languages").getValue().toString());
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Toast.makeText(GuideAcceptedDetails.this, "Cannot find request data", Toast.LENGTH_SHORT).show();
-                //Log.w(TAG, "getUser:onCancelled", databaseError.toException());
-            }
-        });
+        display = getIntent().getSerializableExtra("pending").toString();
 
 
-        dataRef.child("users").child(travelerID).child("Traveler").child("Pending").child(reqID).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                tvReqPlace.setText(dataSnapshot.child("location").getValue().toString());
-                tvReqDate.setText(dataSnapshot.child("dates").getValue().toString());
-                tvReqGroupNum.setText(dataSnapshot.child("groupSize").getValue().toString());
-                tvReqLanguages.setText(dataSnapshot.child("languages").getValue().toString());
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Toast.makeText(GuideAcceptedDetails.this, "Cannot find request data", Toast.LENGTH_SHORT).show();
-                //Log.w(TAG, "getUser:onCancelled", databaseError.toException());
-            }
-        });
+        if (display.contains("Accepted")) {
 
+            dataRef.child("users").child(travelerID).child("Traveler").child("Accepted").child(reqID).addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    tvReqPlace.setText(dataSnapshot.child("location").getValue().toString());
+                    tvReqDate.setText(dataSnapshot.child("dates").getValue().toString());
+                    tvReqGroupNum.setText(dataSnapshot.child("groupSize").getValue().toString());
+                    tvReqLanguages.setText(dataSnapshot.child("languages").getValue().toString());
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                    Toast.makeText(GuideAcceptedDetails.this, "Cannot find request data", Toast.LENGTH_SHORT).show();
+                    //Log.w(TAG, "getUser:onCancelled", databaseError.toException());
+                }
+            });
+        } else {
+
+            dataRef.child("users").child(travelerID).child("Traveler").child("Pending").child(reqID).addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    tvReqPlace.setText(dataSnapshot.child("location").getValue().toString());
+                    tvReqDate.setText(dataSnapshot.child("dates").getValue().toString());
+                    tvReqGroupNum.setText(dataSnapshot.child("groupSize").getValue().toString());
+                    tvReqLanguages.setText(dataSnapshot.child("languages").getValue().toString());
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                    Toast.makeText(GuideAcceptedDetails.this, "Cannot find request data", Toast.LENGTH_SHORT).show();
+                    //Log.w(TAG, "getUser:onCancelled", databaseError.toException());
+                }
+            });
+        }
 
 
     }

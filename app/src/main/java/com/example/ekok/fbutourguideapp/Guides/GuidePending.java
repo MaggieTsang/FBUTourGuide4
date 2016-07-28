@@ -97,7 +97,7 @@ public class GuidePending extends AppCompatActivity{
                     String name = reqInfo.child("displayName").getValue().toString();
                     String dates = reqInfo.child("dates").getValue().toString();
                     pending.add("Pending : " + name + ", " + dates);
-                    requestIDs.add(reqInfo.child("requestId").getValue().toString());
+                    requestIDs.add(reqBucketIds.getKey());
                     requestsTravelerID.add(reqInfo.child("traveler_uid").getValue().toString());
                 }
                 lvPending.setAdapter(pendingAdapter);
@@ -117,6 +117,7 @@ public class GuidePending extends AppCompatActivity{
                 Intent intent = new Intent(GuidePending.this, GuideAcceptedDetails.class);
                 intent.putExtra("requestIDs", requestIDs.get(position));
                 intent.putExtra("requestsTravelerID",requestsTravelerID.get(position));
+                intent.putExtra("pending", pending.get(position));
                 startActivity(intent);
             }
         });
