@@ -59,6 +59,25 @@ public class GuideAcceptedDetails extends AppCompatActivity{
                 //Log.w(TAG, "getUser:onCancelled", databaseError.toException());
             }
         });
+
+
+        dataRef.child("users").child(travelerID).child("Traveler").child("Pending").child(reqID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                tvReqPlace.setText(dataSnapshot.child("location").getValue().toString());
+                tvReqDate.setText(dataSnapshot.child("dates").getValue().toString());
+                tvReqGroupNum.setText(dataSnapshot.child("groupSize").getValue().toString());
+                tvReqLanguages.setText(dataSnapshot.child("languages").getValue().toString());
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Toast.makeText(GuideAcceptedDetails.this, "Cannot find request data", Toast.LENGTH_SHORT).show();
+                //Log.w(TAG, "getUser:onCancelled", databaseError.toException());
+            }
+        });
+
+
+
     }
 
 }
