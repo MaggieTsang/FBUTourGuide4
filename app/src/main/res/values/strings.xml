@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FBUTourGuideApp</string>
+    <string name="app_name">Tourst</string>
     <string name="facebook_app_id">143461982744384</string>
     <string name="fb_login_protocol_scheme">fb143461982744384</string>
     <string name="san_francisco">San Francisco</string>
@@ -27,4 +27,6 @@
     <string name="description">Description:</string>
     <string name="decline">Decline</string>
     <string name="accept">Accept</string>
+    <string name="applogo">AppLogo</string>
+    <string name="guideProfile">GUIDE PROFILE</string>
 </resources>

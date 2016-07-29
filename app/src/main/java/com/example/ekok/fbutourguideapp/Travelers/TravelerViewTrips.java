@@ -2,6 +2,7 @@ package com.example.ekok.fbutourguideapp.Travelers;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -44,6 +45,13 @@ public class TravelerViewTrips extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_travelermain);
+
+        ActionBar actionBar = getSupportActionBar();
+
+        actionBar.setDisplayUseLogoEnabled(true);
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setIcon(R.drawable.logo_app);
+
         dataRef = FirebaseDatabase.getInstance().getReference();
 
         lvTrips = (ListView) findViewById(R.id.lvTrips);

@@ -12,15 +12,15 @@
         android:name=".FirebaseStart"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="Tour Guide"
-        android:supportsRtl="true"
+        android:label="@string/app_name"
+
         android:theme="@style/AppTheme">
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
 
         <activity
-            android:name=".Login.UserLogin"
+            android:name=".Login.UserType"
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -73,6 +73,8 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".Travelers.TravelerNewRequest"
+            android:theme="@style/Theme.AppCompat.Light.Dialog.Alert"
+            android:label=" "
             android:screenOrientation="portrait" />
         <activity
             android:name=".Guides.GuideCalender"
@@ -81,11 +83,11 @@
             android:name=".Guides.GuideViewProfile"
             android:label="Preview Profile"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".Login.UserType"
-            android:label="Main"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.Design.NoActionBar"/>
+        <!--<activity-->
+            <!--android:name=".Login.UserType"-->
+            <!--android:label="Main"-->
+            <!--android:screenOrientation="portrait"-->
+            <!--android:theme="@style/Theme.Design.NoActionBar"/>-->
         <activity
             android:name=".Travelers.TravelerRating"
             android:screenOrientation="portrait" />
@@ -108,8 +110,13 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".Travelers.TravelerPending"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name=".Travelers.TravelerViewGuideProfile"></activity>
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".Travelers.TravelerViewGuideProfile"
+            android:label=" "
+            android:theme="@style/Theme.AppCompat.Light.Dialog.Alert"
+            android:screenOrientation="portrait">
+        </activity>
     </application>
 
 </manifest>

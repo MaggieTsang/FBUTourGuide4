@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 import com.example.ekok.fbutourguideapp.Login.UserLogin;
 import com.example.ekok.fbutourguideapp.Login.UserType;
+import com.facebook.FacebookSdk;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -15,6 +16,7 @@ public class LauncherActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.activity_launcher);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();

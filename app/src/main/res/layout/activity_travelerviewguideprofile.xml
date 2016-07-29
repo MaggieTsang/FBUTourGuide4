@@ -1,155 +1,238 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:layout_width="370dp"
+    android:layout_height="500dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bg_9"
     tools:context="com.example.ekok.fbutourguideapp.Travelers.TravelerViewGuideProfile">
 
-    <ImageView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:id="@+id/ivProfilePicture"
-        android:src="@drawable/profile"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:paddingRight="15dp"/>
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:minHeight="?attr/actionBarSize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:titleTextColor="@android:color/white"
+        android:layout_marginBottom="20dp"
+        android:background="?attr/colorPrimaryDark">
 
     <TextView
+        android:id="@+id/toolbar_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="Guide Name"
-        android:id="@+id/tvGuideName"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/ivProfilePicture"
-        android:layout_toEndOf="@+id/ivProfilePicture"
-        android:textSize="15sp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:text="Location"
-        android:id="@+id/tvGuideLocation"
-        android:layout_below="@+id/tvGuideName"
-        android:layout_toRightOf="@+id/ivProfilePicture"
-        android:layout_toEndOf="@+id/ivProfilePicture"
-        android:textSize="15sp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:text="Languages"
-        android:id="@+id/tvGuideLanguages"
-        android:layout_below="@+id/tvGuideLocation"
-        android:layout_toRightOf="@+id/ivProfilePicture"
-        android:layout_toEndOf="@+id/ivProfilePicture"
-        android:textSize="15sp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/description"
-        android:id="@+id/tvDescription"
+        android:text="GUIDE PROFILE"
+        android:textColor="@android:color/white"
+        style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+        android:layout_gravity="left"
         android:textSize="20sp"
-        android:layout_below="@+id/ivProfilePicture"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="17dp" />
+        android:textStyle="normal" />
+</android.support.v7.widget.Toolbar>
+
+    <ImageView
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:id="@+id/ivProfilePicture"
+        tools:src="@drawable/prof"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="15dp"
+        android:layout_below="@+id/toolbar" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="Empty"
+        tools:text="ERICA MARIE KOK"
+        android:textColor="@color/TextPrimary"
+        android:id="@+id/tvGuideName"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:padding="5dp"
+        android:layout_below="@+id/toolbar"
+        android:layout_toRightOf="@+id/ivNameIcon"
+        android:layout_toEndOf="@+id/ivNameIcon" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Orlando, FL"
+        android:textColor="@color/TextSecondary"
+        android:padding="5dp"
+        android:id="@+id/tvGuideLocation"
+        android:textSize="16sp"
+        android:layout_below="@+id/tvGuideName"
+        android:layout_alignLeft="@+id/tvGuideName"
+        android:layout_alignStart="@+id/tvGuideName" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="English, Tagalog"
+        android:textColor="@color/TextSecondary"
+        android:padding="5dp"
+        android:id="@+id/tvGuideLanguages"
+        android:textSize="16sp"
+        android:textStyle="italic"
+        android:layout_below="@+id/tvGuideLocation"
+        android:layout_alignLeft="@+id/tvGuideLocation"
+        android:layout_alignStart="@+id/tvGuideLocation" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Description "
+        android:id="@+id/tvDescription"
+        android:textSize="16sp"
+        android:padding="2dp"
+        android:textStyle="bold"
+        android:layout_below="@+id/ivProfilePicture"
+        android:layout_alignLeft="@+id/ivProfilePicture"
+        android:layout_alignStart="@+id/ivProfilePicture" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Lived in Orlando, FL as a college student for 2 years. Knows where all the cheap but good places around the area are."
+        android:padding="3dp"
+        android:textSize="12sp"
         android:id="@+id/tvFillDescription"
         android:layout_below="@+id/tvDescription"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignLeft="@+id/tvDescription"
+        android:layout_alignStart="@+id/tvDescription"
+        android:typeface="normal" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="Phone 1"
+        tools:text="(386) 848-0287"
+        android:padding="2dp"
         android:id="@+id/tvPhone1"
-        android:textSize="15sp"
+        android:textSize="12sp"
         android:layout_below="@+id/tvContact"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignLeft="@+id/tvContact"
+        android:layout_alignStart="@+id/tvContact" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="Phone 2"
+        tools:text="(650) 796-5823"
+        android:padding="2dp"
         android:id="@+id/tvPhone2"
-        android:textSize="15sp"
+        android:textSize="12sp"
         android:layout_below="@+id/tvPhone1"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignLeft="@+id/tvPhone1"
+        android:layout_alignStart="@+id/tvPhone1" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Contact:"
+        android:layout_marginBottom="2dp"
+        android:padding="2dp"
         android:id="@+id/tvContact"
         android:textIsSelectable="false"
-        android:textSize="20sp"
-        android:layout_marginTop="53dp"
+        android:textSize="16sp"
+        android:textStyle="bold"
         android:layout_below="@+id/tvFillDescription"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignLeft="@+id/tvFillDescription"
+        android:layout_alignStart="@+id/tvFillDescription"
+        android:layout_marginTop="22dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="Email"
+        tools:text="ekok@fb.com"
+        android:padding="2dp"
         android:id="@+id/tvGuideEmail"
-        android:textSize="15sp"
-        android:layout_below="@+id/tvPhone2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:textSize="12sp"
+        android:layout_alignTop="@+id/tvCurrency"
+        android:layout_alignLeft="@+id/tvPhone2"
+        android:layout_alignStart="@+id/tvPhone2" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Payment:"
         android:id="@+id/tvPayment"
-        android:textSize="20sp"
+        android:textSize="16sp"
+        android:padding="2dp"
+        android:textStyle="bold"
         android:layout_alignTop="@+id/tvContact"
-        android:layout_alignRight="@+id/tvGuideLanguages"
-        android:layout_alignEnd="@+id/tvGuideLanguages" />
+        android:layout_alignRight="@+id/tvGuideLocation"
+        android:layout_alignEnd="@+id/tvGuideLocation" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="Method"
+        tools:text="Debit/ Credit Card"
+        android:padding="2dp"
         android:id="@+id/tvMethod"
-        android:textSize="15sp"
+        android:textSize="12sp"
         android:layout_below="@+id/tvHourly"
-        android:layout_alignLeft="@+id/tvHourly"
-        android:layout_alignStart="@+id/tvHourly" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:text="Hourly"
-        android:id="@+id/tvHourly"
-        android:textSize="15sp"
-        android:layout_below="@+id/tvPayment"
         android:layout_alignLeft="@+id/tvPayment"
         android:layout_alignStart="@+id/tvPayment" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="Currency"
+        tools:text="$10/hr"
+        android:padding="2dp"
+        android:id="@+id/tvHourly"
+        android:textSize="12sp"
+        android:layout_above="@+id/tvPhone2"
+        android:layout_alignLeft="@+id/tvPayment"
+        android:layout_alignStart="@+id/tvPayment" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="US Dollars"
+        android:padding="2dp"
         android:id="@+id/tvCurrency"
-        android:textSize="15sp"
         android:layout_below="@+id/tvMethod"
         android:layout_alignLeft="@+id/tvMethod"
-        android:layout_alignStart="@+id/tvMethod" />
+        android:layout_alignStart="@+id/tvMethod"
+        android:textSize="12sp" />
+
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/ic_exit"
+        android:onClick="exit"
+        android:id="@+id/imageButton"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ImageView
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:padding="5dp"
+        android:id="@+id/ivNameIcon"
+        android:src="@drawable/name_2"
+        android:layout_alignBottom="@+id/tvGuideName"
+        android:layout_toRightOf="@+id/ivProfilePicture"
+        android:layout_toEndOf="@+id/ivProfilePicture" />
+
+    <ImageView
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:padding="5dp"
+        android:id="@+id/ivPlaceIcon"
+        android:src="@drawable/pin_2"
+        android:layout_alignTop="@+id/tvGuideLocation"
+        android:layout_alignLeft="@+id/ivNameIcon"
+        android:layout_alignStart="@+id/ivNameIcon" />
+
+    <ImageView
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:padding="5dp"
+        android:id="@+id/ivLangLogo"
+        android:src="@drawable/lang_2"
+        android:layout_alignTop="@+id/tvGuideLanguages"
+        android:layout_alignLeft="@+id/ivPlaceIcon"
+        android:layout_alignStart="@+id/ivPlaceIcon" />
 
 
 </RelativeLayout>

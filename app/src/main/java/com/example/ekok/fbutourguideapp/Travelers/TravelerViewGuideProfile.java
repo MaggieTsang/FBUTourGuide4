@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -47,6 +49,7 @@ public class TravelerViewGuideProfile extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_travelerviewguideprofile);
 
         storage = FirebaseStorage.getInstance();
@@ -100,5 +103,9 @@ public class TravelerViewGuideProfile extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Cancelled.", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    public void exit(View view) {
+        finish();
     }
 }

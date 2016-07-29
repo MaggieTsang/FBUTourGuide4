@@ -1,55 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/orangebackground">
+    android:background="@drawable/bg_2"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin">
 
-
-    <Button
-        android:layout_width="120dp"
-        android:layout_height="50dp"
-        android:textSize="21sp"
-        android:text="Traveler"
-        android:id="@+id/btnTravelerType"
+    <ImageButton
+        android:layout_width="190dp"
+        android:layout_height="70dp"
+        android:background="@drawable/taveler"
+        android:id="@+id/btnTraveler"
         android:onClick="launchTraveler"
-        android:background="@drawable/buttonborder"
-        android:layout_alignTop="@+id/btnGuideType"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="40dp"
-        android:layout_marginStart="40dp" />
+        android:layout_centerVertical="true"
+        android:layout_alignRight="@+id/ivMotto"
+        android:layout_alignEnd="@+id/ivMotto" />
 
-    <Button
-        android:layout_width="120dp"
-        android:layout_height="50dp"
-        android:textSize="21sp"
-        android:text="Guide"
-        android:id="@+id/btnGuideType"
+    <ImageButton
+        android:layout_width="200dp"
+        android:layout_height="70dp"
+        android:background="@drawable/guide"
+        android:id="@+id/btnGuide"
         android:onClick="launchGuide"
-        android:layout_marginBottom="93dp"
-        android:background="@drawable/buttonborder"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="33dp"
-        android:layout_marginEnd="33dp" />
+        android:layout_marginTop="29dp"
+        android:layout_below="@+id/btnTraveler"
+        android:layout_alignRight="@+id/imageView"
+        android:layout_alignEnd="@+id/imageView" />
 
     <ImageView
-        android:layout_width="250dp"
-        android:layout_height="75dp"
-        android:id="@+id/imageView"
-        android:background="@drawable/titlenooutline"
-        android:layout_marginBottom="22dp"
-        android:layout_above="@+id/imageView2"
-        android:layout_centerHorizontal="true" />
+        android:layout_width="70dp"
+        android:layout_height="80dp"
+        android:src="@drawable/logo_app"
+        android:id="@+id/ivLogo"
+        android:layout_marginLeft="10dp"
+        android:contentDescription="@string/applogo"
+        android:layout_marginTop="72dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <ImageView
-        android:layout_width="130dp"
+        android:layout_width="280dp"
+        android:layout_height="90dp"
+        android:src="@drawable/tourst"
+        android:id="@+id/ivAppName"
+        android:contentDescription="@string/app_name"
+        android:layout_above="@+id/ivMotto"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/ivLogo"
+        android:layout_toEndOf="@+id/ivLogo" />
+
+    <ImageView
+        android:layout_width="280dp"
         android:layout_height="30dp"
-        android:id="@+id/imageView2"
-        android:background="@drawable/motto"
-        android:layout_marginBottom="155dp"
-        android:layout_above="@+id/btnTravelerType"
-        android:layout_centerHorizontal="true" />
+        android:src="@drawable/motto"
+        android:id="@+id/ivMotto"
+        android:contentDescription="@string/app_name"
+        android:layout_below="@+id/ivLogo"
+        android:layout_alignRight="@+id/ivAppName"
+        android:layout_alignEnd="@+id/ivAppName" />
+
+    <ImageView
+        android:layout_width="12dp"
+        android:layout_height="400dp"
+        android:src="@drawable/line"
+        android:id="@+id/imageView"
+        android:layout_alignTop="@+id/btnTraveler"
+        android:layout_alignLeft="@+id/btnTraveler"
+        android:layout_alignStart="@+id/btnTraveler" />
 
 </RelativeLayout>
