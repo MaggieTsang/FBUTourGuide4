@@ -1,8 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="20dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="370dp"
+    android:layout_height="500dp"
+    android:theme="@style/AppTheme"
+    android:background="@drawable/bg_9">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:minHeight="?attr/actionBarSize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:titleTextColor="@android:color/white"
+        android:layout_marginBottom="20dp"
+        android:background="@color/colorPrimaryDark">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Make a new request"
+            android:textColor="@android:color/white"
+            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+            android:layout_gravity="center_horizontal"
+            android:textSize="20sp"
+            android:textStyle="normal" />
+    </android.support.v7.widget.Toolbar>
 
     <EditText
         android:layout_width="wrap_content"
@@ -14,53 +38,45 @@
         android:imeOptions="actionNext"
         android:textSize="16sp"
         android:layout_alignBottom="@+id/tvPlace"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignLeft="@+id/tvGuideDetails"
-        android:layout_alignStart="@+id/tvGuideDetails" />
+        android:layout_alignLeft="@+id/etStartDate"
+        android:layout_alignStart="@+id/etStartDate"
+        android:layout_toStartOf="@+id/imageButton"
+        android:layout_toLeftOf="@+id/imageButton" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/submit_new_request"
+        android:layout_width="130dp"
+        android:layout_height="65dp"
+        android:text="@string/submit"
         android:id="@+id/btnEditRequest"
-        android:layout_marginTop="26dp"
+        android:layout_marginTop="47dp"
         android:layout_below="@+id/etTravelerLanguages"
         android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/make_a_new_request"
-        android:id="@+id/tvGuideDetails"
-        android:textSize="20sp"
-        android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/btnEditRequest"
-        android:layout_alignStart="@+id/btnEditRequest" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="@string/place"
+        android:textColor="@color/TextPrimary"
         android:id="@+id/tvPlace"
         android:textSize="16sp"
-        android:layout_marginTop="44dp"
         android:paddingBottom="10dp"
-        android:layout_below="@+id/tvGuideDetails"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@+id/toolbar"
+        android:layout_alignLeft="@+id/tvGuideLanguages"
+        android:layout_alignStart="@+id/tvGuideLanguages"
+        android:layout_marginTop="24dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/date"
+        android:textColor="@color/TextPrimary"
         android:id="@+id/tvDate"
         android:textSize="16sp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="30dp"
         android:paddingBottom="10dp"
-        android:layout_below="@+id/etPlace"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@+id/tvPlace"
+        android:layout_alignLeft="@+id/tvPlace"
+        android:layout_alignStart="@+id/tvPlace" />
 
     <EditText
         android:layout_width="100dp"
@@ -73,8 +89,10 @@
         android:textSize="16sp"
         android:hint="@string/start"
         android:layout_alignBottom="@+id/tvDate"
-        android:layout_alignLeft="@+id/etPlace"
-        android:layout_alignStart="@+id/etPlace" />
+        android:layout_alignLeft="@+id/etGroupSize"
+        android:layout_alignStart="@+id/etGroupSize"
+        android:layout_toStartOf="@+id/tvTo"
+        android:layout_toLeftOf="@+id/tvTo" />
 
     <EditText
         android:layout_width="100dp"
@@ -86,22 +104,21 @@
         android:id="@+id/etEndDate"
         android:textSize="16sp"
         android:hint="@string/end"
-        android:layout_alignBottom="@+id/tvDate"
-        android:layout_alignRight="@+id/etPlace"
-        android:layout_alignEnd="@+id/etPlace" />
+        android:layout_marginRight="5dp"
+        android:layout_alignBottom="@+id/tvTo"
+        android:layout_toLeftOf="@+id/imageButton" />
 
     <TextView
-        android:layout_width="50dp"
+        android:layout_width="30dp"
         android:layout_height="wrap_content"
         android:text="@string/to"
         android:id="@+id/tvTo"
         android:textSize="16sp"
         android:paddingBottom="10dp"
-        android:layout_alignBaseline="@+id/etStartDate"
+        android:gravity="center_horizontal"
         android:layout_alignBottom="@+id/etStartDate"
-        android:layout_toRightOf="@+id/etStartDate"
-        android:layout_toEndOf="@+id/etStartDate"
-        android:gravity="center_horizontal" />
+        android:layout_toLeftOf="@+id/etEndDate"
+        android:layout_toStartOf="@+id/etEndDate" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -109,11 +126,12 @@
         android:text="@string/group_size"
         android:id="@+id/tvGroupSize"
         android:textSize="15sp"
-        android:layout_marginTop="28dp"
+        android:textColor="@color/TextPrimary"
         android:paddingBottom="10dp"
-        android:layout_below="@+id/etStartDate"
-        android:layout_alignLeft="@+id/tvDate"
-        android:layout_alignStart="@+id/tvDate" />
+        android:layout_below="@+id/tvDate"
+        android:layout_alignRight="@+id/tvGuideLanguages"
+        android:layout_alignEnd="@+id/tvGuideLanguages"
+        android:layout_marginTop="30dp" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -122,12 +140,13 @@
         android:ems="10"
         android:id="@+id/etGroupSize"
         android:maxLines="1"
-        android:layout_alignBottom="@+id/tvGroupSize"
-        android:layout_alignLeft="@+id/etStartDate"
-        android:layout_alignStart="@+id/etStartDate"
         android:textSize="16sp"
         android:hint="@string/enter_group_size"
         android:imeOptions="actionNext"
+        android:layout_alignBottom="@+id/tvGroupSize"
+        android:layout_toRightOf="@+id/tvGroupSize"
+        android:layout_marginLeft="24dp"
+        android:layout_marginStart="24dp"
         android:layout_alignRight="@+id/etEndDate"
         android:layout_alignEnd="@+id/etEndDate" />
 
@@ -138,10 +157,13 @@
         android:id="@+id/tvGuideLanguages"
         android:textSize="15sp"
         android:paddingBottom="10dp"
+        android:textColor="@color/TextPrimary"
+        android:layout_marginTop="33dp"
         android:layout_below="@+id/tvGroupSize"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="33dp" />
+        android:layout_marginLeft="36dp"
+        android:layout_marginStart="36dp" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -157,6 +179,16 @@
         android:layout_alignStart="@+id/etGroupSize"
         android:layout_alignRight="@+id/etGroupSize"
         android:layout_alignEnd="@+id/etGroupSize" />
+
+    <ImageButton
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/ic_exit"
+        android:onClick="exit"
+        android:id="@+id/imageButton"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 
 </RelativeLayout>

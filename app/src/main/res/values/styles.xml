@@ -37,6 +37,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
     </style>
 
+
     <!--<style name="Theme.AppCompat.DayNight.Dialog.Alert" parent="Theme.AppCompat.Light.NoActionBar">-->
 
     <!--</style>-->

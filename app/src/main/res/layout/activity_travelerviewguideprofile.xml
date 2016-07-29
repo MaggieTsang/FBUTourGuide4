@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         app:titleTextColor="@android:color/white"
         android:layout_marginBottom="20dp"
-        android:background="?attr/colorPrimaryDark">
+        android:background="@color/colorPrimaryDark">
 
     <TextView
         android:id="@+id/toolbar_title"
@@ -29,13 +29,13 @@
 </android.support.v7.widget.Toolbar>
 
     <ImageView
-        android:layout_width="110dp"
-        android:layout_height="110dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:id="@+id/ivProfilePicture"
         tools:src="@drawable/prof"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="20dp"
         android:layout_below="@+id/toolbar" />
 
     <TextView
@@ -82,7 +82,7 @@
         android:layout_height="wrap_content"
         android:text="Description "
         android:id="@+id/tvDescription"
-        android:textSize="16sp"
+        android:textSize="18sp"
         android:padding="2dp"
         android:textStyle="bold"
         android:layout_below="@+id/ivProfilePicture"
@@ -94,7 +94,7 @@
         android:layout_height="wrap_content"
         tools:text="Lived in Orlando, FL as a college student for 2 years. Knows where all the cheap but good places around the area are."
         android:padding="3dp"
-        android:textSize="12sp"
+        android:textSize="16sp"
         android:id="@+id/tvFillDescription"
         android:layout_below="@+id/tvDescription"
         android:layout_alignLeft="@+id/tvDescription"
@@ -107,7 +107,7 @@
         tools:text="(386) 848-0287"
         android:padding="2dp"
         android:id="@+id/tvPhone1"
-        android:textSize="12sp"
+        android:textSize="16sp"
         android:layout_below="@+id/tvContact"
         android:layout_alignLeft="@+id/tvContact"
         android:layout_alignStart="@+id/tvContact" />
@@ -118,7 +118,7 @@
         tools:text="(650) 796-5823"
         android:padding="2dp"
         android:id="@+id/tvPhone2"
-        android:textSize="12sp"
+        android:textSize="16sp"
         android:layout_below="@+id/tvPhone1"
         android:layout_alignLeft="@+id/tvPhone1"
         android:layout_alignStart="@+id/tvPhone1" />
@@ -127,24 +127,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Contact:"
-        android:layout_marginBottom="2dp"
         android:padding="2dp"
         android:id="@+id/tvContact"
         android:textIsSelectable="false"
-        android:textSize="16sp"
+        android:textSize="18sp"
         android:textStyle="bold"
+        android:layout_marginTop="43dp"
         android:layout_below="@+id/tvFillDescription"
         android:layout_alignLeft="@+id/tvFillDescription"
-        android:layout_alignStart="@+id/tvFillDescription"
-        android:layout_marginTop="22dp" />
+        android:layout_alignStart="@+id/tvFillDescription" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="ekok@fb.com"
+        tools:text="erica_marie300@yahoo.com"
         android:padding="2dp"
         android:id="@+id/tvGuideEmail"
-        android:textSize="12sp"
+        android:layout_marginRight="30dp"
+        android:textSize="16sp"
         android:layout_alignTop="@+id/tvCurrency"
         android:layout_alignLeft="@+id/tvPhone2"
         android:layout_alignStart="@+id/tvPhone2" />
@@ -154,20 +154,20 @@
         android:layout_height="wrap_content"
         android:text="Payment:"
         android:id="@+id/tvPayment"
-        android:textSize="16sp"
+        android:textSize="18sp"
         android:padding="2dp"
         android:textStyle="bold"
-        android:layout_alignTop="@+id/tvContact"
-        android:layout_alignRight="@+id/tvGuideLocation"
-        android:layout_alignEnd="@+id/tvGuideLocation" />
+        android:layout_above="@+id/tvHourly"
+        android:layout_toRightOf="@+id/tvGuideEmail"
+        android:layout_toEndOf="@+id/tvGuideEmail" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="Debit/ Credit Card"
+        tools:text="Debit Card"
         android:padding="2dp"
         android:id="@+id/tvMethod"
-        android:textSize="12sp"
+        android:textSize="16sp"
         android:layout_below="@+id/tvHourly"
         android:layout_alignLeft="@+id/tvPayment"
         android:layout_alignStart="@+id/tvPayment" />
@@ -178,7 +178,7 @@
         tools:text="$10/hr"
         android:padding="2dp"
         android:id="@+id/tvHourly"
-        android:textSize="12sp"
+        android:textSize="16sp"
         android:layout_above="@+id/tvPhone2"
         android:layout_alignLeft="@+id/tvPayment"
         android:layout_alignStart="@+id/tvPayment" />
@@ -192,11 +192,13 @@
         android:layout_below="@+id/tvMethod"
         android:layout_alignLeft="@+id/tvMethod"
         android:layout_alignStart="@+id/tvMethod"
-        android:textSize="12sp" />
+        android:textSize="16sp" />
 
     <ImageButton
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
         android:background="@drawable/ic_exit"
         android:onClick="exit"
         android:id="@+id/imageButton"
@@ -220,9 +222,9 @@
         android:padding="5dp"
         android:id="@+id/ivPlaceIcon"
         android:src="@drawable/pin_2"
-        android:layout_alignTop="@+id/tvGuideLocation"
-        android:layout_alignLeft="@+id/ivNameIcon"
-        android:layout_alignStart="@+id/ivNameIcon" />
+        android:layout_above="@+id/tvGuideLanguages"
+        android:layout_toLeftOf="@+id/tvGuideLocation"
+        android:layout_toStartOf="@+id/tvGuideLocation" />
 
     <ImageView
         android:layout_width="28dp"
@@ -233,6 +235,5 @@
         android:layout_alignTop="@+id/tvGuideLanguages"
         android:layout_alignLeft="@+id/ivPlaceIcon"
         android:layout_alignStart="@+id/ivPlaceIcon" />
-
 
 </RelativeLayout>
