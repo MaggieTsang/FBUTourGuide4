@@ -28,13 +28,15 @@
             android:textStyle="normal" />
     </android.support.v7.widget.Toolbar>
 
+
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/etPlace"
         android:hint="@string/san_francisco"
         android:maxLines="1"
         android:inputType="text"
+        android:layout_marginRight="5dp"
         android:imeOptions="actionNext"
         android:textSize="16sp"
         android:layout_alignBottom="@+id/tvPlace"
@@ -44,13 +46,16 @@
         android:layout_toLeftOf="@+id/imageButton" />
 
     <Button
-        android:layout_width="130dp"
-        android:layout_height="65dp"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
         android:text="@string/submit"
         android:id="@+id/btnEditRequest"
-        android:layout_marginTop="47dp"
-        android:layout_below="@+id/etTravelerLanguages"
-        android:layout_centerHorizontal="true" />
+        android:layout_marginTop="59dp"
+        android:background="@color/colorAccent"
+        android:textColor="@color/TextOrIcons"
+        android:layout_below="@+id/tvGuideLanguages"
+        android:layout_centerHorizontal="true"
+        android:textSize="16sp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -63,7 +68,8 @@
         android:layout_below="@+id/toolbar"
         android:layout_alignLeft="@+id/tvGuideLanguages"
         android:layout_alignStart="@+id/tvGuideLanguages"
-        android:layout_marginTop="24dp" />
+        android:layout_marginTop="24dp"
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -76,10 +82,11 @@
         android:paddingBottom="10dp"
         android:layout_below="@+id/tvPlace"
         android:layout_alignLeft="@+id/tvPlace"
-        android:layout_alignStart="@+id/tvPlace" />
+        android:layout_alignStart="@+id/tvPlace"
+        android:textStyle="bold" />
 
     <EditText
-        android:layout_width="100dp"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:inputType="date"
         android:maxLines="1"
@@ -95,7 +102,7 @@
         android:layout_toLeftOf="@+id/tvTo" />
 
     <EditText
-        android:layout_width="100dp"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:inputType="date"
         android:ems="10"
@@ -106,7 +113,8 @@
         android:hint="@string/end"
         android:layout_marginRight="5dp"
         android:layout_alignBottom="@+id/tvTo"
-        android:layout_toLeftOf="@+id/imageButton" />
+        android:layout_toLeftOf="@+id/imageButton"
+        android:layout_toRightOf="@+id/btnEditRequest" />
 
     <TextView
         android:layout_width="30dp"
@@ -131,10 +139,11 @@
         android:layout_below="@+id/tvDate"
         android:layout_alignRight="@+id/tvGuideLanguages"
         android:layout_alignEnd="@+id/tvGuideLanguages"
-        android:layout_marginTop="30dp" />
+        android:layout_marginTop="30dp"
+        android:textStyle="bold" />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
@@ -163,10 +172,11 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginLeft="36dp"
-        android:layout_marginStart="36dp" />
+        android:layout_marginStart="36dp"
+        android:textStyle="bold" />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/etTravelerLanguages"
         android:hint="@string/english"
@@ -182,6 +192,8 @@
 
     <ImageButton
         android:layout_width="30dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
         android:layout_height="30dp"
         android:background="@drawable/ic_exit"
         android:onClick="exit"

@@ -1,119 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="370dp"
+    android:layout_height="500dp"
+    android:theme="@style/AppTheme"
+    android:background="@drawable/bg_9"
     tools:context="com.example.ekok.fbutourguideapp.Travelers.TravelerViewTripInfo">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:minHeight="?attr/actionBarSize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:titleTextColor="@android:color/white"
+        android:layout_marginBottom="20dp"
+        android:background="@color/colorPrimaryDark">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your request"
+            android:textColor="@android:color/white"
+            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+            android:layout_gravity="center_horizontal"
+            android:textSize="20sp"
+            android:textStyle="normal" />
+    </android.support.v7.widget.Toolbar>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tvPlaceRequest"
         tools:text="San Francisco"
-        android:textSize="16sp"
-        android:paddingBottom="10dp"
-        android:layout_alignTop="@+id/tvPlace"
-        android:layout_alignLeft="@+id/tvGuideDetails"
-        android:layout_alignStart="@+id/tvGuideDetails" />
+        android:textSize="18sp"
+        android:layout_marginTop="28dp"
+        android:layout_marginLeft="39dp"
+        android:layout_marginStart="39dp"
+        android:layout_below="@+id/toolbar"
+        android:layout_toRightOf="@+id/tvGroupSize"
+        android:layout_toEndOf="@+id/tvGroupSize" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/edit"
+        android:layout_width="90dp"
+        android:layout_height="45dp"
+        android:text="Remove"
+        android:background="@color/colorAccent"
+        android:textColor="@color/TextOrIcons"
         android:id="@+id/btnEditRequest"
         android:onClick="editRequest"
-        android:layout_marginTop="41dp"
-        android:layout_below="@+id/tvLanguagesRequest"
+        android:layout_marginTop="79dp"
+        android:layout_below="@+id/tvGuideLanguages"
         android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/your_request"
-        android:id="@+id/tvGuideDetails"
-        android:textSize="22sp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/place"
         android:id="@+id/tvPlace"
-        android:textSize="16sp"
-        android:layout_marginTop="44dp"
-        android:paddingBottom="10dp"
-        android:layout_below="@+id/tvGuideDetails"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textStyle="bold" />
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_alignTop="@+id/tvPlaceRequest"
+        android:layout_alignLeft="@+id/tvDate"
+        android:layout_alignStart="@+id/tvDate" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/date"
         android:id="@+id/tvDate"
-        android:textSize="16sp"
-        android:layout_marginTop="24dp"
-        android:paddingBottom="10dp"
-        android:layout_below="@+id/tvPlaceRequest"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textStyle="bold" />
+        android:textSize="18sp"
+
+        android:textStyle="bold"
+        android:layout_marginTop="33dp"
+        android:layout_below="@+id/tvPlace"
+        android:layout_alignLeft="@+id/tvGroupSize"
+        android:layout_alignStart="@+id/tvGroupSize" />
 
     <TextView
-        android:layout_width="100dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:id="@+id/tvStartDateRequest"
-        android:textSize="16sp"
+        android:textSize="18sp"
         tools:text="Start"
-        android:layout_alignBottom="@+id/tvDate"
+
+        android:layout_alignTop="@+id/tvDate"
         android:layout_alignLeft="@+id/tvPlaceRequest"
-        android:layout_alignStart="@+id/tvPlaceRequest"
-        android:paddingBottom="10dp" />
+        android:layout_alignStart="@+id/tvPlaceRequest" />
 
     <TextView
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:id="@+id/tvEndDateRequest"
-        android:textSize="16sp"
+        android:textSize="18sp"
         tools:text="End"
-        android:paddingBottom="10dp"
-        android:layout_alignTop="@+id/tvTo"
+        android:layout_alignTop="@+id/tvStartDateRequest"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/tvTo"
+        android:layout_toRightOf="@+id/tvTo" />
 
     <TextView
         android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:text="@string/to"
         android:id="@+id/tvTo"
-        android:textSize="16sp"
-        android:paddingBottom="10dp"
+        android:textSize="18sp"
+
         android:gravity="center_horizontal"
         android:layout_alignTop="@+id/tvStartDateRequest"
-        android:layout_alignRight="@+id/btnEditRequest"
-        android:layout_alignEnd="@+id/btnEditRequest" />
+        android:layout_alignRight="@+id/tvPlaceRequest"
+        android:layout_alignEnd="@+id/tvPlaceRequest" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/group_size"
         android:id="@+id/tvGroupSize"
-        android:textSize="15sp"
-        android:layout_marginTop="28dp"
-        android:paddingBottom="10dp"
-        android:layout_below="@+id/tvStartDateRequest"
-        android:layout_alignLeft="@+id/tvDate"
-        android:layout_alignStart="@+id/tvDate"
-        android:textStyle="bold" />
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginTop="34dp"
+        android:layout_below="@+id/tvDate"
+        android:layout_alignLeft="@+id/tvGuideLanguages"
+        android:layout_alignStart="@+id/tvGuideLanguages" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -123,36 +135,45 @@
         android:layout_alignBottom="@+id/tvGroupSize"
         android:layout_alignLeft="@+id/tvStartDateRequest"
         android:layout_alignStart="@+id/tvStartDateRequest"
-        android:textSize="16sp"
+        android:textSize="18sp"
         tools:text="Group Size"
         android:layout_alignRight="@+id/tvEndDateRequest"
-        android:layout_alignEnd="@+id/tvEndDateRequest"
-        android:paddingBottom="10dp" />
+        android:layout_alignEnd="@+id/tvEndDateRequest"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/languages"
         android:id="@+id/tvGuideLanguages"
-        android:textSize="15sp"
-        android:paddingBottom="10dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginTop="41dp"
         android:layout_below="@+id/tvGroupSize"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="33dp"
-        android:textStyle="bold" />
+        android:layout_toLeftOf="@+id/btnEditRequest"
+        android:layout_toStartOf="@+id/btnEditRequest" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tvLanguagesRequest"
         tools:text="English"
-        android:textSize="16sp"
+        android:textSize="18sp"
         android:layout_alignBottom="@+id/tvGuideLanguages"
         android:layout_alignLeft="@+id/tvGroupSizeRequest"
         android:layout_alignStart="@+id/tvGroupSizeRequest"
         android:layout_alignRight="@+id/tvGroupSizeRequest"
-        android:layout_alignEnd="@+id/tvGroupSizeRequest"
-        android:paddingBottom="10dp" />
+        android:layout_alignEnd="@+id/tvGroupSizeRequest"/>
+
+    <ImageButton
+        android:layout_width="30dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_height="30dp"
+        android:background="@drawable/ic_exit"
+        android:onClick="exit"
+        android:id="@+id/imageButton"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

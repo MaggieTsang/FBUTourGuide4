@@ -154,6 +154,7 @@ public class GuideViewRequests extends AppCompatActivity{
     public void goToHome(MenuItem item) {
         Intent i = new Intent(this, UserType.class);
         startActivity(i);
+        this.finish();
     }
 
     public void goToPending(MenuItem item) {

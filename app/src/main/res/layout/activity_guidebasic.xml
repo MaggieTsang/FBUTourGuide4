@@ -1,92 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_9"
     android:padding="15dp">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Next"
+    <ImageButton
+        android:layout_width="80dp"
+        android:layout_height="60dp"
         android:id="@+id/btnSubmitTravelerInfo"
         android:onClick="launchContact"
         android:layout_alignParentBottom="true"
+        android:background="@drawable/arrow"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="35dp" />
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Basic Information"
         android:id="@+id/tvBasicInfo"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textSize="26sp" />
-
-    <ImageView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:id="@+id/ivProfilePic"
-        android:src="@drawable/profile"
-        android:layout_alignLeft="@+id/tvBasicInfo"
-        android:layout_alignStart="@+id/tvBasicInfo"
-        android:layout_below="@+id/tvBasicInfo"
-        android:paddingTop="15dp"
-        android:adjustViewBounds="true"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Upload Image"
-        android:id="@+id/btnUploadImage"
-        android:layout_below="@+id/tvBasicInfo"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/etLocation"
-        android:hint="City"
-        android:maxLines="1"
-        android:inputType="text"
-        android:imeOptions="actionNext"
-        android:layout_below="@+id/tvGuideName"
-        android:layout_alignLeft="@+id/etTravelerName"
-        android:layout_alignStart="@+id/etTravelerName" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/etBasicAdditional"
-        android:hint="Add additional Info"
-        android:maxLines="2"
-        android:inputType="text"
-        android:imeOptions="actionDone"
-        android:layout_alignTop="@+id/btnSubmitTravelerInfo"
+        android:textColor="@color/TextPrimary"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_marginTop="40dp"
+        android:layout_below="@+id/ivProfilePic"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <EditText
+    <ImageView
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:id="@+id/ivProfilePic"
+        tools:src="@drawable/profile"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:adjustViewBounds="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
         android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="Upload Image"
+        android:background="@color/colorAccent"
+        android:textColor="@color/TextOrIcons"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/btnUploadImage"
+        android:layout_toRightOf="@+id/ivProfilePic"
+        android:layout_alignTop="@+id/ivProfilePic"
+        android:layout_alignRight="@+id/btnRemove"
+        android:layout_alignEnd="@+id/btnRemove"
+        android:layout_alignLeft="@+id/btnTakePicture"
+        android:layout_alignStart="@+id/btnTakePicture" />
+
+
+    <EditText
+        android:layout_width="190dp"
         android:layout_height="wrap_content"
         android:id="@+id/etTravelerName"
         android:maxLines="1"
         android:inputType="text"
         android:imeOptions="actionNext"
         android:hint="Last, First"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:textSize="18sp"
+        android:layout_below="@+id/tvBasicInfo"
+        android:layout_alignLeft="@+id/etLocation"
+        android:layout_alignStart="@+id/etLocation" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/etLocation"
+        android:hint="City, State"
+        android:maxLines="1"
+        android:inputType="text"
+        android:imeOptions="actionNext"
+        android:textSize="18sp"
+        android:layout_below="@+id/etTravelerName"
+        android:layout_alignRight="@+id/etTravelerLanguages"
+        android:layout_alignEnd="@+id/etTravelerLanguages"
+        android:layout_alignLeft="@+id/etTravelerLanguages"
+        android:layout_alignStart="@+id/etTravelerLanguages" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Name:"
         android:id="@+id/tvGuideName"
-        android:textSize="20sp"
-        android:layout_alignBottom="@+id/etTravelerName"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_above="@+id/etLocation"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -95,8 +102,9 @@
         android:layout_height="wrap_content"
         android:text="Location:"
         android:id="@+id/tvGuideLocation"
-        android:textSize="20sp"
-        android:layout_above="@+id/etTravelerLanguages"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_alignBottom="@+id/etLocation"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -105,17 +113,20 @@
         android:layout_height="wrap_content"
         android:text="Description:"
         android:id="@+id/tvDescription"
-        android:textSize="20sp"
-        android:layout_above="@+id/etBasicAdditional"
-        android:layout_alignLeft="@+id/tvGuideLocation"
-        android:layout_alignStart="@+id/tvGuideLocation" />
+        android:textSize="18sp"
+        android:layout_marginTop="40dp"
+        android:textStyle="bold"
+        android:layout_below="@+id/tvGuideLanguages"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Languages:"
         android:id="@+id/tvGuideLanguages"
-        android:textSize="20sp"
+        android:textSize="18sp"
+        android:textStyle="bold"
         android:layout_alignBottom="@+id/etTravelerLanguages"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -128,27 +139,52 @@
         android:maxLines="1"
         android:inputType="text"
         android:imeOptions="actionNext"
-        android:layout_below="@+id/etLocation"
-        android:layout_alignLeft="@+id/etLocation"
-        android:layout_alignStart="@+id/etLocation" />
+        android:textSize="18sp"
+        android:layout_below="@+id/tvGuideLocation"
+        android:layout_toLeftOf="@+id/btnSubmitTravelerInfo"
+        android:layout_toStartOf="@+id/btnSubmitTravelerInfo" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/etBasicAdditional"
+        android:hint="Add additional info (How long you&apos;ve lived here, etc.)"
+        android:maxLines="2"
+        android:inputType="text"
+        android:imeOptions="actionDone"
+        android:layout_below="@+id/tvDescription"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textSize="16sp" />
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:text="Take Picture"
+        android:background="@color/colorAccent"
+        android:layout_toRightOf="@+id/ivProfilePic"
+        android:textColor="@color/TextOrIcons"
+        android:layout_marginBottom="10dp"
         android:onClick="takePicture"
         android:id="@+id/btnTakePicture"
         android:layout_below="@+id/btnUploadImage"
-        android:layout_alignRight="@+id/btnUploadImage"
-        android:layout_alignEnd="@+id/btnUploadImage" />
+        android:layout_alignRight="@+id/btnRemove"
+        android:layout_alignEnd="@+id/btnRemove" />
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:text="Remove Picture"
+        android:background="@color/colorDivider"
+        android:textColor="@color/TextOrIcons"
         android:onClick="removePicture"
         android:id="@+id/btnRemove"
         android:layout_below="@+id/btnTakePicture"
-        android:layout_alignLeft="@+id/btnTakePicture"
-        android:layout_alignStart="@+id/btnTakePicture" />
+        android:layout_alignRight="@+id/btnSubmitTravelerInfo"
+        android:layout_alignEnd="@+id/btnSubmitTravelerInfo"
+        android:layout_toEndOf="@+id/ivProfilePic"
+        android:layout_toRightOf="@+id/ivProfilePic" />
+
 </RelativeLayout>

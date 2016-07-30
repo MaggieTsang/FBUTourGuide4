@@ -1,60 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_9"
     android:padding="16dp">
 
 
     <ImageView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
         android:id="@+id/ivProfilePicture"
-        android:src="@drawable/profile"
+        tools:src="@drawable/profile"
+        android:layout_marginRight="20dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:paddingRight="15dp"/>
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Guide Name"
+        tools:text="Guide Name"
+        android:layout_marginBottom="5dp"
         android:id="@+id/tvGuideName"
+        android:textSize="18sp"
         android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/ivProfilePicture"
-        android:layout_toEndOf="@+id/ivProfilePicture"
-        android:textSize="15sp" />
+        android:layout_alignLeft="@+id/tvGuideLocation"
+        android:layout_alignStart="@+id/tvGuideLocation"
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Location"
+        tools:text="Location"
+        android:layout_marginBottom="5dp"
         android:id="@+id/tvGuideLocation"
+        android:textSize="18sp"
         android:layout_below="@+id/tvGuideName"
         android:layout_toRightOf="@+id/ivProfilePicture"
-        android:layout_toEndOf="@+id/ivProfilePicture"
-        android:textSize="15sp" />
+        android:layout_toEndOf="@+id/ivProfilePicture" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Languages"
+        tools:text="Languages"
         android:id="@+id/tvGuideLanguages"
+        android:textSize="18sp"
         android:layout_below="@+id/tvGuideLocation"
-        android:layout_toRightOf="@+id/ivProfilePicture"
-        android:layout_toEndOf="@+id/ivProfilePicture"
-        android:textSize="15sp" />
+        android:layout_alignLeft="@+id/tvGuideLocation"
+        android:layout_alignStart="@+id/tvGuideLocation" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Save"
         android:id="@+id/btnMakeRequest"
-        android:layout_marginBottom="37dp"
+        android:background="@color/colorAccent"
+        android:textColor="@color/TextOrIcons"
         android:onClick="saveProfile"
+        android:layout_marginBottom="56dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/tvHourly"
-        android:layout_alignStart="@+id/tvHourly" />
+        android:layout_toRightOf="@+id/ivProfilePicture"
+        android:layout_toEndOf="@+id/ivProfilePicture" />
 
     <Button
         android:layout_width="wrap_content"
@@ -62,9 +70,11 @@
         android:text="Edit"
         android:id="@+id/btnEditProfile"
         android:onClick="goBackToBasic"
+        android:background="@color/colorAccent"
+        android:textColor="@color/TextOrIcons"
         android:layout_alignTop="@+id/btnMakeRequest"
-        android:layout_alignRight="@+id/tvDescription"
-        android:layout_alignEnd="@+id/tvDescription" />
+        android:layout_alignRight="@+id/ivProfilePicture"
+        android:layout_alignEnd="@+id/ivProfilePicture" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -72,16 +82,19 @@
         android:text="Description:"
         android:id="@+id/tvDescription"
         android:textSize="20sp"
+        android:layout_marginTop="29dp"
+        android:layout_marginBottom="8dp"
+        android:textStyle="bold"
         android:layout_below="@+id/ivProfilePicture"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="17dp" />
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Empty"
+        tools:text="Empty"
         android:id="@+id/tvFillDescription"
+        android:textSize="16sp"
         android:layout_below="@+id/tvDescription"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -89,20 +102,22 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Phone 1"
+        tools:text="Phone 1"
+        android:layout_marginBottom="5dp"
         android:id="@+id/tvPhone1"
-        android:textSize="15sp"
-        android:layout_above="@+id/tvPhone2"
+        android:textSize="16sp"
+        android:layout_below="@+id/tvContact"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Phone 2"
+        tools:text="Phone 2"
+        android:layout_marginBottom="5dp"
         android:id="@+id/tvPhone2"
-        android:textSize="15sp"
-        android:layout_above="@+id/tvGuideEmail"
+        android:textSize="16sp"
+        android:layout_below="@+id/tvPhone1"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -113,37 +128,41 @@
         android:id="@+id/tvContact"
         android:textIsSelectable="false"
         android:textSize="20sp"
-        android:layout_above="@+id/tvPhone1"
+        android:textStyle="bold"
+        android:layout_alignBaseline="@+id/tvPayment"
+        android:layout_alignBottom="@+id/tvPayment"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Email"
+        tools:text="Email"
         android:id="@+id/tvGuideEmail"
-        android:textSize="15sp"
-        android:layout_above="@+id/btnEditProfile"
+        android:textSize="16sp"
+        android:layout_alignTop="@+id/tvCurrency"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="41dp" />
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Payment:"
+        tools:text="Payment:"
         android:id="@+id/tvPayment"
         android:textSize="20sp"
-        android:layout_above="@+id/tvPhone1"
-        android:layout_alignLeft="@+id/tvGuideLanguages"
-        android:layout_alignStart="@+id/tvGuideLanguages" />
+        android:textStyle="bold"
+        android:layout_marginTop="67dp"
+        android:layout_below="@+id/tvFillDescription"
+        android:layout_alignRight="@+id/tvGuideLocation"
+        android:layout_alignEnd="@+id/tvGuideLocation" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Method"
+        tools:text="Method"
         android:id="@+id/tvMethod"
-        android:textSize="15sp"
+        android:layout_marginBottom="5dp"
+        android:textSize="16sp"
         android:layout_below="@+id/tvHourly"
         android:layout_alignLeft="@+id/tvPayment"
         android:layout_alignStart="@+id/tvPayment" />
@@ -151,9 +170,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hourly"
+        tools:text="Hourly"
+        android:layout_marginBottom="5dp"
         android:id="@+id/tvHourly"
-        android:textSize="15sp"
+        android:textSize="16sp"
         android:layout_above="@+id/tvPhone2"
         android:layout_alignLeft="@+id/tvPayment"
         android:layout_alignStart="@+id/tvPayment" />
@@ -161,11 +181,11 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Currency"
+        tools:text="Currency"
         android:id="@+id/tvCurrency"
         android:layout_below="@+id/tvMethod"
         android:layout_alignLeft="@+id/tvMethod"
         android:layout_alignStart="@+id/tvMethod"
-        android:textSize="15sp" />
+        android:textSize="16sp" />
 
 </RelativeLayout>
