@@ -49,7 +49,7 @@
         android:background="@color/colorAccent"
         android:textColor="@color/TextOrIcons"
         android:id="@+id/btnEditRequest"
-        android:onClick="editRequest"
+        android:onClick="removeRequest"
         android:layout_marginTop="79dp"
         android:layout_below="@+id/tvGuideLanguages"
         android:layout_centerHorizontal="true" />

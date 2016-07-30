@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.ekok.fbutourguideapp.Login.UserType;
 import com.example.ekok.fbutourguideapp.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -115,6 +116,12 @@ public class TravelerViewTrips extends AppCompatActivity{
             });
 
         }
+    }
+
+    public void goToUserType(MenuItem item) {
+        Intent i = new Intent(this, UserType.class);
+        startActivity(i);
+        this.finish();
     }
 
 

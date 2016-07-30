@@ -7,7 +7,7 @@
         android:title="home"
         app:showAsAction="always"
         android:icon="@drawable/ic_homebutton"
-        android:onClick="goToHome"
+        android:onClick="goToUserType"
         android:layout_alignParentLeft="true"/>
 
     <item

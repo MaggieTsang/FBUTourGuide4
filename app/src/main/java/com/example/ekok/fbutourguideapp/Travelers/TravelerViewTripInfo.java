@@ -1,7 +1,9 @@
 package com.example.ekok.fbutourguideapp.Travelers;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
@@ -64,6 +66,26 @@ public class TravelerViewTripInfo extends AppCompatActivity {
     public void editRequest(View view) {
         Intent i = new Intent(TravelerViewTripInfo.this, TravelerNewRequest.class);
         startActivity(i);
+    }
+
+    public void removeRequest(View view) {
+        new AlertDialog.Builder(TravelerViewTripInfo.this)
+                .setTitle("Delete entry")
+                .setMessage("Are you sure you want to delete this entry?")
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(getApplicationContext(), "Request was removed!", Toast.LENGTH_SHORT).show();
+                        dataRef.child(reqIDs).setValue(null);
+                        finish();}
+                })
+                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(getApplicationContext(), "Nothing deleted!", Toast.LENGTH_SHORT).show();
+                        finish();
+                    }
+                })
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .show();
     }
 
     public void exit(View view) {
