@@ -4,7 +4,6 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_9"
     android:padding="16dp">
 
 
@@ -12,7 +11,9 @@
         android:layout_width="170dp"
         android:layout_height="170dp"
         android:id="@+id/ivProfilePicture"
+        android:layout_marginTop="10dp"
         tools:src="@drawable/profile"
+        android:layout_marginLeft="10dp"
         android:layout_marginRight="20dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -22,6 +23,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:text="Guide Name"
+        android:textColor="@color/TextPrimary"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="5dp"
         android:id="@+id/tvGuideName"
         android:textSize="18sp"
@@ -49,7 +52,8 @@
         android:textSize="18sp"
         android:layout_below="@+id/tvGuideLocation"
         android:layout_alignLeft="@+id/tvGuideLocation"
-        android:layout_alignStart="@+id/tvGuideLocation" />
+        android:layout_alignStart="@+id/tvGuideLocation"
+        android:textStyle="italic" />
 
     <Button
         android:layout_width="wrap_content"
@@ -59,10 +63,10 @@
         android:background="@color/colorAccent"
         android:textColor="@color/TextOrIcons"
         android:onClick="saveProfile"
-        android:layout_marginBottom="56dp"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/ivProfilePicture"
-        android:layout_toEndOf="@+id/ivProfilePicture" />
+        android:layout_below="@+id/tvCurrency"
+        android:layout_alignLeft="@+id/tvCurrency"
+        android:layout_alignStart="@+id/tvCurrency"
+        android:layout_marginTop="58dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -73,15 +77,17 @@
         android:background="@color/colorAccent"
         android:textColor="@color/TextOrIcons"
         android:layout_alignTop="@+id/btnMakeRequest"
-        android:layout_alignRight="@+id/ivProfilePicture"
-        android:layout_alignEnd="@+id/ivProfilePicture" />
+        android:layout_toRightOf="@+id/tvContact"
+        android:layout_toEndOf="@+id/tvContact" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Description:"
+        android:textColor="@color/TextPrimary"
         android:id="@+id/tvDescription"
-        android:textSize="20sp"
+        android:textSize="18sp"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="29dp"
         android:layout_marginBottom="8dp"
         android:textStyle="bold"
@@ -93,6 +99,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:text="Empty"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:id="@+id/tvFillDescription"
         android:textSize="16sp"
         android:layout_below="@+id/tvDescription"
@@ -103,6 +111,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:text="Phone 1"
+        android:layout_marginLeft="10dp"
         android:layout_marginBottom="5dp"
         android:id="@+id/tvPhone1"
         android:textSize="16sp"
@@ -113,6 +122,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
         tools:text="Phone 2"
         android:layout_marginBottom="5dp"
         android:id="@+id/tvPhone2"
@@ -125,9 +135,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Contact:"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="8dp"
         android:id="@+id/tvContact"
         android:textIsSelectable="false"
-        android:textSize="20sp"
+        android:textColor="@color/TextPrimary"
+        android:textSize="18sp"
         android:textStyle="bold"
         android:layout_alignBaseline="@+id/tvPayment"
         android:layout_alignBottom="@+id/tvPayment"
@@ -139,6 +152,7 @@
         android:layout_height="wrap_content"
         tools:text="Email"
         android:id="@+id/tvGuideEmail"
+        android:layout_marginLeft="10dp"
         android:textSize="16sp"
         android:layout_alignTop="@+id/tvCurrency"
         android:layout_alignParentLeft="true"
@@ -147,14 +161,15 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="Payment:"
+        android:text="Payment:"
+        android:textColor="@color/TextPrimary"
         android:id="@+id/tvPayment"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textStyle="bold"
-        android:layout_marginTop="67dp"
+        android:layout_marginTop="45dp"
         android:layout_below="@+id/tvFillDescription"
-        android:layout_alignRight="@+id/tvGuideLocation"
-        android:layout_alignEnd="@+id/tvGuideLocation" />
+        android:layout_toRightOf="@+id/ivProfilePicture"
+        android:layout_toEndOf="@+id/ivProfilePicture" />
 
     <TextView
         android:layout_width="wrap_content"

@@ -109,7 +109,16 @@ public class TravelerPending extends AppCompatActivity {
                         String date = child.child("dates").getValue().toString();
                         String guide = child.child("guideName").getValue().toString();
 
-                        pending.add(place + "\n" + date + "\n" + "Guide " + guide);
+                        pending.add("Place: " + place + "\n" + "Date: " + date + "\n" + "Guide: " + guide);
+
+                        ImageView noReq = (ImageView) findViewById(R.id.ivNoReq);
+
+                        if (pending.size() == 0) {
+                            noReq.setVisibility(View.VISIBLE);
+                        }
+                        else {
+                            noReq.setVisibility(View.INVISIBLE);
+                        }
 
                         reqBucket.add(child.getKey());
                         reqGuide.add(child.child("guideID").getValue().toString());

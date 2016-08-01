@@ -2,6 +2,7 @@ package com.example.ekok.fbutourguideapp.Guides;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -87,4 +88,7 @@ public class GuideAcceptedDetails extends AppCompatActivity{
 
     }
 
+    public void exit(View view) {
+        finish();
+    }
 }

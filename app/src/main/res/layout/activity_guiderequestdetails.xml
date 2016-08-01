@@ -1,122 +1,166 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="20dp">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="370dp"
+    android:layout_height="500dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.example.ekok.fbutourguideapp.Travelers.TravelerViewGuideProfile">
 
-
-    <TextView
-        android:layout_width="wrap_content"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:minHeight="?attr/actionBarSize"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Request Details"
-        android:id="@+id/tvGuideDetails"
-        android:textSize="20sp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        app:titleTextColor="@android:color/white"
+        android:layout_marginBottom="20dp"
+        android:background="@color/colorPrimaryDark">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="REQUEST DETAILS"
+            android:textColor="@android:color/white"
+            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+            android:layout_gravity="center_horizontal"
+            android:textSize="20sp"
+            android:textStyle="normal" />
+    </android.support.v7.widget.Toolbar>
+
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/place"
         android:id="@+id/tvPlace"
-        android:textSize="16sp"
+        android:textColor="@color/TextPrimary"
+        android:textSize="18sp"
         android:paddingBottom="10dp"
-        android:layout_below="@+id/tvGuideDetails"
-        android:layout_alignLeft="@+id/tvDate"
-        android:layout_alignStart="@+id/tvDate"
-        android:layout_marginTop="29dp" />
+        android:layout_below="@+id/toolbar"
+        android:layout_alignLeft="@+id/tvGuideLanguages"
+        android:layout_alignStart="@+id/tvGuideLanguages"
+        android:layout_marginTop="24dp"
+        android:textStyle="bold" />
+
+    <ImageButton
+        android:layout_width="40dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_height="40dp"
+        android:background="@drawable/ic_exit"
+        android:onClick="exit"
+        android:id="@+id/imageButton"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/date"
+        android:textColor="@color/TextPrimary"
         android:id="@+id/tvDate"
-        android:textSize="16sp"
-        android:layout_marginTop="75dp"
+        android:textSize="18sp"
         android:paddingBottom="10dp"
-        android:layout_below="@+id/tvGuideDetails"
-        android:layout_alignLeft="@+id/tvGroupSize"
-        android:layout_alignStart="@+id/tvGroupSize" />
+        android:textStyle="bold"
+        android:layout_alignTop="@+id/tvReqDate"
+        android:layout_alignLeft="@+id/tvPlace"
+        android:layout_alignStart="@+id/tvPlace" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/group_size"
         android:id="@+id/tvGroupSize"
-        android:textSize="15sp"
-        android:layout_marginTop="34dp"
+        android:textColor="@color/TextPrimary"
+        android:textSize="18sp"
         android:paddingBottom="10dp"
-        android:layout_below="@+id/tvDate"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:textStyle="bold"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/tvDate"
+        android:layout_alignStart="@+id/tvDate" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/languages"
         android:id="@+id/tvGuideLanguages"
-        android:textSize="15sp"
+        android:textColor="@color/TextPrimary"
+        android:textSize="18sp"
         android:paddingBottom="10dp"
+        android:layout_marginTop="40dp"
         android:layout_below="@+id/tvGroupSize"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="33dp" />
+        android:layout_marginLeft="43dp"
+        android:layout_marginStart="43dp"
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="reqPlace"
+        tools:text="reqPlace"
         android:id="@+id/tvReqPlace"
+        android:textSize="18sp"
         android:layout_alignTop="@+id/tvPlace"
-        android:layout_alignLeft="@+id/tvGuideDetails"
-        android:layout_alignStart="@+id/tvGuideDetails" />
+        android:layout_toRightOf="@+id/btnDecline"
+        android:layout_toEndOf="@+id/btnDecline" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="reqDate"
+        tools:text="reqDate"
         android:id="@+id/tvReqDate"
-        android:layout_alignTop="@+id/tvDate"
+        android:layout_marginTop="29dp"
+        android:layout_below="@+id/tvPlace"
         android:layout_alignLeft="@+id/tvReqPlace"
-        android:layout_alignStart="@+id/tvReqPlace" />
+        android:layout_alignStart="@+id/tvReqPlace"
+        android:textSize="18sp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="reqGroupNum"
+        tools:text="reqGroupNum"
         android:id="@+id/tvReqGroupNum"
         android:layout_alignTop="@+id/tvGroupSize"
         android:layout_alignLeft="@+id/tvReqDate"
-        android:layout_alignStart="@+id/tvReqDate" />
+        android:layout_alignStart="@+id/tvReqDate"
+        android:textSize="18sp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="reqLanguages"
+        tools:text="reqLanguages"
         android:id="@+id/tvReqLanguages"
         android:layout_alignTop="@+id/tvGuideLanguages"
         android:layout_alignLeft="@+id/tvReqGroupNum"
-        android:layout_alignStart="@+id/tvReqGroupNum" />
+        android:layout_alignStart="@+id/tvReqGroupNum"
+        android:textSize="18sp" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Accept"
+
+    <ImageButton
+        android:layout_width="150dp"
+        android:layout_height="70dp"
         android:id="@+id/btnAccept"
-        android:layout_marginBottom="70dp"
+        android:background="@drawable/accept"
+        android:layout_marginLeft="20dp"
+        android:onClick="acceptRequest"
+        android:layout_marginBottom="38dp"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/tvGuideDetails"
-        android:layout_toEndOf="@+id/tvGuideDetails"
-        android:onClick="acceptRequest"/>
+        android:layout_toRightOf="@+id/btnDecline"
+        android:layout_toEndOf="@+id/btnDecline" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Decline"
+    <ImageButton
+        android:layout_width="150dp"
+        android:layout_height="70dp"
         android:id="@+id/btnDecline"
+        android:onClick="declineRequest"
+        android:background="@drawable/decline"
         android:layout_alignTop="@+id/btnAccept"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:onClick="declineRequest"/>
+        android:layout_marginLeft="26dp"
+        android:layout_marginStart="26dp" />
 
 </RelativeLayout>

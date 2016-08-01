@@ -5,7 +5,6 @@
     android:layout_width="370dp"
     android:layout_height="500dp"
     android:theme="@style/AppTheme"
-    android:background="@drawable/bg_9"
     tools:context="com.example.ekok.fbutourguideapp.Travelers.TravelerViewTripInfo">
 
     <android.support.v7.widget.Toolbar

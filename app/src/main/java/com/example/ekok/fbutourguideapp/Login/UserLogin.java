@@ -99,6 +99,7 @@ public class UserLogin extends AppCompatActivity {
                             myRef.child("users").child(user.getUid()).child("email").setValue(user.getEmail());
                             Intent i = new Intent(UserLogin.this, UserType.class);
                             startActivity(i);
+                            finish();
                         }
                         // If sign in fails, display a message to the user. If sign in succeeds
                         // the auth state listener will be notified and logic to handle the

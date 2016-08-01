@@ -50,7 +50,8 @@
         </activity>
         <activity
             android:name=".Guides.GuideRequestDetail"
-            android:label="Request Detail"
+            android:label=" "
+            android:theme="@style/Theme.AppCompat.Light.Dialog.Alert"
             android:screenOrientation="portrait" />
         <!-- <activity -->
         <!-- android:name=".Login.UserLogin" -->
@@ -119,6 +120,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".Travelers.TravelerPending"
+            android:label="Pending/ Accepted Requests"
             android:screenOrientation="portrait">
         </activity>
         <activity android:name=".Travelers.TravelerViewGuideProfile"

@@ -57,9 +57,11 @@ public class UserType extends AppCompatActivity{
                     if (user == null || user.legalName.isEmpty()){
                         Intent i = new Intent(UserType.this, GuideBasic.class);
                         startActivity(i);
+                        finish();
                     } else {
                         Intent i = new Intent(UserType.this, GuideViewRequests.class);
                         startActivity(i);
+                        finish();
                     }
 
                 }
