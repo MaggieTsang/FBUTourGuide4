@@ -142,9 +142,8 @@
         tools:text="erica_marie300@yahoo.com"
         android:padding="2dp"
         android:id="@+id/tvGuideEmail"
-        android:layout_marginRight="30dp"
         android:textSize="16sp"
-        android:layout_alignTop="@+id/tvCurrency"
+        android:layout_below="@+id/tvPhone2"
         android:layout_alignLeft="@+id/tvPhone2"
         android:layout_alignStart="@+id/tvPhone2" />
 
@@ -156,9 +155,9 @@
         android:textSize="18sp"
         android:padding="2dp"
         android:textStyle="bold"
-        android:layout_above="@+id/tvHourly"
-        android:layout_toRightOf="@+id/tvGuideEmail"
-        android:layout_toEndOf="@+id/tvGuideEmail" />
+        android:layout_alignTop="@+id/tvContact"
+        android:layout_toLeftOf="@+id/imageButton"
+        android:layout_toStartOf="@+id/imageButton" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -167,9 +166,9 @@
         android:padding="2dp"
         android:id="@+id/tvMethod"
         android:textSize="16sp"
-        android:layout_below="@+id/tvHourly"
-        android:layout_alignLeft="@+id/tvPayment"
-        android:layout_alignStart="@+id/tvPayment" />
+        android:layout_below="@+id/tvCurrency"
+        android:layout_alignLeft="@+id/tvCurrency"
+        android:layout_alignStart="@+id/tvCurrency" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -188,10 +187,10 @@
         tools:text="US Dollars"
         android:padding="2dp"
         android:id="@+id/tvCurrency"
-        android:layout_below="@+id/tvMethod"
-        android:layout_alignLeft="@+id/tvMethod"
-        android:layout_alignStart="@+id/tvMethod"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:layout_below="@+id/tvHourly"
+        android:layout_alignLeft="@+id/tvHourly"
+        android:layout_alignStart="@+id/tvHourly" />
 
     <ImageButton
         android:layout_width="35dp"

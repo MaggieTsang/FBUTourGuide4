@@ -152,11 +152,10 @@
         android:layout_height="wrap_content"
         tools:text="Email"
         android:id="@+id/tvGuideEmail"
-        android:layout_marginLeft="10dp"
         android:textSize="16sp"
-        android:layout_alignTop="@+id/tvCurrency"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignTop="@+id/tvMethod"
+        android:layout_alignLeft="@+id/tvPhone2"
+        android:layout_alignStart="@+id/tvPhone2" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -176,11 +175,10 @@
         android:layout_height="wrap_content"
         tools:text="Method"
         android:id="@+id/tvMethod"
-        android:layout_marginBottom="5dp"
         android:textSize="16sp"
-        android:layout_below="@+id/tvHourly"
-        android:layout_alignLeft="@+id/tvPayment"
-        android:layout_alignStart="@+id/tvPayment" />
+        android:layout_below="@+id/tvPhone2"
+        android:layout_alignLeft="@+id/tvCurrency"
+        android:layout_alignStart="@+id/tvCurrency" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -198,9 +196,9 @@
         android:layout_height="wrap_content"
         tools:text="Currency"
         android:id="@+id/tvCurrency"
-        android:layout_below="@+id/tvMethod"
-        android:layout_alignLeft="@+id/tvMethod"
-        android:layout_alignStart="@+id/tvMethod"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:layout_alignTop="@+id/tvPhone2"
+        android:layout_alignLeft="@+id/tvHourly"
+        android:layout_alignStart="@+id/tvHourly" />
 
 </RelativeLayout>

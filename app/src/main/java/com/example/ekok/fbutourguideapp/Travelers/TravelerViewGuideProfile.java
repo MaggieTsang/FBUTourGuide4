@@ -93,7 +93,7 @@ public class TravelerViewGuideProfile extends AppCompatActivity {
                 tvPhone1.setText(dataSnapshot.child("phonePrimary").getValue().toString());
                 tvPhone2.setText(dataSnapshot.child("phoneSecondary").getValue().toString());
                 tvEmail.setText(dataSnapshot.child("email").getValue().toString());
-                tvHourly.setText(dataSnapshot.child("timelyPay").getValue().toString());
+                tvHourly.setText(dataSnapshot.child("timelyPay").getValue().toString() + "/ hr");
                 tvMethod.setText(dataSnapshot.child("method").getValue().toString());
                 tvCurrency.setText(dataSnapshot.child("currency").getValue().toString());
             }

@@ -117,6 +117,8 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".Travelers.TravelerDecide"
+            android:theme="@style/Theme.AppCompat.Light.Dialog.Alert"
+            android:label=" "
             android:screenOrientation="portrait" />
         <activity
             android:name=".Travelers.TravelerPending"

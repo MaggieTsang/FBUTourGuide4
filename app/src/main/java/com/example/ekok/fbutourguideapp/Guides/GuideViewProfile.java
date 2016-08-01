@@ -110,7 +110,7 @@ public class GuideViewProfile extends AppCompatActivity{
                         tvEmail.setText(user.email);
                         tvMethod.setText(user.method);
                         tvCurrency.setText(user.currency);
-                        tvHourly.setText(user.timelyPay);
+                        tvHourly.setText(user.timelyPay + "/ hr");
                     }
                 }
 
