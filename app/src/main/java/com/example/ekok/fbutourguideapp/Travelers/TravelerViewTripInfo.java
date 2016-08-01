@@ -1,7 +1,6 @@
 package com.example.ekok.fbutourguideapp.Travelers;
 
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -61,11 +60,6 @@ public class TravelerViewTripInfo extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Cancelled.", Toast.LENGTH_SHORT).show();
             }
         });
-    }
-
-    public void editRequest(View view) {
-        Intent i = new Intent(TravelerViewTripInfo.this, TravelerNewRequest.class);
-        startActivity(i);
     }
 
     public void removeRequest(View view) {

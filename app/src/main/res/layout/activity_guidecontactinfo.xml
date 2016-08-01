@@ -1,39 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="15dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:theme="@style/AppTheme"
+    android:layout_width="380dp"
+    android:layout_height="610dp">
 
-    <Button
-        android:layout_width="wrap_content"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:minHeight="?attr/actionBarSize"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Next"
+        app:titleTextColor="@android:color/white"
+        android:layout_marginBottom="20dp"
+        android:background="@color/colorPrimaryDark">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="EDIT PROFILE"
+            android:textColor="@android:color/white"
+            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+            android:layout_gravity="left"
+            android:textSize="20sp"
+            android:textStyle="normal" />
+    </android.support.v7.widget.Toolbar>
+
+    <ImageButton
+        android:layout_width="40dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_height="40dp"
+        android:background="@drawable/ic_exit"
+        android:onClick="exit"
+        android:id="@+id/imageButton"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ImageButton
+        android:layout_width="70dp"
+        android:layout_height="50dp"
         android:id="@+id/btnContactNext"
         android:onClick="launchPayment"
+        android:layout_marginRight="15dp"
         android:layout_alignParentBottom="true"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/arrow"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="35dp" />
+        android:layout_alignParentEnd="true" />
+
+    <ImageButton
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:id="@+id/btnBack_1"
+        android:onClick="back"
+        android:background="@drawable/arrow_left"
+        android:layout_alignTop="@+id/btnContactNext"
+        android:layout_alignLeft="@+id/etContactAdditional"
+        android:layout_alignStart="@+id/etContactAdditional" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:text="Contact Information"
         android:id="@+id/tvGuidePaymentInfo"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textSize="26sp" />
+        android:textColor="@color/TextPrimary"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/toolbar"
+        android:layout_alignLeft="@+id/tvPhonePrimary"
+        android:layout_alignStart="@+id/tvPhonePrimary" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/etPhonePrimary"
+        android:layout_marginLeft="25dp"
+        android:inputType="phone"
+        android:layout_marginBottom="20dp"
+        android:maxLines="1"
+        android:imeOptions="actionNext"
+        android:layout_above="@+id/etPhoneSecondary"
+        android:layout_alignRight="@+id/etContactAdditional"
+        android:layout_alignEnd="@+id/etContactAdditional"
+        android:layout_toEndOf="@+id/tvPhoneSecondary"
+        android:layout_toRightOf="@+id/tvPhoneSecondary" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="25dp"
         android:id="@+id/etPhoneSecondary"
-        android:hint="(   )    -      "
         android:maxLines="1"
         android:inputType="phone"
         android:imeOptions="actionNext"
-        android:layout_below="@+id/etPhonePrimary"
+        android:layout_above="@+id/etTravelerEmail"
+        android:layout_alignRight="@+id/etContactAdditional"
+        android:layout_alignEnd="@+id/etContactAdditional"
+        android:layout_toEndOf="@+id/tvGuidePaymentInfo"
         android:layout_alignLeft="@+id/etPhonePrimary"
         android:layout_alignStart="@+id/etPhonePrimary" />
 
@@ -45,9 +112,11 @@
         android:inputType="textEmailAddress"
         android:imeOptions="actionNext"
         android:hint="name@email.com"
-        android:layout_below="@+id/etPhoneSecondary"
+        android:layout_centerVertical="true"
         android:layout_alignLeft="@+id/etPhoneSecondary"
-        android:layout_alignStart="@+id/etPhoneSecondary" />
+        android:layout_alignStart="@+id/etPhoneSecondary"
+        android:layout_alignRight="@+id/etPhoneSecondary"
+        android:layout_alignEnd="@+id/etPhoneSecondary" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -57,61 +126,62 @@
         android:maxLines="2"
         android:inputType="text"
         android:imeOptions="actionDone"
-        android:layout_above="@+id/btnContactNext"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/etPhonePrimary"
-        android:inputType="phone"
-        android:hint="(   )    -      "
-        android:maxLines="1"
-        android:imeOptions="actionNext"
-        android:layout_marginTop="37dp"
-        android:layout_below="@+id/tvGuidePaymentInfo"
-        android:layout_toLeftOf="@+id/btnContactNext"
-        android:layout_toStartOf="@+id/btnContactNext" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Primary Phone #"
-        android:id="@+id/tvPhonePrimary"
-        android:layout_above="@+id/etPhoneSecondary"
+        android:layout_below="@+id/tvContactAdditional"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:textSize="20sp" />
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_alignParentEnd="true"
+        android:textSize="16sp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Secondary Phone #:"
+        android:text="Primary Phone"
+        android:textColor="@color/TextPrimary"
+        android:id="@+id/tvPhonePrimary"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_alignBottom="@+id/etPhonePrimary"
+        android:layout_alignLeft="@+id/tvPhoneSecondary"
+        android:layout_alignStart="@+id/tvPhoneSecondary" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Secondary Phone"
         android:id="@+id/tvPhoneSecondary"
-        android:textSize="20sp"
-        android:layout_alignBaseline="@+id/etPhoneSecondary"
-        android:layout_alignBottom="@+id/tvPhonePrimary"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:textColor="@color/TextPrimary"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_alignBottom="@+id/etPhoneSecondary"
+        android:layout_alignLeft="@+id/tvGuideEmail"
+        android:layout_alignStart="@+id/tvGuideEmail" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Email"
+        android:textColor="@color/TextPrimary"
         android:id="@+id/tvGuideEmail"
-        android:textSize="20sp"
-        android:layout_below="@+id/etPhoneSecondary"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/tvContactAdditional"
+        android:layout_alignStart="@+id/tvContactAdditional" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Additional:"
+        android:layout_marginBottom="20dp"
+        android:textColor="@color/TextPrimary"
         android:id="@+id/tvContactAdditional"
-        android:layout_above="@+id/etContactAdditional"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textSize="20sp" />
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginTop="78dp"
+        android:layout_below="@+id/etTravelerEmail"
+        android:layout_alignLeft="@+id/etContactAdditional"
+        android:layout_alignStart="@+id/etContactAdditional" />
 </RelativeLayout>

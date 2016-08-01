@@ -1,19 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="15dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:theme="@style/AppTheme"
+    android:layout_width="380dp"
+    android:layout_height="610dp">
 
-    <Button
-        android:layout_width="wrap_content"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:minHeight="?attr/actionBarSize"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Next"
+        app:titleTextColor="@android:color/white"
+        android:layout_marginBottom="20dp"
+        android:background="@color/colorPrimaryDark">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="EDIT PROFILE"
+            android:textColor="@android:color/white"
+            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+            android:layout_gravity="left"
+            android:textSize="20sp"
+            android:textStyle="normal" />
+    </android.support.v7.widget.Toolbar>
+
+    <ImageButton
+        android:layout_width="40dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_height="40dp"
+        android:background="@drawable/ic_exit"
+        android:onClick="exit"
+        android:id="@+id/imageButton"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ImageButton
+        android:layout_width="70dp"
+        android:layout_height="50dp"
         android:id="@+id/btnPaymentNext"
         android:onClick="launchViewProfile"
+        android:layout_marginRight="15dp"
         android:layout_alignParentBottom="true"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/arrow"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="35dp" />
+        android:layout_alignParentEnd="true" />
+
+    <ImageButton
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:id="@+id/btnBack_2"
+        android:onClick="back"
+        android:background="@drawable/arrow_left"
+        android:layout_below="@+id/etPackageDeals"
+        android:layout_alignLeft="@+id/etPackageDeals"
+        android:layout_alignStart="@+id/etPackageDeals" />
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -22,83 +69,92 @@
         android:maxLines="1"
         android:inputType="text"
         android:imeOptions="actionNext"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="15dp"
+        android:textColor="@color/TextPrimary"
         android:id="@+id/tvGuidePaymentInfo"
-        android:layout_alignParentTop="true"
+        android:textSize="22sp"
+        android:layout_below="@+id/toolbar"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:textSize="26sp" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/etHourlyPay"
-        android:hint="Hourly Pay: [ ]/hr"
-        android:maxLines="1"
-        android:inputType="numberDecimal"
-        android:imeOptions="actionNext"
-        android:layout_alignTop="@+id/tvHourlyPay"
-        android:layout_alignRight="@+id/etPackageDeals"
-        android:layout_alignEnd="@+id/etPackageDeals" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/etPackageDeals"
-        android:hint="Package Deals? Transportation fees?"
-        android:maxLines="2"
-        android:inputType="text"
-        android:imeOptions="actionDone"
-        android:layout_above="@+id/btnPaymentNext"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="32dp" />
+        android:textStyle="bold" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/etPaymentMethod"
-        android:hint="(Card/Cash)"
+        android:hint="Card/ Cash"
+        android:layout_marginLeft="25dp"
         android:maxLines="1"
         android:inputType="text"
         android:imeOptions="actionNext"
-        android:layout_below="@+id/tvPayMethod"
-        android:layout_alignRight="@+id/tvPayMethod"
-        android:layout_alignEnd="@+id/tvPayMethod" />
+        android:textSize="18sp"
+        android:layout_alignBottom="@+id/tvPayMethod"
+        android:layout_alignRight="@+id/imageButton"
+        android:layout_alignEnd="@+id/imageButton"
+        android:layout_toEndOf="@+id/tvHourlyPay"
+        android:layout_toRightOf="@+id/tvHourlyPay" />
 
-    <TextView
+
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hourly Pay:"
-        android:id="@+id/tvHourlyPay"
-        android:textSize="20sp"
-        android:layout_below="@+id/etPaymentMethod"
+        android:id="@+id/etPackageDeals"
+        android:hint="Package deals? Transportation fees?"
+        android:maxLines="2"
+        android:layout_marginLeft="15dp"
+        android:inputType="text"
+        android:imeOptions="actionDone"
+        android:layout_above="@+id/btnPaymentNext"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="44dp" />
+        android:layout_marginBottom="32dp"
+        android:textSize="16sp"
+        android:layout_alignRight="@+id/etPaymentMethod"
+        android:layout_alignEnd="@+id/etPaymentMethod" />
+
+
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Choose Method:"
+        android:text="Hourly Rate"
+        android:textColor="@color/TextPrimary"
+        android:id="@+id/tvHourlyPay"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/tvPayMethod"
+        android:layout_alignStart="@+id/tvPayMethod" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Method"
+        android:layout_marginBottom="20dp"
+        android:textColor="@color/TextPrimary"
         android:maxLines="1"
         android:inputType="text"
         android:imeOptions="actionNext"
         android:id="@+id/tvPayMethod"
-        android:textSize="20sp"
-        android:layout_below="@+id/tvGuidePaymentInfo"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="64dp" />
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_above="@+id/etCurrencyType"
+        android:layout_alignLeft="@+id/tvGuidePaymentInfo" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Additional Payment Info:"
+        android:layout_marginLeft="15dp"
+        android:textColor="@color/TextPrimary"
+        android:layout_marginBottom="15dp"
         android:id="@+id/tvAdditionalPayment"
         android:layout_above="@+id/etPackageDeals"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:textSize="20sp" />
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -107,9 +163,43 @@
         android:maxLines="1"
         android:inputType="text"
         android:imeOptions="actionNext"
-        android:layout_above="@+id/tvHourlyPay"
-        android:layout_alignRight="@+id/etPackageDeals"
-        android:layout_alignEnd="@+id/etPackageDeals"
-        android:hint="Currency Type"/>
+        android:hint="US Dollars"
+        android:layout_marginBottom="20dp"
+        android:textSize="18sp"
+        android:layout_above="@+id/etHourlyPay"
+        android:layout_alignRight="@+id/btnPaymentNext"
+        android:layout_alignEnd="@+id/btnPaymentNext"
+        android:layout_alignLeft="@+id/etPaymentMethod"
+        android:layout_alignStart="@+id/etPaymentMethod" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/etHourlyPay"
+        android:hint="$12/ hr"
+        android:maxLines="1"
+        android:inputType="numberDecimal"
+        android:imeOptions="actionNext"
+        android:textSize="18sp"
+        android:layout_alignBottom="@+id/tvHourlyPay"
+        android:layout_alignLeft="@+id/etCurrencyType"
+        android:layout_alignStart="@+id/etCurrencyType"
+        android:layout_alignRight="@+id/btnPaymentNext"
+        android:layout_alignEnd="@+id/btnPaymentNext" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Currency"
+        android:textColor="@color/TextPrimary"
+        android:maxLines="1"
+        android:inputType="text"
+        android:imeOptions="actionNext"
+        android:id="@+id/textView"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_alignBottom="@+id/etCurrencyType"
+        android:layout_alignLeft="@+id/tvPayMethod"
+        android:layout_alignStart="@+id/tvPayMethod" />
 
 </RelativeLayout>

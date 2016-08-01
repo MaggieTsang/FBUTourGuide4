@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -97,6 +98,16 @@ public class GuidePending extends AppCompatActivity{
                     String name = reqInfo.child("displayName").getValue().toString();
                     String dates = reqInfo.child("dates").getValue().toString();
                     pending.add("Pending : " + name + ", " + dates);
+
+                    ImageView noReq = (ImageView) findViewById(R.id.ivNoReq);
+
+                    if (pending.size() == 0) {
+                        noReq.setVisibility(View.VISIBLE);
+                    }
+                    else {
+                        noReq.setVisibility(View.INVISIBLE);
+                    }
+
                     requestIDs.add(reqBucketIds.getKey());
                     requestsTravelerID.add(reqInfo.child("traveler_uid").getValue().toString());
                 }

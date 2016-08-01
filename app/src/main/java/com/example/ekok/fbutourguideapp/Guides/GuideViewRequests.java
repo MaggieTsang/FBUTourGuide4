@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -84,7 +85,7 @@ public class GuideViewRequests extends AppCompatActivity{
     public void fillRequestList(){
         //dataRef.child("requests").addListenerForSingleValueEvent(new ValueEventListener() {
         dataRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
+            @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot places: dataSnapshot.child("requests").getChildren()) {
                     //If guide location matches a folder
@@ -92,14 +93,23 @@ public class GuideViewRequests extends AppCompatActivity{
                         for (DataSnapshot availRequests: places.getChildren()){
                             String reqId = availRequests.child("requestId").getValue().toString();
                             if (!dataSnapshot.child("users").child(user.getUid()).child("Guide").child("Pending").child(location).hasChild(availRequests.getKey()) &&
-                                 !dataSnapshot.child("users").child(user.getUid()).child("Guide").child("Declined").child(location).hasChild(availRequests.getKey()) &&
-                                 !dataSnapshot.child("users").child(user.getUid()).child("Guide").child("Accepted").child(location).hasChild(availRequests.getKey()) &&
-                                 !dataSnapshot.child("users").child(user.getUid()).child("Guide").child("TravelerDeclined").child(location).hasChild(availRequests.getKey()) &&
-                                 !dataSnapshot.child("users").child(user.getUid()).child("Traveler").child("trips_current").hasChild(reqId)){
+                                    !dataSnapshot.child("users").child(user.getUid()).child("Guide").child("Declined").child(location).hasChild(availRequests.getKey()) &&
+                                    !dataSnapshot.child("users").child(user.getUid()).child("Guide").child("Accepted").child(location).hasChild(availRequests.getKey()) &&
+                                    !dataSnapshot.child("users").child(user.getUid()).child("Guide").child("TravelerDeclined").child(location).hasChild(availRequests.getKey()) &&
+                                    !dataSnapshot.child("users").child(user.getUid()).child("Traveler").child("trips_current").hasChild(reqId)){
                                 //Add it if it's not in pending, declined, or in own requests
                                 String name = availRequests.child("displayName").getValue().toString();
                                 String dates = availRequests.child("dates").getValue().toString();
                                 requests.add(name + ": " + dates);
+
+                                ImageView noReq = (ImageView) findViewById(R.id.ivNoReq);
+                                if (requests.size() == 0) {
+                                    noReq.setVisibility(View.VISIBLE);
+                                }
+                                else {
+                                    noReq.setVisibility(View.INVISIBLE);
+                                }
+
                                 requestBucket.add(availRequests.getKey());
                                 //requestIDs.add(availRequests.child("requestId").getValue().toString());
                                 requestsTravelerID.add(availRequests.child("traveler_uid").getValue().toString());

@@ -13,9 +13,8 @@ import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -59,6 +58,7 @@ public class GuideBasic extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_guidebasic);
         dataRef = FirebaseDatabase.getInstance().getReference();
         storage = FirebaseStorage.getInstance();
@@ -123,12 +123,6 @@ public class GuideBasic extends AppCompatActivity{
                 startActivityForResult(intent, 0);
             }});
 
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.exit, menu);
-        return true;
     }
 
     //Camera methods
@@ -339,6 +333,7 @@ public class GuideBasic extends AppCompatActivity{
                     } else {
                         Intent i = new Intent(GuideBasic.this, GuideContact.class);
                         startActivity(i);
+                        finish();
                     }
                 }
 
@@ -351,7 +346,7 @@ public class GuideBasic extends AppCompatActivity{
         }
     }
 
-    public void exit(MenuItem item) {
+    public void exit(View view) {
         finish();
     }
 }

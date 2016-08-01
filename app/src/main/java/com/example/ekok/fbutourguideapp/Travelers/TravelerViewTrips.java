@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -49,9 +50,11 @@ public class TravelerViewTrips extends AppCompatActivity{
 
         ActionBar actionBar = getSupportActionBar();
 
-        actionBar.setDisplayUseLogoEnabled(true);
-        actionBar.setDisplayShowHomeEnabled(true);
-        actionBar.setIcon(R.drawable.logo_app);
+        if (actionBar != null) {
+            actionBar.setDisplayUseLogoEnabled(true);
+            actionBar.setDisplayShowHomeEnabled(true);
+            actionBar.setIcon(R.drawable.logo_app);
+        }
 
         dataRef = FirebaseDatabase.getInstance().getReference();
 
@@ -93,7 +96,19 @@ public class TravelerViewTrips extends AppCompatActivity{
                         String startDate = child.child("startDate").getValue().toString();
                         String endDate = child.child("endDate").getValue().toString();
 
-                        trips.add(place + "\n" + startDate + " - " + endDate);
+                        trips.add( place + "\n" + startDate + " - " + endDate);
+
+                        ImageView noReq = (ImageView) findViewById(R.id.ivNoReq);
+                        ImageView start = (ImageView) findViewById(R.id.ivStartHere);
+
+                        if (trips.size() == 0) {
+                            noReq.setVisibility(View.VISIBLE);
+                            start.setVisibility(View.VISIBLE);
+                        }
+                        else {
+                            noReq.setVisibility(View.INVISIBLE);
+                            start.setVisibility(View.INVISIBLE);
+                        }
 
                         requestIDs.add(child.getKey());
 
@@ -118,12 +133,6 @@ public class TravelerViewTrips extends AppCompatActivity{
         }
     }
 
-    public void goToUserType(MenuItem item) {
-        Intent i = new Intent(this, UserType.class);
-        startActivity(i);
-        this.finish();
-    }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -131,10 +140,10 @@ public class TravelerViewTrips extends AppCompatActivity{
         return true;
     }
 
-
-    public void makeNewRequest(MenuItem item) {
-        Intent i = new Intent(this, TravelerNewRequest.class);
-        startActivityForResult(i, REQUEST_CODE);
+    public void goToHome(MenuItem item) {
+        Intent i = new Intent(this, UserType.class);
+        startActivity(i);
+        this.finish();
     }
 
     public void viewAcceptedReqs(MenuItem item) {
@@ -149,5 +158,10 @@ public class TravelerViewTrips extends AppCompatActivity{
         requestIDs.clear();
         fillRequestList();
         tripsAdapter.notifyDataSetChanged();
+    }
+
+    public void add(View view) {
+        Intent i = new Intent(this, TravelerNewRequest.class);
+        startActivityForResult(i, REQUEST_CODE);
     }
 }
