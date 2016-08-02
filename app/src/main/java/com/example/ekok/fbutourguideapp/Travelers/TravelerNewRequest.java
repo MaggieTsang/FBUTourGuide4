@@ -60,8 +60,9 @@ public class TravelerNewRequest extends AppCompatActivity{
                             || etLanguages.getText().toString().isEmpty())
                     {
                         Toast.makeText(getApplicationContext(), "All fields must be filled out!", Toast.LENGTH_SHORT).show();
-                    }
-                    else {
+                    } else if(etGroupSize.getText().toString().equals("0")){
+                        Toast.makeText(getApplicationContext(), "Group size must be more than 0 people.", Toast.LENGTH_SHORT).show();
+                    } else {
                         final String place = etPlace.getText().toString();
                         final String startDate = etStartDate.getText().toString();
                         final String endDate = etEndDate.getText().toString();

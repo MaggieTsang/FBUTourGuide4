@@ -48,6 +48,10 @@ public class UserLogin extends AppCompatActivity {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
                     // User is signed in
+                    //Intent i = new Intent(UserLogin.this, UserType.class);
+                    //Toast.makeText(getApplicationContext(), "Welcome back " + user.getDisplayName(), Toast.LENGTH_SHORT).show();
+                    //startActivity(i);
+                    //finish();
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
                 } else {
                     // User is signed out
@@ -98,6 +102,7 @@ public class UserLogin extends AppCompatActivity {
                             myRef.child("users").child(user.getUid()).child("displayName").setValue(user.getDisplayName());
                             myRef.child("users").child(user.getUid()).child("email").setValue(user.getEmail());
                             Intent i = new Intent(UserLogin.this, UserType.class);
+                            Toast.makeText(getApplicationContext(), "Welcome " + user.getDisplayName(), Toast.LENGTH_SHORT).show();
                             startActivity(i);
                             finish();
                         }

@@ -114,6 +114,8 @@ public class GuideBasic extends AppCompatActivity{
         }
         //Go to camera roll to upload profile pic
         ivPic = (ImageView) findViewById(R.id.ivProfilePic);
+        ivPic.setImageResource(R.drawable.profile);
+        //storeData();
         Button loadImage = (Button) findViewById(R.id.btnUploadImage);
         loadImage.setOnClickListener(new Button.OnClickListener(){
             @Override
@@ -165,7 +167,7 @@ public class GuideBasic extends AppCompatActivity{
     //Sets current profile picture to default picture
     public void removePicture(View view) {
         ivPic.setImageResource(R.drawable.profile);
-        storeData();
+        //storeData();
     }
 
 
@@ -196,7 +198,7 @@ public class GuideBasic extends AppCompatActivity{
 
         }
         //Stores data from ImageView as bytes, so needs to reorient before populating imageview
-        storeData();
+        //storeData();
     }
 
 
@@ -311,8 +313,9 @@ public class GuideBasic extends AppCompatActivity{
 
 
     //Launches Contact info view and saves current info to FireBase
-    //If the name and location is empty, will not go to next screen
+    //If the name and location is empty, will not gfo to next screen
     public void launchContact(View v) {
+        storeData();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             String uid = user.getUid();

@@ -131,8 +131,8 @@ public class GuideViewProfile extends AppCompatActivity{
     }
 
     public void saveProfile(View view) {
-        //Intent i = new Intent(this, GuideViewRequests.class);
-        //startActivity(i);
+        Intent i = new Intent(this, GuideViewRequests.class);
+        startActivity(i);
         finish();
     }
 }
