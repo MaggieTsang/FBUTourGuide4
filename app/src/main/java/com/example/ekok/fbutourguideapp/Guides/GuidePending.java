@@ -2,6 +2,7 @@ package com.example.ekok.fbutourguideapp.Guides;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -43,6 +44,15 @@ public class GuidePending extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guidepending);
+
+        ActionBar actionBar = getSupportActionBar();
+
+        if (actionBar != null) {
+            actionBar.setDisplayUseLogoEnabled(true);
+            actionBar.setDisplayShowHomeEnabled(true);
+            actionBar.setIcon(R.drawable.action_bar_logo);
+        }
+
         dataRef = FirebaseDatabase.getInstance().getReference();
         user = FirebaseAuth.getInstance().getCurrentUser();
         location = getIntent().getSerializableExtra("location").toString().toLowerCase();
@@ -71,7 +81,7 @@ public class GuidePending extends AppCompatActivity{
                     DataSnapshot reqInfo = dataSnapshot.child(travelerId);
                     String name = reqInfo.child("displayName").getValue().toString();
                     String dates = reqInfo.child("Traveler").child("Accepted").child(reqId).child("dates").getValue().toString();
-                    pending.add("Accepted : " + name + ", " + dates);
+                    pending.add("\n" + "Accepted : " + "\n" + name + ", " + dates + "\n");
                     requestIDs.add(reqId);
                     requestsTravelerID.add(travelerId);
                 }
@@ -97,7 +107,7 @@ public class GuidePending extends AppCompatActivity{
                     DataSnapshot reqInfo = dataSnapshot.child("requests").child(location).child(reqIdBucket);
                     String name = reqInfo.child("displayName").getValue().toString();
                     String dates = reqInfo.child("dates").getValue().toString();
-                    pending.add("Pending : " + name + ", " + dates);
+                    pending.add("\n" + "Pending : " + "\n" + name + ", " + dates + "\n");
 
                     ImageView noReq = (ImageView) findViewById(R.id.ivNoReq);
 

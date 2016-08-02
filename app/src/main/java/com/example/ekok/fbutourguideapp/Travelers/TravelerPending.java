@@ -2,6 +2,7 @@ package com.example.ekok.fbutourguideapp.Travelers;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -44,6 +45,15 @@ public class TravelerPending extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_travelerpending);
+
+        ActionBar actionBar = getSupportActionBar();
+
+        if (actionBar != null) {
+            actionBar.setDisplayUseLogoEnabled(true);
+            actionBar.setDisplayShowHomeEnabled(true);
+            actionBar.setIcon(R.drawable.action_bar_logo);
+        }
+
         dataRef = FirebaseDatabase.getInstance().getReference();
 
         lvPending = (ListView) findViewById(R.id.lvTravelerPending);
@@ -69,7 +79,7 @@ public class TravelerPending extends AppCompatActivity {
                     String guide_Id = requestId.child("guideID").getValue().toString();
                     String place = requestId.child("location").getValue().toString();
                     String date = requestId.child("dates").getValue().toString();
-                    pending.add("Accepted : " + place + ", " + date);
+                    pending.add("\n" + "Accepted : " + "\n" + place + ", " + date + "\n");
 
                     ImageView noReq = (ImageView) findViewById(R.id.ivNoReq);
 
@@ -109,7 +119,7 @@ public class TravelerPending extends AppCompatActivity {
                         String date = child.child("dates").getValue().toString();
                         String guide = child.child("guideName").getValue().toString();
 
-                        pending.add("Place: " + place + "\n" + "Date: " + date + "\n" + "Guide: " + guide);
+                        pending.add("\n" + "Pending: " + guide + "\n" + place + ", " + date + "\n");
 
                         ImageView noReq = (ImageView) findViewById(R.id.ivNoReq);
 

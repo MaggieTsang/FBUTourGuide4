@@ -2,6 +2,7 @@ package com.example.ekok.fbutourguideapp.Travelers;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -53,8 +54,18 @@ public class TravelerViewTrips extends AppCompatActivity{
         if (actionBar != null) {
             actionBar.setDisplayUseLogoEnabled(true);
             actionBar.setDisplayShowHomeEnabled(true);
-            actionBar.setIcon(R.drawable.logo_app);
+            actionBar.setIcon(R.drawable.action_bar_logo);
         }
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.ivFab);
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(TravelerViewTrips.this, TravelerNewRequest.class);
+                startActivityForResult(i, REQUEST_CODE);
+            }
+        });
 
         dataRef = FirebaseDatabase.getInstance().getReference();
 
@@ -96,7 +107,7 @@ public class TravelerViewTrips extends AppCompatActivity{
                         String startDate = child.child("startDate").getValue().toString();
                         String endDate = child.child("endDate").getValue().toString();
 
-                        trips.add( place + "\n" + startDate + " - " + endDate);
+                        trips.add( "\n" + place + "\n" + startDate + " - " + endDate + "\n");
 
                         ImageView noReq = (ImageView) findViewById(R.id.ivNoReq);
                         ImageView start = (ImageView) findViewById(R.id.ivStartHere);
@@ -160,8 +171,8 @@ public class TravelerViewTrips extends AppCompatActivity{
         tripsAdapter.notifyDataSetChanged();
     }
 
-    public void add(View view) {
-        Intent i = new Intent(this, TravelerNewRequest.class);
-        startActivityForResult(i, REQUEST_CODE);
-    }
+//    public void add(View view) {
+//        Intent i = new Intent(TravelerViewTrips.this, TravelerNewRequest.class);
+//        startActivityForResult(i, REQUEST_CODE);
+//    }
 }

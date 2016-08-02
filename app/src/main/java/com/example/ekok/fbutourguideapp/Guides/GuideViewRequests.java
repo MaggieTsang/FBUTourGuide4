@@ -2,6 +2,7 @@ package com.example.ekok.fbutourguideapp.Guides;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -46,6 +47,15 @@ public class GuideViewRequests extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guiderequests);
+
+        ActionBar actionBar = getSupportActionBar();
+
+        if (actionBar != null) {
+            actionBar.setDisplayUseLogoEnabled(true);
+            actionBar.setDisplayShowHomeEnabled(true);
+            actionBar.setIcon(R.drawable.action_bar_logo);
+        }
+
         dataRef = FirebaseDatabase.getInstance().getReference();
         user = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -100,7 +110,7 @@ public class GuideViewRequests extends AppCompatActivity{
                                 //Add it if it's not in pending, declined, or in own requests
                                 String name = availRequests.child("displayName").getValue().toString();
                                 String dates = availRequests.child("dates").getValue().toString();
-                                requests.add(name + ": " + dates);
+                                requests.add("\n" + name + ": " + dates + "\n");
 
                                 ImageView noReq = (ImageView) findViewById(R.id.ivNoReq);
                                 if (requests.size() == 0) {

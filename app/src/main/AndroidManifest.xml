@@ -59,7 +59,8 @@
         <activity
             android:name=".Travelers.TravelerViewTrips"
             android:screenOrientation="portrait"
-            android:icon="@drawable/logo_app"/>
+            android:label=" Your requests"
+            android:icon="@drawable/action_bar_logo"/>
         <activity
             android:name=".Guides.GuideBasic"
             android:label=" "
@@ -77,8 +78,9 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".Guides.GuideViewRequests"
-            android:label="Available Requests"
-            android:screenOrientation="portrait" />
+            android:label=" Available requests"
+            android:screenOrientation="portrait"
+            android:icon="@drawable/action_bar_logo"/>
         <activity
             android:name=".Travelers.TravelerNewRequest"
             android:theme="@style/Theme.AppCompat.Light.Dialog.Alert"
@@ -101,8 +103,9 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".Guides.GuidePending"
-            android:label="Pending/Accepted Requests"
-            android:screenOrientation="portrait" />
+            android:label=" Pending &amp; accepted requests"
+            android:screenOrientation="portrait"
+            android:icon="@drawable/action_bar_logo"/>
         <activity
             android:name=".Guides.GuideAcceptedDetails"
             android:label="Accepted Details"
@@ -122,8 +125,9 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".Travelers.TravelerPending"
-            android:label="Pending/ Accepted Requests"
-            android:screenOrientation="portrait">
+            android:label=" Pending &amp; accepted requests"
+            android:screenOrientation="portrait"
+            android:icon="@drawable/action_bar_logo">
         </activity>
         <activity android:name=".Travelers.TravelerViewGuideProfile"
             android:label=" "
